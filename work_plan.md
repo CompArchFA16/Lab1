@@ -1,3 +1,7 @@
+## Authors
+
+Zarin Bhuiyan, Bonnie Ishiguro, David Zhu
+
 ## Work plan
 
 1. [10/1 ... 1.5h] Create a set of test benches for each plan.
