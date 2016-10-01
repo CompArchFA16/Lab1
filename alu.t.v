@@ -18,7 +18,10 @@ module testAluAdd();
   initial begin
     $dumpfile("alu_add.vcd");
     $dumpvars;
+    $display("name | command operandA operandB | result carryout zero overflow | EResult ECarryout EZero EOverflow")
 
-    // Our code here.
+    // ADD #1:
+    command = 3'b000; operandA = ...; operandB = ...;
+    $display("ADD | %b %b %b | %b %b %b %b | [TODO]", command, operandA, operandB, result, carryout, zero, overflow);
   end
 endmodule
