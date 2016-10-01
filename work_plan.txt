@@ -1,0 +1,9 @@
+Start: 2016-10-01
+
+Thing               | Time Estimate | Due
+Finish Plan:           30 Minutes     2016-10-01
+Control Logic:         30 minutes     2016-10-01
+Test Cases:            2 Hours        2016-10-04
+Functions:             2 Hours        2016-10-04
+Fixing Code:           2 Hours        2016-10-05
+Writing the Report:    90 Minutes     2016-10-06
