@@ -1,3 +1,8 @@
+/*
+~~~~~~~~Shruti & Ian ~~~~~~~~~~~
+Main ALU module. Used for the actual arithmetic
+*/
+`include "ALUcontrol.v"
 module ALU
 (
 output[31:0]    result,
