@@ -25,7 +25,7 @@ module ALUcontrolLUT
 output reg[2:0]     muxindex,
 output reg  invertB,
 output reg  othercontrolsignal,
-...
+// Extra input/output here (...)
 input[2:0]  ALUcommand
 )
 
