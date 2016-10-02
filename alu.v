@@ -31,14 +31,14 @@ input[2:0]  ALUcommand
 
   always @(ALUcommand) begin
     case (ALUcommand)
-      `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = ?; end    
-      `SUB:  begin muxindex = 0; invertB=1; othercontrolsignal = ?; end
-      `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = ?; end    
-      `SLT:  begin muxindex = 2; invertB=?; othercontrolsignal = ?; end
-      `AND:  begin muxindex = 3; invertB=?; othercontrolsignal = ?; end    
-      `NAND: begin muxindex = 3; invertB=?; othercontrolsignal = ?; end
-      `NOR:  begin muxindex = ?; invertB=?; othercontrolsignal = ?; end    
-      `OR:   begin muxindex = ?; invertB=?; othercontrolsignal = ?; end
+      `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = 0; end    
+      `SUB:  begin muxindex = 0; invertB=1; othercontrolsignal = 0; end
+      `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = 0; end    
+      `SLT:  begin muxindex = 2; invertB=0; othercontrolsignal = 0; end
+      `AND:  begin muxindex = 3; invertB=0; othercontrolsignal = 1; end    
+      `NAND: begin muxindex = 3; invertB=0; othercontrolsignal = 0; end
+      `NOR:  begin muxindex = 4; invertB=0; othercontrolsignal = 0; end    
+      `OR:   begin muxindex = 4; invertB=0; othercontrolsignal = 1; end
     endcase
   end
 endmodule
