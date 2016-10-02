@@ -50,14 +50,26 @@ module testAluAdd();
     // SUB =====================================================================
 
     // SUB #1: 3 - 2 = 1
+    command = `SUB; operandA = 32'd3; operandB = 32'd2;
+    $display("SUB | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #2: -2 - 3 = -5
+    // TODO: This number may be wrong.
+    command = `SUB; operandA = 32'hFFFFFFFE; operandB = 32'd3;
+    $display("SUB | %h %h %h | %d %b %b %b | 3 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #3: 3 - 3 = 0
+    command = `SUB; operandA = 32'd3; operandB = 32'd3;
+    $display("SUB | %h %h %h | %d %b %b %b | 3 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #4: -5 - (-5) = 0
+    // TODO: This number may be wrong.
+    command = `SUB; operandA = 32'hFFFFFFFC; operandB = 32'hFFFFFFFC;
+    $display("SUB | %h %h %h | %d %b %b %b | 3 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #4: h80000001 - h00000001 = h80000002
+    command = `SUB; operandA = 32'h80000001; operandB = 32'h00000001;
+    $display("SUB | %h %h %h | %d %b %b %b | h80000002 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // XOR =====================================================================
 
