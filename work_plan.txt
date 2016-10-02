@@ -1,18 +1,19 @@
 Work Plan Lab 1 - Anisha Nakagawa and Lisa Hachmann
 
 
-1. Test Bench(es)
-2. Verilog ALU 
-	ADD module - finished, integration  X
-	SUB - modify ADD 
-	XOR 
+1. Test Bench(es) - 2.5
+2. Verilog ALU - 3
+	ADD - modify or integrate
+	SUB - modify adder module
+	XOR - include gates
 	SLT 
-	AND 
-	NAND
-	NOR 
-	OR
+	AND - gates
+	NAND - gates
+	NOR - gates
+	OR - gates
 
-3. Gate Delay
-4. Documentation
-5. Report
-	estimated
+3. Gate Delay - as we go
+4. Documentation - as we go
+5. Report - 2
+
+Total: 7.5 hours estimated
