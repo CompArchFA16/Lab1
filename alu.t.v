@@ -68,37 +68,37 @@ module testAlu();
     
     //AND #1: 0 & 0 = 0
     command = `AND; operandA = 32'd0; operandB = 32'd0;
-    $display("AND | %h %h %h | %d 0 0 0 | 0 0 0 0", command, operandA, operandB, result);
+    $display("AND | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     //AND #1: 0 & 1 = 0
     command = `AND; operandA = 32'd0; operandB = 32'd1;
-    $display("AND | %h %h %h | %d 0 0 0 | 0 0 0 0", command, operandA, operandB, result);
+    $display("AND | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     //AND #1: 1 & 0 = 0
     command = `AND; operandA = 32'd1; operandB = 32'd0;
-    $display("AND | %h %h %h | %d 0 0 0 | 0 0 0 0", command, operandA, operandB, result);
+    $display("AND | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     //AND #1: 1 & 1 = 1
     command = `AND; operandA = 32'd1; operandB = 32'd1;
-    $display("AND | %h %h %h | %d 0 0 0 | 1 0 0 0", command, operandA, operandB, result);
+    $display("AND | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // NAND ====================================================================
 
-    //NAND #1: 0 & 0 = 0
+    //NAND #1: 0 & 0 = 1
     command = `NAND; operandA = 32'd0; operandB = 32'd0;
-    $display("NAND| %h %h %h | %d 0 0 0 | 1 0 0 0", command, operandA, operandB, result);
+    $display("NAND| %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    //NAND #1: 0 & 1 = 0
+    //NAND #1: 0 & 1 = 1
     command = `NAND; operandA = 32'd0; operandB = 32'd1;
-    $display("NAND| %h %h %h | %d 0 0 0 | 1 0 0 0", command, operandA, operandB, result);
+    $display("NAND| %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    //NAND #1: 1 & 0 = 0
+    //NAND #1: 1 & 0 = 1
     command = `NAND; operandA = 32'd1; operandB = 32'd0;
-    $display("NAND| %h %h %h | %d 0 0 0 | 1 0 0 0", command, operandA, operandB, result);
+    $display("NAND| %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    //NAND #1: 1 & 1 = 1
+    //NAND #1: 1 & 1 = 0
     command = `NAND; operandA = 32'd1; operandB = 32'd1;
-    $display("NAND| %h %h %h | %d 0 0 0 | 0 0 0 0", command, operandA, operandB, result);
+    $display("NAND| %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
     
 
     // NOR =====================================================================
