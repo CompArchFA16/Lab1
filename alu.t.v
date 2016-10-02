@@ -113,6 +113,22 @@ module testAluAdd();
 
     // NOR =====================================================================
 
+    // NOR #1: 0 NOR 0 = 0
+    command = `NOR; operandA = 32'b0; operandB = 32'b0;
+    $display("NOR  | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // NOR #2: 0 NOR 1 = 1
+    command = `NOR; operandA = 32'b0; operandB = 32'b1;
+    $display("NOR  | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // NOR #3: 1 NOR 0 = 1
+    command = `NOR; operandA = 32'b1; operandB = 32'b0;
+    $display("NOR  | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // NOR #4: 1 NOR 1 = 1
+    command = `NOR; operandA = 32'b1; operandB = 32'b1;
+    $display("NOR  | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
     // OR ======================================================================
 
     // OR #1: 0 OR 0 = 0
