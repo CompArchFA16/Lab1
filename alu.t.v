@@ -73,7 +73,7 @@ module testAluAdd();
     command = `XOR; operandA = 32'b1; operandB = 32'b0;
     $display("XOR | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // XOR #1: 1 XOR 1 = 0
+    // XOR #4: 1 XOR 1 = 0
     command = `XOR; operandA = 32'b1; operandB = 32'b1;
     $display("XOR | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
@@ -91,7 +91,7 @@ module testAluAdd();
     command = `SLT; operandA = 32'hFF; operandB = 32'h01;
     $display("SLT | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // SLT #1: 1 < -1 = 0
+    // SLT #4: 1 < -1 = 0
     command = `SLT; operandA = 32'h01; operandB = 32'hFF;
     $display("SLT | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
@@ -115,7 +115,7 @@ module testAluAdd();
     command = `OR; operandA = 32'b1; operandB = 32'b0;
     $display("OR  | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // OR #1: 1 OR 1 = 1
+    // OR #4: 1 OR 1 = 1
     command = `OR; operandA = 32'b1; operandB = 32'b1;
     $display("OR  | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
