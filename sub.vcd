@@ -1,0 +1,32 @@
+$date
+	Sun Oct  2 15:30:20 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testsubtract $end
+$var wire 32 ! result [31:0] $end
+$var reg 32 " a [31:0] $end
+$var reg 32 # b [31:0] $end
+$scope module myALU $end
+$var wire 32 $ a [31:0] $end
+$var wire 32 % b [31:0] $end
+$var wire 32 & result [31:0] $end
+$var wire 33 ' sum [32:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b10000 '
+b10000 &
+b100000001 %
+b100010001 $
+b100000001 #
+b100010001 "
+b10000 !
+$end
+#1000000
