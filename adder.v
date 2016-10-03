@@ -81,10 +81,29 @@ module Adder32bit
         output overflow,
         output carryout,
         output flagzero,
+        output [31:0] sum,
+        input[31:0] a,
+        input[31:0] b,
         input carryin //Addition or Subtraction, also known as the first carryin
     );
 
-    FullAdderSub4bit adder0(sum, carryout0, overflow, a, b, carryin); // If carryin = 1 then it subtracts.
-    FullAdderSub4bit adder1(sum, carryout1, overflow, a, b, carryout0); //link carry
-    
+    wire carryout0;
+    wire carryout1;
+    wire carryout2;
+    wire carryout3;
+    wire carryout4;
+    wire carryout5;
+    wire carryout6;
+    wire carryout7;
+
+    FullAdderSub4bit adder0(sum[3:0], carryout0, overflow, a[3:0], b[3:0], carryin); // If carryin = 1 then it subtracts. first 4 bits
+    FullAdderSub4bit adder1(sum[7:4], carryout1, overflow, a[7:4], b[7:4], carryout0); //link carry, 2nd 4 bits
+    FullAdderSub4bit adder2(sum[11:8], carryout2, overflow, a[11:8], b[11:8], carryout1); //link carry, 3rd 4 bits
+    FullAdderSub4bit adder3(sum[15:12], carryout3, overflow, a[15:12], b[15:12], carryout2); //link carry, 4th 4 bits
+    FullAdderSub4bit adder4(sum[19:16], carryout4, overflow, a[19:16], b[19:16], carryout3); //link carry, 5th 4 bits
+    FullAdderSub4bit adder5(sum[23:20], carryout5, overflow, a[23:20], b[23:20], carryout4); //link carry, 6th 4 bits
+    FullAdderSub4bit adder6(sum[27:24], carryout6, overflow, a[27:24], b[27:24], carryout5); //link carry, 7th 4 bits
+    FullAdderSub4bit adder7(sum[31:28], carryout7, overflow, a[31:28], b[31:28], carryout6); //link carry, 8th 4 bits
+
+
 endmodule

@@ -19,5 +19,15 @@ input[31:0]     operandA,
 input[31:0]     operandB,
 input[2:0]      command
 );
-    // Your code here
+
+/*        output overflow,
+        output carryout,
+        output flagzero,
+        output [31:0] sum,
+        input[31:0] a,
+        input[31:0] b,
+        input carryin
+    Adder32bit addersub32(overflow,carryout,flagzero,sum,a,b, carryin);*/
+
+
 endmodule

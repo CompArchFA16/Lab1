@@ -11,9 +11,9 @@ Work Plan Lab 1 - Anisha Nakagawa and Lisa Hachmann
 	NAND - gates
 	NOR - gates
 	OR - gates
+3. Top layer ALU Verilog - 1
+4. Gate Delay - as we go
+5. Documentation - as we go
+6. Report - 2
 
-3. Gate Delay - as we go
-4. Documentation - as we go
-5. Report - 2
-
-Total: 7.5 hours estimated
+Total: 8.5 hours estimated
