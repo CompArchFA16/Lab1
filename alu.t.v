@@ -50,14 +50,26 @@ module testAlu();
     // SUB =====================================================================
 
     // SUB #1: 3 - 2 = 1
+    command = `SUB; operandA = 32'd3; operandB = 32'd2;
+    $display("SUB | %h %h %h | %d %b %b %b | 1 1 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #2: -2 - 3 = -5
+    // TODO: This number may be wrong.
+    command = `SUB; operandA = 32'hFFFFFFFE; operandB = 32'd3;
+    $display("SUB | %h %h %h | %d %b %b %b | -5 1 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #3: 3 - 3 = 0
+    command = `SUB; operandA = 32'd3; operandB = 32'd3;
+    $display("SUB | %h %h %h | %d %b %b %b | 0 1 1 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #4: -5 - (-5) = 0
+    // TODO: This number may be wrong.
+    command = `SUB; operandA = 32'hFFFFFFFC; operandB = 32'hFFFFFFFC;
+    $display("SUB | %h %h %h | %d %b %b %b | 0 1 1 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // SUB #4: h80000001 - h00000001 = h80000002
+    command = `SUB; operandA = 32'h80000001; operandB = 32'h00000001;
+    $display("SUB | %h %h %h | %d %b %b %b | h80000000 1 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // XOR =====================================================================
 
@@ -134,6 +146,22 @@ module testAlu();
     
 
     // NOR =====================================================================
+
+    // NOR #1: 0 NOR 0 = 0
+    command = `NOR; operandA = 32'b0; operandB = 32'b0;
+    $display("NOR  | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // NOR #2: 0 NOR 1 = 1
+    command = `NOR; operandA = 32'b0; operandB = 32'b1;
+    $display("NOR  | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // NOR #3: 1 NOR 0 = 1
+    command = `NOR; operandA = 32'b1; operandB = 32'b0;
+    $display("NOR  | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // NOR #4: 1 NOR 1 = 1
+    command = `NOR; operandA = 32'b1; operandB = 32'b1;
+    $display("NOR  | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // OR ======================================================================
 
