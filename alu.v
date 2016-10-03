@@ -63,7 +63,7 @@ module mAND
 );
 
   wire[31:0]      nresult;
-  mAND mand(nresult, carryout, overflow, operandA, operandB)
+  mNAND mnand(nresult, carryout, overflow, operandA, operandB)
 
   genvar i;
   for (i=0; i<32; i = i+1) begin
@@ -102,7 +102,7 @@ module mOR
 );
 
   wire[31:0]      nresult;
-  mOR mor(nresult, carryout, overflow, operandA, operandB)
+  mNOR mnor(nresult, carryout, overflow, operandA, operandB)
 
   genvar i;
   for (i=0; i<32; i = i+1) begin
