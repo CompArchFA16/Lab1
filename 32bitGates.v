@@ -34,7 +34,7 @@ endmodule
 
 module not32 (
   output [31:0] notA,
-  input [31:0] A,
+  input [31:0] A
   );
 
   genvar index;
