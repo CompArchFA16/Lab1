@@ -15,9 +15,9 @@ module testALUControlLUT();
 	initial begin
 
 	$display("  ALUCommand  | muxindex invertB setFlag secondaryOperation");
-	for(ALUCommand=3'b0000; ALUCommand<=3'b1111; ALUCommand=ALUCommand+1) begin
+	for(ALUCommand=3'b000; ALUCommand<=3'b111; ALUCommand=ALUCommand+1) begin
 		#1000
-		$display("    %b%b%b    |  %b%b%b   %b   %b   %b", ALUCommand[2], ALUCommand[1], ALUCommand[0], muxindex[2], muxindex[1], muxindex[0], invertB, setFlag, secondaryOperation);
+		$display("    %b      |  %b         %b      %b        %b", ALUCommand, muxindex, invertB, setFlag, secondaryOperation);
   end
 	end
 endmodule
