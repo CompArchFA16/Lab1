@@ -1,7 +1,7 @@
-`include "multiplexer_2_input.v"
 `include "multiplexer_4_input.v"
+`timescale 1 ns / 1 ps
 
-module Multiplexer4Input
+module Multiplexer8Input
 (
   output out,
   input[2:0] addresses,
@@ -9,6 +9,6 @@ module Multiplexer4Input
 );
   wire outTop, outBottom;
   Multiplexer4Input top(outTop, addresses[1:0], inputs[3:0]);
-  Multiplexer4Input bottom(outBottom, addresses[1:0], inputs[7:3]);
-  Multiplexer2Input merge(addresses[2], outTop, outBottom, out);
+  Multiplexer4Input bottom(outBottom, addresses[1:0], inputs[7:4]);
+  Multiplexer2Input merge(addresses[2], {outTop, outBottom}, out);
 endmodule

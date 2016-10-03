@@ -1,4 +1,6 @@
 // From HW2.
+`include "constants.v"
+`timescale 1 ns / 1 ps
 
 module Multiplexer2Input
 (

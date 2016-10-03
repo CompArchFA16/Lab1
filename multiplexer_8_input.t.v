@@ -14,7 +14,7 @@ module testMultiplexer8Input();
     $dumpvars;
 
     $display("addresses inputs | out | EOut");
-    addresses = 3'b0; inputs = 7'bXXXXXXX0; #1000
+    addresses = 3'b0; inputs = 8'bXXXXXXX0; #1000
     $display("%b %b | %b | 0", addresses, inputs, out);
   end
 endmodule
