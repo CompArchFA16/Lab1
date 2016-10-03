@@ -250,18 +250,19 @@ module testadd();
     reg [31:0] operandA;
     reg [31:0] operandB;
     reg M;
+    wire[31:0] MxorB;
 
 
-    add32 myALU (carryout, overflow, andResult, operandA, operandB, M);
+    add32 myALU (carryout, overflow, andResult, operandA, operandB, M, MxorB);
 
     initial begin
     //dump to vcd file so we can look at waveform
     $dumpfile("alu.vcd");
     $dumpvars(0, testadd);
-    $display("     a          b     | overflow   carryout |  result  ||   Exp result");
+    $display("     a          b        M      MxorB    | overflow   carryout |  result  ||   Exp result");
 
-    operandA='h11;operandB='h1;M=1; #1000
-    $display(" %h   %h  |     %h         %h     | %h ||    00000000", operandA,operandB,  overflow, carryout, andResult);
+    operandA='h1111;operandB='h1;M=1; #1000
+    $display(" %h   %h     %h        %h     |     %h         %h     | %h ||    00000000", operandA,operandB, M, MxorB, overflow, carryout, andResult);
     /*operandA='h181;operandB='h263; #1000
     $display(" %h   %h  |     %h         %h     | %h ||    00000001", operandA,operandB,  overflow, carryout, andResult);
     operandA='h161;operandB='h161; #1000
