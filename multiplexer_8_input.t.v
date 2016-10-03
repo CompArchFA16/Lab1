@@ -13,8 +13,10 @@ module testMultiplexer8Input();
     $dumpfile("multiplexer_8_input.vcd");
     $dumpvars;
 
-    $display("addresses inputs | out | EOut");
+    $display("addresses inputs   | out | EOut");
     addresses = 3'b0; inputs = 8'bXXXXXXX0; #1000
-    $display("%b %b | %b | 0", addresses, inputs, out);
+    $display("%b       %b | %b   | 0", addresses, inputs, out);
+    addresses = 3'b0; inputs = 8'bXXXXXXX1; #1000
+    $display("%b       %b | %b   | 1", addresses, inputs, out);
   end
 endmodule
