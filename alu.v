@@ -17,8 +17,6 @@
 `define XNOR xnor #50
 `define XOR xor #50
 
-
-
 module ALU
 (
   output[31:0]    result,
@@ -33,16 +31,13 @@ module ALU
     // Your code here
 endmodule
 
-
-
-
 module mNAND
 (
   output[31:0]    result,
   output reg      carryout = 0,
   output reg      overflow = 0,
   input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[31:0]     operandB
 );
 
   genvar i;
@@ -59,11 +54,11 @@ module mAND
   output reg      carryout = 0,
   output reg      overflow = 0,
   input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[31:0]     operandB
 );
 
   wire[31:0]      nresult;
-  mNAND mnand(nresult, carryout, overflow, operandA, operandB)
+  mNAND mnand(nresult, carryout, overflow, operandA, operandB);
 
   genvar i;
   for (i=0; i<32; i = i+1) begin
@@ -81,7 +76,7 @@ module mNOR
   output reg      carryout = 0,
   output reg      overflow = 0,
   input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[31:0]     operandB
 );
 
   genvar i;
@@ -98,11 +93,11 @@ module mOR
   output reg      carryout = 0,
   output reg      overflow = 0,
   input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[31:0]     operandB
 );
 
   wire[31:0]      nresult;
-  mNOR mnor(nresult, carryout, overflow, operandA, operandB)
+  mNOR mnor(nresult, carryout, overflow, operandA, operandB);
 
   genvar i;
   for (i=0; i<32; i = i+1) begin
@@ -120,7 +115,7 @@ module mXOR
   output reg      carryout = 0,
   output reg      overflow = 0,
   input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[31:0]     operandB
 );
 
   genvar i;
@@ -139,7 +134,7 @@ module mXNOR
   output reg      carryout = 0,
   output reg      overflow = 0,
   input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[31:0]     operandB
 );
 
   genvar i;
@@ -181,11 +176,11 @@ module mADD
   output reg      carryout,
   output reg      overflow,
   input[31:0]     operandA,
-  input[31:0]     operandB,
-)
+  input[31:0]     operandB
+);
 
   wire[32:0] c; // indexing is set to be off by +1
-  c[0] = 0;
+  //c[0] = 0;
 
   genvar i;
   for (i=0; i<32; i = i+1) begin
@@ -207,11 +202,11 @@ module mSUB
   output reg      carryout,
   output reg      overflow,
   input[31:0]     operandA,
-  input[31:0]     operandB,
-)
+  input[31:0]     operandB
+);
 
   wire[32:0] c; // indexing is set to be off by +1
-  c[0] = 1; //first carry in set as 1
+  //c[0] = 1; //first carry in set as 1
 
   wire[31:0] nB; 
 
@@ -227,7 +222,17 @@ module mSUB
 
 endmodule
 
-
+//module mADDSUB
+//(
+//	output[31:0] result,
+//	output reg carryout,
+//	output reg overflow,
+//	input[31:0] operandA,
+//	input[31:0] operandB
+//);
+//	wire[32:0] c;
+//	c[0] = sub;
+//endmodule
 
 
 module mSLT
@@ -236,14 +241,14 @@ module mSLT
   output reg      carryout = 0,
   output reg      overflow = 0,
   input[31:0]     operandA,
-  input[31:0]     operandB,
-)
+  input[31:0]     operandB
+);
   wire[31:0]      subresult;
   wire            dump_co, dump_of;
 
-  mSUB msub(subresult, dump_co, dump_of, operandA, operandB)
+  mSUB msub(subresult, dump_co, dump_of, operandA, operandB);
 
-  result = 0;
+  //result = 0;
   assign result[0] = subresult[31];
 
 endmodule
