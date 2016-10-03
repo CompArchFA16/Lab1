@@ -152,24 +152,25 @@ output overflow,
 output[31:0] andResult,
 input [31:0] operandA,
 input [31:0] operandB,
-input M
+input M,
+output[31:0] MxorB
 );
 wire[31:0] carryoutin;
-wire[31:0] MxorB;
-`XOR xorgate0(MxorB, operandB, M);
-structuralFullAdder add0(andResult[0], carryoutin[0], operandA[0],MxorB[0], 0);  
+//wire[31:0] MxorB;
+`XOR xorgate0(MxorB[0], operandB[0], M);
+structuralFullAdder add0(andResult[0], carryoutin[0], operandA[0],MxorB[0], M);  
 genvar i;
   generate
   //ands all 32 bits
     for (i = 1; i < 31; i = i+1)
     begin : gen1
       /*`XOR xorgatei(MxorB[i], operandB[i], M);*/
-      `XOR xorgatei(MxorB, operandB[i], M);
-      structuralFullAdder addi(andResult[i], carryoutin[i], operandA[i],MxorB, carryoutin[i-1]);  
+      `XOR xorgatei(MxorB[i], operandB[i], M);
+      structuralFullAdder addi(andResult[i], carryoutin[i], operandA[i],MxorB[i], carryoutin[i-1]);  
     end
   endgenerate
-`XOR xorgatei(MxorB, operandB[31], M);
-structuralFullAdder add31(andResult[31], carryout, operandA[31],MxorB, carryoutin[30]);  
+`XOR xorgatei(MxorB[31], operandB[31], M);
+structuralFullAdder add31(andResult[31], carryout, operandA[31],MxorB[31], carryoutin[30]);  
 
   `XOR overflowgate(overflow,carryoutin[30],carryout);
 endmodule
