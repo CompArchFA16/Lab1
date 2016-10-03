@@ -48,8 +48,8 @@ module testFullAdder16bit ();
         $display("a and b =3   |   %b        %b       %b",  overflow, carryout, sum);
         a=4'b1001; b=4'b1111; #1000;
         $display("a = -7, b=-1 |   %b        %b       %b",  overflow, carryout, sum);
-        a=4'b0110; b=4'b0110; #1000;
-        $display("a and b = 6  |   %b        %b       %b",  overflow, carryout, sum);
+        a=4'b0111; b=4'b0111; #1000;
+        $display("a and b = 7  |   %b        %b       %b",  overflow, carryout, sum);
         a=4'b1001; b=4'b1001; #1000;
         $display("a and b = -7 |   %b        %b       %b",  overflow, carryout, sum);
     end
