@@ -10,5 +10,5 @@ module Multiplexer8Input
   wire outTop, outBottom;
   Multiplexer4Input top(outTop, addresses[1:0], inputs[3:0]);
   Multiplexer4Input bottom(outBottom, addresses[1:0], inputs[7:4]);
-  Multiplexer2Input merge(addresses[2], {outTop, outBottom}, out);
+  Multiplexer2Input merge(out, addresses[2], {outTop, outBottom});
 endmodule

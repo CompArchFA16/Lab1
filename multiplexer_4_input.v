@@ -10,7 +10,7 @@ module Multiplexer4Input
 
   wire outTop, outBottom;
 
-  Multiplexer2Input top(addresses[0], inputs[1:0], outTop);
-  Multiplexer2Input bottom(addresses[0], inputs[3:2], outBottom);
-  Multiplexer2Input merge(addresses[1], {outTop, outBottom}, out);
+  Multiplexer2Input top(outTop, addresses[0], inputs[1:0]);
+  Multiplexer2Input bottom(outBottom, addresses[0], inputs[3:2]);
+  Multiplexer2Input merge(out, addresses[1], {outTop, outBottom});
 endmodule
