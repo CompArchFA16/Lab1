@@ -31,19 +31,38 @@ module ALU
     // Your code here
 endmodule
 
+
+module mINV
+(
+  output[31:0] out,
+  input[31:0] in
+);
+
+  generate
+    genvar i;
+    for (i=0; i<32; i = i+1) begin: invgenblk
+        not findinv(out[i], in[i]);
+      end
+  endgenerate
+
+endmodule
+
+
 module mNAND
 (
   output[31:0]    result,
-  output reg      carryout = 0,
-  output reg      overflow = 0,
+  //output reg      carryout = 0,
+  //output reg      overflow = 0,
   input[31:0]     operandA,
   input[31:0]     operandB
 );
 
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    `NAND(result[i], operandA[i], operandB[i]);
-  end
+  generate
+    genvar i;
+    for (i=0; i<32; i = i+1) begin: nandgenblk
+      `NAND findnand(result[i], operandA[i], operandB[i]);
+    end
+  endgenerate
 
 endmodule
 
@@ -51,19 +70,18 @@ endmodule
 module mAND
 (
   output[31:0]    result,
-  output reg      carryout = 0,
-  output reg      overflow = 0,
+  //output reg      carryout = 0,
+  //output reg      overflow = 0,
   input[31:0]     operandA,
   input[31:0]     operandB
 );
-
+  
+  //wire dump_co, dump_of;
   wire[31:0]      nresult;
-  mNAND mnand(nresult, carryout, overflow, operandA, operandB);
-
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    `NOT(result[i], nresult[i]);
-  end
+  
+  //mNAND mnand(nresult, dump_co, dump_of, operandA, operandB);
+  mNAND mnand(nresult, operandA, operandB);
+  mINV mnandinv(result, nresult);
 
 endmodule
 
@@ -73,16 +91,18 @@ endmodule
 module mNOR
 (
   output[31:0]    result,
-  output reg      carryout = 0,
-  output reg      overflow = 0,
+  //output reg      carryout = 0,
+  //output reg      overflow = 0,
   input[31:0]     operandA,
   input[31:0]     operandB
 );
 
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    `NOR(result[i], operandA[i], operandB[i]);
-  end
+  generate
+    genvar i;
+    for (i=0; i<32; i = i+1) begin: norgenblk
+      `NOR findnor(result[i], operandA[i], operandB[i]);
+    end
+  endgenerate
 
 endmodule
 
@@ -90,19 +110,16 @@ endmodule
 module mOR
 (
   output[31:0]    result,
-  output reg      carryout = 0,
-  output reg      overflow = 0,
+  //output reg      carryout = 0,
+  //output reg      overflow = 0,
   input[31:0]     operandA,
   input[31:0]     operandB
 );
 
   wire[31:0]      nresult;
-  mNOR mnor(nresult, carryout, overflow, operandA, operandB);
-
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    `NOT(result[i], nresult[i]);
-  end
+  //mNOR mnor(nresult, carryout, overflow, operandA, operandB);
+  mNOR mnor(nresult, operandA, operandB);
+  mINV mnnorinv(result, nresult);
 
 endmodule
 
@@ -112,16 +129,18 @@ endmodule
 module mXOR
 (
   output[31:0]    result,
-  output reg      carryout = 0,
-  output reg      overflow = 0,
+  //output reg      carryout = 0,
+  //output reg      overflow = 0,
   input[31:0]     operandA,
   input[31:0]     operandB
 );
 
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    `XOR(result[i], operandA[i], operandB[i]);
-  end
+  generate
+    genvar i;
+    for (i=0; i<32; i = i+1) begin: xorgenblk
+      `XOR findxor(result[i], operandA[i], operandB[i]);
+    end
+  endgenerate
 
 endmodule
 
@@ -131,16 +150,18 @@ endmodule
 module mXNOR
 (
   output[31:0]    result,
-  output reg      carryout = 0,
-  output reg      overflow = 0,
+  //output reg      carryout = 0,
+  //output reg      overflow = 0,
   input[31:0]     operandA,
   input[31:0]     operandB
 );
 
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    `XNOR(result[i], operandA[i], operandB[i]);
-  end
+  generate
+    genvar i;
+    for (i=0; i<32; i = i+1) begin: xnorgenblk
+      `XNOR findxnor(result[i], operandA[i], operandB[i]);
+    end
+  endgenerate
 
 endmodule
 
@@ -163,76 +184,93 @@ module FullAdder
     `AND and0(AandB, a, b);
     `AND and1(AandC, a, carryin);
     `AND and2(BandC, b, carryin);
-    or #30 orGate(carryout, AandB, AandC, BandC);
+    or #40 orGate(carryout, AandB, AandC, BandC);
 
 endmodule
 
 
 
 
-module mADD
-(
-  output[31:0]    result,
-  output reg      carryout,
-  output reg      overflow,
-  input[31:0]     operandA,
-  input[31:0]     operandB
-);
-
-  wire[32:0] c; // indexing is set to be off by +1
-  //c[0] = 0;
-
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    FullAdder fa(result[i], c[i+1], operandA[i], operandB[i], c[i]);
-  end
-
-  assign carryout = c[32];
-  `XOR xorGate(overflow, c[32], c[31]);
-
-endmodule
-
-
-
-
-
-module mSUB
-(
-  output[31:0]    result,
-  output reg      carryout,
-  output reg      overflow,
-  input[31:0]     operandA,
-  input[31:0]     operandB
-);
-
-  wire[32:0] c; // indexing is set to be off by +1
-  //c[0] = 1; //first carry in set as 1
-
-  wire[31:0] nB; 
-
-
-  genvar i;
-  for (i=0; i<32; i = i+1) begin
-    `NOT(nB[i], operandB[i]); //inverting B
-    FullAdder fa(result[i], c[i+1], operandA[i], nB[i], c[i]);
-  end
-
-  assign carryout = c[32];
-  `XOR xorGate(overflow, c[32], c[31]);
-
-endmodule
-
-//module mADDSUB
+//module mADD
 //(
-//	output[31:0] result,
-//	output reg carryout,
-//	output reg overflow,
-//	input[31:0] operandA,
-//	input[31:0] operandB
+//  output[31:0]    result,
+//  output reg      carryout,
+//  output reg      overflow,
+//  input[31:0]     operandA,
+//  input[31:0]     operandB
 //);
-//	wire[32:0] c;
-//	c[0] = sub;
+//
+//  wire[32:0] c; // indexing is set to be off by +1
+//  //c[0] = 0;
+//
+//  generate
+//    genvar i;
+//      for (i=0; i<32; i = i+1) begin: addgenblk
+//        FullAdder fa(result[i], c[i+1], operandA[i], operandB[i], c[i]);
+//      end
+//  endgenerate
+//
+//  assign carryout = c[32];
+//  `XOR xorGate(overflow, c[32], c[31]);
+//
 //endmodule
+//
+//
+//module mSUB
+//(
+//  output[31:0]    result,
+//  output reg      carryout,
+//  output reg      overflow,
+//  input[31:0]     operandA,
+//  input[31:0]     operandB
+//);
+//
+//  wire[32:0] c; // indexing is set to be off by +1
+//  //c[0] = 1; //first carry in set as 1
+//
+//  wire[31:0] nB; 
+//
+//
+//  generate
+//    genvar i;
+//    for (i=0; i<32; i = i+1) begin: subgenblk
+//      `NOT notsub(nB[i], operandB[i]); //inverting B
+//      FullAdder fa(result[i], c[i+1], operandA[i], nB[i], c[i]);
+//    end
+//  endgenerate
+//
+//  assign carryout = c[32];
+//  `XOR xorGate(overflow, c[32], c[31]);
+//
+//endmodule
+
+
+module mADDSUB
+(
+	output[31:0] result,
+	output       carryout,
+	output       overflow,
+	input[31:0]  operandA,
+	input[31:0]  operandB,
+  input        addsub //1 for sub, 0 for add
+);
+	wire[32:0] c;
+  wire[31:0] xorB;
+	assign c[0] = addsub;
+
+  generate
+    genvar i;
+    for (i=0; i<32; i = i+1) begin: addsubgenblk
+      `XOR xoraddsub(xorB[i], operand[i], addsub);
+      FullAdder fa(result[i], c[i+1], operandA[i], xorB[i], c[i]);
+    end
+  endgenerate
+
+  assign carryout = c[32];
+  `XOR xorGate(overflow, c[32], c[31]);
+
+endmodule
+
 
 
 module mSLT
@@ -246,7 +284,7 @@ module mSLT
   wire[31:0]      subresult;
   wire            dump_co, dump_of;
 
-  mSUB msub(subresult, dump_co, dump_of, operandA, operandB);
+  mADDSUB msub(subresult, dump_co, dump_of, operandA, operandB, 1);
 
   //result = 0;
   assign result[0] = subresult[31];
