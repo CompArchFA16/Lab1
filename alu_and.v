@@ -1,4 +1,4 @@
-`define AND nand #330
+`define AND and #330
 
 module ALU_and
 (
