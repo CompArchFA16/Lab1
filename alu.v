@@ -4,14 +4,14 @@
 `define NOR nor #20 //fundamental, 2 input
 `define AND and #30 //made from inverter and NAND
 `define OR or #30 // made from inverter and OR
-`define XOR xor #60 //worst case three and gates 
+`define XOR xor #60 //worst case three and gates
 
 
 
 /*behavioral verilog done for test bench crafting/checking*/
 module behavioraladder32(
    // Outputs
-   result, 
+   result,
    // Inputs
    a, b
    );
@@ -24,7 +24,7 @@ endmodule // adder32
 
 module behavioralsubtract32(
    // Outputs
-   result, 
+   result,
    // Inputs
    a, b
    );
@@ -48,7 +48,7 @@ input[31:0]     operandB,
 input[2:0]      command
 
 );
-    
+
 endmodule
 
 
@@ -150,15 +150,16 @@ module add32
 output carryout,
 output overflow,
 output[31:0] andResult,
+output[31:0] MxorB,
 input [31:0] operandA,
 input [31:0] operandB,
-input M,
-output[31:0] MxorB
+input M
+
 );
 wire[31:0] carryoutin;
-//wire[31:0] MxorB;
+wire[31:0] MxorB;
 `XOR xorgate0(MxorB[0], operandB[0], M);
-structuralFullAdder add0(andResult[0], carryoutin[0], operandA[0],MxorB[0], M);  
+structuralFullAdder add0(andResult[0], carryoutin[0], operandA[0],MxorB[0], M);
 genvar i;
   generate
   //ands all 32 bits
@@ -166,12 +167,11 @@ genvar i;
     begin : gen1
       /*`XOR xorgatei(MxorB[i], operandB[i], M);*/
       `XOR xorgatei(MxorB[i], operandB[i], M);
-      structuralFullAdder addi(andResult[i], carryoutin[i], operandA[i],MxorB[i], carryoutin[i-1]);  
+      structuralFullAdder addi(andResult[i], carryoutin[i], operandA[i],MxorB[i], carryoutin[i-1]);
     end
   endgenerate
 `XOR xorgatei(MxorB[31], operandB[31], M);
-structuralFullAdder add31(andResult[31], carryout, operandA[31],MxorB[31], carryoutin[30]);  
+structuralFullAdder add31(andResult[31], carryout, operandA[31],MxorB[31], carryoutin[30]);
 
   `XOR overflowgate(overflow,carryoutin[30],carryout);
 endmodule
-

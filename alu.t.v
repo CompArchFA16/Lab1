@@ -16,7 +16,7 @@
     $dumpvars(0, testALU);
 
     $display("   operandA   operandB   |  command   ||  zero   carryout   overflow  | result ||   Exp zero   Exp carryout   Exp overflow   |   Exp result");
-    
+
     $display("Adder Test:");
 
     // this is our test bench
@@ -43,7 +43,7 @@ endmodule*/
     $dumpvars(0, testadd);
 
 
-    
+
     $display("Adder Test:");
     $display("     a          b     |   result   ||   Exp result");
 
@@ -247,13 +247,14 @@ module testadd();
     wire carryout;
     wire overflow;
     wire[31:0] andResult;
+    wire[31:0] MxorB;
     reg [31:0] operandA;
     reg [31:0] operandB;
     reg M;
-    wire[31:0] MxorB;
 
 
-    add32 myALU (carryout, overflow, andResult, operandA, operandB, M, MxorB);
+
+    add32 myALU (carryout, overflow, andResult, MxorB, operandA, operandB, M);
 
     initial begin
     //dump to vcd file so we can look at waveform
@@ -261,7 +262,7 @@ module testadd();
     $dumpvars(0, testadd);
     $display("     a          b        M      MxorB    | overflow   carryout |  result  ||   Exp result");
 
-    operandA='h1111;operandB='h1;M=1; #1000
+    operandA=32'h1111;operandB=32'h1;M=1; #1000
     $display(" %h   %h     %h        %h     |     %h         %h     | %h ||    00000000", operandA,operandB, M, MxorB, overflow, carryout, andResult);
     /*operandA='h181;operandB='h263; #1000
     $display(" %h   %h  |     %h         %h     | %h ||    00000001", operandA,operandB,  overflow, carryout, andResult);
@@ -287,7 +288,7 @@ endmodule
     $dumpvars(0, testsubtract);
 
 
-    
+
     $display("Subtract Test:");
     $display("     a          b     |   result   ||   Exp result");
 
@@ -311,7 +312,7 @@ endmodule*/
     $dumpvars(0, testsubtract);
 
 
-    
+
     $display("Subtract Test:");
     $display("     a          b     |   result   ||   Exp result");
 
@@ -335,7 +336,7 @@ endmodule*/
     $dumpvars(0, testxor);
 
 
-    
+
     $display("Subtract Test:");
     $display("     a          b     |   result   ||   Exp result");
 
