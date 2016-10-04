@@ -17,6 +17,30 @@
 `define XNOR xnor #50
 `define XOR xor #50
 
+
+module ALUcontrolLUT
+(
+output reg[2:0]     muxindex,
+output reg  invertB,
+output reg  invertOutput,
+input[2:0]  ALUcommand
+);
+
+  always @(ALUcommand) begin
+    case (ALUcommand)
+      `c_ADD:  begin muxindex = 3'b000; invertB=0; invertOutput = 0; end    
+      `c_SUB:  begin muxindex = 3'b000; invertB=1; invertOutput = 0; end
+      `c_XOR:  begin muxindex = 3'b001; invertB=0; invertOutput = 0; end    
+      `c_SLT:  begin muxindex = 3'b010; invertB=1; invertOutput = 0; end // invert since subtract
+      `c_AND:  begin muxindex = 3'b011; invertB=0; invertOutput = 1; end    
+      `c_NAND: begin muxindex = 3'b011; invertB=0; invertOutput = 0; end
+      `c_NOR:  begin muxindex = 3'b100; invertB=0; invertOutput = 0; end    
+      `c_OR:   begin muxindex = 3'b100; invertB=0; invertOutput = 1; end
+    endcase
+  end
+endmodule
+
+
 module ALU
 (
   output[31:0]    result,
@@ -27,6 +51,13 @@ module ALU
   input[31:0]     operandB,
   input[2:0]      command
 );
+
+wire [2:0] muxindex,
+wire invertB,
+wire invertOutput,
+
+ALUcontrolLUT lut(muxindex, invertB, invertOutput, command);
+
   //nor #100 z(zero, result) //100 = (log2(32)*2*10)
     // Your code here
 endmodule
@@ -293,25 +324,4 @@ endmodule
 
 
 
-//module ALUcontrolLUT
-//(
-//output reg[2:0]     muxindex,
-//output reg  invertB,
-//output reg  invertOutput,
-//input[2:0]  ALUcommand
-//)
-//
-//  always @(ALUcommand) begin
-//    case (ALUcommand)
-//      `c_ADD:  begin muxindex = 0; invertB=0; invertOutput = ?; end    
-//      `c_SUB:  begin muxindex = 0; invertB=1; invertOutput = ?; end
-//      `c_XOR:  begin muxindex = 1; invertB=0; invertOutput = ?; end    
-//      `c_SLT:  begin muxindex = 2; invertB=?; invertOutput = ?; end
-//      `c_AND:  begin muxindex = 3; invertB=?; invertOutput = ?; end    
-//      `c_NAND: begin muxindex = 3; invertB=?; invertOutput = ?; end
-//      `c_NOR:  begin muxindex = 4; invertB=?; invertOutput = ?; end    
-//      `c_OR:   begin muxindex = 4; invertB=?; invertOutput = ?; end
-//    endcase
-//  end
-//endmodule
 
