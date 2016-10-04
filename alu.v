@@ -1,11 +1,4 @@
-`define ADD  3'd0
-`define SUB  3'd1
-`define XOR  3'd2
-`define SLT  3'd3
-`define AND  3'd4
-`define NAND 3'd5
-`define NOR  3'd6
-`define OR   3'd7
+`include "alu_bitslice.v"
 
 module ALU
 (
@@ -19,8 +12,19 @@ module ALU
   input[2:0]      command
 );
 
-	wire andchannel;
-
-
+  genvar i;
+  generate
+    for (i=0; i < 32; i=i+1)
+    begin:ALUBitslice32
+      // TODO: Chain the ALUs to each other for carryout, zero??, and overflow??
+      // ALUBitslice (
+      //   result[i],
+      //   <TODO: carryout>,
+      //   <TODO: zero>,
+      //   <TODO: overflow>,
+      //   operandA[i],
+      //   operandB[i],
+      //   command);
+    end
+  endgenerate
 endmodule
-
