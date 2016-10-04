@@ -1,6 +1,8 @@
 //Zero Flag circuit
 `define NOR32 nor #320
 `define AND and #30
+`define OR or #30 //2 input OR
+
 
 module FlagZero
     /*This module figures out if a bit string is equal to 0, and raises a flag */
@@ -27,10 +29,18 @@ module ANDfunction
         output [31:0] result
     );
 
+    // genvar i;
+    // generate
+    // for (i=0; i < 32; i=i+1) begin : AND
+    //     `AND _andgate(.result(result[i]),
+    //     .a(a[i]), .b(b[i]));
+    //     end
+    // endgenerate
+
         `AND andgate0(result[0], a[0], b[0]); // for each bit, compare
         `AND andgate1(result[1], a[1], b[1]); //and if both high, let the
         `AND andgate2(result[2], a[2], b[2]); // result bit at that position
-        `AND andgate3(result[3], a[3], b[3]); //also be high. 
+        `AND andgate3(result[3], a[3], b[3]); //also be high.
         `AND andgate4(result[4], a[4], b[4]);
         `AND andgate5(result[5], a[5], b[5]);
         `AND andgate6(result[6], a[6], b[6]);
@@ -59,5 +69,23 @@ module ANDfunction
         `AND andgate29(result[29], a[29], b[29]);
         `AND andgate30(result[30], a[30], b[30]);
         `AND andgate31(result[31], a[31], b[31]);
+
+endmodule
+
+module ORfunction
+(
+    output [31:0] result,
+    input [31:0] a,
+    input [31:0] b
+
+);
+
+genvar i;
+generate
+for (i=0; i < 32; i=i+1)
+begin:`OR
+    `OR _orgate(result[i], a[i], b[i];
+     end
+endgenerate
 
 endmodule

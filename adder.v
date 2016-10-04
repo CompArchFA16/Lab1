@@ -12,7 +12,7 @@ module structuralFullAdder
     input a,
     input b,
     input carryin,
-    input subtract,
+    input subtract
 );
     // Your adder code here
     // Create the wires
