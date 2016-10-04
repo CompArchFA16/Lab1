@@ -72,6 +72,49 @@ genvar i;
 endmodule
 
 
+module andnand32 //Works for AND, NAND : For AND, M = 0. For NAND, M = 1.
+(
+output reg carryout=0,
+output reg overflow=0,
+output[31:0] andResult,
+input [31:0] operandA,
+input [31:0] operandB,
+input M
+);
+wire [31:0] midResult;
+genvar i;
+  generate
+  //ands all 32 bits
+    for (i = 0; i < 32; i = i+1)
+    begin : gen1
+      `AND(midResult[i],operandA[i],operandB[i]);
+      `XOR(andResult[i],midResult[i],M);
+    end
+  endgenerate
+endmodule
+
+module ornor32 //Works for OR, NOR : For OR, M = 0. For NOR, M = 1.
+(
+output reg carryout=0,
+output reg overflow=0,
+output[31:0] andResult,
+input [31:0] operandA,
+input [31:0] operandB,
+input M
+);
+wire [31:0] midResult;
+genvar i;
+  generate
+  //ands all 32 bits
+    for (i = 0; i < 32; i = i+1)
+    begin : gen1
+      `OR(midResult[i],operandA[i],operandB[i]);
+      `XOR(andResult[i],midResult[i],M);
+    end
+  endgenerate
+endmodule
+
+
 /*'''Our real code starts here'''*/
 
 module ALU
@@ -95,17 +138,14 @@ output reg carryout=0,
 output reg overflow=0,
 output[31:0] andResult,
 input [31:0] operandA,
-input [31:0] operandB,
-input M
+input [31:0] operandB
 );
-wire [31:0] midResult;
 genvar i;
   generate
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `AND(midResult[i],operandA[i],operandB[i]);
-      `XOR(andResult[i],midResult[i],M);
+      `AND(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -116,17 +156,14 @@ output reg carryout=0,
 output reg overflow=0,
 output[31:0] andResult,
 input [31:0] operandA,
-input [31:0] operandB,
-input M
+input [31:0] operandB
 );
-wire [31:0] midResult;
 genvar i;
   generate
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `OR(midResult[i],operandA[i],operandB[i]);
-      `XOR(andResult[i],midResult[i],M);
+      `OR(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -135,7 +172,7 @@ endmodule
 
 
 
-module xor32
+module xor32 //xors two 32bits
 (
 output[31:0] andResult,
 input [31:0] operandA,
@@ -151,7 +188,7 @@ genvar i;
   endgenerate
 endmodule
 
-module xor1a32
+module xor1a32  //xors a 32bit with a 1bit
 (
 output[31:0] andResult,
 input [31:0] operandA,
@@ -220,12 +257,27 @@ structuralFullAdder add31(andResult[31], carryout, operandA[31],MxorB[31], carry
 endmodule
 
 
-module xort
-(
-output result,
-input a,
-input b
 
-);
-`XOR xorgate(result,a,b);
+
+
+module ALUcontrolLUT
+(
+output reg[2:0] muxindex,
+output reg  invertB,
+output reg  othercontrolsignal,
+input[2:0]  ALUcommand
+)
+
+  always @(ALUcommand) begin
+    case (ALUcommand)
+      `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = ?; end    
+      `SUB:  begin muxindex = 0; invertB=1; othercontrolsignal = ?; end
+      `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = ?; end    
+      `SLT:  begin muxindex = 2; invertB=?; othercontrolsignal = ?; end
+      `AND:  begin muxindex = 3; invertB=?; othercontrolsignal = ?; end    
+      `NAND: begin muxindex = 3; invertB=?; othercontrolsignal = ?; end
+      `NOR:  begin muxindex = ?; invertB=?; othercontrolsignal = ?; end    
+      `OR:   begin muxindex = ?; invertB=?; othercontrolsignal = ?; end
+    endcase
+  end
 endmodule
