@@ -125,6 +125,38 @@ genvar i;
   endgenerate
 endmodule
 
+module xor32
+(
+output[31:0] andResult,
+input [31:0] operandA,
+input [31:0] operandB
+);
+genvar i;
+  generate
+  //ands all 32 bits
+    for (i = 0; i < 32; i = i+1)
+    begin : gen1
+      `XOR(andResult[i],operandA[i],operandB[i]);
+    end
+  endgenerate
+endmodule
+
+module xor1a32
+(
+output[31:0] andResult,
+input [31:0] operandA,
+input operandB
+);
+genvar i;
+  generate
+  //ands all 32 bits
+    for (i = 0; i < 32; i = i+1)
+    begin : gen1
+      `XOR(andResult[i],operandA[i],operandB);
+    end
+  endgenerate
+endmodule
+
 module structuralFullAdder
 (
   // This is the unit module which the FullAdder4bit runs 4 times
@@ -149,6 +181,7 @@ module add32
 (
 output carryout,
 output overflow,
+output[30:0] carryoutin,
 output[31:0] andResult,
 output[31:0] MxorB,
 input [31:0] operandA,
@@ -156,22 +189,33 @@ input [31:0] operandB,
 input M
 
 );
-wire[31:0] carryoutin;
+wire[30:0] carryoutin;
+wire carryout;
+wire overflow;
+/*wire[31:0] carryoutin;*/
 wire[31:0] MxorB;
-`XOR xorgate0(MxorB[0], operandB[0], M);
+xor1a32 myxor(MxorB,operandB, M);
 structuralFullAdder add0(andResult[0], carryoutin[0], operandA[0],MxorB[0], M);
 genvar i;
   generate
   //ands all 32 bits
     for (i = 1; i < 31; i = i+1)
     begin : gen1
-      /*`XOR xorgatei(MxorB[i], operandB[i], M);*/
-      `XOR xorgatei(MxorB[i], operandB[i], M);
-      structuralFullAdder addi(andResult[i], carryoutin[i], operandA[i],MxorB[i], carryoutin[i-1]);
+      structuralFullAdder addgates(andResult[i], carryoutin[i], operandA[i],MxorB[i], carryoutin[i-1]);
     end
   endgenerate
-`XOR xorgatei(MxorB[31], operandB[31], M);
 structuralFullAdder add31(andResult[31], carryout, operandA[31],MxorB[31], carryoutin[30]);
 
   `XOR overflowgate(overflow,carryoutin[30],carryout);
+endmodule
+
+
+module xort
+(
+output result,
+input a,
+input b
+
+);
+`XOR xorgate(result,a,b);
 endmodule

@@ -155,6 +155,36 @@ endmodule*/
 
 
 /*
+module testxor();
+    wire carryout;
+    wire overflow;
+    wire[31:0] andResult;
+    reg [31:0] operandA;
+    reg [31:0] operandB;
+
+
+    xor32 myALU (carryout, overflow, andResult, operandA, operandB);
+
+    initial begin
+    //dump to vcd file so we can look at waveform
+    $dumpfile("alu.vcd");
+    $dumpvars(0, testxor);
+    $display(" operandA   operandB  |  result  ||   Exp result");
+
+    operandA='h0;operandB='h0; #1000
+    $display(" %h   %h  | %h ||    ffffffff", operandA,operandB,  andResult);
+    operandA='h181;operandB='h263; #1000
+    $display(" %h   %h  | %h ||    fffffffe", operandA,operandB,  andResult);
+    operandA='h161;operandB='h161; #1000
+    $display(" %h   %h  | %h ||    fffffe9e", operandA,operandB,  andResult);
+    operandA='hffffffff;operandB='hf00f001; #1000
+    $display(" %h   %h  | %h ||    f0ff0ffe", operandA,operandB,  andResult);
+    operandA='hffffffff;operandB='hcccccccc; #1000
+    $display(" %h   %h  | %h ||    33333333", operandA,operandB,  andResult);
+    end
+endmodule*/
+
+/*
 module testnand();
     wire carryout;
     wire overflow;
@@ -215,9 +245,9 @@ module testadd();
     $display(" %h   %h  |     %h         %h     | %h ||    40000000", operandA,operandB,  overflow, carryout, andResult);
     end
 endmodule
-*/
-/*
-module testsubtract();
+
+/**/
+/*module testsubtract();
     wire carryout;
     wire overflow;
     wire[31:0] andResult;
@@ -241,11 +271,25 @@ endmodule
 */
 
 
+/*module testxor();
+    reg a;
+    reg b;
+    wire result;
+
+    xort myxor (result, a, b);
+    initial begin
+    $display("     a    b   |  result  ");
+
+    a = 0;b= 0; #1000
+    $display(" %h   %h     %h       ", a, b, result);
+    end
+endmodule*/
 
 /*'''test skeleton'''*/
 module testadd();
     wire carryout;
     wire overflow;
+    wire[30:0] carryoutin;
     wire[31:0] andResult;
     wire[31:0] MxorB;
     reg [31:0] operandA;
@@ -254,24 +298,24 @@ module testadd();
 
 
 
-    add32 myALU (carryout, overflow, andResult, MxorB, operandA, operandB, M);
+    add32 myALU (carryout, overflow, carryoutin, andResult, MxorB, operandA, operandB, M);
 
     initial begin
     //dump to vcd file so we can look at waveform
     $dumpfile("alu.vcd");
     $dumpvars(0, testadd);
-    $display("     a          b        M      MxorB    | overflow   carryout |  result  ||   Exp result");
+    $display("     a          b        M      MxorB   carryoutin | overflow   carryout |  result  ||   Exp result");
 
-    operandA=32'h1111;operandB=32'h1;M=1; #1000
-    $display(" %h   %h     %h        %h     |     %h         %h     | %h ||    00000000", operandA,operandB, M, MxorB, overflow, carryout, andResult);
-    /*operandA='h181;operandB='h263; #1000
-    $display(" %h   %h  |     %h         %h     | %h ||    00000001", operandA,operandB,  overflow, carryout, andResult);
-    operandA='h161;operandB='h161; #1000
-    $display(" %h   %h  |     %h         %h     | %h ||    00000161", operandA,operandB,  overflow, carryout, andResult);
-    operandA='hffffffff;operandB='hf00f001; #1000
-    $display(" %h   %h  |     %h         %h     | %h ||    0f00f001", operandA,operandB,  overflow, carryout, andResult);
-    operandA='hffffffff;operandB='hcccccccc; #1000
-    $display(" %h   %h  |     %h         %h     | %h ||    cccccccc", operandA,operandB,  overflow, carryout, andResult);*/
+    operandA='h00000011;operandB='h001;M=1; #100000
+    $display(" %h   %h     %h    %h   | %h    %h         %h     | %h ||    00000000", operandA,operandB, M, MxorB,carryoutin, overflow, carryout, andResult);
+    operandA='h181;operandB='h263;M=1; #1000
+    $display(" %b   %b     %h    %h   | %b    %h         %h     | %b ||    00000000", operandA,operandB, M, MxorB,carryoutin, overflow, carryout, andResult);
+    operandA='h161;operandB='h161;M=1; #1000
+    $display(" %b   %b     %h    %h   | %b    %h         %h     | %b ||    00000000", operandA,operandB, M, MxorB,carryoutin, overflow, carryout, andResult);
+    operandA='hffffffff;operandB='hf00f001;M=1; #1000
+    $display(" %b   %b     %h    %h   | %b    %h         %h     | %b ||    00000000", operandA,operandB, M, MxorB,carryoutin, overflow, carryout, andResult);
+    operandA='hffffffff;operandB='hcccccccc;M=1; #1000
+    $display(" %b   %b     %h    %h   | %b    %h         %h     | %b ||    00000000", operandA,operandB, M, MxorB,carryoutin, overflow, carryout, andResult);
     end
 endmodule
 
