@@ -25,7 +25,7 @@ Total : 7 Hr. 20 min.
   -Implementation : 1 Hr.
    
   -Test Cases : 126 min.
-   3 min. per test Case * 4 Test Cases per Each Module * 8 Modules : 96 min.
+   3 min. per test Case * 4 Test Cases per Each Module * 8 Modules = 96 min.
    Debugging Buffer : 30 min.
 
 * **Analysis : 1 Hr.**
