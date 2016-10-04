@@ -12,7 +12,7 @@ module structuralFullAdder
     input a,
     input b,
     input carryin,
-    input subtract
+    input subtract,
 );
     // Your adder code here
     // Create the wires
@@ -22,9 +22,9 @@ module structuralFullAdder
     wire bos0;
 
     // calculate the sum
+    `XOR xorgate3( bos0, subtract, b);
     `XOR xorgate1(AxorB, a,bos0);
     `XOR xorgate2(sum, AxorB, carryin);
-    `XOR xorgate3( bos0, subtract, b);
 
     // calculate the carryout
     `AND andgate1(AandB, a, bos0);
