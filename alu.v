@@ -2,8 +2,8 @@
 `define c_SUB  3'd1
 `define c_XOR  3'd2
 `define c_SLT  3'd3
-`define c_AND  3'd4
-`define c_NAND 3'd5
+`define c_NAND 3'd4
+`define c_AND  3'd5
 `define c_NOR  3'd6
 `define c_OR   3'd7
 
@@ -18,6 +18,31 @@
 `define XOR xor #50
 
 
+module mux // multiplexer 
+(
+    output out,
+    input address0, address1,
+	input [3:0] mem // 00 ~ 11
+);
+	wire na1,na0;
+	wire o0, o1, o2, o3;
+
+	`NOT(na0,address0);
+	`NOT(na1,address1);
+	`AND(o0, mem[0], na1, na0);
+	`AND(o1, mem[1], na1, address0);
+	`AND(o2, mem[2], address1, na0);
+	`AND(o3, mem[3], address1, address0);
+	`OR(out, o0,o1,o2,o3);
+endmodule
+
+module demux
+(
+
+);
+
+endmodule
+
 module ALUcontrolLUT
 (
 output reg[2:0]     muxindex,
@@ -31,9 +56,9 @@ input[2:0]  ALUcommand
       `c_ADD:  begin muxindex = 3'b000; invertB=0; invertOutput = 0; end    
       `c_SUB:  begin muxindex = 3'b000; invertB=1; invertOutput = 0; end
       `c_XOR:  begin muxindex = 3'b001; invertB=0; invertOutput = 0; end    
-      `c_SLT:  begin muxindex = 3'b010; invertB=1; invertOutput = 0; end // invert since subtract
-      `c_AND:  begin muxindex = 3'b011; invertB=0; invertOutput = 1; end    
+      `c_SLT:  begin muxindex = 3'b010; invertB=1; invertOutput = 0; end // invert B to subtract subtract
       `c_NAND: begin muxindex = 3'b011; invertB=0; invertOutput = 0; end
+      `c_AND:  begin muxindex = 3'b011; invertB=0; invertOutput = 1; end    
       `c_NOR:  begin muxindex = 3'b100; invertB=0; invertOutput = 0; end    
       `c_OR:   begin muxindex = 3'b100; invertB=0; invertOutput = 1; end
     endcase
@@ -52,9 +77,11 @@ module ALU
   input[2:0]      command
 );
 
-wire [2:0] muxindex,
-wire invertB,
-wire invertOutput,
+reg [31:0] results [7:0];
+
+wire [2:0] muxindex;
+wire invertB;
+wire invertOutput;
 
 ALUcontrolLUT lut(muxindex, invertB, invertOutput, command);
 
