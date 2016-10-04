@@ -123,35 +123,36 @@ module testor();
     end
 endmodule*/
 
-/*
-module testnor();
+
+module testor();
     wire carryout;
     wire overflow;
     wire[31:0] andResult;
     reg [31:0] operandA;
     reg [31:0] operandB;
+    reg M;
 
 
-    nor32 myALU (carryout, overflow, andResult, operandA, operandB);
+    or32 myALU (carryout, overflow, andResult, operandA, operandB, M);
 
     initial begin
     //dump to vcd file so we can look at waveform
     $dumpfile("alu.vcd");
-    $dumpvars(0, testnor);
+    $dumpvars(0, testor);
     $display(" operandA   operandB  |  result  ||   Exp result");
 
-    operandA='h0;operandB='h0; #1000
+    operandA='h0;operandB='h0;M=1; #1000
     $display(" %h   %h  | %h ||    ffffffff", operandA,operandB,  andResult);
-    operandA='h181;operandB='h263; #1000
+    operandA='h181;operandB='h263;M=1; #1000
     $display(" %h   %h  | %h ||    fffffc1c", operandA,operandB,  andResult);
-    operandA='h161;operandB='h161; #1000
+    operandA='h161;operandB='h161;M=1; #1000
     $display(" %h   %h  | %h ||    fffffe9e", operandA,operandB,  andResult);
-    operandA='hffffffff;operandB='hf00f001; #1000
+    operandA='hffffffff;operandB='hf00f001;M=1; #1000
     $display(" %h   %h  | %h ||    00000000", operandA,operandB,  andResult);
-    operandA='hffffffff;operandB='hcccccccc; #1000
+    operandA='hffffffff;operandB='hcccccccc;M=1; #1000
     $display(" %h   %h  | %h ||    00000000", operandA,operandB,  andResult);
     end
-endmodule*/
+endmodule
 
 
 /*
@@ -184,32 +185,33 @@ module testxor();
     end
 endmodule*/
 
-/*
-module testnand();
+
+/*module testand();
     wire carryout;
     wire overflow;
     wire[31:0] andResult;
     reg [31:0] operandA;
     reg [31:0] operandB;
+    reg M;
 
 
-    nand32 myALU (carryout, overflow, andResult, operandA, operandB);
+    and32 myALU (carryout, overflow, andResult, operandA, operandB, M);
 
     initial begin
     //dump to vcd file so we can look at waveform
     $dumpfile("alu.vcd");
-    $dumpvars(0, testnand);
+    $dumpvars(0, testand);
     $display(" operandA   operandB  |  result  ||   Exp result");
 
-    operandA='h0;operandB='h0; #1000
+    operandA='h0;operandB='h0;M=1; #1000
     $display(" %h   %h  | %h ||    ffffffff", operandA,operandB,  andResult);
-    operandA='h181;operandB='h263; #1000
+    operandA='h181;operandB='h263;M=1; #1000
     $display(" %h   %h  | %h ||    fffffffe", operandA,operandB,  andResult);
-    operandA='h161;operandB='h161; #1000
+    operandA='h161;operandB='h161;M=1; #1000
     $display(" %h   %h  | %h ||    fffffe9e", operandA,operandB,  andResult);
-    operandA='hffffffff;operandB='hf00f001; #1000
+    operandA='hffffffff;operandB='hf00f001;M=1; #1000
     $display(" %h   %h  | %h ||    f0ff0ffe", operandA,operandB,  andResult);
-    operandA='hffffffff;operandB='hcccccccc; #1000
+    operandA='hffffffff;operandB='hcccccccc;M=1; #1000
     $display(" %h   %h  | %h ||    33333333", operandA,operandB,  andResult);
     end
 endmodule*/
@@ -286,7 +288,7 @@ endmodule
 endmodule*/
 
 /*'''test skeleton'''*/
-module testadd();
+/*module testadd();
     wire carryout;
     wire overflow;
     wire[30:0] carryoutin;
@@ -317,7 +319,7 @@ module testadd();
     operandA='hffffffff;operandB='hcccccccc;M=1; #1000
     $display(" %b   %b     %h    %h   | %b    %h         %h     | %b ||    00000000", operandA,operandB, M, MxorB,carryoutin, overflow, carryout, andResult);
     end
-endmodule
+endmodule*/
 
 /*module testsubtract();
     reg[31:0] a, b;

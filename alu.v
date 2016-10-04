@@ -35,24 +35,7 @@ module behavioralsubtract32(
    assign      result = sum[32] ? sum[32:1]: sum[31:0];
 endmodule // adder32
 
-/*'''Our real code starts here'''*/
-
-module ALU
-(
-output[31:0]    result,
-output          carryout,
-output          zero,
-output          overflow,
-input[31:0]     operandA,
-input[31:0]     operandB,
-input[2:0]      command
-
-);
-
-endmodule
-
-
-module and32
+module nand32
 (
 output reg carryout=0,
 output reg overflow=0,
@@ -65,26 +48,7 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `AND(andResult[i],operandA[i],operandB[i]);
-    end
-  endgenerate
-endmodule
-
-
-module or32
-(
-output reg carryout=0,
-output reg overflow=0,
-output[31:0] andResult,
-input [31:0] operandA,
-input [31:0] operandB
-);
-genvar i;
-  generate
-  //ands all 32 bits
-    for (i = 0; i < 32; i = i+1)
-    begin : gen1
-      `OR(andResult[i],operandA[i],operandB[i]);
+      `NAND(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -107,23 +71,69 @@ genvar i;
   endgenerate
 endmodule
 
-module nand32
+
+/*'''Our real code starts here'''*/
+
+module ALU
+(
+output[31:0]    result,
+output          carryout,
+output          zero,
+output          overflow,
+input[31:0]     operandA,
+input[31:0]     operandB,
+input[2:0]      command
+
+);
+
+endmodule
+
+
+module and32 //Works for AND, NAND : For AND, M = 0. For NAND, M = 1.
 (
 output reg carryout=0,
 output reg overflow=0,
 output[31:0] andResult,
 input [31:0] operandA,
-input [31:0] operandB
+input [31:0] operandB,
+input M
 );
+wire [31:0] midResult;
 genvar i;
   generate
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `NAND(andResult[i],operandA[i],operandB[i]);
+      `AND(midResult[i],operandA[i],operandB[i]);
+      `XOR(andResult[i],midResult[i],M);
     end
   endgenerate
 endmodule
+
+module or32 //Works for OR, NOR : For OR, M = 0. For NOR, M = 1.
+(
+output reg carryout=0,
+output reg overflow=0,
+output[31:0] andResult,
+input [31:0] operandA,
+input [31:0] operandB,
+input M
+);
+wire [31:0] midResult;
+genvar i;
+  generate
+  //ands all 32 bits
+    for (i = 0; i < 32; i = i+1)
+    begin : gen1
+      `OR(midResult[i],operandA[i],operandB[i]);
+      `XOR(andResult[i],midResult[i],M);
+    end
+  endgenerate
+endmodule
+
+
+
+
 
 module xor32
 (
