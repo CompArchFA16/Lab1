@@ -124,7 +124,7 @@ module testor();
 endmodule*/
 
 
-module testor();
+/*module testor();
     wire carryout;
     wire overflow;
     wire[31:0] andResult;
@@ -151,7 +151,7 @@ module testor();
     operandA='hffffffff;operandB='hcccccccc; #1000
     $display(" %h   %h  | %h ||    00000000", operandA,operandB,  andResult);
     end
-endmodule
+endmodule*/
 
 
 /*
@@ -219,28 +219,25 @@ module testadd();
 endmodule
 
 /**/
-/*module testsubtract();
-    wire carryout;
-    wire overflow;
-    wire[31:0] andResult;
+module testslt();
+    wire result;
     reg [31:0] operandA;
     reg [31:0] operandB;
-    reg M;
 
-    add32 myALU (carryout, overflow, andResult, operandA, operandB, M);
+    SLT32 myALU (result, operandA, operandB);
 
     initial begin
     //dump to vcd file so we can look at waveform
     $dumpfile("alu.vcd");
-    $dumpvars(0, testsubtract);
+    $dumpvars(0, testslt);
     $display("     a          b      M  | overflow   carryout |  result  ||   Exp result");
 
-    operandA='h01;operandB='h0;M=1; #1000
-    $display(" %h   %h   %h  |     %h         %h     | %h ||    00000000", operandA,operandB, M, overflow, carryout, andResult);
+    operandA='hfffff010;operandB='h10; #100000
+    $display(" %h   %h   %h  ", operandA,operandB, result);
 
     end
 endmodule
-*/
+
 
 /*'''test skeleton'''*/
 /*module testadd();

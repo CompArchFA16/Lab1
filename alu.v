@@ -168,7 +168,18 @@ genvar i;
   endgenerate
 endmodule
 
+module SLT32
+(
+output result,
+input [31:0] operandA,
+input [31:0] operandB
+  );
+wire [31:0] subResult;
+add32 myALU (carryout, overflow, subResult, operandA, operandB, 1);
+`XOR(result,subResult[31],overflow);
 
+
+endmodule
 
 
 
@@ -228,19 +239,17 @@ module add32
 (
 output carryout,
 output overflow,
-output[30:0] carryoutin,
 output[31:0] andResult,
-output[31:0] MxorB,
 input [31:0] operandA,
 input [31:0] operandB,
 input M
 
 );
 wire[30:0] carryoutin;
+wire[31:0] MxorB;
 wire carryout;
 wire overflow;
 /*wire[31:0] carryoutin;*/
-wire[31:0] MxorB;
 xor1a32 myxor(MxorB,operandB, M);
 structuralFullAdder add0(andResult[0], carryoutin[0], operandA[0],MxorB[0], M);
 genvar i;
@@ -260,7 +269,7 @@ endmodule
 
 
 
-module ALUcontrolLUT
+/*module ALUcontrolLUT
 (
 output reg[2:0] muxindex,
 output reg  invertB,
@@ -280,4 +289,4 @@ input[2:0]  ALUcommand
       `OR:   begin muxindex = ?; invertB=?; othercontrolsignal = ?; end
     endcase
   end
-endmodule
+endmodule*/
