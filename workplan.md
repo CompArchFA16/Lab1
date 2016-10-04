@@ -7,6 +7,7 @@
 ### Implementations
 
 Total : 7 Hr. 20 min.
+
 	ALU Implementation: 3 Hr. 20 min.
 		High-Level Design : 1 Hr.
 			How the modules connect, emit flags, etc.
