@@ -168,7 +168,7 @@ genvar i;
   endgenerate
 endmodule
 
-module SLT32
+module SLT32 //returns 1 if operandA is less than operandB
 (
 output result,
 input [31:0] operandA,
@@ -268,8 +268,31 @@ endmodule
 
 
 
+module structuralMultiplexer
+(
+    output out,
+    input [3:0] muxindex,
+    input invertB,
+    input in0, in1, in2, in3, in4, in5, in6, in7
+);
+    wire na0;
+    wire na1;
+    wire mid0;
+    wire mid1;
+    wire mid2;
+    wire mid3;
+    `NOT adinv(na0,address0);
+    `NOT adinv(na1,address1);
+    `AND andgate(mid0,na0,na1,in0);
+    `AND andgate(mid1,na1,address0,in1);
+    `AND andgate(mid2,address1,na0,in2);
+    `AND andgate(mid3,address0,address1,in3);
+    `OR orgate(out,mid0,mid1,mid2,mid3);
+endmodule
 
-/*module ALUcontrolLUT
+
+
+module ALUcontrolLUT
 (
 output reg[2:0] muxindex,
 output reg  invertB,
@@ -282,11 +305,11 @@ input[2:0]  ALUcommand
       `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = ?; end    
       `SUB:  begin muxindex = 0; invertB=1; othercontrolsignal = ?; end
       `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = ?; end    
-      `SLT:  begin muxindex = 2; invertB=?; othercontrolsignal = ?; end
-      `AND:  begin muxindex = 3; invertB=?; othercontrolsignal = ?; end    
-      `NAND: begin muxindex = 3; invertB=?; othercontrolsignal = ?; end
-      `NOR:  begin muxindex = ?; invertB=?; othercontrolsignal = ?; end    
-      `OR:   begin muxindex = ?; invertB=?; othercontrolsignal = ?; end
+      `SLT:  begin muxindex = 2; invertB=0; othercontrolsignal = ?; end
+      `AND:  begin muxindex = 3; invertB=0; othercontrolsignal = ?; end    
+      `NAND: begin muxindex = 3; invertB=1; othercontrolsignal = ?; end
+      `NOR:  begin muxindex = 4; invertB=1; othercontrolsignal = ?; end    
+      `OR:   begin muxindex = 4; invertB=0; othercontrolsignal = ?; end
     endcase
   end
-endmodule*/
+endmodule

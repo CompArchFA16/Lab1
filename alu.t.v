@@ -232,7 +232,7 @@ module testslt();
     $dumpvars(0, testslt);
     $display("     a          b      M  | overflow   carryout |  result  ||   Exp result");
 
-    operandA='hfffff010;operandB='h10; #100000
+    operandA='hffff010;operandB='hffffff10; #100000
     $display(" %h   %h   %h  ", operandA,operandB, result);
 
     end
