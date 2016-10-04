@@ -11,20 +11,23 @@ module structuralFullAdder
     output carryout,
     input a,
     input b,
-    input carryin
+    input carryin,
+    input subtract
 );
     // Your adder code here
     // Create the wires
     wire AxorB;
     wire AandB;
     wire AxorBandCin;
+    wire BorSub;
 
     // calculate the sum
-    `XOR xorgate1(AxorB, a, b);
+    `XOR xorgate1(AxorB, a, BorSub);
     `XOR xorgate2(sum, AxorB, carryin);
+    `XOR xorgate3( bos0, subtract, b);
 
     // calculate the carryout
-    `AND andgate1(AandB, a, b);
+    `AND andgate1(AandB, a, BorSub);
     `AND andgate2(AxorBandCin, AxorB, carryin);
     `OR orgate(carryout, AandB, AxorBandCin);
 
@@ -74,6 +77,8 @@ module Adder32bit
     wire carryout5;
     wire carryout6;
     wire carryout7;
+
+
 
     FullAdderSub4bit adder0(sum[3:0], carryout0, a[3:0], b[3:0], carryin); // If carryin = 1 then it subtracts. first 4 bits
     FullAdderSub4bit adder1(sum[7:4], carryout1, a[7:4], b[7:4], carryout0); //link carry, 2nd 4 bits
