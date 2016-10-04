@@ -25,13 +25,13 @@ module ALUBitslice
   // TODO: Do OR.
 
   // Choice.
-  Multiplexer8Input(result, command, {
-    aluOutAdd,
-    aluOutSub,
-    aluOutXor,
-    aluOutSlt,
-    aluOutAnd,
-    aluOutNand,
-    aluOutNor,
-    aluOutOr});
+  // Multiplexer8Input(result, command, {
+  //   aluOutAdd,
+  //   aluOutSub,
+  //   aluOutXor,
+  //   aluOutSlt,
+  //   aluOutAnd,
+  //   aluOutNand,
+  //   aluOutNor,
+  //   aluOutOr});
 endmodule
