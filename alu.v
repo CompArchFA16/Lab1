@@ -1,11 +1,19 @@
 
-`define NOT not #10 //fundamental, one input
-`define NAND nand #20 //fundamental, 2 input
-`define NOR nor #20 //fundamental, 2 input
-`define AND and #30 //made from inverter and NAND
-`define OR or #30 // made from inverter and OR
-`define XOR xor #60 //worst case three and gates
+`define NOTgate not #10 //fundamental, one input
+`define NANDgate nand #20 //fundamental, 2 input
+`define NORgate nor #20 //fundamental, 2 input
+`define ANDgate and #30 //made from inverter and NAND
+`define ORgate or #30 // made from inverter and OR
+`define XORgate xor #60 //worst case three and gates
 
+`define ADD  3'd0
+`define SUB  3'd1
+`define XOR  3'd2
+`define SLT  3'd3
+`define AND  3'd4
+`define NAND 3'd5
+`define NOR  3'd6
+`define OR   3'd7
 
 
 /*behavioral verilog done for test bench crafting/checking*/
@@ -48,7 +56,7 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `NAND(andResult[i],operandA[i],operandB[i]);
+      `NANDgate(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -66,7 +74,7 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `NOR(andResult[i],operandA[i],operandB[i]);
+      `NORgate(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -87,8 +95,8 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `AND(midResult[i],operandA[i],operandB[i]);
-      `XOR(andResult[i],midResult[i],M);
+      `ANDgate(midResult[i],operandA[i],operandB[i]);
+      `XORgate(andResult[i],midResult[i],M);
     end
   endgenerate
 endmodule
@@ -108,8 +116,8 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `OR(midResult[i],operandA[i],operandB[i]);
-      `XOR(andResult[i],midResult[i],M);
+      `ORgate(midResult[i],operandA[i],operandB[i]);
+      `XORgate(andResult[i],midResult[i],M);
     end
   endgenerate
 endmodule
@@ -145,7 +153,7 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `AND(andResult[i],operandA[i],operandB[i]);
+      `ANDgate(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -163,7 +171,7 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `OR(andResult[i],operandA[i],operandB[i]);
+      `ORgate(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -176,7 +184,7 @@ input [31:0] operandB
   );
 wire [31:0] subResult;
 add32 myALU (carryout, overflow, subResult, operandA, operandB, 1);
-`XOR(result,subResult[31],overflow);
+`XORgate(result,subResult[31],overflow);
 
 
 endmodule
@@ -194,7 +202,7 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `XOR(andResult[i],operandA[i],operandB[i]);
+      `XORgate(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -210,7 +218,7 @@ genvar i;
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `XOR(andResult[i],operandA[i],operandB);
+      `XORgate(andResult[i],operandA[i],operandB);
     end
   endgenerate
 endmodule
@@ -226,13 +234,13 @@ module structuralFullAdder
 );
 wire AxorB, AxorBandcarryin, AandB;
 // XOR gate is true only if one of the two inputs is true, not both
-`XOR xorgate1(AxorB, a, b);
-`XOR xorgate2(sum, AxorB, carryin);
+`XORgate xorgate1(AxorB, a, b);
+`XORgate xorgate2(sum, AxorB, carryin);
 // AND gate is true only if both inputs are true
-`AND andgate1(AxorBandcarryin, AxorB, carryin);
-`AND andgate2(AandB, a, b);
+`ANDgate andgate1(AxorBandcarryin, AxorB, carryin);
+`ANDgate andgate2(AandB, a, b);
 /// OR gate is true if either or both of the inputs are true
-`OR orgate(carryout, AxorBandcarryin, AandB);
+`ORgate orgate(carryout, AxorBandcarryin, AandB);
 endmodule
 
 module add32
@@ -262,7 +270,7 @@ genvar i;
   endgenerate
 structuralFullAdder add31(andResult[31], carryout, operandA[31],MxorB[31], carryoutin[30]);
 
-  `XOR overflowgate(overflow,carryoutin[30],carryout);
+  `XORgate overflowgate(overflow,carryoutin[30],carryout);
 endmodule
 
 
@@ -281,35 +289,34 @@ module structuralMultiplexer
     wire mid1;
     wire mid2;
     wire mid3;
-    `NOT adinv(na0,address0);
-    `NOT adinv(na1,address1);
-    `AND andgate(mid0,na0,na1,in0);
-    `AND andgate(mid1,na1,address0,in1);
-    `AND andgate(mid2,address1,na0,in2);
-    `AND andgate(mid3,address0,address1,in3);
-    `OR orgate(out,mid0,mid1,mid2,mid3);
+    `NOTgate adinv(na0,address0);
+    `NOTgate adinv(na1,address1);
+    `ANDgate andgate(mid0,na0,na1,in0);
+    `ANDgate andgate(mid1,na1,address0,in1);
+    `ANDgate andgate(mid2,address1,na0,in2);
+    `ANDgate andgate(mid3,address0,address1,in3);
+    `ORgate orgate(out,mid0,mid1,mid2,mid3);
 endmodule
 
 
 
 module ALUcontrolLUT
 (
-output reg[2:0] muxindex,
+output reg[3:0] muxindex,
 output reg  invertB,
-output reg  othercontrolsignal,
 input[2:0]  ALUcommand
 )
 
   always @(ALUcommand) begin
     case (ALUcommand)
-      `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = ?; end    
-      `SUB:  begin muxindex = 0; invertB=1; othercontrolsignal = ?; end
-      `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = ?; end    
-      `SLT:  begin muxindex = 2; invertB=0; othercontrolsignal = ?; end
-      `AND:  begin muxindex = 3; invertB=0; othercontrolsignal = ?; end    
-      `NAND: begin muxindex = 3; invertB=1; othercontrolsignal = ?; end
-      `NOR:  begin muxindex = 4; invertB=1; othercontrolsignal = ?; end    
-      `OR:   begin muxindex = 4; invertB=0; othercontrolsignal = ?; end
+      `ADD:  begin muxindex = 0; invertB=0;  end    
+      `SUB:  begin muxindex = 0; invertB=1;  end
+      `XOR:  begin muxindex = 1; invertB=0;  end    
+      `SLT:  begin muxindex = 2; invertB=0;  end
+      `AND:  begin muxindex = 3; invertB=0;  end    
+      `NAND: begin muxindex = 3; invertB=1;  end
+      `NOR:  begin muxindex = 4; invertB=1;  end    
+      `OR:   begin muxindex = 4; invertB=0;  end
     endcase
   end
 endmodule
