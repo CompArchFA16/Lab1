@@ -1,4 +1,5 @@
 `include "alu_bitslice.v"
+`timescale 1 ns / 1 ps
 
 module ALU
 (

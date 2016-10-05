@@ -1,4 +1,5 @@
-`define NOR nor #320
+`include "constants.v"
+`timescale 1 ns / 1 ps
 
 module ALU_nor
 (
@@ -6,7 +7,5 @@ module ALU_nor
   input operandA,
   input operandB
 );
-
 	`NOR (result, operandA, operandB);
-
 endmodule

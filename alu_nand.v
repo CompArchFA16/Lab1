@@ -1,4 +1,5 @@
-`define NAND nand #320
+`include "constants.v"
+`timescale 1 ns / 1 ps
 
 module ALU_nand
 (
@@ -6,7 +7,5 @@ module ALU_nand
   input operandA,
   input operandB
 );
-
 	`NAND (result, operandA, operandB);
-
 endmodule
