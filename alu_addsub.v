@@ -14,17 +14,20 @@ module ALUAddSub
   input           ifsub
 );
 
-    wire  B_compl;
+    wire B_compl;
     wire B;
     wire abSum;
     wire abXor;
     wire abCinXor;
 
     `NOT notgate(B_compl, operandB);
-    Multiplexer2Input mux(B, ifsub, {operandB, B_compl});
+    Multiplexer2Input mux(B, ifsub, {B_compl, operandB});
     `AND andgate(abSum, operandA, B);
     `XOR xorgate(abXor, operandA, B);
     `AND andgate2(abCinXor, abXor, carryin);
     `OR orgate(carryout, abSum, abCinXor);
     `XOR xorgate2(result, abXor, carryin);
+
+    `NOR isZero(zero, result, carryout);
+    `XOR hasOverflown(overflow, carryout, carryin);
 endmodule

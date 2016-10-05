@@ -14,5 +14,11 @@ build-multiplexer:
 	iverilog -Wall -o multiplexer_4_input.o multiplexer_4_input.t.v
 	iverilog -Wall -o multiplexer_8_input.o multiplexer_8_input.t.v
 
+run-alu-addsub: build-alu-addsub
+	./alu_addsub.o
+
+build-alu-addsub:
+	iverilog -Wall -o alu_addsub.o alu_addsub.t.v
+
 clean:
 	rm *.o *.vcd

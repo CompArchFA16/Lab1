@@ -35,16 +35,6 @@ module ALUBitslice
   ALU_or aluOr(aluOutOr, operandA, operandB);
 
   // Choice.
-  // Multiplexer8Input mux8Input(result, command, {
-  //   aluOutAdd,
-  //   aluOutSub,
-  //   aluOutXor,
-  //   aluOutSlt,
-  //   aluOutAnd,
-  //   aluOutNand,
-  //   aluOutNor,
-  //   aluOutOr});
-
   Multiplexer8Input mux8Input(result, command, {
     aluOutOr,
     aluOutNor,
