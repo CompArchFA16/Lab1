@@ -11,7 +11,7 @@ module nand32 (
   generate
   genvar index;
 
-	for (index = 0; index<32; index = index + 1) begin
+	for (index = 0; index<32; index = index + 1) begin : NAND
 		`NAND32 nandgate(AnandB[index], A[index], B[index]);
 	end
 	endgenerate
@@ -26,7 +26,7 @@ module nor32 (
   generate
   genvar index;
 
-	for (index = 0; index<32; index = index + 1) begin
+	for (index = 0; index<32; index = index + 1) begin : NOR
 		`NOR32 norgate(AnorB[index], A[index], B[index]);
 	end
 	endgenerate
@@ -40,7 +40,7 @@ module not32 (
   genvar index;
 
 	generate
-		for (index = 0; index<32; index = index + 1) begin
+		for (index = 0; index<32; index = index + 1) begin : NOT
 			`NOT32 notgate(notA[index], A[index]);
 		end
 	endgenerate
@@ -57,7 +57,7 @@ module and32 (
   generate
   genvar index;
 
-	for (index = 0; index<32; index = index + 1) begin
+	for (index = 0; index<32; index = index + 1) begin : NAND
 		`NAND32 nandgate(AnandB[index], A[index], B[index]);
     `NOT32 notgate(AandB[index], AnandB[index]);
 	end
@@ -75,7 +75,7 @@ module or32 (
   generate
   genvar index;
 
-	for (index = 0; index<32; index = index + 1) begin
+	for (index = 0; index<32; index = index + 1) begin : NOR
 		`NOR32 norgate(AnorB[index], A[index], B[index]);
     `NOT32 notgate(AorB[index], AnorB[index]);
 	end
@@ -95,7 +95,7 @@ module xor32 (
   generate
   genvar index;
 
-	for (index = 0; index<32; index = index + 1) begin
+	for (index = 0; index<32; index = index + 1) begin : XOR
 		`NOR32 norgate(AnorA[index], A[index], A[index]);
     `NOR32 norgate(BnorB[index], B[index], B[index]);
     `NOR32 norgate(AAnorBB[index], AnorA[index], BnorB[index]);
