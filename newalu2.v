@@ -144,7 +144,7 @@ structuralFullAdder add31(addResult[31], carryout, operandA[31],MxorB[31], carry
 `XORgate overflowgate(overflow,carryoutin[30],carryout);
 endmodule
 
-
+//and LUT is working, and module is working, so it must be the mux that is broken
 module structuralMultiplexer
 (
     output [31:0] result,
@@ -202,7 +202,7 @@ always @(ALUcommand) begin
       `ADD:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
       `SUB:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=1; end //work
       `XOR:  begin muxindex = 1; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
-      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=1; end //work but outputs 31xs and then result
+      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=1; end //work 
       `AND:  begin muxindex = 3; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //broke
       `NAND: begin muxindex = 4; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //work
       `NOR:  begin muxindex = 3; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //broke

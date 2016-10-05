@@ -3,21 +3,22 @@
 /*include "genvartest.v"*/
 
 
-/*module testmux();
+module testmux();
 
     //tests the mux: MUX WORKS!
     wire [31:0] result;
     reg [2:0] muxindex;
     reg [31:0] andResult, orResult, xorResult, addResult;
-    reg sltResult;
+    reg [31:0]sltResult;
 
 
     structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult);
     initial begin
-    muxindex = 4; andResult=32'd1; orResult=32'd1; xorResult=32'd3; addResult=32'd4; sltResult=1; #1000000000
+    muxindex = 3; andResult=32'd1; orResult=32'd1; xorResult=32'd3; addResult=32'd4; sltResult=1; #1000000000
     $display(" %h  ", result);
     end
-*/
+    endmodule
+
 
 /*module testlut();
 
@@ -55,7 +56,7 @@
 
 
 
-module testalu();
+/*module testalu();
 
     //tests the mux: MUX WORKS!
     wire[31:0]    result;
@@ -106,7 +107,7 @@ module testalu();
     end
 
 
-endmodule
+endmodule*/
 
 /*module testand();
     wire carryout;
@@ -127,7 +128,7 @@ endmodule
     operandA='h0;operandB='h0; #1000
     $display(" %h   %h  | %h ||    00000000", operandA,operandB,  andResult);
     operandA='h181;operandB='h263; #1000
-    $display(" %h   %h  | %h ||    00000001", operandA,operandB,  andResult);
+    $display(" %b   %b  | %b ||    00000001", operandA,operandB,  andResult);
     operandA='h161;operandB='h161; #1000
     $display(" %h   %h  | %h ||    00000161", operandA,operandB,  andResult);
     operandA='hffffffff;operandB='hf00f001; #1000
