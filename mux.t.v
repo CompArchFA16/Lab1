@@ -1,12 +1,11 @@
 // Multiplexer testbench
 `include "mux.v"
 
-module testMultiplexer ();
+module testMultiplexer_1bit ();
     reg sel0;
     reg in0, in1;
     wire out;
 
-    //behavioralMultiplexer multiplexer (out,addr0,addr1,in0,in1,in2,in3);
     mux_1bit mux (out, sel0, in0, in1);
 
     initial begin
