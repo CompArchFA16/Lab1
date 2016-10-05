@@ -26,8 +26,8 @@ genvar i;
   generate
   //ands all 32 bits
     for (i = 0; i < 32; i = i+1)
-    begin : gen1
-      `ANDgate(andResult[i],operandA[i],operandB[i]);
+    begin : genand
+      `ANDgate myand(andResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -44,7 +44,7 @@ genvar i;
   generate
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `ORgate(orResult[i],operandA[i],operandB[i]);
+      `ORgate myor(orResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -72,7 +72,7 @@ genvar i;
   generate
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `XORgate(xorResult[i],operandA[i],operandB[i]);
+      `XORgate myxor(xorResult[i],operandA[i],operandB[i]);
     end
   endgenerate
 endmodule
@@ -88,7 +88,7 @@ genvar i;
   generate
     for (i = 0; i < 32; i = i+1)
     begin : gen1
-      `XORgate(xorResult[i],operandA[i],operandB);
+      `XORgate myxor(xorResult[i],operandA[i],operandB);
     end
   endgenerate
 endmodule
@@ -150,7 +150,7 @@ module structuralMultiplexer
     output [31:0] result,
     input [2:0] muxindex,
     input [31:0] andResult, orResult, xorResult, addResult,
-    input sltResult
+    input [31:0] sltResult
 );
 
     wire [2:0] notCommand;
@@ -202,8 +202,8 @@ always @(ALUcommand) begin
       `ADD:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
       `SUB:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=1; end //work
       `XOR:  begin muxindex = 1; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
-      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=0; end //work but outputs 31xs and then result
-      `AND:  begin muxindex = 3; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
+      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=1; end //work but outputs 31xs and then result
+      `AND:  begin muxindex = 3; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //broke
       `NAND: begin muxindex = 4; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //work
       `NOR:  begin muxindex = 3; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //broke
       `OR:   begin muxindex = 4; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
@@ -228,7 +228,8 @@ wire[2:0] muxindex; //address
 wire[31:0] operandA, operandB;
 wire[31:0] flipA, flipB;
 wire[31:0] andResult, orResult, addResult, xorResult;
-wire sltResult1;
+wire sltResult;
+wire[31:0] sltResult32 = 0;
 
 ALUcontrolLUT myLUT(muxindex, invertA, invertB, enableOverflow, carryin, command);
 
@@ -248,10 +249,11 @@ and32 myand(carryout, overflow, andResult, flipA, flipB);
 or32 myor(carryout, overflow, orResult, flipA, flipB);
 xor32 myxor(xorResult, flipA, flipB);
 add32 myadd(carryout, overflow, addResult, operandA, operandB, carryin);
-slt32 myslt(sltResult1, operandA, operandB);
+slt32 myslt(sltResult, operandA, operandB);
 
+`ORgate sltor(sltResult32[31],sltResult, 0);
 
-structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult1);
+structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult32);
 
 //what do we do with the zero output??
 
