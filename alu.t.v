@@ -22,7 +22,7 @@ module testAlu();
     $dumpvars;
     $display("name | command operandA operandB | result carryout zero overflow | EResult ECarryout EZero EOverflow");
 
-    // COMMAND_ADD =====================================================================
+    // COMMAND_ADD =============================================================
 
     // COMMAND_ADD #1: 1 + 2 = 3
     command = `COMMAND_ADD; operandA = 32'd1; operandB = 32'd2;
@@ -40,7 +40,7 @@ module testAlu();
     command = `COMMAND_ADD; operandA = 32'h80000001; operandB = 32'h80000001;
     $display("COMMAND_ADD | %h %h %h | %d %b %b %b | h80000002 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // COMMAND_SUB =====================================================================
+    // COMMAND_SUB =============================================================
 
     // COMMAND_SUB #1: 3 - 2 = 1
     command = `COMMAND_SUB; operandA = 32'd3; operandB = 32'd2;
@@ -64,7 +64,7 @@ module testAlu();
     command = `COMMAND_SUB; operandA = 32'h80000001; operandB = 32'h00000001;
     $display("COMMAND_SUB | %h %h %h | %d %b %b %b | h80000000 1 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // COMMAND_XOR =====================================================================
+    // COMMAND_XOR =============================================================
 
     // COMMAND_XOR #1: 0 COMMAND_XOR 0 = 0
     command = `COMMAND_XOR; operandA = 32'b0; operandB = 32'b0;
@@ -82,7 +82,7 @@ module testAlu();
     command = `COMMAND_XOR; operandA = 32'b1; operandB = 32'b1;
     $display("COMMAND_XOR | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // COMMAND_SLT =====================================================================
+    // COMMAND_SLT =============================================================
 
     // COMMAND_SLT #1: 2 < 3 = 1
     command = `COMMAND_SLT; operandA = 32'd2; operandB = 32'd3;
@@ -100,7 +100,7 @@ module testAlu();
     command = `COMMAND_SLT; operandA = 32'h01; operandB = 32'hFF;
     $display("COMMAND_SLT | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // AND =====================================================================
+    // COMMAND_AND =============================================================
 
     //AND #1: 0 & 0 = 0
     command = `COMMAND_AND; operandA = 32'd0; operandB = 32'd0;
@@ -118,7 +118,7 @@ module testAlu();
     command = `COMMAND_AND; operandA = 32'd1; operandB = 32'd1;
     $display("COMMAND_AND | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // COMMAND_NAND ====================================================================
+    // COMMAND_NAND ============================================================
 
     //COMMAND_NAND #1: 0 & 0 = 1
     command = `COMMAND_NAND; operandA = 32'd0; operandB = 32'd0;
@@ -137,7 +137,7 @@ module testAlu();
     $display("COMMAND_NAND| %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
 
-    // COMMAND_NOR =====================================================================
+    // COMMAND_NOR =============================================================
 
     // COMMAND_NOR #1: 0 COMMAND_NOR 0 = 0
     command = `COMMAND_NOR; operandA = 32'b0; operandB = 32'b0;
@@ -155,7 +155,7 @@ module testAlu();
     command = `COMMAND_NOR; operandA = 32'b1; operandB = 32'b1;
     $display("COMMAND_NOR  | %h %h %h | %d %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
-    // OR ======================================================================
+    // COMMAND_OR ==============================================================
 
     // OR #1: 0 OR 0 = 0
     command = `COMMAND_OR; operandA = 32'b0; operandB = 32'b0;
@@ -172,6 +172,5 @@ module testAlu();
     // OR #4: 1 OR 1 = 1
     command = `COMMAND_OR; operandA = 32'b1; operandB = 32'b1;
     $display("COMMAND_OR  | %h %h %h | %d %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
-
   end
 endmodule
