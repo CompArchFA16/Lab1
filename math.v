@@ -39,7 +39,7 @@ module CompAdder4bit
 
     wire temp_cout[2:0];
 
-    structuralFullAdder fa0(sum[0], temp_cout[0], a[0], b[0], 0);
+    structuralFullAdder fa0(sum[0], temp_cout[0], a[0], b[0], carryin);
     structuralFullAdder fa1(sum[1], temp_cout[1], a[1], b[1], temp_cout[0]);
     structuralFullAdder fa2(sum[2], temp_cout[2], a[2], b[2], temp_cout[1]);
     structuralFullAdder fa3(sum[3], carryout, a[3], b[3], temp_cout[2]);
@@ -56,13 +56,34 @@ module FullAdder32bit
     );
         wire temp_cout[6:0];
 
-        CompAdder4bit f40(sum[3:0], temp_cout[0], a[3:0], b[3:0], 0); 
-        CompAdder4bit f41(sum[7:4], temp_cout[1], a[7:4], b[7:4], temp_cout[0]);
-        CompAdder4bit f42(sum[11:8], temp_cout[2], a[11:8], b[11:8], temp_cout[1]);
+        CompAdder4bit f40(sum[3:0],   temp_cout[0], a[3:0],   b[3:0],   0); 
+        CompAdder4bit f41(sum[7:4],   temp_cout[1], a[7:4],   b[7:4],   temp_cout[0]);
+        CompAdder4bit f42(sum[11:8],  temp_cout[2], a[11:8],  b[11:8],  temp_cout[1]);
         CompAdder4bit f43(sum[15:12], temp_cout[3], a[15:12], b[15:12], temp_cout[2]);
         CompAdder4bit f44(sum[19:16], temp_cout[4], a[19:16], b[19:16], temp_cout[3]); 
         CompAdder4bit f45(sum[23:20], temp_cout[5], a[23:20], b[23:20], temp_cout[4]);
         CompAdder4bit f46(sum[27:24], temp_cout[6], a[27:24], b[27:24], temp_cout[5]);
-        CompAdder4bit f47(sum[31:28], carryout, a[31:28], b[31:28], temp_cout[6]);
+        CompAdder4bit f47(sum[31:28], carryout,     a[31:28], b[31:28], temp_cout[6]);
+        `XOR xorGate(overflow, carryout, temp_cout[6]);
+endmodule
+
+module FullSubtractor32bit
+(
+    output[31:0] sum,
+    output carryout,
+    output overflow,
+    input[31:0] a,
+    input[31:0] b //inverted b
+    );
+        wire temp_cout[6:0];
+
+        CompAdder4bit f40(sum[3:0],   temp_cout[0], a[3:0],   b[3:0],   1); 
+        CompAdder4bit f41(sum[7:4],   temp_cout[1], a[7:4],   b[7:4],   temp_cout[0]);
+        CompAdder4bit f42(sum[11:8],  temp_cout[2], a[11:8],  b[11:8],  temp_cout[1]);
+        CompAdder4bit f43(sum[15:12], temp_cout[3], a[15:12], b[15:12], temp_cout[2]);
+        CompAdder4bit f44(sum[19:16], temp_cout[4], a[19:16], b[19:16], temp_cout[3]); 
+        CompAdder4bit f45(sum[23:20], temp_cout[5], a[23:20], b[23:20], temp_cout[4]);
+        CompAdder4bit f46(sum[27:24], temp_cout[6], a[27:24], b[27:24], temp_cout[5]);
+        CompAdder4bit f47(sum[31:28], carryout,     a[31:28], b[31:28], temp_cout[6]);
         `XOR xorGate(overflow, carryout, temp_cout[6]);
 endmodule

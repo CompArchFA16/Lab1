@@ -20,7 +20,7 @@ output reg[2:0] muxindex, // Which function of the mux should be used
 output reg      invertB, // Use -b in the next operation
 output reg      setFlag, // Allow output flags
 output reg      secondaryOperation, //use the secondary function of that muxindex
-input[3:0]      ALUcommand
+input[2:0]      ALUcommand
 );
 
   // switch statement to select function from ALU command
