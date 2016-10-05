@@ -32,8 +32,4 @@ module ALUAddSub
     `OR orgate(carryout, abSum, abCinXor); 
     `XOR xorgate2(sum, abXor, carryin);
 
-    //subtraction
-
-
-
 endmodule
