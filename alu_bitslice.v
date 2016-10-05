@@ -25,9 +25,8 @@ module ALUBitslice
   wire aluOutNor, aluOutOr;
 
   // Modules.
-  // All calculations are done regardless?
-  // ALUAddSub aluAdd(aluOutAdd, operandA, operandB, carryin, 1'b0);
-  // ALUAddSub aluSub(aluOutSub, operandA, operandB, carryin, 1'b1);
+  ALUAddSub aluAdd(aluOutAdd, carryout, zero, overflow, operandA, operandB, carryin, 1'b0);
+  ALUAddSub aluSub(aluOutSub, carryout, zero, overflow, operandA, operandB, carryin, 1'b1);
   ALU_xor aluXor(aluOutXor, operandA, operandB);
   // TODO: Do SLT.
   ALU_and aluAnd(aluOutAnd, operandA, operandB);
