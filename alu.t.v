@@ -121,38 +121,38 @@ module testAlu();
     // COMMAND_NAND ============================================================
 
     //COMMAND_NAND #1: 0 & 0 = 1
-    command = `COMMAND_NAND; operandA = 32'd0; operandB = 32'd0; #50000
+    command = `COMMAND_NAND; operandA = 32'h0; operandB = 32'h0; #50000
     $display("COMMAND_NAND | %h       %h %h | %h %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     //COMMAND_NAND #1: 0 & 1 = 1
-    command = `COMMAND_NAND; operandA = 32'd0; operandB = 32'd1; #50000
+    command = `COMMAND_NAND; operandA = 32'h0; operandB = 32'hFFFFFFFF; #50000
     $display("COMMAND_NAND | %h       %h %h | %h %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     //COMMAND_NAND #1: 1 & 0 = 1
-    command = `COMMAND_NAND; operandA = 32'd1; operandB = 32'd0; #50000
+    command = `COMMAND_NAND; operandA = 32'hFFFFFFFF; operandB = 32'h0; #50000
     $display("COMMAND_NAND | %h       %h %h | %h %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     //COMMAND_NAND #1: 1 & 1 = 0
-    command = `COMMAND_NAND; operandA = 32'd1; operandB = 32'd1; #50000
+    command = `COMMAND_NAND; operandA = 32'hFFFFFFFF; operandB = 32'hFFFFFFFF; #50000
     $display("COMMAND_NAND | %h       %h %h | %h %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
 
     // COMMAND_NOR =============================================================
 
     // COMMAND_NOR #1: 0 COMMAND_NOR 0 = 0
-    command = `COMMAND_NOR; operandA = 32'b0; operandB = 32'b0; #50000
+    command = `COMMAND_NOR; operandA = 32'h0; operandB = 32'h0; #50000
     $display("COMMAND_NOR  | %h       %h %h | %h %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // COMMAND_NOR #2: 0 COMMAND_NOR 1 = 1
-    command = `COMMAND_NOR; operandA = 32'b0; operandB = 32'b1; #50000
+    command = `COMMAND_NOR; operandA = 32'h0; operandB = 32'hFFFFFFFF; #50000
     $display("COMMAND_NOR  | %h       %h %h | %h %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // COMMAND_NOR #3: 1 COMMAND_NOR 0 = 1
-    command = `COMMAND_NOR; operandA = 32'b1; operandB = 32'b0; #50000
+    command = `COMMAND_NOR; operandA = 32'hFFFFFFFF; operandB = 32'h0; #50000
     $display("COMMAND_NOR  | %h       %h %h | %h %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // COMMAND_NOR #4: 1 COMMAND_NOR 1 = 1
-    command = `COMMAND_NOR; operandA = 32'b1; operandB = 32'b1; #50000
+    command = `COMMAND_NOR; operandA = 32'hFFFFFFFF; operandB = 32'hFFFFFFFF; #50000
     $display("COMMAND_NOR  | %h       %h %h | %h %b %b %b | 0 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // COMMAND_OR ==============================================================
