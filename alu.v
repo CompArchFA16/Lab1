@@ -28,6 +28,11 @@
 //     endgenerate
 // endmodule
 
+// inputs and intermediate wires are put through gates to find sum and carryout\
+// not #10 not0(nb, b);
+// mux_1bit mux_1(true_b, not_b, b, invertB);
+
+
 module ALU // 32bit
 (
     output[31:0]    result,
@@ -55,11 +60,11 @@ module ALUcontrolLUT
         `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = 0; end
         `SUB:  begin muxindex = 0; invertB=1; othercontrolsignal = 0; end
         `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = 0; end
-        `SLT:  begin muxindex = 2; invertB=1; othercontrolsignal = 0; end
-        `NAND: begin muxindex = 3; invertB=0; othercontrolsignal = 0; end
-        `AND:  begin muxindex = 3; invertB=0; othercontrolsignal = 1; end
-        `NOR:  begin muxindex = 4; invertB=0; othercontrolsignal = 0; end
-        `OR:   begin muxindex = 4; invertB=0; othercontrolsignal = 1; end
+        `NAND: begin muxindex = 2; invertB=0; othercontrolsignal = 0; end
+        `AND:  begin muxindex = 2; invertB=0; othercontrolsignal = 1; end
+        `NOR:  begin muxindex = 3; invertB=0; othercontrolsignal = 0; end
+        `OR:   begin muxindex = 3; invertB=0; othercontrolsignal = 1; end
+        `SLT:  begin muxindex = 4; invertB=1; othercontrolsignal = 0; end
       endcase
     end
 endmodule
