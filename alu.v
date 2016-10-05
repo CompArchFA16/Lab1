@@ -13,6 +13,9 @@
 // `define NOTg not #10
 // `define NORg nor #20
 
+`include "mux.v"
+`include "adder.v"
+
 module 32_bit_slt // set less than
 (
   output result,
@@ -36,24 +39,6 @@ module 32_bit_slt // set less than
   Xor_1bit(w3, A[31], B[31]);
 endmodule
 
-module 1_bit_mux //used for processing different functions
-(
-    output result, 
-    input command,
-    input in0,
-    input in1
-  );
-    wire nand_in1com, and_in1com, ncom, nand_in0ncom, and_in0ncom, nor_wire;  // nor_wire is noring the 2 of last 3 wires here   
-    NAND nand_1(nand_in1com, in1, command) #20;
-    not  not_1(and_in1com, nand_in1com) #10;
-    not  not_2(ncom, command) #10;
-    nand nand_2(nand_in0ncom, in0, ncom) #20;
-    not  not_3(and_in0ncom, nand_in0ncom) #10;
-    nor  nor_1(nor_wire, and_in0ncom, and_in1com) #20;
-    not  not_4(result, nor_wire) #10;
-endmodule
-
-
 module Nor_1bit  // Can compute or and nor
 (
     output result,
@@ -66,7 +51,7 @@ module Nor_1bit  // Can compute or and nor
 
     nor nor_1(nor_ab, a, b) #20;
     not not_1(or_ab, nor_ab) #10;
-    1_bit_mux mux_1(result, nor_ab, or_ab);
+    mux_1bit mux_1(result, nor_ab, or_ab);
 endmodule
 
 module Nor_32bit  // Can compute or and nor
@@ -97,7 +82,7 @@ module Nand_1bit  // Can compute and and nand
 
     nand nand_1(nand_ab, a, b) #20;
     not not_1(and_ab, nand_ab) #10;
-    1_bit_mux mux_1(result, nand_ab, and_ab);
+    mux_1bit mux_1(result, nand_ab, and_ab);
 endmodule
 
 module Nand_32bit  // Can compute and and nand
@@ -145,33 +130,6 @@ module Xor_32bit  // Can compute xor
     endgenerate
 endmodule
 
-module Adder_1bit // add and "subtract"
-(
-    output sum,       // 1 bit sum of a and b and carryin
-    output carryout,  // Carry out of the summation of a and b and carryin
-    input a,          // 1 bit input a
-    input b,          // 1 bit input b
-    input carryin,    // 1 bit input carryin
-    input invertB     // Subtraction
-);
-    // Your adder code here
-
-    wire not_b, true_b, Xor_AB, Nand_AB, And_AB, Nand_XorAB_C, And_XorAB_C, nco; // Intermediate Wires
-
-    // inputs and intermediate wires are put through gates to find sum and carryout\
-    not not0(nb, b) #10;
-    1_bit_mux mux_1(true_b, not_b, b, invertB);
-
-    Xor_1bit Xor_1(Xor_AB, a, true_b);                 
-    Xor_1bit Xor_2(sum, Xor_AB, carryin);
-    nand nand_1(Nand_AB, a, true_b) #20;
-    not not1(And_AB, Nand_AB) #10;
-    nand nand_2(Nand_XorAB_C, carryin, Xor_AB) #20;
-    not not2(And_XorAB_C, Nand_XorAB_C) #10;
-    nor nor_1(nco, And_XorAB_C, And_AB) #20;
-    not not_3(carryout, nco) #10;
-endmodule
-
 module Adder_32bit  // 32-bit adder/subtracter
 (
   output[31:0] sum,  // 2's complement sum of a and b (and maybe previous carryin)
@@ -215,13 +173,13 @@ module ALUcontrolLUT
 
     always @(ALUcommand) begin
       case (ALUcommand)
-        `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = 0; end    
+        `ADD:  begin muxindex = 0; invertB=0; othercontrolsignal = 0; end
         `SUB:  begin muxindex = 0; invertB=1; othercontrolsignal = 0; end
-        `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = 0; end    
+        `XOR:  begin muxindex = 1; invertB=0; othercontrolsignal = 0; end
         `SLT:  begin muxindex = 2; invertB=1; othercontrolsignal = 0; end
         `NAND: begin muxindex = 3; invertB=0; othercontrolsignal = 0; end
-        `AND:  begin muxindex = 3; invertB=0; othercontrolsignal = 1; end    
-        `NOR:  begin muxindex = 4; invertB=0; othercontrolsignal = 0; end    
+        `AND:  begin muxindex = 3; invertB=0; othercontrolsignal = 1; end
+        `NOR:  begin muxindex = 4; invertB=0; othercontrolsignal = 0; end
         `OR:   begin muxindex = 4; invertB=0; othercontrolsignal = 1; end
       endcase
     end
