@@ -1,5 +1,4 @@
 `include "alu.v"
-
 `define ADD  3'd0 // Together
 `define SUB  3'd1 // David
 `define XOR  3'd2 // Bonnie
@@ -46,6 +45,7 @@ module testAlu();
     // ADD #4: h40000001 + h40000001 = h80000002
     command = `ADD; operandA = 32'h80000001; operandB = 32'h80000001;
     $display("ADD | %h %h %h | %d %b %b %b | h80000002 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+
 
     // SUB =====================================================================
 
