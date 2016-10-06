@@ -49,15 +49,17 @@ module test_alu_32bit ();
     $display("------------------------------------------------------");
     $display(" Cm  |        A         B |      Out | Cout  OF | Case");
     operandA= 32'h10000000; operandB = 32'he0000000; command = `SUB; #5000
-    $display(" %b | %h  %h | %h |    %h   %h | SUB ++, ~CO*~OF", command, operandA, operandB, result, carryout, overflow);
+    $display(" %b | %h  %h | %h |    %h   %h | SUB +-, ~CO*~OF", command, operandA, operandB, result, carryout, overflow);
     operandA= 32'he0000000; operandB = 32'h40000000; command = `SUB; #5000
-    $display(" %b | %h  %h | %h |    %h   %h | SUB --, CO*~OF", command, operandA, operandB, result, carryout, overflow);
+    $display(" %b | %h  %h | %h |    %h   %h | SUB -+, CO*~OF", command, operandA, operandB, result, carryout, overflow);
     operandA= 32'h70000000; operandB = 32'he0000000; command = `SUB; #5000
-    $display(" %b | %h  %h | %h |    %h   %h | SUB ++, ~CO*OF", command, operandA, operandB, result, carryout, overflow);
+    $display(" %b | %h  %h | %h |    %h   %h | SUB +-, ~CO*OF", command, operandA, operandB, result, carryout, overflow);
     operandA= 32'hf0000000; operandB = 32'h80000000; command = `SUB; #5000
-    $display(" %b | %h  %h | %h |    %h   %h | SUB --, CO*OF", command, operandA, operandB, result, carryout, overflow);
-    operandA= 32'h10000000; operandB = 32'h80000000; command = `SUB; #5000
-    $display(" %b | %h  %h | %h |    %h   %h | SUB +-, CO*~OF", command, operandA, operandB, result, carryout, overflow);
+    $display(" %b | %h  %h | %h |    %h   %h | SUB -+, CO*OF", command, operandA, operandB, result, carryout, overflow);
+    operandA= 32'h70000000; operandB = 32'h50000000; command = `SUB; #5000
+    $display(" %b | %h  %h | %h |    %h   %h | SUB ++, CO*~OF", command, operandA, operandB, result, carryout, overflow);
+    operandA= 32'hffffffff; operandB = 32'hffffffff; command = `SUB; #5000
+    $display(" %b | %h  %h | %h |    %h   %h | SUB --, CO*~OF", command, operandA, operandB, result, carryout, overflow);
 
     // Set if less than (SLT)
     $display("------------------------------------------------------");
