@@ -1,5 +1,5 @@
 `include "alu.v"
-`define DISP(exp) $display("%d %d %d | %d %b %b %b |", operandA, operandB, command, result, carryout, zero, overflow, exp)
+`define DISP(exp) $display("%d & %d & %d & %d & %b &  %b  &  %b & ", operandA, operandB, command, result, carryout, zero, overflow, exp)
 `define TEST(aValue,bValue) operandA= aValue; operandB  = bValue; #10000
 module alu_test();
   wire signed [3:0] result;
@@ -13,6 +13,8 @@ module alu_test();
 ALU #(.n(4)) alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
 
 initial begin
+	$dumpfile("alu.vcd");
+	$dumpvars;
 
 	$display("A B CMD | RES C_OUT ZERO OVERFLOW");
 
@@ -36,8 +38,8 @@ initial begin
 	`DISP();
     `TEST(4'b0001,4'b0101);
 	`DISP();
-	operandA=32'd2**32-1;operandB=1; #10000
-	`DISP(); #10000
+	`TEST(32'd2**32-1,1);
+	`DISP();
 
 	// SUB Module Test
 	command=1;
@@ -50,8 +52,8 @@ initial begin
 	`DISP();
     `TEST(4'b0101,4'b0110);
 	`DISP();
-	operandA=-1;operandB=-1; #10000
-	`DISP(); #10000
+	`TEST(32'd2**32-1,4'b1111);
+	`DISP(); 
 
 	// SLT Module Test
 	command=2;
@@ -64,25 +66,23 @@ initial begin
 	`DISP();
     `TEST(4'b1010,4'b1101);
 	`DISP();
-	operandA=32'd2**32-1;operandB=32'd2**32-1; #10000
-	`DISP(); #10000
+	`TEST(32'd2**32-1,32'd2**32-1); 
+	`DISP(); 
 
-
-
-	for(command = 3; command < 7; command = command + 1) begin
+	// XOR, NAND, AND, NOR, OR Module Test
+	$display("Testing XOR, NAND, AND, NOR, OR:");
+	for(command = 3; command < 8; command = command + 1) begin
 		#10000;
-		$display("A B CMD | RES C_OUT ZERO OVERFLOW");
-		// $display("Expected : %d %b %b %b |");
-		operandA=32'd2**32-32'd2**16; operandB=32'd2**32-1;
+		$display(" A  B CMD | RES C_OUT ZERO OVERFLOW");
+		`TEST(32'd2**32-1,32'd2**32-1); 
 		`DISP();
-		operandA=32'd2**32-32'd2**10; operandB=0;
+		`TEST(32'd2**32-1, 0); 
 		`DISP();
-		operandA=0;operandB=32'd2*32-1;
+		`TEST(0,32'd2**32-1); 
 		`DISP();
-		operandA=0;operandB=0;
+		`TEST(0,0); 
 		`DISP();
 	end
-	//	end
 end
 
 endmodule
