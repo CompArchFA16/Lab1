@@ -77,7 +77,7 @@ module ALU // 32bit
     adder_1bit aluSub(sub_sumleft, carryout_s, operandA[31], sub_b, int_carryout[30]);
 
     // Calculates overflow
-    xor_1bit xor_overflow(overflow, int_carryout[30], carryout);
+    xor_1bit xor_overflow(overflow, int_carryout[30], carryout); //is this carryout_s instead of cout?????
 
     // Calculates SLT
     wire sltValue;
