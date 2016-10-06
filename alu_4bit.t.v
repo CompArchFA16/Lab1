@@ -1,4 +1,4 @@
-// Multiplexer testbench
+// 4-bit ALU testbench
 `include "alu.v"
 `include "mux.v"
 `include "adder.v"
@@ -13,13 +13,10 @@ module test_alu_4bit ();
     ALU_4bit test(result, carryout, zero, overflow, operandA, operandB, command);
 
     initial begin
-    $dumpfile("alu_4bit.vcd");
-    $dumpvars;
-
     // Test pattern stimulus
     $display(" Cm  |    A     B |  Out | Cout  OF | Case");
 
-    // Value of selected bit = 1
+    // Basic gates (NAND, AND, NOR, OR, XOR)
     $display("----------------------------------------------------");
     operandA= 4'b1010; operandB = 4'b1100; command = `NAND; #1000
     $display(" %b | %b  %b | %b |    %b   %b | NAND", command, operandA, operandB, result, carryout, overflow);
@@ -32,6 +29,7 @@ module test_alu_4bit ();
     operandA= 4'b1010; operandB = 4'b1100; command = `XOR; #1000
     $display(" %b | %b  %b | %b |    %b   %b | XOR", command, operandA, operandB, result, carryout, overflow);
 
+    // Addition (ADD)
     $display("------------------------------------------------------------------------");
     $display(" Cm  |    A     B |  Out | Cout  OF | Case");
     operandA=4'b1111; operandB=4'b1111; command = `ADD; #1000
@@ -67,7 +65,7 @@ module test_alu_4bit ();
     operandA=4'b0111; operandB=4'b0000; command = `ADD; #1000
     $display(" %b | %b  %b | %b |    %b   %b | ADD", command, operandA, operandB, result, carryout, overflow);
 
-    // subtraction
+    // Subtraction (SUB)
     $display("------------------------------------------------------------------------");
     $display(" Cm  |    A     B |  Out | Cout  OF | Case");
     operandA=4'b1111; operandB=4'b0001; command = `SUB; #1000
@@ -103,7 +101,7 @@ module test_alu_4bit ();
     operandA=4'b0111; operandB=4'b0000; command = `SUB; #1000
     $display(" %b | %b  %b | %b |    %b   %b | SUB", command, operandA, operandB, result, carryout, overflow);
 
-    // slt
+    // Set if less than (SLT)
     $display("------------------------------------------------------------------------");
     $display(" Cm  |    A     B |  Out | Cout  OF | Case");
     operandA=4'b0001; operandB=4'b0011; command = `SLT; #1000
@@ -123,7 +121,7 @@ module test_alu_4bit ();
     operandA=4'b0101; operandB=4'b1100; command = `SLT; #1000
     $display(" %b | %b  %b | %b |    %b   %b | SLT", command, operandA, operandB, result, carryout, overflow);
 
-    // Tests the zero functionality
+    // Zero flag
     $display("----------------------------------------------------");
     $display(" Cm  |    A     B | A - B | Zero | Case");
     operandA= 4'b1111; operandB = 4'b1111; command = `SUB; #1000
@@ -131,5 +129,4 @@ module test_alu_4bit ();
     operandA= 4'b1111; operandB = 4'b0000; command = `SUB; #1000
     $display(" %b | %b  %b |  %b |    %b | A-B!=0", command, operandA, operandB, result, zero);
     end
-
 endmodule

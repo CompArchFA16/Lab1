@@ -1,30 +1,21 @@
-// 1-bit Adder Circuit
-module adder_1bit // add and "subtract"
+module adder_1bit // 1-bit full adder
 (
     output sum,       // 1 bit sum of a and b and carryin
-    output carryout,  // Carry out of the summation of a and b and carryin
+    output carryout,  // Carryout of the summation of a and b and carryin
     input a,          // 1 bit input a
     input b,          // 1 bit input b
-    input carryin    // 1 bit input carryin
+    input carryin     // 1 bit input carryin
 );
 
-    wire Xor_AB, Nand_AB, And_AB, Nand_XorAB_C, And_XorAB_C, nco;
+    // intermediate wires
+    wire xor_ab, nand_ab, and_ab, nand_xor_ab_c, and_xor_ab_c, nco;
 
-    xor_1bit xor_1(Xor_AB, a, b);
-    xor_1bit xor_2(sum, Xor_AB, carryin);
-    nand #20 nand_1 (Nand_AB, a, b);
-    not  #10 not1 (And_AB, Nand_AB);
-    nand #20 nand_2 (Nand_XorAB_C, carryin, Xor_AB);
-    not  #10 not2 (And_XorAB_C, Nand_XorAB_C);
-    nor  #20 nor_1 (nco, And_XorAB_C, And_AB);
+    xor_1bit xor_1(xor_ab, a, b);
+    xor_1bit xor_2(sum, xor_ab, carryin);
+    nand #20 nand_1 (nand_ab, a, b);
+    not  #10 not1 (and_ab, nand_ab);
+    nand #20 nand_2 (nand_xor_ab_c, carryin, xor_ab);
+    not  #10 not2 (and_xor_ab_c, nand_xor_ab_c);
+    nor  #20 nor_1 (nco, and_xor_ab_c, and_ab);
     not  #10 not_3 (carryout, nco);
-
-    // wire Xor_AB, And_AB, And_XorAB_C; // Intermediate Wires
-
-    // // inputs and intermediate wires are put through gates to find sum and carryout
-    // xor Xor_1(Xor_AB, a, b);                 
-    // xor Xor_2(sum, Xor_AB, carryin);
-    // and And_1(And_AB, a, b);
-    // and And_2(And_XorAB_C, carryin, Xor_AB);
-    // or Or_1(carryout, And_XorAB_C, And_AB);
 endmodule

@@ -1,4 +1,4 @@
-// Multiplexer testbench
+// ALU multiplexer (5:1 MUX) testbench
 `include "mux.v"
 
 module testMultiplexer_alu ();

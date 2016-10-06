@@ -1,5 +1,6 @@
-// 2:1 Multiplexer
-module mux_1bit
+// MUX components for the ALU
+
+module mux_1bit // 2:1 MUX
 (
     output result,
     input sel0,
@@ -18,8 +19,7 @@ module mux_1bit
     not  #10 not_4(result, nor_wire);
 endmodule
 
-// 5:1 Multiplexer
-module mux_alu
+module mux_alu // 5:1 MUX (for picking the correct operation)
 (
     output result,
     input sel0,

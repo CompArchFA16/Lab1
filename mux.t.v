@@ -1,4 +1,4 @@
-// Multiplexer testbench
+// 2:1 MUX testbench
 `include "mux.v"
 
 module testMultiplexer_1bit ();

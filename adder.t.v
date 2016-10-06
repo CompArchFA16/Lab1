@@ -1,4 +1,4 @@
-// Adder testbench
+// 1-bit adder testbench
 `include "adder.v"
 `include "gates.v"
 `include "mux.v"
@@ -7,7 +7,6 @@ module testFullAdder();
     reg a, b, carryin;
     wire sum, carryout;
 
-    //behavioralFullAdder adder (sum, carryout, a, b, carryin);
     adder_1bit adder (sum, carryout, a, b, carryin);
 
     initial begin
