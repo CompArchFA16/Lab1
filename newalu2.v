@@ -16,8 +16,6 @@
 
 module and32 //this gate is a nor gate if both inputs are inverted
 (
-output reg carryout=0,
-output reg overflow=0,
 output[31:0] andResult,
 input [31:0] operandA,
 input [31:0] operandB
@@ -34,8 +32,6 @@ endmodule
 
 module or32 //this gate is an nand gate if both inputs are inverted
 (
-output reg carryout=0,
-output reg overflow=0,
 output[31:0] orResult,
 input [31:0] operandA,
 input [31:0] operandB
@@ -130,17 +126,17 @@ wire[30:0] carryoutin;
 wire[31:0] MxorB;
 wire carryout;
 wire overflow;
-xor1a32 myxor(MxorB,operandB, M);
-structuralFullAdder add0(addResult[0], carryoutin[0], operandA[0],MxorB[0], M);
+//xor1a32 myxor(MxorB,operandB, M);
+structuralFullAdder add0(addResult[0], carryoutin[0], operandA[0],operandB[0], M);
 genvar i;
   generate
   //ands all 32 bits
     for (i = 1; i < 31; i = i+1)
     begin : gen1
-      structuralFullAdder addgates(addResult[i], carryoutin[i], operandA[i],MxorB[i], carryoutin[i-1]);
+      structuralFullAdder addgates(addResult[i], carryoutin[i], operandA[i],operandB[i], carryoutin[i-1]);
     end
   endgenerate
-structuralFullAdder add31(addResult[31], carryout, operandA[31],MxorB[31], carryoutin[30]);
+structuralFullAdder add31(addResult[31], carryout, operandA[31],operandB[31], carryoutin[30]);
 `XORgate overflowgate(overflow,carryoutin[30],carryout);
 endmodule
 
@@ -247,8 +243,8 @@ for (i=0; i<32; i=i+1)
 endgenerate
 
 //run all the calculations
-and32 myand(carryout, overflow, andResult, flipA, flipB);
-or32 myor(carryout, overflow, orResult, flipA, flipB);
+and32 myand(andResult, flipA, flipB);
+or32 myor(orResult, flipA, flipB);
 xor32 myxor(xorResult, flipA, flipB);
 add32 myadd(carryout, overflow, addResult, operandA, operandB, carryin);
 slt32 myslt(sltResult, operandA, operandB);
