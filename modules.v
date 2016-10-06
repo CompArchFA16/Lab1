@@ -34,7 +34,7 @@ endmodule
 // INV
 // -----------------------------------------------
 module mINV
-(#parameter n=32)
+#(parameter n=32)
 (
   output[n-1:0] out,
   input[n-1:0] in
@@ -55,7 +55,7 @@ endmodule
 // -----------------------------------------------
 
 module mNAND
-(#parameter n=32)
+#(parameter n=32)
 (
   output[n-1:0]    result,
   //output reg      carryout = 0,
@@ -78,7 +78,7 @@ endmodule
 // -----------------------------------------------
 
 module mNOR
-(#parameter n=32)
+#(parameter n=32)
 (
   output[n-1:0]    result,
   //output reg      carryout = 0,
@@ -101,7 +101,7 @@ endmodule
 // XOR
 // -----------------------------------------------
 module mXOR
-(#parameter n=32)
+#(parameter n=32)
 (
   output[n-1:0]    result,
   //output reg      carryout = 0,
@@ -123,7 +123,7 @@ endmodule
 // XNOR
 // -----------------------------------------------
 module mXNOR
-(#parameter n=32)
+#(parameter n=32)
 (
   output[n-1:0]    result,
   //output reg      carryout = 0,
@@ -146,7 +146,7 @@ endmodule
 // ADDSUB
 // -----------------------------------------------
 module mADDSUB
-(#parameter n=32)
+#(parameter n=32)
 (
 	output[n-1:0] result,
 	output       carryout,
@@ -178,7 +178,7 @@ endmodule
 // -----------------------------------------------
 
 module mSLT
-(#parameter n=32)
+#(parameter n=32)
 (
   output[n-1:0]    result,
   input[n-1:0]     operandA,
@@ -188,7 +188,7 @@ module mSLT
   wire[n-1:0]      subresult;
   wire            dump_co, dump_of;
 
-  mADDSUB msub(subresult, dump_co, dump_of, operandA, operandB, 1);
+  mADDSUB #(.n(n)) msub(subresult, dump_co, dump_of, operandA, operandB, 1);
 
   assign result[0] = subresult[n-1]; // MSB
 endmodule

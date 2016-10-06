@@ -44,18 +44,19 @@ input[2:0]  ALUcommand
 endmodule
 
 module ALU
+#(parameter n=32)
 (
-  output[31:0]    result,
+  output[n-1:0]    result,
   output          carryout,
   output          zero,
   output          overflow,
-  input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[n-1:0]     operandA,
+  input[n-1:0]     operandB,
   input[2:0]      command
 );
 
-wire [31:0] result_t;
-wire [31:0] results [4:0];
+wire [n-1:0] result_t;
+wire [n-1:0] results [4:0];
 
 wire [2:0] muxindex;
 wire invertB;
@@ -63,20 +64,20 @@ wire invertOutput;
 
 ALUcontrolLUT lut(muxindex, invertB, invertOutput, command);
 
-mADDSUB _addsub(results[0],carryouts, overflow, operandA, operandB, invertB);
-mSLT _slt(results[1],operandA, operandB);
-mXOR _xor(results[2],operandA,operandB); 
-mNAND _nand(results[3],operandA,operandB); 
-mNOR _nor(results[4],operandA,operandB); 
+mADDSUB #(.n(n)) _addsub(results[0],carryouts, overflow, operandA, operandB, invertB);
+mSLT #(.n(n)) _slt(results[1],operandA, operandB);
+mXOR #(.n(n)) _xor(results[2],operandA,operandB); 
+mNAND #(.n(n)) _nand(results[3],operandA,operandB); 
+mNOR #(.n(n)) _nor(results[4],operandA,operandB); 
 
 generate
   genvar i;
-  for (i=0; i<32; i = i+1) begin: subgenblk
+  for (i=0; i<n; i = i+1) begin: subgenblk
 		muxnbit #(.n(3)) mnb(result_t[i],{results[0][i],results[1][i],results[2][i],results[3][i],results[4][i],1'b0,1'b0,1'b0},muxindex); //out, data, sel
 		`XOR (result[i], result_t[i], invertOutput);
   end
 endgenerate
 
-`NOR z(zero, result); //100 = (log2(32)*2*10)
+`NOR z(zero, result); //100 = (log2(n)*2*10)
 
 endmodule

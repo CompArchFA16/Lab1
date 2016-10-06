@@ -1,15 +1,15 @@
 `include "alu.v"
 
 module alu_test();
-  wire signed [31:0] result;
+  wire signed [3:0] result;
   wire carryout;
   wire zero;
   wire overflow;
-  reg signed [31:0]     operandA;
-  reg signed [31:0]     operandB;
+  reg signed [3:0]     operandA;
+  reg signed [3:0]     operandB;
   reg [3:0]      command;
 
-ALU alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
+ALU #(.n(4)) alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
 
 initial begin
 
@@ -20,7 +20,7 @@ initial begin
 		for(operandB=0; operandB<2; operandB=operandB+1) begin
 			for(command=0; command<8; command=command+1) begin
 				#10000;
-				$display("%d %d %d | %d %b %b %b |", operandA, operandB, command[2:0], result, carryout, zero, overflow);
+				$display("%b %b %d | %b %b %b %b |", operandA, operandB, command[2:0], result, carryout, zero, overflow);
 			end
 		end
 	end
