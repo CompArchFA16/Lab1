@@ -125,6 +125,7 @@ module ALU
   input[2:0]      command
 );
 
+wire [31:0] result_t;
 wire [31:0] results [4:0];
 
 wire [2:0] muxindex;
@@ -142,10 +143,10 @@ mNOR _nor(results[4],operandA,operandB);
 generate
   genvar i;
   for (i=0; i<32; i = i+1) begin: subgenblk
-		muxnbit #(.n(3)) mnb(result[i],{results[0][i],results[1][i],results[2][i],results[3][i],results[4][i],results[4][i], results[4][i], results[4][i]},muxindex); //out, data, sel
+		muxnbit #(.n(3)) mnb(result_t[i],{results[0][i],results[1][i],results[2][i],results[3][i],results[4][i],1'b0,1'b0,1'b0},muxindex); //out, data, sel
+		`XOR (result[i], result_t[i], invertOutput);
   end
 endgenerate
 
 `NOR z(zero, result); //100 = (log2(32)*2*10)
-
 endmodule

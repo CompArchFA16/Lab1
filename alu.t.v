@@ -19,7 +19,7 @@ initial begin
 	for(operandA=0; operandA<2; operandA=operandA+1) begin
 		for(operandB=0; operandB<2; operandB=operandB+1) begin
 			for(command=0; command<8; command=command+1) begin
-				#1000;
+				#10000;
 				$display("%d %d %d | %d %b %b %b |", operandA, operandB, command[2:0], result, carryout, zero, overflow);
 			end
 		end
