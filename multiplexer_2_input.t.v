@@ -19,13 +19,13 @@ module testMultiplexer2Input();
     $display("%b", inputs[1]);
 
     $display("address inputs | out | EOut");
-    address = 1'b0; inputs = 2'bX0; #1000
+    address = 1'b0; inputs = 2'bX0; #10000
     $display("%b       %b     | %b   | 0", address, inputs, out);
-    address = 1'b0; inputs = 2'bX1; #1000
+    address = 1'b0; inputs = 2'bX1; #10000
     $display("%b       %b     | %b   | 1", address, inputs, out);
-    address = 1'b1; inputs = 2'b0X; #1000
+    address = 1'b1; inputs = 2'b0X; #10000
     $display("%b       %b     | %b   | 0", address, inputs, out);
-    address = 1'b1; inputs = 2'b1X; #1000
+    address = 1'b1; inputs = 2'b1X; #10000
     $display("%b       %b     | %b   | 1", address, inputs, out);
   end
 endmodule

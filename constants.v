@@ -11,8 +11,8 @@
 // Delays.
 // TODO: Get these delays updated.
 `define NOT not #10
-`define XOR xor #10
-`define AND and #10
-`define NAND nand #10
-`define NOR nor #10
-`define OR or #10
+`define XOR xor #320 // FIXME: What is the delay?
+`define AND and #330
+`define NAND nand #320
+`define NOR nor #320
+`define OR or #330

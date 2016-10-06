@@ -1,4 +1,5 @@
-`define OR or #330
+`include "constants.v"
+`timescale 1 ns / 1 ps
 
 module ALU_or
 (
@@ -6,7 +7,5 @@ module ALU_or
   input operandA,
   input operandB
 );
-
 	`OR (result, operandA, operandB);
-
 endmodule

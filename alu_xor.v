@@ -1,4 +1,5 @@
-`define XOR xor #320 // FIXME: What is the delay?
+`include "constants.v"
+`timescale 1 ns / 1 ps
 
 module ALU_xor
 (
@@ -6,7 +7,5 @@ module ALU_xor
   input operandA,
   input operandB
 );
-
 	`XOR (result, operandA, operandB);
-
 endmodule
