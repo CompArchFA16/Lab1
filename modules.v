@@ -8,6 +8,29 @@
 
 
 // -----------------------------------------------
+// Full Adder 
+// -----------------------------------------------
+module FullAdder
+(
+    output sum, 
+    output carryout,
+    input a, 
+    input b, 
+    input carryin
+);
+    wire AandB, AandC, BandC;
+
+    xor #30 xorGate(sum, a, b, carryin);
+
+    `AND and0(AandB, a, b);
+    `AND and1(AandC, a, carryin);
+    `AND and2(BandC, b, carryin);
+    or #40 orGate(carryout, AandB, AandC, BandC);
+
+endmodule
+
+
+// -----------------------------------------------
 // INV
 // -----------------------------------------------
 module mINV
