@@ -5,19 +5,32 @@
 `define OR32 or #320 //32 input OR
 `define AND32 and #320 //32 input AND
 `define XOR32 xor #320 //32 input XOR
+`define NOT not #10
+`define NOR nor #20
 
 
 module FlagZero
     /*This module figures out if a bit string is equal to 0, and raises a flag */
 
     (
-        input [31:0] a,
-        output zeroFlag
+        output zeroFlag,
+        input [31:0] a
     );
-    `NOR32 (zeroFlag, a);
+    wire [30:0] comparisonbits;
+
+    `OR orgate0(comparisonbits[0], a[0], a[1]);
+
+    genvar i;
+    generate
+    for (i=0; i < 30; i=i+1)
+    begin : OR
+        `OR _orgate(comparisonbits[i+1], a[i+2], comparisonbits[i]);
+        end
+    endgenerate
+
+    `NOT notgate(zeroFlag, comparisonbits[30]);
 
 endmodule
-
 
 module ANDfunction
 
