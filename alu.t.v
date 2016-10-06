@@ -2,27 +2,26 @@
 `define DISP(exp) $display("%d %d %d | %d %b %b %b |", operandA, operandB, command, result, carryout, zero, overflow, exp);
 `define TEST(aValue,bValue) operandA[31:28] = aValue; operandB[31:28] = bValue; #1000
 module alu_test();
-  wire signed [31:0] result;
+  wire signed [3:0] result;
   wire carryout;
   wire zero;
   wire overflow;
-  reg signed [31:0]     operandA;
-  reg signed [31:0]     operandB;
-  reg signed [3:0]      command;
+  reg signed [3:0] operandA;
+  reg signed [3:0] operandB;
+  reg [3:0]      command;
 
-ALU alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
+ALU #(.n(4)) alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
 
 initial begin
 
 	$display("A B CMD | RES C_OUT ZERO OVERFLOW");
 
-	// sanity test
-	for(operandA=0; operandA<4; operandA=operandA+1) begin
-		for(operandB=0; operandB<4; operandB=operandB+1) begin
-			command = 4;
-				#1000;
-				$display("%d %d %d | %d %b %b %b |", operandA, operandB, command, result, carryout, zero, overflow);
-			
+	for(operandA=-1; operandA<2; operandA=operandA+1) begin
+		for(operandB=-1; operandB<2; operandB=operandB+1) begin
+			for(command=0; command<1; command=command+1) begin
+				#10000;
+				$display("%b %b %d | %b %b %b %b |", operandA, operandB, command[2:0], result, carryout, zero, overflow);
+			end
 		end
 	end
 	

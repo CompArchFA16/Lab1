@@ -20,12 +20,11 @@ module FullAdder
 );
     wire AandB, AandC, BandC;
 
-    xor #30 xorGate(sum, a, b, carryin);
-
+    `XOR xorGate(sum, a, b, carryin);
     `AND and0(AandB, a, b);
     `AND and1(AandC, a, carryin);
     `AND and2(BandC, b, carryin);
-    or #40 orGate(carryout, AandB, AandC, BandC);
+    `OR orGate(carryout, AandB, AandC, BandC);
 
 endmodule
 
@@ -34,14 +33,15 @@ endmodule
 // INV
 // -----------------------------------------------
 module mINV
+#(parameter n=32)
 (
-  output[31:0] out,
-  input[31:0] in
+  output[n-1:0] out,
+  input[n-1:0] in
 );
 
   generate
     genvar i;
-    for (i=0; i<32; i = i+1) begin: invgenblk
+    for (i=0; i<n; i = i+1) begin: invgenblk
         not findinv(out[i], in[i]);
       end
   endgenerate
@@ -54,17 +54,18 @@ endmodule
 // -----------------------------------------------
 
 module mNAND
+#(parameter n=32)
 (
-  output[31:0]    result,
+  output[n-1:0]    result,
   //output reg      carryout = 0,
   //output reg      overflow = 0,
-  input[31:0]     operandA,
-  input[31:0]     operandB
+  input[n-1:0]     operandA,
+  input[n-1:0]     operandB
 );
 
   generate
     genvar i;
-    for (i=0; i<32; i = i+1) begin: nandgenblk
+    for (i=0; i<n; i = i+1) begin: nandgenblk
       `NAND findnand(result[i], operandA[i], operandB[i]);
     end
   endgenerate
@@ -76,17 +77,18 @@ endmodule
 // -----------------------------------------------
 
 module mNOR
+#(parameter n=32)
 (
-  output[31:0]    result,
+  output[n-1:0]    result,
   //output reg      carryout = 0,
   //output reg      overflow = 0,
-  input[31:0]     operandA,
-  input[31:0]     operandB
+  input[n-1:0]     operandA,
+  input[n-1:0]     operandB
 );
 
   generate
     genvar i;
-    for (i=0; i<32; i = i+1) begin: norgenblk
+    for (i=0; i<n; i = i+1) begin: norgenblk
       `NOR findnor(result[i], operandA[i], operandB[i]);
     end
   endgenerate
@@ -98,17 +100,18 @@ endmodule
 // XOR
 // -----------------------------------------------
 module mXOR
+#(parameter n=32)
 (
-  output[31:0]    result,
+  output[n-1:0]    result,
   //output reg      carryout = 0,
   //output reg      overflow = 0,
-  input[31:0]     operandA,
-  input[31:0]     operandB
+  input[n-1:0]     operandA,
+  input[n-1:0]     operandB
 );
 
   generate
     genvar i;
-    for (i=0; i<32; i = i+1) begin: xorgenblk
+    for (i=0; i<n; i = i+1) begin: xorgenblk
       `XOR findxor(result[i], operandA[i], operandB[i]);
     end
   endgenerate
@@ -119,17 +122,18 @@ endmodule
 // XNOR
 // -----------------------------------------------
 module mXNOR
+#(parameter n=32)
 (
-  output[31:0]    result,
+  output[n-1:0]    result,
   //output reg      carryout = 0,
   //output reg      overflow = 0,
-  input[31:0]     operandA,
-  input[31:0]     operandB
+  input[n-1:0]     operandA,
+  input[n-1:0]     operandB
 );
 
   generate
     genvar i;
-    for (i=0; i<32; i = i+1) begin: xnorgenblk
+    for (i=0; i<n; i = i+1) begin: xnorgenblk
       `XNOR findxnor(result[i], operandA[i], operandB[i]);
     end
   endgenerate
@@ -141,28 +145,29 @@ endmodule
 // ADDSUB
 // -----------------------------------------------
 module mADDSUB
+#(parameter n=32)
 (
-	output[31:0] result,
+	output[n-1:0] result,
 	output       carryout,
 	output       overflow,
-	input[31:0]  operandA,
-	input[31:0]  operandB,
+	input[n-1:0]  operandA,
+	input[n-1:0]  operandB,
 	input        sub // 1 for sub, 0 for add
 );
-	wire[32:0] c;
-  wire[31:0] xorB;
+	wire[n:0] c;
+	wire[n-1:0] xorB;
 	assign c[0] = sub;
 
   generate
     genvar i;
-    for (i=0; i<32; i = i+1) begin: addsubgenblk
-      `XOR xoraddsub(xorB[i], operand[i], addsub);
-      FullAdder fa(result[i], c[i+1], operandA[i], xorB[i], c[i]);
+    for (i=0; i<n; i = i+1) begin: addsubgenblk
+      //`XOR xoraddsub(xorB[i], operandB[i], sub);
+      FullAdder fa(result[i], c[i+1], operandA[i], operandB[i], c[i]);
     end
   endgenerate
 
-  assign carryout = c[32];
-  `XOR xorGate(overflow, c[32], c[31]);
+  assign carryout = c[n];
+  `XOR xorGate(overflow, c[n], c[n-1]);
 
 endmodule
 
@@ -172,16 +177,17 @@ endmodule
 // -----------------------------------------------
 
 module mSLT
+#(parameter n=32)
 (
-  output[31:0]    result,
-  input[31:0]     operandA,
-  input[31:0]     operandB
+  output[n-1:0]    result,
+  input[n-1:0]     operandA,
+  input[n-1:0]     operandB
 );
 
-  wire[31:0]      subresult;
+  wire[n-1:0]      subresult;
   wire            dump_co, dump_of;
 
-  mADDSUB msub(subresult, dump_co, dump_of, operandA, operandB, 1);
+  mADDSUB #(.n(n)) msub(subresult, dump_co, dump_of, operandA, operandB, 1);
 
-  assign result[0] = subresult[31]; // MSB
+  assign result[0] = subresult[n-1]; // MSB
 endmodule
