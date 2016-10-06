@@ -260,7 +260,7 @@ structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, ad
 slt32 myslt2(sltCheck1, result, 0);
 slt32 myslt3(sltCheck2, 0, result);
 
-//what do we do with the zero output??
+`NORgate norgate2(zero, sltCheck1, sltCheck2);
 
 
 endmodule

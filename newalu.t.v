@@ -3,7 +3,7 @@
 /*include "genvartest.v"*/
 
 
-module testmux();
+/*module testmux();
 
     //tests the mux: MUX WORKS!
     wire [31:0] result;
@@ -31,10 +31,10 @@ module testmux();
     muxindex = 4; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
     $display("Or/Nand |    %h      %h   |    %h ", muxindex, result, orResult);
     end
-    endmodule
+    endmodule*/
 
-
-/*module testlut();
+/*
+module testlut();
 
     //tests the mux: MUX WORKS!
     wire[2:0] muxindex;
@@ -64,13 +64,13 @@ module testmux();
     $display("     %h       %h       %h           %h           %h        %h  ", muxindex, invertA, invertB, enableOverflow, carryin, ALUcommand);
     ALUcommand=3'b111; #1000000000
     $display("     %h       %h       %h           %h           %h        %h  ", muxindex, invertA, invertB, enableOverflow, carryin, ALUcommand);
-    end
-*/
+    end*/
 
 
 
 
-/*module testalu();
+
+module testalu();
 
     //tests the mux: MUX WORKS!
     wire[31:0]    result;
@@ -121,7 +121,7 @@ module testmux();
     end
 
 
-endmodule*/
+endmodule
 
 /*module testand();
     wire carryout;
