@@ -43,4 +43,16 @@ module ALU
         command);
     end
   endgenerate
+
+  // HACK: Figure out how to rename wires properly.
+  wire carryout_n, zero_n, overflow_n;
+
+  not (carryout_n, internalCarryouts[31]);
+  not (carryout, carryout_n);
+
+  not (zero_n, internalZeros[31]);
+  not (zero, zero_n);
+
+  not (overflow_n, internalOverflows[31]);
+  not (overflow, overflow_n);
 endmodule
