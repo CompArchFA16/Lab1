@@ -198,7 +198,7 @@ always @(ALUcommand) begin
       `ADD:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
       `SUB:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=1; end //work
       `XOR:  begin muxindex = 1; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
-      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=1; end //work 
+      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=1; end //work
       `AND:  begin muxindex = 3; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //broke
       `NAND: begin muxindex = 4; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //work
       `NOR:  begin muxindex = 3; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //broke
@@ -246,17 +246,40 @@ endgenerate
 and32 myand(andResult, flipA, flipB);
 or32 myor(orResult, flipA, flipB);
 xor32 myxor(xorResult, flipA, flipB);
-add32 myadd(carryout, overflow, addResult, operandA, operandB, carryin);
+add32 myadd(carryout, adderoverflow, addResult, operandA, operandB, carryin);
 slt32 myslt(sltResult, operandA, operandB);
-
+`ANDgate andoverflow(overflow, enableOverflow, adderoverflow);
 `ORgate sltor(sltResult32[31],sltResult, 0);
 
 structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult32);
 
-slt32 myslt2(sltCheck1, result, 0);
-slt32 myslt3(sltCheck2, 0, result);
 
-`NORgate norgate2(zero, sltCheck1, sltCheck2);
+// zero
+// the old zero approach had issues with certain things (when msb = 1)
+// in the waveform turning out with the inverted slt signals both being 1
 
+
+wire[30:0] high;
+
+//or the first one separately because you need to have something to compare against for the loop
+`ORgate orgate0(high[0], result[0], result[1]);
+//genvar version of zero to check if there are any ones in the result
+genvar j;
+generate
+  for(j=1; j<31; j = j + 1)
+  begin: gen2
+    `ORgate orgatej(high[j], high[j - 1], result[j + 1]);
+  end
+endgenerate
+//not it to have it result in 1 if there are no 1s in the result
+`NOTgate notgate(zero, high[30]);
+
+// genvar j;
+// generate
+//   for(j=0; j<31; j = j + 1)
+//   begin: gen2
+//     `ORgate orgatej(high[j], high[j], result[j + 2]);
+//   end
+// endgenerate
 
 endmodule

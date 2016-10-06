@@ -84,9 +84,26 @@ module testalu();
 
     ALU myALU( result, carryout, zero, overflow, operandA, operandB, command);
     initial begin
+
+    //dump to vcd file so we can look at waveform
+    $dumpfile("newALU2.vcd");
+    $dumpvars(0, myALU);
+
     $display("command  operandA  operandB |  result  carryout zero overflow ");
-    command=3'b000; operandA=32'hefffffff; operandB=32'hefffffff; #100000000000
+    command=3'b000; operandA=32'h7FFFFFFF; operandB=32'h7FFFFFFF; #100000000000
     $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
+
+    command=3'b011; operandA=32'h7FFFFFFF; operandB=32'h7FFFFFFF; #100000000000
+
+    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b000; operandA=32'hFFFFFFFF; operandB=32'hFFFFFFFF; #100000000000
+    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b001; operandA=32'hFFFFFFFF; operandB=32'hFFFFFFFF; #100000000000
+    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b010; operandA=32'hFFFFFFFF; operandB=32'hFFFFFFFF; #100000000000
+    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
+
+
     command=3'b001; operandA=32'h1; operandB=32'h2; #100000000000
     $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
     command=3'b010; operandA=32'h1; operandB=32'h2; #100000000000
