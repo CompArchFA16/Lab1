@@ -1,0 +1,2 @@
+# testing 1-bit mux - typo in out_1/out_2 vs. out_0/out_1
+
