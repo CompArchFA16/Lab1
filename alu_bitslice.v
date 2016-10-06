@@ -49,17 +49,17 @@ module ALUBitslice
     aluOutAdd});
 
   Multiplexer8Input mux8Carryout(carryout, command, {
-    aluOutAddCarryout,
+    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0,
     aluOutSubCarryout,
-    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0});
+    aluOutAddCarryout});
 
   Multiplexer8Input mux8Zero(zero, command, {
-    aluOutAddZero,
+    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0,
     aluOutSubZero,
-    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0});
+    aluOutAddZero});
 
   Multiplexer8Input mux8Overflow(overflow, command, {
-    aluOutAddOverflow,
+    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0,
     aluOutSubOverflow,
-    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0});
+    aluOutAddOverflow});
 endmodule

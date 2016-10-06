@@ -4,6 +4,12 @@ run: build
 build:
 	iverilog -Wall -o alu.o alu.t.v
 
+run-alu-2bit: build-alu-2bit
+	./alu_2bit.o
+
+build-alu-2bit:
+	iverilog -Wall -o alu_2bit.o alu_2bit.t.v
+
 run-multiplexer: build-multiplexer
 	./multiplexer_2_input.o
 	./multiplexer_4_input.o
