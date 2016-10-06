@@ -1,5 +1,5 @@
 `include "alu.v"
-`define DISP(exp) $display("%d %d %d | %d %b %b %b |", operandA, operandB, command, result, carryout, zero, overflow, exp);
+`define DISP(exp) $display("%d %d %d | %d %b %b %b |", operandA, operandB, command, result, carryout, zero, overflow, exp)
 `define TEST(aValue,bValue) operandA= aValue; operandB  = bValue; #10000
 module alu_test();
   wire signed [3:0] result;

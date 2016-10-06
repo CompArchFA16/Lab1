@@ -58,17 +58,23 @@ module ALU
 wire [n-1:0] result_t;
 wire [n-1:0] results [4:0];
 
+wire carryout_t, overflow_t;
+
 wire [2:0] muxindex;
 wire invertB;
 wire invertOutput;
 
 ALUcontrolLUT lut(muxindex, invertB, invertOutput, command);
 
-mADDSUB #(.n(n)) _addsub(results[0],carryout, overflow, operandA, operandB, invertB);
+mADDSUB #(.n(n)) _addsub(results[0],carryout_t, overflow_t, operandA, operandB, invertB);
 mSLT #(.n(n)) _slt(results[1],operandA, operandB);
 mXOR #(.n(n)) _xor(results[2],operandA,operandB); 
 mNAND #(.n(n)) _nand(results[3],operandA,operandB); 
 mNOR #(.n(n)) _nor(results[4],operandA,operandB); 
+
+and billsfavoriteandgate(carryout, carryout_t, ~muxindex[0], ~muxindex[1], ~muxindex[2]);
+
+and billssecondfavoriteandgate(overflow, overflow_t, ~muxindex[0], ~muxindex[1], ~muxindex[2]);
 
 generate
   genvar i;

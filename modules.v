@@ -187,6 +187,8 @@ module mSLT
   wire[n-1:0]      subresult;
   wire            dump_co, dump_of;
 
+  assign result[n-1:1] = {n-1{1'b0}};
+
   mADDSUB #(.n(n)) msub(subresult, dump_co, dump_of, operandA, operandB, 1'b1);
 
   assign result[0] = subresult[n-1]; // MSB
