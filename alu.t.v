@@ -92,13 +92,13 @@ module testFullAdder();
     // In hex, a number is negative if the most significant bit is 8 or above
     a=32'h7fffffff;b=32'h80000000;command=3'b001; #10000000
     $display("%h %h %b     | %h %b        %b    %b        | %h", a, b, command, result, carryout, zero, overflow, a-b);
-    a=32'h58294726;b=32'hf9274928;command=3'b001; #10000000
+    a=32'h58294726;b=32'h99274928;command=3'b001; #10000000
     $display("%h %h %b     | %h %b        %b    %b        | %h", a, b, command, result, carryout, zero, overflow, a-b);
 
     $display("neg-pos, overflow");
     a=32'h80000000;b=32'h7fffffff;command=3'b001; #10000000
     $display("%h %h %b     | %h %b        %b    %b        | %h", a, b, command, result, carryout, zero, overflow, a-b);
-    a=32'hf9274928;b=32'h58294726;command=3'b001; #10000000
+    a=32'h89274928;b=32'h58294726;command=3'b001; #10000000
     $display("%h %h %b     | %h %b        %b    %b        | %h", a, b, command, result, carryout, zero, overflow, a-b);
 
     $display("zero");
