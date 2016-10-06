@@ -8,6 +8,7 @@
 `define c_OR   3'd7
 
 `include "modules.v"
+`include "muxnbit.v"
 
 //gate delay are assumed to be proportional to the number of inputs
 //10 units per input
@@ -90,64 +91,7 @@ endmodule
 //  `XOR xorGate(overflow, c[32], c[31]);
 //
 //endmodule
-
-module mux1bit
-(
-	output out,
-	input [1:0] data,
-	input sel
-);
-wire out_1, out_2;
-wire n_sel;
-
-`NOT not_1(n_sel, sel);
-and (out_0, n_sel, data[0]);
-and (out_1, sel, data[1]);
-`OR or1(out, out_1, out_2);
-endmodule
-
-
-//module mux2bit // multiplexer 
-//(
-//    output out,
-//    input address0, address1,
-//	input [3:0] data // 00 ~ 11
-//);
-//	wire na1,na0;
-//	wire o0, o1, o2, o3;
 //
-//	`NOT(na0,address0);
-//	`NOT(na1,address1);
-//	`AND(o0, data[0], na1, na0);
-//	`AND(o1, data[1], na1, address0);
-//	`AND(o2, data[2], address1, na0);
-//	`AND(o3, data[3], address1, address0);
-//	`OR(out, o0,o1,o2,o3);
-//endmodule
-module muxnbit
-(
-	#(parameter n=32)
-	output out,
-	input [n-1:0] data,
-	input [$clog2(n)-1:0] sel
-);
-
-generate
-
-if(n == 2) begin
-	mux1bit _mux1bit(out, data[1:0], sel); 
-end
-else begin
-	wire out_low, out_high;
-	muxnbit _muxnbit_low(out_low, data[n/2-1:0], sel[$clog2(n)-2:0]);
-	muxnbit _muxnbit_high(out_high, data[n-1:n/2], ~sel[$clog2(n)-2:0]);
-	mux1bit _mux1bit_2(out,{out_low, out_high}, sel[$clog2(n)-1 
-end
-
-endgenerate
-
-endmodule
-
 module ALUcontrolLUT
 (
 output reg[2:0]     muxindex,
@@ -170,31 +114,6 @@ input[2:0]  ALUcommand
   end
 endmodule
 
-module ALU1bit
-(
-	output result,
-	output carryout,
-	output zero,
-	output overflow,
-	output operandA,
-	output operandB,
-	input [2:0] command
-);
-
-wire [2:0] muxindex;
-wire invertB;
-wire invertOutput;
-
-ALUcontrolLUT lut(muxindex, invertB, invertOutput, command);
-
-`XOR(operandB, invertB, invertB);
-
-mADDSUB addsub(
-
-`XOR(result, invertOutput, result_tmp);
-
-endmodule
-
 module ALU
 (
   output[31:0]    result,
@@ -214,7 +133,7 @@ wire invertOutput;
 
 ALUcontrolLUT lut(muxindex, invertB, invertOutput, command);
 
-mADDSUB _addsub(results[0],carryouts,operandA, operandB, invertB);
+mADDSUB _addsub(results[0],carryouts, overflow, operandA, operandB, invertB);
 mSLT _slt(results[1],operandA, operandB);
 mXOR _xor(results[2],operandA,operandB); 
 mNAND _nand(results[3],operandA,operandB); 
@@ -223,13 +142,10 @@ mNOR _nor(results[4],operandA,operandB);
 generate
   genvar i;
   for (i=0; i<32; i = i+1) begin: subgenblk
-	  mux3b
-    `NOT notsub(nB[i], operandB[i]); //inverting B
-    FullAdder fa(result[i], c[i+1], operandA[i], nB[i], c[i]);
+		muxnbit #(.n(3)) mnb(result[i],{results[0][i],results[1][i],results[2][i],results[3][i],results[4][i],results[4][i], results[4][i], results[4][i]},muxindex); //out, data, sel
   end
 endgenerate
 
+`NOR z(zero, result); //100 = (log2(32)*2*10)
 
-  //nor #100 z(zero, result) //100 = (log2(32)*2*10)
 endmodule
-
