@@ -4,1805 +4,1805 @@
 :vpi_module "system";
 :vpi_module "v2005_math";
 :vpi_module "va_math";
-S_0x19b9c70 .scope module, "FullSubtractor32bit" "FullSubtractor32bit" 2 70;
- .timescale -9 -12;
-L_0x19fd8e0/d .functor XOR 1, L_0x19fd5f0, L_0x19fb040, C4<0>, C4<0>;
-L_0x19fd8e0 .delay (30000,30000,30000) L_0x19fd8e0/d;
-v0x19dade0_0 .net "a", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
-v0x19daea0_0 .net "b", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
-v0x19daf40_0 .net "carryout", 0 0, L_0x19fd5f0; 1 drivers
-v0x19db010_0 .net "overflow", 0 0, L_0x19fd8e0; 1 drivers
-RS_0x2b3f9cdeff58/0/0 .resolv tri, L_0x19ed2f0, L_0x19ef940, L_0x19f1f60, L_0x19f4510;
-RS_0x2b3f9cdeff58/0/4 .resolv tri, L_0x19f6b90, L_0x19f9140, L_0x19fb780, L_0x19fdd30;
-RS_0x2b3f9cdeff58 .resolv tri, RS_0x2b3f9cdeff58/0/0, RS_0x2b3f9cdeff58/0/4, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>;
-v0x19db090_0 .net8 "sum", 31 0, RS_0x2b3f9cdeff58; 8 drivers
-v0x19db130 .array "temp_cout", 0 6;
-v0x19db130_0 .net v0x19db130 0, 0 0, L_0x19ecbb0; 1 drivers
-v0x19db130_1 .net v0x19db130 1, 0 0, L_0x19ef200; 1 drivers
-v0x19db130_2 .net v0x19db130 2, 0 0, L_0x19f1820; 1 drivers
-v0x19db130_3 .net v0x19db130 3, 0 0, L_0x19f3dd0; 1 drivers
-v0x19db130_4 .net v0x19db130 4, 0 0, L_0x19f6450; 1 drivers
-v0x19db130_5 .net v0x19db130 5, 0 0, L_0x19f8a70; 1 drivers
-v0x19db130_6 .net v0x19db130 6, 0 0, L_0x19fb040; 1 drivers
-RS_0x2b3f9cdefe98 .resolv tri, L_0x19eb3f0, L_0x19ebc60, L_0x19ec530, L_0x19ecd70;
-L_0x19ed2f0 .part/pv RS_0x2b3f9cdefe98, 0, 4, 32;
-L_0x19ed390 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 0, 4;
-L_0x19ed430 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 0, 4;
-RS_0x2b3f9cdef8c8 .resolv tri, L_0x19ed9b0, L_0x19ee270, L_0x19eeb40, L_0x19ef3c0;
-L_0x19ef940 .part/pv RS_0x2b3f9cdef8c8, 4, 4, 32;
-L_0x19ef9e0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 4, 4;
-L_0x19efa80 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 4, 4;
-RS_0x2b3f9cdef2f8 .resolv tri, L_0x19effb0, L_0x19f0870, L_0x19f1160, L_0x19f19e0;
-L_0x19f1f60 .part/pv RS_0x2b3f9cdef2f8, 8, 4, 32;
-L_0x19f2000 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 8, 4;
-L_0x19f20a0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 8, 4;
-RS_0x2b3f9cdeed28 .resolv tri, L_0x19f2580, L_0x19f2e40, L_0x19f3710, L_0x19f3f90;
-L_0x19f4510 .part/pv RS_0x2b3f9cdeed28, 12, 4, 32;
-L_0x19f4640 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 12, 4;
-L_0x19f4770 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 12, 4;
-RS_0x2b3f9cdee758 .resolv tri, L_0x19f4d40, L_0x19f5510, L_0x19f5d90, L_0x19f6610;
-L_0x19f6b90 .part/pv RS_0x2b3f9cdee758, 16, 4, 32;
-L_0x19f6c30 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 16, 4;
-L_0x19f6d50 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 16, 4;
-RS_0x2b3f9cdee188 .resolv tri, L_0x19f7220, L_0x19f7ae0, L_0x19f83b0, L_0x19f8c30;
-L_0x19f9140 .part/pv RS_0x2b3f9cdee188, 20, 4, 32;
-L_0x19f9270 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 20, 4;
-L_0x19f9310 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 20, 4;
-RS_0x2b3f9cdedbb8 .resolv tri, L_0x19f97f0, L_0x19fa0b0, L_0x19fa980, L_0x19fb200;
-L_0x19fb780 .part/pv RS_0x2b3f9cdedbb8, 24, 4, 32;
-L_0x19fb820 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 24, 4;
-L_0x19f93b0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 24, 4;
-RS_0x2b3f9cded5e8 .resolv tri, L_0x19fbda0, L_0x19fc660, L_0x19fcf30, L_0x19fd7b0;
-L_0x19fdd30 .part/pv RS_0x2b3f9cded5e8, 28, 4, 32;
-L_0x19fb8c0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 28, 4;
-L_0x19fe0b0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 28, 4;
-S_0x19d8ff0 .scope module, "f40" "CompAdder4bit" 2 80, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19da990_0 .net "a", 3 0, L_0x19ed390; 1 drivers
-v0x19daa50_0 .net "b", 3 0, L_0x19ed430; 1 drivers
-v0x19daaf0_0 .net "carryin", 0 0, C4<1>; 1 drivers
-v0x19dab70_0 .alias "carryout", 0 0, v0x19db130_0;
-v0x19dabf0_0 .net8 "sum", 3 0, RS_0x2b3f9cdefe98; 4 drivers
-v0x19dac70 .array "temp_cout", 0 2;
-v0x19dac70_0 .net v0x19dac70 0, 0 0, L_0x19eb320; 1 drivers
-v0x19dac70_1 .net v0x19dac70 1, 0 0, L_0x19ebaf0; 1 drivers
-v0x19dac70_2 .net v0x19dac70 2, 0 0, L_0x19ec3a0; 1 drivers
-L_0x19eb3f0 .part/pv L_0x19eaf20, 0, 1, 4;
-L_0x19eb490 .part L_0x19ed390, 0, 1;
-L_0x19eb5c0 .part L_0x19ed430, 0, 1;
-L_0x19ebc60 .part/pv L_0x19eb6f0, 1, 1, 4;
-L_0x19ebd50 .part L_0x19ed390, 1, 1;
-L_0x19ebe80 .part L_0x19ed430, 1, 1;
-L_0x19ec530 .part/pv L_0x19ebff0, 2, 1, 4;
-L_0x19ec5d0 .part L_0x19ed390, 2, 1;
-L_0x19ec700 .part L_0x19ed430, 2, 1;
-L_0x19ecd70 .part/pv L_0x19ec830, 3, 1, 4;
-L_0x19ecf00 .part L_0x19ed390, 3, 1;
-L_0x19ed0c0 .part L_0x19ed430, 3, 1;
-S_0x19da390 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19d8ff0;
- .timescale -9 -12;
-L_0x19eaf20/d .functor XOR 1, L_0x19eb490, L_0x19eb5c0, C4<1>, C4<0>;
-L_0x19eaf20 .delay (30000,30000,30000) L_0x19eaf20/d;
-L_0x19eb080/d .functor AND 1, L_0x19eb490, L_0x19eb5c0, C4<1>, C4<1>;
-L_0x19eb080 .delay (20000,20000,20000) L_0x19eb080/d;
-L_0x19eb120/d .functor AND 1, L_0x19eb490, C4<1>, C4<1>, C4<1>;
-L_0x19eb120 .delay (20000,20000,20000) L_0x19eb120/d;
-L_0x19eb1c0/d .functor AND 1, L_0x19eb5c0, C4<1>, C4<1>, C4<1>;
-L_0x19eb1c0 .delay (20000,20000,20000) L_0x19eb1c0/d;
-L_0x19eb320/d .functor OR 1, L_0x19eb080, L_0x19eb120, L_0x19eb1c0, C4<0>;
-L_0x19eb320 .delay (20000,20000,20000) L_0x19eb320/d;
-v0x19da480_0 .net "AandB", 0 0, L_0x19eb080; 1 drivers
-v0x19da540_0 .net "AandC", 0 0, L_0x19eb120; 1 drivers
-v0x19da5e0_0 .net "BandC", 0 0, L_0x19eb1c0; 1 drivers
-v0x19da680_0 .net "a", 0 0, L_0x19eb490; 1 drivers
-v0x19da700_0 .net "b", 0 0, L_0x19eb5c0; 1 drivers
-v0x19da7a0_0 .alias "carryin", 0 0, v0x19daaf0_0;
-v0x19da840_0 .alias "carryout", 0 0, v0x19dac70_0;
-v0x19da8c0_0 .net "sum", 0 0, L_0x19eaf20; 1 drivers
-S_0x19d9d90 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19d8ff0;
- .timescale -9 -12;
-L_0x19eb6f0/d .functor XOR 1, L_0x19ebd50, L_0x19ebe80, L_0x19eb320, C4<0>;
-L_0x19eb6f0 .delay (30000,30000,30000) L_0x19eb6f0/d;
-L_0x19eb8b0/d .functor AND 1, L_0x19ebd50, L_0x19ebe80, C4<1>, C4<1>;
-L_0x19eb8b0 .delay (20000,20000,20000) L_0x19eb8b0/d;
-L_0x19eb980/d .functor AND 1, L_0x19ebd50, L_0x19eb320, C4<1>, C4<1>;
-L_0x19eb980 .delay (20000,20000,20000) L_0x19eb980/d;
-L_0x19eba20/d .functor AND 1, L_0x19ebe80, L_0x19eb320, C4<1>, C4<1>;
-L_0x19eba20 .delay (20000,20000,20000) L_0x19eba20/d;
-L_0x19ebaf0/d .functor OR 1, L_0x19eb8b0, L_0x19eb980, L_0x19eba20, C4<0>;
-L_0x19ebaf0 .delay (20000,20000,20000) L_0x19ebaf0/d;
-v0x19d9e80_0 .net "AandB", 0 0, L_0x19eb8b0; 1 drivers
-v0x19d9f40_0 .net "AandC", 0 0, L_0x19eb980; 1 drivers
-v0x19d9fe0_0 .net "BandC", 0 0, L_0x19eba20; 1 drivers
-v0x19da080_0 .net "a", 0 0, L_0x19ebd50; 1 drivers
-v0x19da100_0 .net "b", 0 0, L_0x19ebe80; 1 drivers
-v0x19da1a0_0 .alias "carryin", 0 0, v0x19dac70_0;
-v0x19da240_0 .alias "carryout", 0 0, v0x19dac70_1;
-v0x19da2c0_0 .net "sum", 0 0, L_0x19eb6f0; 1 drivers
-S_0x19d9790 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19d8ff0;
- .timescale -9 -12;
-L_0x19ebff0/d .functor XOR 1, L_0x19ec5d0, L_0x19ec700, L_0x19ebaf0, C4<0>;
-L_0x19ebff0 .delay (30000,30000,30000) L_0x19ebff0/d;
-L_0x19ec120/d .functor AND 1, L_0x19ec5d0, L_0x19ec700, C4<1>, C4<1>;
-L_0x19ec120 .delay (20000,20000,20000) L_0x19ec120/d;
-L_0x19ec260/d .functor AND 1, L_0x19ec5d0, L_0x19ebaf0, C4<1>, C4<1>;
-L_0x19ec260 .delay (20000,20000,20000) L_0x19ec260/d;
-L_0x19ec300/d .functor AND 1, L_0x19ec700, L_0x19ebaf0, C4<1>, C4<1>;
-L_0x19ec300 .delay (20000,20000,20000) L_0x19ec300/d;
-L_0x19ec3a0/d .functor OR 1, L_0x19ec120, L_0x19ec260, L_0x19ec300, C4<0>;
-L_0x19ec3a0 .delay (20000,20000,20000) L_0x19ec3a0/d;
-v0x19d9880_0 .net "AandB", 0 0, L_0x19ec120; 1 drivers
-v0x19d9940_0 .net "AandC", 0 0, L_0x19ec260; 1 drivers
-v0x19d99e0_0 .net "BandC", 0 0, L_0x19ec300; 1 drivers
-v0x19d9a80_0 .net "a", 0 0, L_0x19ec5d0; 1 drivers
-v0x19d9b00_0 .net "b", 0 0, L_0x19ec700; 1 drivers
-v0x19d9ba0_0 .alias "carryin", 0 0, v0x19dac70_1;
-v0x19d9c40_0 .alias "carryout", 0 0, v0x19dac70_2;
-v0x19d9cc0_0 .net "sum", 0 0, L_0x19ebff0; 1 drivers
-S_0x19d90e0 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19d8ff0;
- .timescale -9 -12;
-L_0x19ec830/d .functor XOR 1, L_0x19ecf00, L_0x19ed0c0, L_0x19ec3a0, C4<0>;
-L_0x19ec830 .delay (30000,30000,30000) L_0x19ec830/d;
-L_0x19ec920/d .functor AND 1, L_0x19ecf00, L_0x19ed0c0, C4<1>, C4<1>;
-L_0x19ec920 .delay (20000,20000,20000) L_0x19ec920/d;
-L_0x19eca40/d .functor AND 1, L_0x19ecf00, L_0x19ec3a0, C4<1>, C4<1>;
-L_0x19eca40 .delay (20000,20000,20000) L_0x19eca40/d;
-L_0x19ecae0/d .functor AND 1, L_0x19ed0c0, L_0x19ec3a0, C4<1>, C4<1>;
-L_0x19ecae0 .delay (20000,20000,20000) L_0x19ecae0/d;
-L_0x19ecbb0/d .functor OR 1, L_0x19ec920, L_0x19eca40, L_0x19ecae0, C4<0>;
-L_0x19ecbb0 .delay (20000,20000,20000) L_0x19ecbb0/d;
-v0x19d91d0_0 .net "AandB", 0 0, L_0x19ec920; 1 drivers
-v0x19d9290_0 .net "AandC", 0 0, L_0x19eca40; 1 drivers
-v0x19d9330_0 .net "BandC", 0 0, L_0x19ecae0; 1 drivers
-v0x19d93d0_0 .net "a", 0 0, L_0x19ecf00; 1 drivers
-v0x19d9450_0 .net "b", 0 0, L_0x19ed0c0; 1 drivers
-v0x19d94f0_0 .alias "carryin", 0 0, v0x19dac70_2;
-v0x19d95d0_0 .alias "carryout", 0 0, v0x19db130_0;
-v0x19d96a0_0 .net "sum", 0 0, L_0x19ec830; 1 drivers
-S_0x19d7200 .scope module, "f41" "CompAdder4bit" 2 81, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19d8ba0_0 .net "a", 3 0, L_0x19ef9e0; 1 drivers
-v0x19d8c60_0 .net "b", 3 0, L_0x19efa80; 1 drivers
-v0x19d8d00_0 .alias "carryin", 0 0, v0x19db130_0;
-v0x19d8d80_0 .alias "carryout", 0 0, v0x19db130_1;
-v0x19d8e00_0 .net8 "sum", 3 0, RS_0x2b3f9cdef8c8; 4 drivers
-v0x19d8e80 .array "temp_cout", 0 2;
-v0x19d8e80_0 .net v0x19d8e80 0, 0 0, L_0x19ed8e0; 1 drivers
-v0x19d8e80_1 .net v0x19d8e80 1, 0 0, L_0x19ee0b0; 1 drivers
-v0x19d8e80_2 .net v0x19d8e80 2, 0 0, L_0x19ee9b0; 1 drivers
-L_0x19ed9b0 .part/pv L_0x19ecea0, 0, 1, 4;
-L_0x19eda50 .part L_0x19ef9e0, 0, 1;
-L_0x19edb80 .part L_0x19efa80, 0, 1;
-L_0x19ee270 .part/pv L_0x19edcb0, 1, 1, 4;
-L_0x19ee360 .part L_0x19ef9e0, 1, 1;
-L_0x19ee490 .part L_0x19efa80, 1, 1;
-L_0x19eeb40 .part/pv L_0x19ee600, 2, 1, 4;
-L_0x19eebe0 .part L_0x19ef9e0, 2, 1;
-L_0x19eed10 .part L_0x19efa80, 2, 1;
-L_0x19ef3c0 .part/pv L_0x19eee40, 3, 1, 4;
-L_0x19ef550 .part L_0x19ef9e0, 3, 1;
-L_0x19ef710 .part L_0x19efa80, 3, 1;
-S_0x19d85a0 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19d7200;
- .timescale -9 -12;
-L_0x19ecea0/d .functor XOR 1, L_0x19eda50, L_0x19edb80, L_0x19ecbb0, C4<0>;
-L_0x19ecea0 .delay (30000,30000,30000) L_0x19ecea0/d;
-L_0x19ed5e0/d .functor AND 1, L_0x19eda50, L_0x19edb80, C4<1>, C4<1>;
-L_0x19ed5e0 .delay (20000,20000,20000) L_0x19ed5e0/d;
-L_0x19ed6b0/d .functor AND 1, L_0x19eda50, L_0x19ecbb0, C4<1>, C4<1>;
-L_0x19ed6b0 .delay (20000,20000,20000) L_0x19ed6b0/d;
-L_0x19ed750/d .functor AND 1, L_0x19edb80, L_0x19ecbb0, C4<1>, C4<1>;
-L_0x19ed750 .delay (20000,20000,20000) L_0x19ed750/d;
-L_0x19ed8e0/d .functor OR 1, L_0x19ed5e0, L_0x19ed6b0, L_0x19ed750, C4<0>;
-L_0x19ed8e0 .delay (20000,20000,20000) L_0x19ed8e0/d;
-v0x19d8690_0 .net "AandB", 0 0, L_0x19ed5e0; 1 drivers
-v0x19d8750_0 .net "AandC", 0 0, L_0x19ed6b0; 1 drivers
-v0x19d87f0_0 .net "BandC", 0 0, L_0x19ed750; 1 drivers
-v0x19d8890_0 .net "a", 0 0, L_0x19eda50; 1 drivers
-v0x19d8910_0 .net "b", 0 0, L_0x19edb80; 1 drivers
-v0x19d89b0_0 .alias "carryin", 0 0, v0x19db130_0;
-v0x19d8a50_0 .alias "carryout", 0 0, v0x19d8e80_0;
-v0x19d8ad0_0 .net "sum", 0 0, L_0x19ecea0; 1 drivers
-S_0x19d7fa0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19d7200;
- .timescale -9 -12;
-L_0x19edcb0/d .functor XOR 1, L_0x19ee360, L_0x19ee490, L_0x19ed8e0, C4<0>;
-L_0x19edcb0 .delay (30000,30000,30000) L_0x19edcb0/d;
-L_0x19ede70/d .functor AND 1, L_0x19ee360, L_0x19ee490, C4<1>, C4<1>;
-L_0x19ede70 .delay (20000,20000,20000) L_0x19ede70/d;
-L_0x19edf40/d .functor AND 1, L_0x19ee360, L_0x19ed8e0, C4<1>, C4<1>;
-L_0x19edf40 .delay (20000,20000,20000) L_0x19edf40/d;
-L_0x19edfe0/d .functor AND 1, L_0x19ee490, L_0x19ed8e0, C4<1>, C4<1>;
-L_0x19edfe0 .delay (20000,20000,20000) L_0x19edfe0/d;
-L_0x19ee0b0/d .functor OR 1, L_0x19ede70, L_0x19edf40, L_0x19edfe0, C4<0>;
-L_0x19ee0b0 .delay (20000,20000,20000) L_0x19ee0b0/d;
-v0x19d8090_0 .net "AandB", 0 0, L_0x19ede70; 1 drivers
-v0x19d8150_0 .net "AandC", 0 0, L_0x19edf40; 1 drivers
-v0x19d81f0_0 .net "BandC", 0 0, L_0x19edfe0; 1 drivers
-v0x19d8290_0 .net "a", 0 0, L_0x19ee360; 1 drivers
-v0x19d8310_0 .net "b", 0 0, L_0x19ee490; 1 drivers
-v0x19d83b0_0 .alias "carryin", 0 0, v0x19d8e80_0;
-v0x19d8450_0 .alias "carryout", 0 0, v0x19d8e80_1;
-v0x19d84d0_0 .net "sum", 0 0, L_0x19edcb0; 1 drivers
-S_0x19d79a0 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19d7200;
- .timescale -9 -12;
-L_0x19ee600/d .functor XOR 1, L_0x19eebe0, L_0x19eed10, L_0x19ee0b0, C4<0>;
-L_0x19ee600 .delay (30000,30000,30000) L_0x19ee600/d;
-L_0x19ee730/d .functor AND 1, L_0x19eebe0, L_0x19eed10, C4<1>, C4<1>;
-L_0x19ee730 .delay (20000,20000,20000) L_0x19ee730/d;
-L_0x19ee870/d .functor AND 1, L_0x19eebe0, L_0x19ee0b0, C4<1>, C4<1>;
-L_0x19ee870 .delay (20000,20000,20000) L_0x19ee870/d;
-L_0x19ee910/d .functor AND 1, L_0x19eed10, L_0x19ee0b0, C4<1>, C4<1>;
-L_0x19ee910 .delay (20000,20000,20000) L_0x19ee910/d;
-L_0x19ee9b0/d .functor OR 1, L_0x19ee730, L_0x19ee870, L_0x19ee910, C4<0>;
-L_0x19ee9b0 .delay (20000,20000,20000) L_0x19ee9b0/d;
-v0x19d7a90_0 .net "AandB", 0 0, L_0x19ee730; 1 drivers
-v0x19d7b50_0 .net "AandC", 0 0, L_0x19ee870; 1 drivers
-v0x19d7bf0_0 .net "BandC", 0 0, L_0x19ee910; 1 drivers
-v0x19d7c90_0 .net "a", 0 0, L_0x19eebe0; 1 drivers
-v0x19d7d10_0 .net "b", 0 0, L_0x19eed10; 1 drivers
-v0x19d7db0_0 .alias "carryin", 0 0, v0x19d8e80_1;
-v0x19d7e50_0 .alias "carryout", 0 0, v0x19d8e80_2;
-v0x19d7ed0_0 .net "sum", 0 0, L_0x19ee600; 1 drivers
-S_0x19d72f0 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19d7200;
- .timescale -9 -12;
-L_0x19eee40/d .functor XOR 1, L_0x19ef550, L_0x19ef710, L_0x19ee9b0, C4<0>;
-L_0x19eee40 .delay (30000,30000,30000) L_0x19eee40/d;
-L_0x19eef30/d .functor AND 1, L_0x19ef550, L_0x19ef710, C4<1>, C4<1>;
-L_0x19eef30 .delay (20000,20000,20000) L_0x19eef30/d;
-L_0x19ef050/d .functor AND 1, L_0x19ef550, L_0x19ee9b0, C4<1>, C4<1>;
-L_0x19ef050 .delay (20000,20000,20000) L_0x19ef050/d;
-L_0x19ef110/d .functor AND 1, L_0x19ef710, L_0x19ee9b0, C4<1>, C4<1>;
-L_0x19ef110 .delay (20000,20000,20000) L_0x19ef110/d;
-L_0x19ef200/d .functor OR 1, L_0x19eef30, L_0x19ef050, L_0x19ef110, C4<0>;
-L_0x19ef200 .delay (20000,20000,20000) L_0x19ef200/d;
-v0x19d73e0_0 .net "AandB", 0 0, L_0x19eef30; 1 drivers
-v0x19d74a0_0 .net "AandC", 0 0, L_0x19ef050; 1 drivers
-v0x19d7540_0 .net "BandC", 0 0, L_0x19ef110; 1 drivers
-v0x19d75e0_0 .net "a", 0 0, L_0x19ef550; 1 drivers
-v0x19d7660_0 .net "b", 0 0, L_0x19ef710; 1 drivers
-v0x19d7700_0 .alias "carryin", 0 0, v0x19d8e80_2;
-v0x19d77e0_0 .alias "carryout", 0 0, v0x19db130_1;
-v0x19d78b0_0 .net "sum", 0 0, L_0x19eee40; 1 drivers
-S_0x19d5410 .scope module, "f42" "CompAdder4bit" 2 82, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19d6db0_0 .net "a", 3 0, L_0x19f2000; 1 drivers
-v0x19d6e70_0 .net "b", 3 0, L_0x19f20a0; 1 drivers
-v0x19d6f10_0 .alias "carryin", 0 0, v0x19db130_1;
-v0x19d6f90_0 .alias "carryout", 0 0, v0x19db130_2;
-v0x19d7010_0 .net8 "sum", 3 0, RS_0x2b3f9cdef2f8; 4 drivers
-v0x19d7090 .array "temp_cout", 0 2;
-v0x19d7090_0 .net v0x19d7090 0, 0 0, L_0x19efe70; 1 drivers
-v0x19d7090_1 .net v0x19d7090 1, 0 0, L_0x19f06b0; 1 drivers
-v0x19d7090_2 .net v0x19d7090 2, 0 0, L_0x19f0fd0; 1 drivers
-L_0x19effb0 .part/pv L_0x19ef4f0, 0, 1, 4;
-L_0x19f0050 .part L_0x19f2000, 0, 1;
-L_0x19f0180 .part L_0x19f20a0, 0, 1;
-L_0x19f0870 .part/pv L_0x19f02b0, 1, 1, 4;
-L_0x19f0960 .part L_0x19f2000, 1, 1;
-L_0x19f0a90 .part L_0x19f20a0, 1, 1;
-L_0x19f1160 .part/pv L_0x19f0c00, 2, 1, 4;
-L_0x19f1200 .part L_0x19f2000, 2, 1;
-L_0x19f1330 .part L_0x19f20a0, 2, 1;
-L_0x19f19e0 .part/pv L_0x19f1460, 3, 1, 4;
-L_0x19f1b70 .part L_0x19f2000, 3, 1;
-L_0x19f1d30 .part L_0x19f20a0, 3, 1;
-S_0x19d67b0 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19d5410;
- .timescale -9 -12;
-L_0x19ef4f0/d .functor XOR 1, L_0x19f0050, L_0x19f0180, L_0x19ef200, C4<0>;
-L_0x19ef4f0 .delay (30000,30000,30000) L_0x19ef4f0/d;
-L_0x19efba0/d .functor AND 1, L_0x19f0050, L_0x19f0180, C4<1>, C4<1>;
-L_0x19efba0 .delay (20000,20000,20000) L_0x19efba0/d;
-L_0x19efc40/d .functor AND 1, L_0x19f0050, L_0x19ef200, C4<1>, C4<1>;
-L_0x19efc40 .delay (20000,20000,20000) L_0x19efc40/d;
-L_0x19efce0/d .functor AND 1, L_0x19f0180, L_0x19ef200, C4<1>, C4<1>;
-L_0x19efce0 .delay (20000,20000,20000) L_0x19efce0/d;
-L_0x19efe70/d .functor OR 1, L_0x19efba0, L_0x19efc40, L_0x19efce0, C4<0>;
-L_0x19efe70 .delay (20000,20000,20000) L_0x19efe70/d;
-v0x19d68a0_0 .net "AandB", 0 0, L_0x19efba0; 1 drivers
-v0x19d6960_0 .net "AandC", 0 0, L_0x19efc40; 1 drivers
-v0x19d6a00_0 .net "BandC", 0 0, L_0x19efce0; 1 drivers
-v0x19d6aa0_0 .net "a", 0 0, L_0x19f0050; 1 drivers
-v0x19d6b20_0 .net "b", 0 0, L_0x19f0180; 1 drivers
-v0x19d6bc0_0 .alias "carryin", 0 0, v0x19db130_1;
-v0x19d6c60_0 .alias "carryout", 0 0, v0x19d7090_0;
-v0x19d6ce0_0 .net "sum", 0 0, L_0x19ef4f0; 1 drivers
-S_0x19d61b0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19d5410;
- .timescale -9 -12;
-L_0x19f02b0/d .functor XOR 1, L_0x19f0960, L_0x19f0a90, L_0x19efe70, C4<0>;
-L_0x19f02b0 .delay (30000,30000,30000) L_0x19f02b0/d;
-L_0x19f0470/d .functor AND 1, L_0x19f0960, L_0x19f0a90, C4<1>, C4<1>;
-L_0x19f0470 .delay (20000,20000,20000) L_0x19f0470/d;
-L_0x19f0540/d .functor AND 1, L_0x19f0960, L_0x19efe70, C4<1>, C4<1>;
-L_0x19f0540 .delay (20000,20000,20000) L_0x19f0540/d;
-L_0x19f05e0/d .functor AND 1, L_0x19f0a90, L_0x19efe70, C4<1>, C4<1>;
-L_0x19f05e0 .delay (20000,20000,20000) L_0x19f05e0/d;
-L_0x19f06b0/d .functor OR 1, L_0x19f0470, L_0x19f0540, L_0x19f05e0, C4<0>;
-L_0x19f06b0 .delay (20000,20000,20000) L_0x19f06b0/d;
-v0x19d62a0_0 .net "AandB", 0 0, L_0x19f0470; 1 drivers
-v0x19d6360_0 .net "AandC", 0 0, L_0x19f0540; 1 drivers
-v0x19d6400_0 .net "BandC", 0 0, L_0x19f05e0; 1 drivers
-v0x19d64a0_0 .net "a", 0 0, L_0x19f0960; 1 drivers
-v0x19d6520_0 .net "b", 0 0, L_0x19f0a90; 1 drivers
-v0x19d65c0_0 .alias "carryin", 0 0, v0x19d7090_0;
-v0x19d6660_0 .alias "carryout", 0 0, v0x19d7090_1;
-v0x19d66e0_0 .net "sum", 0 0, L_0x19f02b0; 1 drivers
-S_0x19d5bb0 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19d5410;
- .timescale -9 -12;
-L_0x19f0c00/d .functor XOR 1, L_0x19f1200, L_0x19f1330, L_0x19f06b0, C4<0>;
-L_0x19f0c00 .delay (30000,30000,30000) L_0x19f0c00/d;
-L_0x19f0d30/d .functor AND 1, L_0x19f1200, L_0x19f1330, C4<1>, C4<1>;
-L_0x19f0d30 .delay (20000,20000,20000) L_0x19f0d30/d;
-L_0x19f0e70/d .functor AND 1, L_0x19f1200, L_0x19f06b0, C4<1>, C4<1>;
-L_0x19f0e70 .delay (20000,20000,20000) L_0x19f0e70/d;
-L_0x19f0f10/d .functor AND 1, L_0x19f1330, L_0x19f06b0, C4<1>, C4<1>;
-L_0x19f0f10 .delay (20000,20000,20000) L_0x19f0f10/d;
-L_0x19f0fd0/d .functor OR 1, L_0x19f0d30, L_0x19f0e70, L_0x19f0f10, C4<0>;
-L_0x19f0fd0 .delay (20000,20000,20000) L_0x19f0fd0/d;
-v0x19d5ca0_0 .net "AandB", 0 0, L_0x19f0d30; 1 drivers
-v0x19d5d60_0 .net "AandC", 0 0, L_0x19f0e70; 1 drivers
-v0x19d5e00_0 .net "BandC", 0 0, L_0x19f0f10; 1 drivers
-v0x19d5ea0_0 .net "a", 0 0, L_0x19f1200; 1 drivers
-v0x19d5f20_0 .net "b", 0 0, L_0x19f1330; 1 drivers
-v0x19d5fc0_0 .alias "carryin", 0 0, v0x19d7090_1;
-v0x19d6060_0 .alias "carryout", 0 0, v0x19d7090_2;
-v0x19d60e0_0 .net "sum", 0 0, L_0x19f0c00; 1 drivers
-S_0x19d5500 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19d5410;
- .timescale -9 -12;
-L_0x19f1460/d .functor XOR 1, L_0x19f1b70, L_0x19f1d30, L_0x19f0fd0, C4<0>;
-L_0x19f1460 .delay (30000,30000,30000) L_0x19f1460/d;
-L_0x19f1550/d .functor AND 1, L_0x19f1b70, L_0x19f1d30, C4<1>, C4<1>;
-L_0x19f1550 .delay (20000,20000,20000) L_0x19f1550/d;
-L_0x19f1670/d .functor AND 1, L_0x19f1b70, L_0x19f0fd0, C4<1>, C4<1>;
-L_0x19f1670 .delay (20000,20000,20000) L_0x19f1670/d;
-L_0x19f1730/d .functor AND 1, L_0x19f1d30, L_0x19f0fd0, C4<1>, C4<1>;
-L_0x19f1730 .delay (20000,20000,20000) L_0x19f1730/d;
-L_0x19f1820/d .functor OR 1, L_0x19f1550, L_0x19f1670, L_0x19f1730, C4<0>;
-L_0x19f1820 .delay (20000,20000,20000) L_0x19f1820/d;
-v0x19d55f0_0 .net "AandB", 0 0, L_0x19f1550; 1 drivers
-v0x19d56b0_0 .net "AandC", 0 0, L_0x19f1670; 1 drivers
-v0x19d5750_0 .net "BandC", 0 0, L_0x19f1730; 1 drivers
-v0x19d57f0_0 .net "a", 0 0, L_0x19f1b70; 1 drivers
-v0x19d5870_0 .net "b", 0 0, L_0x19f1d30; 1 drivers
-v0x19d5910_0 .alias "carryin", 0 0, v0x19d7090_2;
-v0x19d59f0_0 .alias "carryout", 0 0, v0x19db130_2;
-v0x19d5ac0_0 .net "sum", 0 0, L_0x19f1460; 1 drivers
-S_0x19d3620 .scope module, "f43" "CompAdder4bit" 2 83, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19d4fc0_0 .net "a", 3 0, L_0x19f4640; 1 drivers
-v0x19d5080_0 .net "b", 3 0, L_0x19f4770; 1 drivers
-v0x19d5120_0 .alias "carryin", 0 0, v0x19db130_2;
-v0x19d51a0_0 .alias "carryout", 0 0, v0x19db130_3;
-v0x19d5220_0 .net8 "sum", 3 0, RS_0x2b3f9cdeed28; 4 drivers
-v0x19d52a0 .array "temp_cout", 0 2;
-v0x19d52a0_0 .net v0x19d52a0 0, 0 0, L_0x19f2460; 1 drivers
-v0x19d52a0_1 .net v0x19d52a0 1, 0 0, L_0x19f2c80; 1 drivers
-v0x19d52a0_2 .net v0x19d52a0 2, 0 0, L_0x19f3580; 1 drivers
-L_0x19f2580 .part/pv L_0x19f1b10, 0, 1, 4;
-L_0x19f2620 .part L_0x19f4640, 0, 1;
-L_0x19f2750 .part L_0x19f4770, 0, 1;
-L_0x19f2e40 .part/pv L_0x19f2880, 1, 1, 4;
-L_0x19f2f30 .part L_0x19f4640, 1, 1;
-L_0x19f3060 .part L_0x19f4770, 1, 1;
-L_0x19f3710 .part/pv L_0x19f31d0, 2, 1, 4;
-L_0x19f37b0 .part L_0x19f4640, 2, 1;
-L_0x19f38e0 .part L_0x19f4770, 2, 1;
-L_0x19f3f90 .part/pv L_0x19f3a10, 3, 1, 4;
-L_0x19f4120 .part L_0x19f4640, 3, 1;
-L_0x19f42e0 .part L_0x19f4770, 3, 1;
-S_0x19d49c0 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19d3620;
- .timescale -9 -12;
-L_0x19f1b10/d .functor XOR 1, L_0x19f2620, L_0x19f2750, L_0x19f1820, C4<0>;
-L_0x19f1b10 .delay (30000,30000,30000) L_0x19f1b10/d;
-L_0x19f2140/d .functor AND 1, L_0x19f2620, L_0x19f2750, C4<1>, C4<1>;
-L_0x19f2140 .delay (20000,20000,20000) L_0x19f2140/d;
-L_0x19f2210/d .functor AND 1, L_0x19f2620, L_0x19f1820, C4<1>, C4<1>;
-L_0x19f2210 .delay (20000,20000,20000) L_0x19f2210/d;
-L_0x19f22d0/d .functor AND 1, L_0x19f2750, L_0x19f1820, C4<1>, C4<1>;
-L_0x19f22d0 .delay (20000,20000,20000) L_0x19f22d0/d;
-L_0x19f2460/d .functor OR 1, L_0x19f2140, L_0x19f2210, L_0x19f22d0, C4<0>;
-L_0x19f2460 .delay (20000,20000,20000) L_0x19f2460/d;
-v0x19d4ab0_0 .net "AandB", 0 0, L_0x19f2140; 1 drivers
-v0x19d4b70_0 .net "AandC", 0 0, L_0x19f2210; 1 drivers
-v0x19d4c10_0 .net "BandC", 0 0, L_0x19f22d0; 1 drivers
-v0x19d4cb0_0 .net "a", 0 0, L_0x19f2620; 1 drivers
-v0x19d4d30_0 .net "b", 0 0, L_0x19f2750; 1 drivers
-v0x19d4dd0_0 .alias "carryin", 0 0, v0x19db130_2;
-v0x19d4e70_0 .alias "carryout", 0 0, v0x19d52a0_0;
-v0x19d4ef0_0 .net "sum", 0 0, L_0x19f1b10; 1 drivers
-S_0x19d43c0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19d3620;
- .timescale -9 -12;
-L_0x19f2880/d .functor XOR 1, L_0x19f2f30, L_0x19f3060, L_0x19f2460, C4<0>;
-L_0x19f2880 .delay (30000,30000,30000) L_0x19f2880/d;
-L_0x19f2a40/d .functor AND 1, L_0x19f2f30, L_0x19f3060, C4<1>, C4<1>;
-L_0x19f2a40 .delay (20000,20000,20000) L_0x19f2a40/d;
-L_0x19f2b10/d .functor AND 1, L_0x19f2f30, L_0x19f2460, C4<1>, C4<1>;
-L_0x19f2b10 .delay (20000,20000,20000) L_0x19f2b10/d;
-L_0x19f2bb0/d .functor AND 1, L_0x19f3060, L_0x19f2460, C4<1>, C4<1>;
-L_0x19f2bb0 .delay (20000,20000,20000) L_0x19f2bb0/d;
-L_0x19f2c80/d .functor OR 1, L_0x19f2a40, L_0x19f2b10, L_0x19f2bb0, C4<0>;
-L_0x19f2c80 .delay (20000,20000,20000) L_0x19f2c80/d;
-v0x19d44b0_0 .net "AandB", 0 0, L_0x19f2a40; 1 drivers
-v0x19d4570_0 .net "AandC", 0 0, L_0x19f2b10; 1 drivers
-v0x19d4610_0 .net "BandC", 0 0, L_0x19f2bb0; 1 drivers
-v0x19d46b0_0 .net "a", 0 0, L_0x19f2f30; 1 drivers
-v0x19d4730_0 .net "b", 0 0, L_0x19f3060; 1 drivers
-v0x19d47d0_0 .alias "carryin", 0 0, v0x19d52a0_0;
-v0x19d4870_0 .alias "carryout", 0 0, v0x19d52a0_1;
-v0x19d48f0_0 .net "sum", 0 0, L_0x19f2880; 1 drivers
-S_0x19d3dc0 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19d3620;
- .timescale -9 -12;
-L_0x19f31d0/d .functor XOR 1, L_0x19f37b0, L_0x19f38e0, L_0x19f2c80, C4<0>;
-L_0x19f31d0 .delay (30000,30000,30000) L_0x19f31d0/d;
-L_0x19f3300/d .functor AND 1, L_0x19f37b0, L_0x19f38e0, C4<1>, C4<1>;
-L_0x19f3300 .delay (20000,20000,20000) L_0x19f3300/d;
-L_0x19f3440/d .functor AND 1, L_0x19f37b0, L_0x19f2c80, C4<1>, C4<1>;
-L_0x19f3440 .delay (20000,20000,20000) L_0x19f3440/d;
-L_0x19f34e0/d .functor AND 1, L_0x19f38e0, L_0x19f2c80, C4<1>, C4<1>;
-L_0x19f34e0 .delay (20000,20000,20000) L_0x19f34e0/d;
-L_0x19f3580/d .functor OR 1, L_0x19f3300, L_0x19f3440, L_0x19f34e0, C4<0>;
-L_0x19f3580 .delay (20000,20000,20000) L_0x19f3580/d;
-v0x19d3eb0_0 .net "AandB", 0 0, L_0x19f3300; 1 drivers
-v0x19d3f70_0 .net "AandC", 0 0, L_0x19f3440; 1 drivers
-v0x19d4010_0 .net "BandC", 0 0, L_0x19f34e0; 1 drivers
-v0x19d40b0_0 .net "a", 0 0, L_0x19f37b0; 1 drivers
-v0x19d4130_0 .net "b", 0 0, L_0x19f38e0; 1 drivers
-v0x19d41d0_0 .alias "carryin", 0 0, v0x19d52a0_1;
-v0x19d4270_0 .alias "carryout", 0 0, v0x19d52a0_2;
-v0x19d42f0_0 .net "sum", 0 0, L_0x19f31d0; 1 drivers
-S_0x19d3710 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19d3620;
- .timescale -9 -12;
-L_0x19f3a10/d .functor XOR 1, L_0x19f4120, L_0x19f42e0, L_0x19f3580, C4<0>;
-L_0x19f3a10 .delay (30000,30000,30000) L_0x19f3a10/d;
-L_0x19f3b00/d .functor AND 1, L_0x19f4120, L_0x19f42e0, C4<1>, C4<1>;
-L_0x19f3b00 .delay (20000,20000,20000) L_0x19f3b00/d;
-L_0x19f3c20/d .functor AND 1, L_0x19f4120, L_0x19f3580, C4<1>, C4<1>;
-L_0x19f3c20 .delay (20000,20000,20000) L_0x19f3c20/d;
-L_0x19f3ce0/d .functor AND 1, L_0x19f42e0, L_0x19f3580, C4<1>, C4<1>;
-L_0x19f3ce0 .delay (20000,20000,20000) L_0x19f3ce0/d;
-L_0x19f3dd0/d .functor OR 1, L_0x19f3b00, L_0x19f3c20, L_0x19f3ce0, C4<0>;
-L_0x19f3dd0 .delay (20000,20000,20000) L_0x19f3dd0/d;
-v0x19d3800_0 .net "AandB", 0 0, L_0x19f3b00; 1 drivers
-v0x19d38c0_0 .net "AandC", 0 0, L_0x19f3c20; 1 drivers
-v0x19d3960_0 .net "BandC", 0 0, L_0x19f3ce0; 1 drivers
-v0x19d3a00_0 .net "a", 0 0, L_0x19f4120; 1 drivers
-v0x19d3a80_0 .net "b", 0 0, L_0x19f42e0; 1 drivers
-v0x19d3b20_0 .alias "carryin", 0 0, v0x19d52a0_2;
-v0x19d3c00_0 .alias "carryout", 0 0, v0x19db130_3;
-v0x19d3cd0_0 .net "sum", 0 0, L_0x19f3a10; 1 drivers
-S_0x19d1830 .scope module, "f44" "CompAdder4bit" 2 84, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19d31d0_0 .net "a", 3 0, L_0x19f6c30; 1 drivers
-v0x19d3290_0 .net "b", 3 0, L_0x19f6d50; 1 drivers
-v0x19d3330_0 .alias "carryin", 0 0, v0x19db130_3;
-v0x19d33b0_0 .alias "carryout", 0 0, v0x19db130_4;
-v0x19d3430_0 .net8 "sum", 3 0, RS_0x2b3f9cdee758; 4 drivers
-v0x19d34b0 .array "temp_cout", 0 2;
-v0x19d34b0_0 .net v0x19d34b0 0, 0 0, L_0x19f4c70; 1 drivers
-v0x19d34b0_1 .net v0x19d34b0 1, 0 0, L_0x19f5440; 1 drivers
-v0x19d34b0_2 .net v0x19d34b0 2, 0 0, L_0x19f5c00; 1 drivers
-L_0x19f4d40 .part/pv L_0x19f40c0, 0, 1, 4;
-L_0x19f4de0 .part L_0x19f6c30, 0, 1;
-L_0x19f4f10 .part L_0x19f6d50, 0, 1;
-L_0x19f5510 .part/pv L_0x19f5040, 1, 1, 4;
-L_0x19f55b0 .part L_0x19f6c30, 1, 1;
-L_0x19f56e0 .part L_0x19f6d50, 1, 1;
-L_0x19f5d90 .part/pv L_0x19f5850, 2, 1, 4;
-L_0x19f5e30 .part L_0x19f6c30, 2, 1;
-L_0x19f5f60 .part L_0x19f6d50, 2, 1;
-L_0x19f6610 .part/pv L_0x19f6090, 3, 1, 4;
-L_0x19f67a0 .part L_0x19f6c30, 3, 1;
-L_0x19f6960 .part L_0x19f6d50, 3, 1;
-S_0x19d2bd0 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19d1830;
- .timescale -9 -12;
-L_0x19f40c0/d .functor XOR 1, L_0x19f4de0, L_0x19f4f10, L_0x19f3dd0, C4<0>;
-L_0x19f40c0 .delay (30000,30000,30000) L_0x19f40c0/d;
-L_0x19f4950/d .functor AND 1, L_0x19f4de0, L_0x19f4f10, C4<1>, C4<1>;
-L_0x19f4950 .delay (20000,20000,20000) L_0x19f4950/d;
-L_0x19f4a20/d .functor AND 1, L_0x19f4de0, L_0x19f3dd0, C4<1>, C4<1>;
-L_0x19f4a20 .delay (20000,20000,20000) L_0x19f4a20/d;
-L_0x19f4ae0/d .functor AND 1, L_0x19f4f10, L_0x19f3dd0, C4<1>, C4<1>;
-L_0x19f4ae0 .delay (20000,20000,20000) L_0x19f4ae0/d;
-L_0x19f4c70/d .functor OR 1, L_0x19f4950, L_0x19f4a20, L_0x19f4ae0, C4<0>;
-L_0x19f4c70 .delay (20000,20000,20000) L_0x19f4c70/d;
-v0x19d2cc0_0 .net "AandB", 0 0, L_0x19f4950; 1 drivers
-v0x19d2d80_0 .net "AandC", 0 0, L_0x19f4a20; 1 drivers
-v0x19d2e20_0 .net "BandC", 0 0, L_0x19f4ae0; 1 drivers
-v0x19d2ec0_0 .net "a", 0 0, L_0x19f4de0; 1 drivers
-v0x19d2f40_0 .net "b", 0 0, L_0x19f4f10; 1 drivers
-v0x19d2fe0_0 .alias "carryin", 0 0, v0x19db130_3;
-v0x19d3080_0 .alias "carryout", 0 0, v0x19d34b0_0;
-v0x19d3100_0 .net "sum", 0 0, L_0x19f40c0; 1 drivers
-S_0x19d25d0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19d1830;
- .timescale -9 -12;
-L_0x19f5040/d .functor XOR 1, L_0x19f55b0, L_0x19f56e0, L_0x19f4c70, C4<0>;
-L_0x19f5040 .delay (30000,30000,30000) L_0x19f5040/d;
-L_0x19f5200/d .functor AND 1, L_0x19f55b0, L_0x19f56e0, C4<1>, C4<1>;
-L_0x19f5200 .delay (20000,20000,20000) L_0x19f5200/d;
-L_0x19f52d0/d .functor AND 1, L_0x19f55b0, L_0x19f4c70, C4<1>, C4<1>;
-L_0x19f52d0 .delay (20000,20000,20000) L_0x19f52d0/d;
-L_0x19f5370/d .functor AND 1, L_0x19f56e0, L_0x19f4c70, C4<1>, C4<1>;
-L_0x19f5370 .delay (20000,20000,20000) L_0x19f5370/d;
-L_0x19f5440/d .functor OR 1, L_0x19f5200, L_0x19f52d0, L_0x19f5370, C4<0>;
-L_0x19f5440 .delay (20000,20000,20000) L_0x19f5440/d;
-v0x19d26c0_0 .net "AandB", 0 0, L_0x19f5200; 1 drivers
-v0x19d2780_0 .net "AandC", 0 0, L_0x19f52d0; 1 drivers
-v0x19d2820_0 .net "BandC", 0 0, L_0x19f5370; 1 drivers
-v0x19d28c0_0 .net "a", 0 0, L_0x19f55b0; 1 drivers
-v0x19d2940_0 .net "b", 0 0, L_0x19f56e0; 1 drivers
-v0x19d29e0_0 .alias "carryin", 0 0, v0x19d34b0_0;
-v0x19d2a80_0 .alias "carryout", 0 0, v0x19d34b0_1;
-v0x19d2b00_0 .net "sum", 0 0, L_0x19f5040; 1 drivers
-S_0x19d1fd0 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19d1830;
- .timescale -9 -12;
-L_0x19f5850/d .functor XOR 1, L_0x19f5e30, L_0x19f5f60, L_0x19f5440, C4<0>;
-L_0x19f5850 .delay (30000,30000,30000) L_0x19f5850/d;
-L_0x19f5980/d .functor AND 1, L_0x19f5e30, L_0x19f5f60, C4<1>, C4<1>;
-L_0x19f5980 .delay (20000,20000,20000) L_0x19f5980/d;
-L_0x19f5ac0/d .functor AND 1, L_0x19f5e30, L_0x19f5440, C4<1>, C4<1>;
-L_0x19f5ac0 .delay (20000,20000,20000) L_0x19f5ac0/d;
-L_0x19f5b60/d .functor AND 1, L_0x19f5f60, L_0x19f5440, C4<1>, C4<1>;
-L_0x19f5b60 .delay (20000,20000,20000) L_0x19f5b60/d;
-L_0x19f5c00/d .functor OR 1, L_0x19f5980, L_0x19f5ac0, L_0x19f5b60, C4<0>;
-L_0x19f5c00 .delay (20000,20000,20000) L_0x19f5c00/d;
-v0x19d20c0_0 .net "AandB", 0 0, L_0x19f5980; 1 drivers
-v0x19d2180_0 .net "AandC", 0 0, L_0x19f5ac0; 1 drivers
-v0x19d2220_0 .net "BandC", 0 0, L_0x19f5b60; 1 drivers
-v0x19d22c0_0 .net "a", 0 0, L_0x19f5e30; 1 drivers
-v0x19d2340_0 .net "b", 0 0, L_0x19f5f60; 1 drivers
-v0x19d23e0_0 .alias "carryin", 0 0, v0x19d34b0_1;
-v0x19d2480_0 .alias "carryout", 0 0, v0x19d34b0_2;
-v0x19d2500_0 .net "sum", 0 0, L_0x19f5850; 1 drivers
-S_0x19d1920 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19d1830;
- .timescale -9 -12;
-L_0x19f6090/d .functor XOR 1, L_0x19f67a0, L_0x19f6960, L_0x19f5c00, C4<0>;
-L_0x19f6090 .delay (30000,30000,30000) L_0x19f6090/d;
-L_0x19f6180/d .functor AND 1, L_0x19f67a0, L_0x19f6960, C4<1>, C4<1>;
-L_0x19f6180 .delay (20000,20000,20000) L_0x19f6180/d;
-L_0x19f62a0/d .functor AND 1, L_0x19f67a0, L_0x19f5c00, C4<1>, C4<1>;
-L_0x19f62a0 .delay (20000,20000,20000) L_0x19f62a0/d;
-L_0x19f6360/d .functor AND 1, L_0x19f6960, L_0x19f5c00, C4<1>, C4<1>;
-L_0x19f6360 .delay (20000,20000,20000) L_0x19f6360/d;
-L_0x19f6450/d .functor OR 1, L_0x19f6180, L_0x19f62a0, L_0x19f6360, C4<0>;
-L_0x19f6450 .delay (20000,20000,20000) L_0x19f6450/d;
-v0x19d1a10_0 .net "AandB", 0 0, L_0x19f6180; 1 drivers
-v0x19d1ad0_0 .net "AandC", 0 0, L_0x19f62a0; 1 drivers
-v0x19d1b70_0 .net "BandC", 0 0, L_0x19f6360; 1 drivers
-v0x19d1c10_0 .net "a", 0 0, L_0x19f67a0; 1 drivers
-v0x19d1c90_0 .net "b", 0 0, L_0x19f6960; 1 drivers
-v0x19d1d30_0 .alias "carryin", 0 0, v0x19d34b0_2;
-v0x19d1e10_0 .alias "carryout", 0 0, v0x19db130_4;
-v0x19d1ee0_0 .net "sum", 0 0, L_0x19f6090; 1 drivers
-S_0x19cfa40 .scope module, "f45" "CompAdder4bit" 2 85, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19d13e0_0 .net "a", 3 0, L_0x19f9270; 1 drivers
-v0x19d14a0_0 .net "b", 3 0, L_0x19f9310; 1 drivers
-v0x19d1540_0 .alias "carryin", 0 0, v0x19db130_4;
-v0x19d15c0_0 .alias "carryout", 0 0, v0x19db130_5;
-v0x19d1640_0 .net8 "sum", 3 0, RS_0x2b3f9cdee188; 4 drivers
-v0x19d16c0 .array "temp_cout", 0 2;
-v0x19d16c0_0 .net v0x19d16c0 0, 0 0, L_0x19f7150; 1 drivers
-v0x19d16c0_1 .net v0x19d16c0 1, 0 0, L_0x19f7920; 1 drivers
-v0x19d16c0_2 .net v0x19d16c0 2, 0 0, L_0x19f8220; 1 drivers
-L_0x19f7220 .part/pv L_0x19f6740, 0, 1, 4;
-L_0x19f72c0 .part L_0x19f9270, 0, 1;
-L_0x19f73f0 .part L_0x19f9310, 0, 1;
-L_0x19f7ae0 .part/pv L_0x19f7520, 1, 1, 4;
-L_0x19f7bd0 .part L_0x19f9270, 1, 1;
-L_0x19f7d00 .part L_0x19f9310, 1, 1;
-L_0x19f83b0 .part/pv L_0x19f7e70, 2, 1, 4;
-L_0x19f8450 .part L_0x19f9270, 2, 1;
-L_0x19f8580 .part L_0x19f9310, 2, 1;
-L_0x19f8c30 .part/pv L_0x19f86b0, 3, 1, 4;
-L_0x19f8dc0 .part L_0x19f9270, 3, 1;
-L_0x19f8f80 .part L_0x19f9310, 3, 1;
-S_0x19d0de0 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19cfa40;
- .timescale -9 -12;
-L_0x19f6740/d .functor XOR 1, L_0x19f72c0, L_0x19f73f0, L_0x19f6450, C4<0>;
-L_0x19f6740 .delay (30000,30000,30000) L_0x19f6740/d;
-L_0x19f6e30/d .functor AND 1, L_0x19f72c0, L_0x19f73f0, C4<1>, C4<1>;
-L_0x19f6e30 .delay (20000,20000,20000) L_0x19f6e30/d;
-L_0x19f6f00/d .functor AND 1, L_0x19f72c0, L_0x19f6450, C4<1>, C4<1>;
-L_0x19f6f00 .delay (20000,20000,20000) L_0x19f6f00/d;
-L_0x19f6fc0/d .functor AND 1, L_0x19f73f0, L_0x19f6450, C4<1>, C4<1>;
-L_0x19f6fc0 .delay (20000,20000,20000) L_0x19f6fc0/d;
-L_0x19f7150/d .functor OR 1, L_0x19f6e30, L_0x19f6f00, L_0x19f6fc0, C4<0>;
-L_0x19f7150 .delay (20000,20000,20000) L_0x19f7150/d;
-v0x19d0ed0_0 .net "AandB", 0 0, L_0x19f6e30; 1 drivers
-v0x19d0f90_0 .net "AandC", 0 0, L_0x19f6f00; 1 drivers
-v0x19d1030_0 .net "BandC", 0 0, L_0x19f6fc0; 1 drivers
-v0x19d10d0_0 .net "a", 0 0, L_0x19f72c0; 1 drivers
-v0x19d1150_0 .net "b", 0 0, L_0x19f73f0; 1 drivers
-v0x19d11f0_0 .alias "carryin", 0 0, v0x19db130_4;
-v0x19d1290_0 .alias "carryout", 0 0, v0x19d16c0_0;
-v0x19d1310_0 .net "sum", 0 0, L_0x19f6740; 1 drivers
-S_0x19d07e0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19cfa40;
- .timescale -9 -12;
-L_0x19f7520/d .functor XOR 1, L_0x19f7bd0, L_0x19f7d00, L_0x19f7150, C4<0>;
-L_0x19f7520 .delay (30000,30000,30000) L_0x19f7520/d;
-L_0x19f76e0/d .functor AND 1, L_0x19f7bd0, L_0x19f7d00, C4<1>, C4<1>;
-L_0x19f76e0 .delay (20000,20000,20000) L_0x19f76e0/d;
-L_0x19f77b0/d .functor AND 1, L_0x19f7bd0, L_0x19f7150, C4<1>, C4<1>;
-L_0x19f77b0 .delay (20000,20000,20000) L_0x19f77b0/d;
-L_0x19f7850/d .functor AND 1, L_0x19f7d00, L_0x19f7150, C4<1>, C4<1>;
-L_0x19f7850 .delay (20000,20000,20000) L_0x19f7850/d;
-L_0x19f7920/d .functor OR 1, L_0x19f76e0, L_0x19f77b0, L_0x19f7850, C4<0>;
-L_0x19f7920 .delay (20000,20000,20000) L_0x19f7920/d;
-v0x19d08d0_0 .net "AandB", 0 0, L_0x19f76e0; 1 drivers
-v0x19d0990_0 .net "AandC", 0 0, L_0x19f77b0; 1 drivers
-v0x19d0a30_0 .net "BandC", 0 0, L_0x19f7850; 1 drivers
-v0x19d0ad0_0 .net "a", 0 0, L_0x19f7bd0; 1 drivers
-v0x19d0b50_0 .net "b", 0 0, L_0x19f7d00; 1 drivers
-v0x19d0bf0_0 .alias "carryin", 0 0, v0x19d16c0_0;
-v0x19d0c90_0 .alias "carryout", 0 0, v0x19d16c0_1;
-v0x19d0d10_0 .net "sum", 0 0, L_0x19f7520; 1 drivers
-S_0x19d01e0 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19cfa40;
- .timescale -9 -12;
-L_0x19f7e70/d .functor XOR 1, L_0x19f8450, L_0x19f8580, L_0x19f7920, C4<0>;
-L_0x19f7e70 .delay (30000,30000,30000) L_0x19f7e70/d;
-L_0x19f7fa0/d .functor AND 1, L_0x19f8450, L_0x19f8580, C4<1>, C4<1>;
-L_0x19f7fa0 .delay (20000,20000,20000) L_0x19f7fa0/d;
-L_0x19f80e0/d .functor AND 1, L_0x19f8450, L_0x19f7920, C4<1>, C4<1>;
-L_0x19f80e0 .delay (20000,20000,20000) L_0x19f80e0/d;
-L_0x19f8180/d .functor AND 1, L_0x19f8580, L_0x19f7920, C4<1>, C4<1>;
-L_0x19f8180 .delay (20000,20000,20000) L_0x19f8180/d;
-L_0x19f8220/d .functor OR 1, L_0x19f7fa0, L_0x19f80e0, L_0x19f8180, C4<0>;
-L_0x19f8220 .delay (20000,20000,20000) L_0x19f8220/d;
-v0x19d02d0_0 .net "AandB", 0 0, L_0x19f7fa0; 1 drivers
-v0x19d0390_0 .net "AandC", 0 0, L_0x19f80e0; 1 drivers
-v0x19d0430_0 .net "BandC", 0 0, L_0x19f8180; 1 drivers
-v0x19d04d0_0 .net "a", 0 0, L_0x19f8450; 1 drivers
-v0x19d0550_0 .net "b", 0 0, L_0x19f8580; 1 drivers
-v0x19d05f0_0 .alias "carryin", 0 0, v0x19d16c0_1;
-v0x19d0690_0 .alias "carryout", 0 0, v0x19d16c0_2;
-v0x19d0710_0 .net "sum", 0 0, L_0x19f7e70; 1 drivers
-S_0x19cfb30 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19cfa40;
- .timescale -9 -12;
-L_0x19f86b0/d .functor XOR 1, L_0x19f8dc0, L_0x19f8f80, L_0x19f8220, C4<0>;
-L_0x19f86b0 .delay (30000,30000,30000) L_0x19f86b0/d;
-L_0x19f87a0/d .functor AND 1, L_0x19f8dc0, L_0x19f8f80, C4<1>, C4<1>;
-L_0x19f87a0 .delay (20000,20000,20000) L_0x19f87a0/d;
-L_0x19f88c0/d .functor AND 1, L_0x19f8dc0, L_0x19f8220, C4<1>, C4<1>;
-L_0x19f88c0 .delay (20000,20000,20000) L_0x19f88c0/d;
-L_0x19f8980/d .functor AND 1, L_0x19f8f80, L_0x19f8220, C4<1>, C4<1>;
-L_0x19f8980 .delay (20000,20000,20000) L_0x19f8980/d;
-L_0x19f8a70/d .functor OR 1, L_0x19f87a0, L_0x19f88c0, L_0x19f8980, C4<0>;
-L_0x19f8a70 .delay (20000,20000,20000) L_0x19f8a70/d;
-v0x19cfc20_0 .net "AandB", 0 0, L_0x19f87a0; 1 drivers
-v0x19cfce0_0 .net "AandC", 0 0, L_0x19f88c0; 1 drivers
-v0x19cfd80_0 .net "BandC", 0 0, L_0x19f8980; 1 drivers
-v0x19cfe20_0 .net "a", 0 0, L_0x19f8dc0; 1 drivers
-v0x19cfea0_0 .net "b", 0 0, L_0x19f8f80; 1 drivers
-v0x19cff40_0 .alias "carryin", 0 0, v0x19d16c0_2;
-v0x19d0020_0 .alias "carryout", 0 0, v0x19db130_5;
-v0x19d00f0_0 .net "sum", 0 0, L_0x19f86b0; 1 drivers
-S_0x19cdc70 .scope module, "f46" "CompAdder4bit" 2 86, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19cf5f0_0 .net "a", 3 0, L_0x19fb820; 1 drivers
-v0x19cf6b0_0 .net "b", 3 0, L_0x19f93b0; 1 drivers
-v0x19cf750_0 .alias "carryin", 0 0, v0x19db130_5;
-v0x19cf7d0_0 .alias "carryout", 0 0, v0x19db130_6;
-v0x19cf850_0 .net8 "sum", 3 0, RS_0x2b3f9cdedbb8; 4 drivers
-v0x19cf8d0 .array "temp_cout", 0 2;
-v0x19cf8d0_0 .net v0x19cf8d0 0, 0 0, L_0x19f9720; 1 drivers
-v0x19cf8d0_1 .net v0x19cf8d0 1, 0 0, L_0x19f9ef0; 1 drivers
-v0x19cf8d0_2 .net v0x19cf8d0 2, 0 0, L_0x19fa7f0; 1 drivers
-L_0x19f97f0 .part/pv L_0x19f8d60, 0, 1, 4;
-L_0x19f9890 .part L_0x19fb820, 0, 1;
-L_0x19f99c0 .part L_0x19f93b0, 0, 1;
-L_0x19fa0b0 .part/pv L_0x19f9af0, 1, 1, 4;
-L_0x19fa1a0 .part L_0x19fb820, 1, 1;
-L_0x19fa2d0 .part L_0x19f93b0, 1, 1;
-L_0x19fa980 .part/pv L_0x19fa440, 2, 1, 4;
-L_0x19faa20 .part L_0x19fb820, 2, 1;
-L_0x19fab50 .part L_0x19f93b0, 2, 1;
-L_0x19fb200 .part/pv L_0x19fac80, 3, 1, 4;
-L_0x19fb390 .part L_0x19fb820, 3, 1;
-L_0x19fb550 .part L_0x19f93b0, 3, 1;
-S_0x19ceff0 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19cdc70;
- .timescale -9 -12;
-L_0x19f8d60/d .functor XOR 1, L_0x19f9890, L_0x19f99c0, L_0x19f8a70, C4<0>;
-L_0x19f8d60 .delay (30000,30000,30000) L_0x19f8d60/d;
-L_0x19f9450/d .functor AND 1, L_0x19f9890, L_0x19f99c0, C4<1>, C4<1>;
-L_0x19f9450 .delay (20000,20000,20000) L_0x19f9450/d;
-L_0x19f94f0/d .functor AND 1, L_0x19f9890, L_0x19f8a70, C4<1>, C4<1>;
-L_0x19f94f0 .delay (20000,20000,20000) L_0x19f94f0/d;
-L_0x19f9590/d .functor AND 1, L_0x19f99c0, L_0x19f8a70, C4<1>, C4<1>;
-L_0x19f9590 .delay (20000,20000,20000) L_0x19f9590/d;
-L_0x19f9720/d .functor OR 1, L_0x19f9450, L_0x19f94f0, L_0x19f9590, C4<0>;
-L_0x19f9720 .delay (20000,20000,20000) L_0x19f9720/d;
-v0x19cf0e0_0 .net "AandB", 0 0, L_0x19f9450; 1 drivers
-v0x19cf1a0_0 .net "AandC", 0 0, L_0x19f94f0; 1 drivers
-v0x19cf240_0 .net "BandC", 0 0, L_0x19f9590; 1 drivers
-v0x19cf2e0_0 .net "a", 0 0, L_0x19f9890; 1 drivers
-v0x19cf360_0 .net "b", 0 0, L_0x19f99c0; 1 drivers
-v0x19cf400_0 .alias "carryin", 0 0, v0x19db130_5;
-v0x19cf4a0_0 .alias "carryout", 0 0, v0x19cf8d0_0;
-v0x19cf520_0 .net "sum", 0 0, L_0x19f8d60; 1 drivers
-S_0x19ce9f0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19cdc70;
- .timescale -9 -12;
-L_0x19f9af0/d .functor XOR 1, L_0x19fa1a0, L_0x19fa2d0, L_0x19f9720, C4<0>;
-L_0x19f9af0 .delay (30000,30000,30000) L_0x19f9af0/d;
-L_0x19f9cb0/d .functor AND 1, L_0x19fa1a0, L_0x19fa2d0, C4<1>, C4<1>;
-L_0x19f9cb0 .delay (20000,20000,20000) L_0x19f9cb0/d;
-L_0x19f9d80/d .functor AND 1, L_0x19fa1a0, L_0x19f9720, C4<1>, C4<1>;
-L_0x19f9d80 .delay (20000,20000,20000) L_0x19f9d80/d;
-L_0x19f9e20/d .functor AND 1, L_0x19fa2d0, L_0x19f9720, C4<1>, C4<1>;
-L_0x19f9e20 .delay (20000,20000,20000) L_0x19f9e20/d;
-L_0x19f9ef0/d .functor OR 1, L_0x19f9cb0, L_0x19f9d80, L_0x19f9e20, C4<0>;
-L_0x19f9ef0 .delay (20000,20000,20000) L_0x19f9ef0/d;
-v0x19ceae0_0 .net "AandB", 0 0, L_0x19f9cb0; 1 drivers
-v0x19ceba0_0 .net "AandC", 0 0, L_0x19f9d80; 1 drivers
-v0x19cec40_0 .net "BandC", 0 0, L_0x19f9e20; 1 drivers
-v0x19cece0_0 .net "a", 0 0, L_0x19fa1a0; 1 drivers
-v0x19ced60_0 .net "b", 0 0, L_0x19fa2d0; 1 drivers
-v0x19cee00_0 .alias "carryin", 0 0, v0x19cf8d0_0;
-v0x19ceea0_0 .alias "carryout", 0 0, v0x19cf8d0_1;
-v0x19cef20_0 .net "sum", 0 0, L_0x19f9af0; 1 drivers
-S_0x19ce3f0 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19cdc70;
- .timescale -9 -12;
-L_0x19fa440/d .functor XOR 1, L_0x19faa20, L_0x19fab50, L_0x19f9ef0, C4<0>;
-L_0x19fa440 .delay (30000,30000,30000) L_0x19fa440/d;
-L_0x19fa570/d .functor AND 1, L_0x19faa20, L_0x19fab50, C4<1>, C4<1>;
-L_0x19fa570 .delay (20000,20000,20000) L_0x19fa570/d;
-L_0x19fa6b0/d .functor AND 1, L_0x19faa20, L_0x19f9ef0, C4<1>, C4<1>;
-L_0x19fa6b0 .delay (20000,20000,20000) L_0x19fa6b0/d;
-L_0x19fa750/d .functor AND 1, L_0x19fab50, L_0x19f9ef0, C4<1>, C4<1>;
-L_0x19fa750 .delay (20000,20000,20000) L_0x19fa750/d;
-L_0x19fa7f0/d .functor OR 1, L_0x19fa570, L_0x19fa6b0, L_0x19fa750, C4<0>;
-L_0x19fa7f0 .delay (20000,20000,20000) L_0x19fa7f0/d;
-v0x19ce4e0_0 .net "AandB", 0 0, L_0x19fa570; 1 drivers
-v0x19ce5a0_0 .net "AandC", 0 0, L_0x19fa6b0; 1 drivers
-v0x19ce640_0 .net "BandC", 0 0, L_0x19fa750; 1 drivers
-v0x19ce6e0_0 .net "a", 0 0, L_0x19faa20; 1 drivers
-v0x19ce760_0 .net "b", 0 0, L_0x19fab50; 1 drivers
-v0x19ce800_0 .alias "carryin", 0 0, v0x19cf8d0_1;
-v0x19ce8a0_0 .alias "carryout", 0 0, v0x19cf8d0_2;
-v0x19ce920_0 .net "sum", 0 0, L_0x19fa440; 1 drivers
-S_0x19cdd60 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19cdc70;
- .timescale -9 -12;
-L_0x19fac80/d .functor XOR 1, L_0x19fb390, L_0x19fb550, L_0x19fa7f0, C4<0>;
-L_0x19fac80 .delay (30000,30000,30000) L_0x19fac80/d;
-L_0x19fad70/d .functor AND 1, L_0x19fb390, L_0x19fb550, C4<1>, C4<1>;
-L_0x19fad70 .delay (20000,20000,20000) L_0x19fad70/d;
-L_0x19fae90/d .functor AND 1, L_0x19fb390, L_0x19fa7f0, C4<1>, C4<1>;
-L_0x19fae90 .delay (20000,20000,20000) L_0x19fae90/d;
-L_0x19faf50/d .functor AND 1, L_0x19fb550, L_0x19fa7f0, C4<1>, C4<1>;
-L_0x19faf50 .delay (20000,20000,20000) L_0x19faf50/d;
-L_0x19fb040/d .functor OR 1, L_0x19fad70, L_0x19fae90, L_0x19faf50, C4<0>;
-L_0x19fb040 .delay (20000,20000,20000) L_0x19fb040/d;
-v0x19cde50_0 .net "AandB", 0 0, L_0x19fad70; 1 drivers
-v0x19cdef0_0 .net "AandC", 0 0, L_0x19fae90; 1 drivers
-v0x19cdf90_0 .net "BandC", 0 0, L_0x19faf50; 1 drivers
-v0x19ce030_0 .net "a", 0 0, L_0x19fb390; 1 drivers
-v0x19ce0b0_0 .net "b", 0 0, L_0x19fb550; 1 drivers
-v0x19ce150_0 .alias "carryin", 0 0, v0x19cf8d0_2;
-v0x19ce230_0 .alias "carryout", 0 0, v0x19db130_6;
-v0x19ce300_0 .net "sum", 0 0, L_0x19fac80; 1 drivers
-S_0x19b4350 .scope module, "f47" "CompAdder4bit" 2 87, 2 30, S_0x19b9c70;
- .timescale -9 -12;
-v0x19cd790_0 .net "a", 3 0, L_0x19fb8c0; 1 drivers
-v0x19cd850_0 .net "b", 3 0, L_0x19fe0b0; 1 drivers
-v0x19cd8f0_0 .alias "carryin", 0 0, v0x19db130_6;
-v0x19cd9a0_0 .alias "carryout", 0 0, v0x19daf40_0;
-v0x19cda80_0 .net8 "sum", 3 0, RS_0x2b3f9cded5e8; 4 drivers
-v0x19cdb00 .array "temp_cout", 0 2;
-v0x19cdb00_0 .net v0x19cdb00 0, 0 0, L_0x19fbcd0; 1 drivers
-v0x19cdb00_1 .net v0x19cdb00 1, 0 0, L_0x19fc4a0; 1 drivers
-v0x19cdb00_2 .net v0x19cdb00 2, 0 0, L_0x19fcda0; 1 drivers
-L_0x19fbda0 .part/pv L_0x19fb330, 0, 1, 4;
-L_0x19fbe40 .part L_0x19fb8c0, 0, 1;
-L_0x19fbf70 .part L_0x19fe0b0, 0, 1;
-L_0x19fc660 .part/pv L_0x19fc0a0, 1, 1, 4;
-L_0x19fc750 .part L_0x19fb8c0, 1, 1;
-L_0x19fc880 .part L_0x19fe0b0, 1, 1;
-L_0x19fcf30 .part/pv L_0x19fc9f0, 2, 1, 4;
-L_0x19fcfd0 .part L_0x19fb8c0, 2, 1;
-L_0x19fd100 .part L_0x19fe0b0, 2, 1;
-L_0x19fd7b0 .part/pv L_0x19fd230, 3, 1, 4;
-L_0x19fd940 .part L_0x19fb8c0, 3, 1;
-L_0x19fdb00 .part L_0x19fe0b0, 3, 1;
-S_0x19cd160 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19b4350;
- .timescale -9 -12;
-L_0x19fb330/d .functor XOR 1, L_0x19fbe40, L_0x19fbf70, L_0x19fb040, C4<0>;
-L_0x19fb330 .delay (30000,30000,30000) L_0x19fb330/d;
-L_0x19fb9b0/d .functor AND 1, L_0x19fbe40, L_0x19fbf70, C4<1>, C4<1>;
-L_0x19fb9b0 .delay (20000,20000,20000) L_0x19fb9b0/d;
-L_0x19fba80/d .functor AND 1, L_0x19fbe40, L_0x19fb040, C4<1>, C4<1>;
-L_0x19fba80 .delay (20000,20000,20000) L_0x19fba80/d;
-L_0x19fbb40/d .functor AND 1, L_0x19fbf70, L_0x19fb040, C4<1>, C4<1>;
-L_0x19fbb40 .delay (20000,20000,20000) L_0x19fbb40/d;
-L_0x19fbcd0/d .functor OR 1, L_0x19fb9b0, L_0x19fba80, L_0x19fbb40, C4<0>;
-L_0x19fbcd0 .delay (20000,20000,20000) L_0x19fbcd0/d;
-v0x19cd250_0 .net "AandB", 0 0, L_0x19fb9b0; 1 drivers
-v0x19cd310_0 .net "AandC", 0 0, L_0x19fba80; 1 drivers
-v0x19cd3b0_0 .net "BandC", 0 0, L_0x19fbb40; 1 drivers
-v0x19cd450_0 .net "a", 0 0, L_0x19fbe40; 1 drivers
-v0x19cd500_0 .net "b", 0 0, L_0x19fbf70; 1 drivers
-v0x19cd5a0_0 .alias "carryin", 0 0, v0x19db130_6;
-v0x19cd640_0 .alias "carryout", 0 0, v0x19cdb00_0;
-v0x19cd6c0_0 .net "sum", 0 0, L_0x19fb330; 1 drivers
-S_0x19ccb30 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19b4350;
- .timescale -9 -12;
-L_0x19fc0a0/d .functor XOR 1, L_0x19fc750, L_0x19fc880, L_0x19fbcd0, C4<0>;
-L_0x19fc0a0 .delay (30000,30000,30000) L_0x19fc0a0/d;
-L_0x19fc260/d .functor AND 1, L_0x19fc750, L_0x19fc880, C4<1>, C4<1>;
-L_0x19fc260 .delay (20000,20000,20000) L_0x19fc260/d;
-L_0x19fc330/d .functor AND 1, L_0x19fc750, L_0x19fbcd0, C4<1>, C4<1>;
-L_0x19fc330 .delay (20000,20000,20000) L_0x19fc330/d;
-L_0x19fc3d0/d .functor AND 1, L_0x19fc880, L_0x19fbcd0, C4<1>, C4<1>;
-L_0x19fc3d0 .delay (20000,20000,20000) L_0x19fc3d0/d;
-L_0x19fc4a0/d .functor OR 1, L_0x19fc260, L_0x19fc330, L_0x19fc3d0, C4<0>;
-L_0x19fc4a0 .delay (20000,20000,20000) L_0x19fc4a0/d;
-v0x19ccc20_0 .net "AandB", 0 0, L_0x19fc260; 1 drivers
-v0x19ccce0_0 .net "AandC", 0 0, L_0x19fc330; 1 drivers
-v0x19ccd80_0 .net "BandC", 0 0, L_0x19fc3d0; 1 drivers
-v0x19cce20_0 .net "a", 0 0, L_0x19fc750; 1 drivers
-v0x19cced0_0 .net "b", 0 0, L_0x19fc880; 1 drivers
-v0x19ccf70_0 .alias "carryin", 0 0, v0x19cdb00_0;
-v0x19cd010_0 .alias "carryout", 0 0, v0x19cdb00_1;
-v0x19cd090_0 .net "sum", 0 0, L_0x19fc0a0; 1 drivers
-S_0x19cc530 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19b4350;
- .timescale -9 -12;
-L_0x19fc9f0/d .functor XOR 1, L_0x19fcfd0, L_0x19fd100, L_0x19fc4a0, C4<0>;
-L_0x19fc9f0 .delay (30000,30000,30000) L_0x19fc9f0/d;
-L_0x19fcb20/d .functor AND 1, L_0x19fcfd0, L_0x19fd100, C4<1>, C4<1>;
-L_0x19fcb20 .delay (20000,20000,20000) L_0x19fcb20/d;
-L_0x19fcc60/d .functor AND 1, L_0x19fcfd0, L_0x19fc4a0, C4<1>, C4<1>;
-L_0x19fcc60 .delay (20000,20000,20000) L_0x19fcc60/d;
-L_0x19fcd00/d .functor AND 1, L_0x19fd100, L_0x19fc4a0, C4<1>, C4<1>;
-L_0x19fcd00 .delay (20000,20000,20000) L_0x19fcd00/d;
-L_0x19fcda0/d .functor OR 1, L_0x19fcb20, L_0x19fcc60, L_0x19fcd00, C4<0>;
-L_0x19fcda0 .delay (20000,20000,20000) L_0x19fcda0/d;
-v0x19cc620_0 .net "AandB", 0 0, L_0x19fcb20; 1 drivers
-v0x19cc6e0_0 .net "AandC", 0 0, L_0x19fcc60; 1 drivers
-v0x19cc780_0 .net "BandC", 0 0, L_0x19fcd00; 1 drivers
-v0x19cc820_0 .net "a", 0 0, L_0x19fcfd0; 1 drivers
-v0x19cc8a0_0 .net "b", 0 0, L_0x19fd100; 1 drivers
-v0x19cc940_0 .alias "carryin", 0 0, v0x19cdb00_1;
-v0x19cc9e0_0 .alias "carryout", 0 0, v0x19cdb00_2;
-v0x19cca60_0 .net "sum", 0 0, L_0x19fc9f0; 1 drivers
-S_0x19af0f0 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19b4350;
- .timescale -9 -12;
-L_0x19fd230/d .functor XOR 1, L_0x19fd940, L_0x19fdb00, L_0x19fcda0, C4<0>;
-L_0x19fd230 .delay (30000,30000,30000) L_0x19fd230/d;
-L_0x19fd320/d .functor AND 1, L_0x19fd940, L_0x19fdb00, C4<1>, C4<1>;
-L_0x19fd320 .delay (20000,20000,20000) L_0x19fd320/d;
-L_0x19fd440/d .functor AND 1, L_0x19fd940, L_0x19fcda0, C4<1>, C4<1>;
-L_0x19fd440 .delay (20000,20000,20000) L_0x19fd440/d;
-L_0x19fd500/d .functor AND 1, L_0x19fdb00, L_0x19fcda0, C4<1>, C4<1>;
-L_0x19fd500 .delay (20000,20000,20000) L_0x19fd500/d;
-L_0x19fd5f0/d .functor OR 1, L_0x19fd320, L_0x19fd440, L_0x19fd500, C4<0>;
-L_0x19fd5f0 .delay (20000,20000,20000) L_0x19fd5f0/d;
-v0x19813d0_0 .net "AandB", 0 0, L_0x19fd320; 1 drivers
-v0x19cc030_0 .net "AandC", 0 0, L_0x19fd440; 1 drivers
-v0x19cc0d0_0 .net "BandC", 0 0, L_0x19fd500; 1 drivers
-v0x19cc170_0 .net "a", 0 0, L_0x19fd940; 1 drivers
-v0x19cc220_0 .net "b", 0 0, L_0x19fdb00; 1 drivers
-v0x19cc2c0_0 .alias "carryin", 0 0, v0x19cdb00_2;
-v0x19cc3a0_0 .alias "carryout", 0 0, v0x19daf40_0;
-v0x19cc440_0 .net "sum", 0 0, L_0x19fd230; 1 drivers
-S_0x199dad0 .scope module, "testFullAdder16bit" "testFullAdder16bit" 3 5;
- .timescale -9 -12;
-v0x19eac80_0 .var "a", 31 0;
-v0x19ead20_0 .var "b", 31 0;
-v0x19eada0_0 .net "carryout", 0 0, L_0x1a109b0; 1 drivers
-v0x19eae20_0 .net "overflow", 0 0, L_0x1a10ce0; 1 drivers
-RS_0x2b3f9cdf2ec8/0/0 .resolv tri, L_0x1a004a0, L_0x1a02bd0, L_0x1a05180, L_0x1a077f0;
-RS_0x2b3f9cdf2ec8/0/4 .resolv tri, L_0x1a09db0, L_0x1a0c360, L_0x1a0e9a0, L_0x1a11130;
-RS_0x2b3f9cdf2ec8 .resolv tri, RS_0x2b3f9cdf2ec8/0/0, RS_0x2b3f9cdf2ec8/0/4, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>;
-v0x19eaea0_0 .net8 "sum", 31 0, RS_0x2b3f9cdf2ec8; 8 drivers
-S_0x19db620 .scope module, "fa16b" "FullAdder32bit" 3 11, 2 49, S_0x199dad0;
- .timescale -9 -12;
-L_0x1a10ce0/d .functor XOR 1, L_0x1a109b0, L_0x1a0e260, C4<0>, C4<0>;
-L_0x1a10ce0 .delay (30000,30000,30000) L_0x1a10ce0/d;
-v0x19ea440_0 .net "a", 31 0, v0x19eac80_0; 1 drivers
-v0x19ea500_0 .net "b", 31 0, v0x19ead20_0; 1 drivers
-v0x19ea5a0_0 .alias "carryout", 0 0, v0x19eada0_0;
-v0x19ea670_0 .alias "overflow", 0 0, v0x19eae20_0;
-v0x19ea6f0_0 .alias "sum", 31 0, v0x19eaea0_0;
-v0x19ea790 .array "temp_cout", 0 6;
-v0x19ea790_0 .net v0x19ea790 0, 0 0, L_0x19ffe80; 1 drivers
-v0x19ea790_1 .net v0x19ea790 1, 0 0, L_0x1a02490; 1 drivers
-v0x19ea790_2 .net v0x19ea790 2, 0 0, L_0x1a04a40; 1 drivers
-v0x19ea790_3 .net v0x19ea790 3, 0 0, L_0x1a070b0; 1 drivers
-v0x19ea790_4 .net v0x19ea790 4, 0 0, L_0x1a09670; 1 drivers
-v0x19ea790_5 .net v0x19ea790 5, 0 0, L_0x1a0bc90; 1 drivers
-v0x19ea790_6 .net v0x19ea790 6, 0 0, L_0x1a0e260; 1 drivers
-RS_0x2b3f9cdf2e08 .resolv tri, L_0x19fe660, L_0x19feed0, L_0x19ff7c0, L_0x19ffff0;
-L_0x1a004a0 .part/pv RS_0x2b3f9cdf2e08, 0, 4, 32;
-L_0x1a00540 .part v0x19eac80_0, 0, 4;
-L_0x1a005e0 .part v0x19ead20_0, 0, 4;
-RS_0x2b3f9cdf2838 .resolv tri, L_0x1a00c40, L_0x1a01500, L_0x1a01dd0, L_0x1a02650;
-L_0x1a02bd0 .part/pv RS_0x2b3f9cdf2838, 4, 4, 32;
-L_0x1a02c70 .part v0x19eac80_0, 4, 4;
-L_0x1a02d10 .part v0x19ead20_0, 4, 4;
-RS_0x2b3f9cdf2268 .resolv tri, L_0x1a031f0, L_0x1a03ab0, L_0x1a04380, L_0x1a04c00;
-L_0x1a05180 .part/pv RS_0x2b3f9cdf2268, 8, 4, 32;
-L_0x1a052b0 .part v0x19eac80_0, 8, 4;
-L_0x1a053e0 .part v0x19ead20_0, 8, 4;
-RS_0x2b3f9cdf1c98 .resolv tri, L_0x1a05900, L_0x1a06120, L_0x1a069f0, L_0x1a07270;
-L_0x1a077f0 .part/pv RS_0x2b3f9cdf1c98, 12, 4, 32;
-L_0x1a07890 .part v0x19eac80_0, 12, 4;
-L_0x1a07930 .part v0x19ead20_0, 12, 4;
-RS_0x2b3f9cdf16c8 .resolv tri, L_0x1a07e70, L_0x1a086e0, L_0x1a08fb0, L_0x1a09830;
-L_0x1a09db0 .part/pv RS_0x2b3f9cdf16c8, 16, 4, 32;
-L_0x1a09e50 .part v0x19eac80_0, 16, 4;
-L_0x1a09f70 .part v0x19ead20_0, 16, 4;
-RS_0x2b3f9cdf10f8 .resolv tri, L_0x1a0a440, L_0x1a0ad00, L_0x1a0b5d0, L_0x1a0be50;
-L_0x1a0c360 .part/pv RS_0x2b3f9cdf10f8, 20, 4, 32;
-L_0x1a0c490 .part v0x19eac80_0, 20, 4;
-L_0x1a0c530 .part v0x19ead20_0, 20, 4;
-RS_0x2b3f9cdf0b28 .resolv tri, L_0x1a0ca10, L_0x1a0d2d0, L_0x1a0dba0, L_0x1a0e420;
-L_0x1a0e9a0 .part/pv RS_0x2b3f9cdf0b28, 24, 4, 32;
-L_0x1a0eb50 .part v0x19eac80_0, 24, 4;
-L_0x1a0c5d0 .part v0x19ead20_0, 24, 4;
-RS_0x2b3f9cdf0558 .resolv tri, L_0x1a0f160, L_0x1a0fa20, L_0x1a102f0, L_0x1a10bb0;
-L_0x1a11130 .part/pv RS_0x2b3f9cdf0558, 28, 4, 32;
-L_0x1a0ed00 .part v0x19eac80_0, 28, 4;
-L_0x1a11290 .part v0x19ead20_0, 28, 4;
-S_0x19e8650 .scope module, "f40" "CompAdder4bit" 2 59, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19e9ff0_0 .net "a", 3 0, L_0x1a00540; 1 drivers
-v0x19ea0b0_0 .net "b", 3 0, L_0x1a005e0; 1 drivers
-v0x19ea150_0 .net "carryin", 0 0, C4<0>; 1 drivers
-v0x19ea1d0_0 .alias "carryout", 0 0, v0x19ea790_0;
-v0x19ea250_0 .net8 "sum", 3 0, RS_0x2b3f9cdf2e08; 4 drivers
-v0x19ea2d0 .array "temp_cout", 0 2;
-v0x19ea2d0_0 .net v0x19ea2d0 0, 0 0, L_0x19fe590; 1 drivers
-v0x19ea2d0_1 .net v0x19ea2d0 1, 0 0, L_0x19fed60; 1 drivers
-v0x19ea2d0_2 .net v0x19ea2d0 2, 0 0, L_0x19ff630; 1 drivers
-L_0x19fe660 .part/pv L_0x19f4810, 0, 1, 4;
-L_0x19fe700 .part L_0x1a00540, 0, 1;
-L_0x19fe830 .part L_0x1a005e0, 0, 1;
-L_0x19feed0 .part/pv L_0x19fe960, 1, 1, 4;
-L_0x19fefc0 .part L_0x1a00540, 1, 1;
-L_0x19ff0f0 .part L_0x1a005e0, 1, 1;
-L_0x19ff7c0 .part/pv L_0x19ff260, 2, 1, 4;
-L_0x19ff860 .part L_0x1a00540, 2, 1;
-L_0x19ff990 .part L_0x1a005e0, 2, 1;
-L_0x19ffff0 .part/pv L_0x19ffac0, 3, 1, 4;
-L_0x1a00120 .part L_0x1a00540, 3, 1;
-L_0x1a002e0 .part L_0x1a005e0, 3, 1;
-S_0x19e99f0 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19e8650;
- .timescale -9 -12;
-L_0x19f4810/d .functor XOR 1, L_0x19fe700, L_0x19fe830, C4<0>, C4<0>;
-L_0x19f4810 .delay (30000,30000,30000) L_0x19f4810/d;
-L_0x19fdf20/d .functor AND 1, L_0x19fe700, L_0x19fe830, C4<1>, C4<1>;
-L_0x19fdf20 .delay (20000,20000,20000) L_0x19fdf20/d;
-L_0x19fe370/d .functor AND 1, L_0x19fe700, C4<0>, C4<1>, C4<1>;
-L_0x19fe370 .delay (20000,20000,20000) L_0x19fe370/d;
-L_0x19fe410/d .functor AND 1, L_0x19fe830, C4<0>, C4<1>, C4<1>;
-L_0x19fe410 .delay (20000,20000,20000) L_0x19fe410/d;
-L_0x19fe590/d .functor OR 1, L_0x19fdf20, L_0x19fe370, L_0x19fe410, C4<0>;
-L_0x19fe590 .delay (20000,20000,20000) L_0x19fe590/d;
-v0x19e9ae0_0 .net "AandB", 0 0, L_0x19fdf20; 1 drivers
-v0x19e9ba0_0 .net "AandC", 0 0, L_0x19fe370; 1 drivers
-v0x19e9c40_0 .net "BandC", 0 0, L_0x19fe410; 1 drivers
-v0x19e9ce0_0 .net "a", 0 0, L_0x19fe700; 1 drivers
-v0x19e9d60_0 .net "b", 0 0, L_0x19fe830; 1 drivers
-v0x19e9e00_0 .alias "carryin", 0 0, v0x19ea150_0;
-v0x19e9ea0_0 .alias "carryout", 0 0, v0x19ea2d0_0;
-v0x19e9f20_0 .net "sum", 0 0, L_0x19f4810; 1 drivers
-S_0x19e93f0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19e8650;
- .timescale -9 -12;
-L_0x19fe960/d .functor XOR 1, L_0x19fefc0, L_0x19ff0f0, L_0x19fe590, C4<0>;
-L_0x19fe960 .delay (30000,30000,30000) L_0x19fe960/d;
-L_0x19feb20/d .functor AND 1, L_0x19fefc0, L_0x19ff0f0, C4<1>, C4<1>;
-L_0x19feb20 .delay (20000,20000,20000) L_0x19feb20/d;
-L_0x19febf0/d .functor AND 1, L_0x19fefc0, L_0x19fe590, C4<1>, C4<1>;
-L_0x19febf0 .delay (20000,20000,20000) L_0x19febf0/d;
-L_0x19fec90/d .functor AND 1, L_0x19ff0f0, L_0x19fe590, C4<1>, C4<1>;
-L_0x19fec90 .delay (20000,20000,20000) L_0x19fec90/d;
-L_0x19fed60/d .functor OR 1, L_0x19feb20, L_0x19febf0, L_0x19fec90, C4<0>;
-L_0x19fed60 .delay (20000,20000,20000) L_0x19fed60/d;
-v0x19e94e0_0 .net "AandB", 0 0, L_0x19feb20; 1 drivers
-v0x19e95a0_0 .net "AandC", 0 0, L_0x19febf0; 1 drivers
-v0x19e9640_0 .net "BandC", 0 0, L_0x19fec90; 1 drivers
-v0x19e96e0_0 .net "a", 0 0, L_0x19fefc0; 1 drivers
-v0x19e9760_0 .net "b", 0 0, L_0x19ff0f0; 1 drivers
-v0x19e9800_0 .alias "carryin", 0 0, v0x19ea2d0_0;
-v0x19e98a0_0 .alias "carryout", 0 0, v0x19ea2d0_1;
-v0x19e9920_0 .net "sum", 0 0, L_0x19fe960; 1 drivers
-S_0x19e8df0 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19e8650;
- .timescale -9 -12;
-L_0x19ff260/d .functor XOR 1, L_0x19ff860, L_0x19ff990, L_0x19fed60, C4<0>;
-L_0x19ff260 .delay (30000,30000,30000) L_0x19ff260/d;
-L_0x19ff390/d .functor AND 1, L_0x19ff860, L_0x19ff990, C4<1>, C4<1>;
-L_0x19ff390 .delay (20000,20000,20000) L_0x19ff390/d;
-L_0x19ff4d0/d .functor AND 1, L_0x19ff860, L_0x19fed60, C4<1>, C4<1>;
-L_0x19ff4d0 .delay (20000,20000,20000) L_0x19ff4d0/d;
-L_0x19ff570/d .functor AND 1, L_0x19ff990, L_0x19fed60, C4<1>, C4<1>;
-L_0x19ff570 .delay (20000,20000,20000) L_0x19ff570/d;
-L_0x19ff630/d .functor OR 1, L_0x19ff390, L_0x19ff4d0, L_0x19ff570, C4<0>;
-L_0x19ff630 .delay (20000,20000,20000) L_0x19ff630/d;
-v0x19e8ee0_0 .net "AandB", 0 0, L_0x19ff390; 1 drivers
-v0x19e8fa0_0 .net "AandC", 0 0, L_0x19ff4d0; 1 drivers
-v0x19e9040_0 .net "BandC", 0 0, L_0x19ff570; 1 drivers
-v0x19e90e0_0 .net "a", 0 0, L_0x19ff860; 1 drivers
-v0x19e9160_0 .net "b", 0 0, L_0x19ff990; 1 drivers
-v0x19e9200_0 .alias "carryin", 0 0, v0x19ea2d0_1;
-v0x19e92a0_0 .alias "carryout", 0 0, v0x19ea2d0_2;
-v0x19e9320_0 .net "sum", 0 0, L_0x19ff260; 1 drivers
-S_0x19e8740 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19e8650;
- .timescale -9 -12;
-L_0x19ffac0/d .functor XOR 1, L_0x1a00120, L_0x1a002e0, L_0x19ff630, C4<0>;
-L_0x19ffac0 .delay (30000,30000,30000) L_0x19ffac0/d;
-L_0x19ffbb0/d .functor AND 1, L_0x1a00120, L_0x1a002e0, C4<1>, C4<1>;
-L_0x19ffbb0 .delay (20000,20000,20000) L_0x19ffbb0/d;
-L_0x19ffcd0/d .functor AND 1, L_0x1a00120, L_0x19ff630, C4<1>, C4<1>;
-L_0x19ffcd0 .delay (20000,20000,20000) L_0x19ffcd0/d;
-L_0x19ffd90/d .functor AND 1, L_0x1a002e0, L_0x19ff630, C4<1>, C4<1>;
-L_0x19ffd90 .delay (20000,20000,20000) L_0x19ffd90/d;
-L_0x19ffe80/d .functor OR 1, L_0x19ffbb0, L_0x19ffcd0, L_0x19ffd90, C4<0>;
-L_0x19ffe80 .delay (20000,20000,20000) L_0x19ffe80/d;
-v0x19e8830_0 .net "AandB", 0 0, L_0x19ffbb0; 1 drivers
-v0x19e88f0_0 .net "AandC", 0 0, L_0x19ffcd0; 1 drivers
-v0x19e8990_0 .net "BandC", 0 0, L_0x19ffd90; 1 drivers
-v0x19e8a30_0 .net "a", 0 0, L_0x1a00120; 1 drivers
-v0x19e8ab0_0 .net "b", 0 0, L_0x1a002e0; 1 drivers
-v0x19e8b50_0 .alias "carryin", 0 0, v0x19ea2d0_2;
-v0x19e8c30_0 .alias "carryout", 0 0, v0x19ea790_0;
-v0x19e8d00_0 .net "sum", 0 0, L_0x19ffac0; 1 drivers
-S_0x19e6860 .scope module, "f41" "CompAdder4bit" 2 60, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19e8200_0 .net "a", 3 0, L_0x1a02c70; 1 drivers
-v0x19e82c0_0 .net "b", 3 0, L_0x1a02d10; 1 drivers
-v0x19e8360_0 .alias "carryin", 0 0, v0x19ea790_0;
-v0x19e83e0_0 .alias "carryout", 0 0, v0x19ea790_1;
-v0x19e8460_0 .net8 "sum", 3 0, RS_0x2b3f9cdf2838; 4 drivers
-v0x19e84e0 .array "temp_cout", 0 2;
-v0x19e84e0_0 .net v0x19e84e0 0, 0 0, L_0x1a00a80; 1 drivers
-v0x19e84e0_1 .net v0x19e84e0 1, 0 0, L_0x1a01340; 1 drivers
-v0x19e84e0_2 .net v0x19e84e0 2, 0 0, L_0x1a01c40; 1 drivers
-L_0x1a00c40 .part/pv L_0x1a006c0, 0, 1, 4;
-L_0x1a00ce0 .part L_0x1a02c70, 0, 1;
-L_0x1a00e10 .part L_0x1a02d10, 0, 1;
-L_0x1a01500 .part/pv L_0x1a00f40, 1, 1, 4;
-L_0x1a015f0 .part L_0x1a02c70, 1, 1;
-L_0x1a01720 .part L_0x1a02d10, 1, 1;
-L_0x1a01dd0 .part/pv L_0x1a01890, 2, 1, 4;
-L_0x1a01e70 .part L_0x1a02c70, 2, 1;
-L_0x1a01fa0 .part L_0x1a02d10, 2, 1;
-L_0x1a02650 .part/pv L_0x1a020d0, 3, 1, 4;
-L_0x1a027e0 .part L_0x1a02c70, 3, 1;
-L_0x1a029a0 .part L_0x1a02d10, 3, 1;
-S_0x19e7c00 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19e6860;
- .timescale -9 -12;
-L_0x1a006c0/d .functor XOR 1, L_0x1a00ce0, L_0x1a00e10, L_0x19ffe80, C4<0>;
-L_0x1a006c0 .delay (30000,30000,30000) L_0x1a006c0/d;
-L_0x1a00760/d .functor AND 1, L_0x1a00ce0, L_0x1a00e10, C4<1>, C4<1>;
-L_0x1a00760 .delay (20000,20000,20000) L_0x1a00760/d;
-L_0x1a00850/d .functor AND 1, L_0x1a00ce0, L_0x19ffe80, C4<1>, C4<1>;
-L_0x1a00850 .delay (20000,20000,20000) L_0x1a00850/d;
-L_0x1a008f0/d .functor AND 1, L_0x1a00e10, L_0x19ffe80, C4<1>, C4<1>;
-L_0x1a008f0 .delay (20000,20000,20000) L_0x1a008f0/d;
-L_0x1a00a80/d .functor OR 1, L_0x1a00760, L_0x1a00850, L_0x1a008f0, C4<0>;
-L_0x1a00a80 .delay (20000,20000,20000) L_0x1a00a80/d;
-v0x19e7cf0_0 .net "AandB", 0 0, L_0x1a00760; 1 drivers
-v0x19e7db0_0 .net "AandC", 0 0, L_0x1a00850; 1 drivers
-v0x19e7e50_0 .net "BandC", 0 0, L_0x1a008f0; 1 drivers
-v0x19e7ef0_0 .net "a", 0 0, L_0x1a00ce0; 1 drivers
-v0x19e7f70_0 .net "b", 0 0, L_0x1a00e10; 1 drivers
-v0x19e8010_0 .alias "carryin", 0 0, v0x19ea790_0;
-v0x19e80b0_0 .alias "carryout", 0 0, v0x19e84e0_0;
-v0x19e8130_0 .net "sum", 0 0, L_0x1a006c0; 1 drivers
-S_0x19e7600 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19e6860;
- .timescale -9 -12;
-L_0x1a00f40/d .functor XOR 1, L_0x1a015f0, L_0x1a01720, L_0x1a00a80, C4<0>;
-L_0x1a00f40 .delay (30000,30000,30000) L_0x1a00f40/d;
-L_0x1a01100/d .functor AND 1, L_0x1a015f0, L_0x1a01720, C4<1>, C4<1>;
-L_0x1a01100 .delay (20000,20000,20000) L_0x1a01100/d;
-L_0x1a011d0/d .functor AND 1, L_0x1a015f0, L_0x1a00a80, C4<1>, C4<1>;
-L_0x1a011d0 .delay (20000,20000,20000) L_0x1a011d0/d;
-L_0x1a01270/d .functor AND 1, L_0x1a01720, L_0x1a00a80, C4<1>, C4<1>;
-L_0x1a01270 .delay (20000,20000,20000) L_0x1a01270/d;
-L_0x1a01340/d .functor OR 1, L_0x1a01100, L_0x1a011d0, L_0x1a01270, C4<0>;
-L_0x1a01340 .delay (20000,20000,20000) L_0x1a01340/d;
-v0x19e76f0_0 .net "AandB", 0 0, L_0x1a01100; 1 drivers
-v0x19e77b0_0 .net "AandC", 0 0, L_0x1a011d0; 1 drivers
-v0x19e7850_0 .net "BandC", 0 0, L_0x1a01270; 1 drivers
-v0x19e78f0_0 .net "a", 0 0, L_0x1a015f0; 1 drivers
-v0x19e7970_0 .net "b", 0 0, L_0x1a01720; 1 drivers
-v0x19e7a10_0 .alias "carryin", 0 0, v0x19e84e0_0;
-v0x19e7ab0_0 .alias "carryout", 0 0, v0x19e84e0_1;
-v0x19e7b30_0 .net "sum", 0 0, L_0x1a00f40; 1 drivers
-S_0x19e7000 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19e6860;
- .timescale -9 -12;
-L_0x1a01890/d .functor XOR 1, L_0x1a01e70, L_0x1a01fa0, L_0x1a01340, C4<0>;
-L_0x1a01890 .delay (30000,30000,30000) L_0x1a01890/d;
-L_0x1a019c0/d .functor AND 1, L_0x1a01e70, L_0x1a01fa0, C4<1>, C4<1>;
-L_0x1a019c0 .delay (20000,20000,20000) L_0x1a019c0/d;
-L_0x1a01b00/d .functor AND 1, L_0x1a01e70, L_0x1a01340, C4<1>, C4<1>;
-L_0x1a01b00 .delay (20000,20000,20000) L_0x1a01b00/d;
-L_0x1a01ba0/d .functor AND 1, L_0x1a01fa0, L_0x1a01340, C4<1>, C4<1>;
-L_0x1a01ba0 .delay (20000,20000,20000) L_0x1a01ba0/d;
-L_0x1a01c40/d .functor OR 1, L_0x1a019c0, L_0x1a01b00, L_0x1a01ba0, C4<0>;
-L_0x1a01c40 .delay (20000,20000,20000) L_0x1a01c40/d;
-v0x19e70f0_0 .net "AandB", 0 0, L_0x1a019c0; 1 drivers
-v0x19e71b0_0 .net "AandC", 0 0, L_0x1a01b00; 1 drivers
-v0x19e7250_0 .net "BandC", 0 0, L_0x1a01ba0; 1 drivers
-v0x19e72f0_0 .net "a", 0 0, L_0x1a01e70; 1 drivers
-v0x19e7370_0 .net "b", 0 0, L_0x1a01fa0; 1 drivers
-v0x19e7410_0 .alias "carryin", 0 0, v0x19e84e0_1;
-v0x19e74b0_0 .alias "carryout", 0 0, v0x19e84e0_2;
-v0x19e7530_0 .net "sum", 0 0, L_0x1a01890; 1 drivers
-S_0x19e6950 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19e6860;
- .timescale -9 -12;
-L_0x1a020d0/d .functor XOR 1, L_0x1a027e0, L_0x1a029a0, L_0x1a01c40, C4<0>;
-L_0x1a020d0 .delay (30000,30000,30000) L_0x1a020d0/d;
-L_0x1a021c0/d .functor AND 1, L_0x1a027e0, L_0x1a029a0, C4<1>, C4<1>;
-L_0x1a021c0 .delay (20000,20000,20000) L_0x1a021c0/d;
-L_0x1a022e0/d .functor AND 1, L_0x1a027e0, L_0x1a01c40, C4<1>, C4<1>;
-L_0x1a022e0 .delay (20000,20000,20000) L_0x1a022e0/d;
-L_0x1a023a0/d .functor AND 1, L_0x1a029a0, L_0x1a01c40, C4<1>, C4<1>;
-L_0x1a023a0 .delay (20000,20000,20000) L_0x1a023a0/d;
-L_0x1a02490/d .functor OR 1, L_0x1a021c0, L_0x1a022e0, L_0x1a023a0, C4<0>;
-L_0x1a02490 .delay (20000,20000,20000) L_0x1a02490/d;
-v0x19e6a40_0 .net "AandB", 0 0, L_0x1a021c0; 1 drivers
-v0x19e6b00_0 .net "AandC", 0 0, L_0x1a022e0; 1 drivers
-v0x19e6ba0_0 .net "BandC", 0 0, L_0x1a023a0; 1 drivers
-v0x19e6c40_0 .net "a", 0 0, L_0x1a027e0; 1 drivers
-v0x19e6cc0_0 .net "b", 0 0, L_0x1a029a0; 1 drivers
-v0x19e6d60_0 .alias "carryin", 0 0, v0x19e84e0_2;
-v0x19e6e40_0 .alias "carryout", 0 0, v0x19ea790_1;
-v0x19e6f10_0 .net "sum", 0 0, L_0x1a020d0; 1 drivers
-S_0x19e4a70 .scope module, "f42" "CompAdder4bit" 2 61, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19e6410_0 .net "a", 3 0, L_0x1a052b0; 1 drivers
-v0x19e64d0_0 .net "b", 3 0, L_0x1a053e0; 1 drivers
-v0x19e6570_0 .alias "carryin", 0 0, v0x19ea790_1;
-v0x19e65f0_0 .alias "carryout", 0 0, v0x19ea790_2;
-v0x19e6670_0 .net8 "sum", 3 0, RS_0x2b3f9cdf2268; 4 drivers
-v0x19e66f0 .array "temp_cout", 0 2;
-v0x19e66f0_0 .net v0x19e66f0 0, 0 0, L_0x1a03120; 1 drivers
-v0x19e66f0_1 .net v0x19e66f0 1, 0 0, L_0x1a038f0; 1 drivers
-v0x19e66f0_2 .net v0x19e66f0 2, 0 0, L_0x1a041f0; 1 drivers
-L_0x1a031f0 .part/pv L_0x1a02780, 0, 1, 4;
-L_0x1a03290 .part L_0x1a052b0, 0, 1;
-L_0x1a033c0 .part L_0x1a053e0, 0, 1;
-L_0x1a03ab0 .part/pv L_0x1a034f0, 1, 1, 4;
-L_0x1a03ba0 .part L_0x1a052b0, 1, 1;
-L_0x1a03cd0 .part L_0x1a053e0, 1, 1;
-L_0x1a04380 .part/pv L_0x1a03e40, 2, 1, 4;
-L_0x1a04420 .part L_0x1a052b0, 2, 1;
-L_0x1a04550 .part L_0x1a053e0, 2, 1;
-L_0x1a04c00 .part/pv L_0x1a04680, 3, 1, 4;
-L_0x1a04d90 .part L_0x1a052b0, 3, 1;
-L_0x1a04f50 .part L_0x1a053e0, 3, 1;
-S_0x19e5e10 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19e4a70;
- .timescale -9 -12;
-L_0x1a02780/d .functor XOR 1, L_0x1a03290, L_0x1a033c0, L_0x1a02490, C4<0>;
-L_0x1a02780 .delay (30000,30000,30000) L_0x1a02780/d;
-L_0x1a02e30/d .functor AND 1, L_0x1a03290, L_0x1a033c0, C4<1>, C4<1>;
-L_0x1a02e30 .delay (20000,20000,20000) L_0x1a02e30/d;
-L_0x1a02ed0/d .functor AND 1, L_0x1a03290, L_0x1a02490, C4<1>, C4<1>;
-L_0x1a02ed0 .delay (20000,20000,20000) L_0x1a02ed0/d;
-L_0x1a02f90/d .functor AND 1, L_0x1a033c0, L_0x1a02490, C4<1>, C4<1>;
-L_0x1a02f90 .delay (20000,20000,20000) L_0x1a02f90/d;
-L_0x1a03120/d .functor OR 1, L_0x1a02e30, L_0x1a02ed0, L_0x1a02f90, C4<0>;
-L_0x1a03120 .delay (20000,20000,20000) L_0x1a03120/d;
-v0x19e5f00_0 .net "AandB", 0 0, L_0x1a02e30; 1 drivers
-v0x19e5fc0_0 .net "AandC", 0 0, L_0x1a02ed0; 1 drivers
-v0x19e6060_0 .net "BandC", 0 0, L_0x1a02f90; 1 drivers
-v0x19e6100_0 .net "a", 0 0, L_0x1a03290; 1 drivers
-v0x19e6180_0 .net "b", 0 0, L_0x1a033c0; 1 drivers
-v0x19e6220_0 .alias "carryin", 0 0, v0x19ea790_1;
-v0x19e62c0_0 .alias "carryout", 0 0, v0x19e66f0_0;
-v0x19e6340_0 .net "sum", 0 0, L_0x1a02780; 1 drivers
-S_0x19e5810 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19e4a70;
- .timescale -9 -12;
-L_0x1a034f0/d .functor XOR 1, L_0x1a03ba0, L_0x1a03cd0, L_0x1a03120, C4<0>;
-L_0x1a034f0 .delay (30000,30000,30000) L_0x1a034f0/d;
-L_0x1a036b0/d .functor AND 1, L_0x1a03ba0, L_0x1a03cd0, C4<1>, C4<1>;
-L_0x1a036b0 .delay (20000,20000,20000) L_0x1a036b0/d;
-L_0x1a03780/d .functor AND 1, L_0x1a03ba0, L_0x1a03120, C4<1>, C4<1>;
-L_0x1a03780 .delay (20000,20000,20000) L_0x1a03780/d;
-L_0x1a03820/d .functor AND 1, L_0x1a03cd0, L_0x1a03120, C4<1>, C4<1>;
-L_0x1a03820 .delay (20000,20000,20000) L_0x1a03820/d;
-L_0x1a038f0/d .functor OR 1, L_0x1a036b0, L_0x1a03780, L_0x1a03820, C4<0>;
-L_0x1a038f0 .delay (20000,20000,20000) L_0x1a038f0/d;
-v0x19e5900_0 .net "AandB", 0 0, L_0x1a036b0; 1 drivers
-v0x19e59c0_0 .net "AandC", 0 0, L_0x1a03780; 1 drivers
-v0x19e5a60_0 .net "BandC", 0 0, L_0x1a03820; 1 drivers
-v0x19e5b00_0 .net "a", 0 0, L_0x1a03ba0; 1 drivers
-v0x19e5b80_0 .net "b", 0 0, L_0x1a03cd0; 1 drivers
-v0x19e5c20_0 .alias "carryin", 0 0, v0x19e66f0_0;
-v0x19e5cc0_0 .alias "carryout", 0 0, v0x19e66f0_1;
-v0x19e5d40_0 .net "sum", 0 0, L_0x1a034f0; 1 drivers
-S_0x19e5210 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19e4a70;
- .timescale -9 -12;
-L_0x1a03e40/d .functor XOR 1, L_0x1a04420, L_0x1a04550, L_0x1a038f0, C4<0>;
-L_0x1a03e40 .delay (30000,30000,30000) L_0x1a03e40/d;
-L_0x1a03f70/d .functor AND 1, L_0x1a04420, L_0x1a04550, C4<1>, C4<1>;
-L_0x1a03f70 .delay (20000,20000,20000) L_0x1a03f70/d;
-L_0x1a040b0/d .functor AND 1, L_0x1a04420, L_0x1a038f0, C4<1>, C4<1>;
-L_0x1a040b0 .delay (20000,20000,20000) L_0x1a040b0/d;
-L_0x1a04150/d .functor AND 1, L_0x1a04550, L_0x1a038f0, C4<1>, C4<1>;
-L_0x1a04150 .delay (20000,20000,20000) L_0x1a04150/d;
-L_0x1a041f0/d .functor OR 1, L_0x1a03f70, L_0x1a040b0, L_0x1a04150, C4<0>;
-L_0x1a041f0 .delay (20000,20000,20000) L_0x1a041f0/d;
-v0x19e5300_0 .net "AandB", 0 0, L_0x1a03f70; 1 drivers
-v0x19e53c0_0 .net "AandC", 0 0, L_0x1a040b0; 1 drivers
-v0x19e5460_0 .net "BandC", 0 0, L_0x1a04150; 1 drivers
-v0x19e5500_0 .net "a", 0 0, L_0x1a04420; 1 drivers
-v0x19e5580_0 .net "b", 0 0, L_0x1a04550; 1 drivers
-v0x19e5620_0 .alias "carryin", 0 0, v0x19e66f0_1;
-v0x19e56c0_0 .alias "carryout", 0 0, v0x19e66f0_2;
-v0x19e5740_0 .net "sum", 0 0, L_0x1a03e40; 1 drivers
-S_0x19e4b60 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19e4a70;
- .timescale -9 -12;
-L_0x1a04680/d .functor XOR 1, L_0x1a04d90, L_0x1a04f50, L_0x1a041f0, C4<0>;
-L_0x1a04680 .delay (30000,30000,30000) L_0x1a04680/d;
-L_0x1a04770/d .functor AND 1, L_0x1a04d90, L_0x1a04f50, C4<1>, C4<1>;
-L_0x1a04770 .delay (20000,20000,20000) L_0x1a04770/d;
-L_0x1a04890/d .functor AND 1, L_0x1a04d90, L_0x1a041f0, C4<1>, C4<1>;
-L_0x1a04890 .delay (20000,20000,20000) L_0x1a04890/d;
-L_0x1a04950/d .functor AND 1, L_0x1a04f50, L_0x1a041f0, C4<1>, C4<1>;
-L_0x1a04950 .delay (20000,20000,20000) L_0x1a04950/d;
-L_0x1a04a40/d .functor OR 1, L_0x1a04770, L_0x1a04890, L_0x1a04950, C4<0>;
-L_0x1a04a40 .delay (20000,20000,20000) L_0x1a04a40/d;
-v0x19e4c50_0 .net "AandB", 0 0, L_0x1a04770; 1 drivers
-v0x19e4d10_0 .net "AandC", 0 0, L_0x1a04890; 1 drivers
-v0x19e4db0_0 .net "BandC", 0 0, L_0x1a04950; 1 drivers
-v0x19e4e50_0 .net "a", 0 0, L_0x1a04d90; 1 drivers
-v0x19e4ed0_0 .net "b", 0 0, L_0x1a04f50; 1 drivers
-v0x19e4f70_0 .alias "carryin", 0 0, v0x19e66f0_2;
-v0x19e5050_0 .alias "carryout", 0 0, v0x19ea790_2;
-v0x19e5120_0 .net "sum", 0 0, L_0x1a04680; 1 drivers
-S_0x19e2c80 .scope module, "f43" "CompAdder4bit" 2 62, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19e4620_0 .net "a", 3 0, L_0x1a07890; 1 drivers
-v0x19e46e0_0 .net "b", 3 0, L_0x1a07930; 1 drivers
-v0x19e4780_0 .alias "carryin", 0 0, v0x19ea790_2;
-v0x19e4800_0 .alias "carryout", 0 0, v0x19ea790_3;
-v0x19e4880_0 .net8 "sum", 3 0, RS_0x2b3f9cdf1c98; 4 drivers
-v0x19e4900 .array "temp_cout", 0 2;
-v0x19e4900_0 .net v0x19e4900 0, 0 0, L_0x1a05830; 1 drivers
-v0x19e4900_1 .net v0x19e4900 1, 0 0, L_0x1a06000; 1 drivers
-v0x19e4900_2 .net v0x19e4900 2, 0 0, L_0x1a06860; 1 drivers
-L_0x1a05900 .part/pv L_0x1a04d30, 0, 1, 4;
-L_0x1a059a0 .part L_0x1a07890, 0, 1;
-L_0x1a05ad0 .part L_0x1a07930, 0, 1;
-L_0x1a06120 .part/pv L_0x1a05c00, 1, 1, 4;
-L_0x1a06210 .part L_0x1a07890, 1, 1;
-L_0x1a06340 .part L_0x1a07930, 1, 1;
-L_0x1a069f0 .part/pv L_0x1a064b0, 2, 1, 4;
-L_0x1a06a90 .part L_0x1a07890, 2, 1;
-L_0x1a06bc0 .part L_0x1a07930, 2, 1;
-L_0x1a07270 .part/pv L_0x1a06cf0, 3, 1, 4;
-L_0x1a07400 .part L_0x1a07890, 3, 1;
-L_0x1a075c0 .part L_0x1a07930, 3, 1;
-S_0x19e4020 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19e2c80;
- .timescale -9 -12;
-L_0x1a04d30/d .functor XOR 1, L_0x1a059a0, L_0x1a05ad0, L_0x1a04a40, C4<0>;
-L_0x1a04d30 .delay (30000,30000,30000) L_0x1a04d30/d;
-L_0x1a05510/d .functor AND 1, L_0x1a059a0, L_0x1a05ad0, C4<1>, C4<1>;
-L_0x1a05510 .delay (20000,20000,20000) L_0x1a05510/d;
-L_0x1a055e0/d .functor AND 1, L_0x1a059a0, L_0x1a04a40, C4<1>, C4<1>;
-L_0x1a055e0 .delay (20000,20000,20000) L_0x1a055e0/d;
-L_0x1a056a0/d .functor AND 1, L_0x1a05ad0, L_0x1a04a40, C4<1>, C4<1>;
-L_0x1a056a0 .delay (20000,20000,20000) L_0x1a056a0/d;
-L_0x1a05830/d .functor OR 1, L_0x1a05510, L_0x1a055e0, L_0x1a056a0, C4<0>;
-L_0x1a05830 .delay (20000,20000,20000) L_0x1a05830/d;
-v0x19e4110_0 .net "AandB", 0 0, L_0x1a05510; 1 drivers
-v0x19e41d0_0 .net "AandC", 0 0, L_0x1a055e0; 1 drivers
-v0x19e4270_0 .net "BandC", 0 0, L_0x1a056a0; 1 drivers
-v0x19e4310_0 .net "a", 0 0, L_0x1a059a0; 1 drivers
-v0x19e4390_0 .net "b", 0 0, L_0x1a05ad0; 1 drivers
-v0x19e4430_0 .alias "carryin", 0 0, v0x19ea790_2;
-v0x19e44d0_0 .alias "carryout", 0 0, v0x19e4900_0;
-v0x19e4550_0 .net "sum", 0 0, L_0x1a04d30; 1 drivers
-S_0x19e3a20 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19e2c80;
- .timescale -9 -12;
-L_0x1a05c00/d .functor XOR 1, L_0x1a06210, L_0x1a06340, L_0x1a05830, C4<0>;
-L_0x1a05c00 .delay (30000,30000,30000) L_0x1a05c00/d;
-L_0x1a05dc0/d .functor AND 1, L_0x1a06210, L_0x1a06340, C4<1>, C4<1>;
-L_0x1a05dc0 .delay (20000,20000,20000) L_0x1a05dc0/d;
-L_0x1a05e90/d .functor AND 1, L_0x1a06210, L_0x1a05830, C4<1>, C4<1>;
-L_0x1a05e90 .delay (20000,20000,20000) L_0x1a05e90/d;
-L_0x1a05f30/d .functor AND 1, L_0x1a06340, L_0x1a05830, C4<1>, C4<1>;
-L_0x1a05f30 .delay (20000,20000,20000) L_0x1a05f30/d;
-L_0x1a06000/d .functor OR 1, L_0x1a05dc0, L_0x1a05e90, L_0x1a05f30, C4<0>;
-L_0x1a06000 .delay (20000,20000,20000) L_0x1a06000/d;
-v0x19e3b10_0 .net "AandB", 0 0, L_0x1a05dc0; 1 drivers
-v0x19e3bd0_0 .net "AandC", 0 0, L_0x1a05e90; 1 drivers
-v0x19e3c70_0 .net "BandC", 0 0, L_0x1a05f30; 1 drivers
-v0x19e3d10_0 .net "a", 0 0, L_0x1a06210; 1 drivers
-v0x19e3d90_0 .net "b", 0 0, L_0x1a06340; 1 drivers
-v0x19e3e30_0 .alias "carryin", 0 0, v0x19e4900_0;
-v0x19e3ed0_0 .alias "carryout", 0 0, v0x19e4900_1;
-v0x19e3f50_0 .net "sum", 0 0, L_0x1a05c00; 1 drivers
-S_0x19e3420 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19e2c80;
- .timescale -9 -12;
-L_0x1a064b0/d .functor XOR 1, L_0x1a06a90, L_0x1a06bc0, L_0x1a06000, C4<0>;
-L_0x1a064b0 .delay (30000,30000,30000) L_0x1a064b0/d;
-L_0x1a065e0/d .functor AND 1, L_0x1a06a90, L_0x1a06bc0, C4<1>, C4<1>;
-L_0x1a065e0 .delay (20000,20000,20000) L_0x1a065e0/d;
-L_0x1a06720/d .functor AND 1, L_0x1a06a90, L_0x1a06000, C4<1>, C4<1>;
-L_0x1a06720 .delay (20000,20000,20000) L_0x1a06720/d;
-L_0x1a067c0/d .functor AND 1, L_0x1a06bc0, L_0x1a06000, C4<1>, C4<1>;
-L_0x1a067c0 .delay (20000,20000,20000) L_0x1a067c0/d;
-L_0x1a06860/d .functor OR 1, L_0x1a065e0, L_0x1a06720, L_0x1a067c0, C4<0>;
-L_0x1a06860 .delay (20000,20000,20000) L_0x1a06860/d;
-v0x19e3510_0 .net "AandB", 0 0, L_0x1a065e0; 1 drivers
-v0x19e35d0_0 .net "AandC", 0 0, L_0x1a06720; 1 drivers
-v0x19e3670_0 .net "BandC", 0 0, L_0x1a067c0; 1 drivers
-v0x19e3710_0 .net "a", 0 0, L_0x1a06a90; 1 drivers
-v0x19e3790_0 .net "b", 0 0, L_0x1a06bc0; 1 drivers
-v0x19e3830_0 .alias "carryin", 0 0, v0x19e4900_1;
-v0x19e38d0_0 .alias "carryout", 0 0, v0x19e4900_2;
-v0x19e3950_0 .net "sum", 0 0, L_0x1a064b0; 1 drivers
-S_0x19e2d70 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19e2c80;
- .timescale -9 -12;
-L_0x1a06cf0/d .functor XOR 1, L_0x1a07400, L_0x1a075c0, L_0x1a06860, C4<0>;
-L_0x1a06cf0 .delay (30000,30000,30000) L_0x1a06cf0/d;
-L_0x1a06de0/d .functor AND 1, L_0x1a07400, L_0x1a075c0, C4<1>, C4<1>;
-L_0x1a06de0 .delay (20000,20000,20000) L_0x1a06de0/d;
-L_0x1a06f00/d .functor AND 1, L_0x1a07400, L_0x1a06860, C4<1>, C4<1>;
-L_0x1a06f00 .delay (20000,20000,20000) L_0x1a06f00/d;
-L_0x1a06fc0/d .functor AND 1, L_0x1a075c0, L_0x1a06860, C4<1>, C4<1>;
-L_0x1a06fc0 .delay (20000,20000,20000) L_0x1a06fc0/d;
-L_0x1a070b0/d .functor OR 1, L_0x1a06de0, L_0x1a06f00, L_0x1a06fc0, C4<0>;
-L_0x1a070b0 .delay (20000,20000,20000) L_0x1a070b0/d;
-v0x19e2e60_0 .net "AandB", 0 0, L_0x1a06de0; 1 drivers
-v0x19e2f20_0 .net "AandC", 0 0, L_0x1a06f00; 1 drivers
-v0x19e2fc0_0 .net "BandC", 0 0, L_0x1a06fc0; 1 drivers
-v0x19e3060_0 .net "a", 0 0, L_0x1a07400; 1 drivers
-v0x19e30e0_0 .net "b", 0 0, L_0x1a075c0; 1 drivers
-v0x19e3180_0 .alias "carryin", 0 0, v0x19e4900_2;
-v0x19e3260_0 .alias "carryout", 0 0, v0x19ea790_3;
-v0x19e3330_0 .net "sum", 0 0, L_0x1a06cf0; 1 drivers
-S_0x19e0e90 .scope module, "f44" "CompAdder4bit" 2 63, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19e2830_0 .net "a", 3 0, L_0x1a09e50; 1 drivers
-v0x19e28f0_0 .net "b", 3 0, L_0x1a09f70; 1 drivers
-v0x19e2990_0 .alias "carryin", 0 0, v0x19ea790_3;
-v0x19e2a10_0 .alias "carryout", 0 0, v0x19ea790_4;
-v0x19e2a90_0 .net8 "sum", 3 0, RS_0x2b3f9cdf16c8; 4 drivers
-v0x19e2b10 .array "temp_cout", 0 2;
-v0x19e2b10_0 .net v0x19e2b10 0, 0 0, L_0x1a07da0; 1 drivers
-v0x19e2b10_1 .net v0x19e2b10 1, 0 0, L_0x1a08570; 1 drivers
-v0x19e2b10_2 .net v0x19e2b10 2, 0 0, L_0x1a08e20; 1 drivers
-L_0x1a07e70 .part/pv L_0x1a073a0, 0, 1, 4;
-L_0x1a07f10 .part L_0x1a09e50, 0, 1;
-L_0x1a08040 .part L_0x1a09f70, 0, 1;
-L_0x1a086e0 .part/pv L_0x1a08170, 1, 1, 4;
-L_0x1a087d0 .part L_0x1a09e50, 1, 1;
-L_0x1a08900 .part L_0x1a09f70, 1, 1;
-L_0x1a08fb0 .part/pv L_0x1a08a70, 2, 1, 4;
-L_0x1a09050 .part L_0x1a09e50, 2, 1;
-L_0x1a09180 .part L_0x1a09f70, 2, 1;
-L_0x1a09830 .part/pv L_0x1a092b0, 3, 1, 4;
-L_0x1a099c0 .part L_0x1a09e50, 3, 1;
-L_0x1a09b80 .part L_0x1a09f70, 3, 1;
-S_0x19e2230 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19e0e90;
- .timescale -9 -12;
-L_0x1a073a0/d .functor XOR 1, L_0x1a07f10, L_0x1a08040, L_0x1a070b0, C4<0>;
-L_0x1a073a0 .delay (30000,30000,30000) L_0x1a073a0/d;
-L_0x1a07a80/d .functor AND 1, L_0x1a07f10, L_0x1a08040, C4<1>, C4<1>;
-L_0x1a07a80 .delay (20000,20000,20000) L_0x1a07a80/d;
-L_0x1a07b50/d .functor AND 1, L_0x1a07f10, L_0x1a070b0, C4<1>, C4<1>;
-L_0x1a07b50 .delay (20000,20000,20000) L_0x1a07b50/d;
-L_0x1a07c10/d .functor AND 1, L_0x1a08040, L_0x1a070b0, C4<1>, C4<1>;
-L_0x1a07c10 .delay (20000,20000,20000) L_0x1a07c10/d;
-L_0x1a07da0/d .functor OR 1, L_0x1a07a80, L_0x1a07b50, L_0x1a07c10, C4<0>;
-L_0x1a07da0 .delay (20000,20000,20000) L_0x1a07da0/d;
-v0x19e2320_0 .net "AandB", 0 0, L_0x1a07a80; 1 drivers
-v0x19e23e0_0 .net "AandC", 0 0, L_0x1a07b50; 1 drivers
-v0x19e2480_0 .net "BandC", 0 0, L_0x1a07c10; 1 drivers
-v0x19e2520_0 .net "a", 0 0, L_0x1a07f10; 1 drivers
-v0x19e25a0_0 .net "b", 0 0, L_0x1a08040; 1 drivers
-v0x19e2640_0 .alias "carryin", 0 0, v0x19ea790_3;
-v0x19e26e0_0 .alias "carryout", 0 0, v0x19e2b10_0;
-v0x19e2760_0 .net "sum", 0 0, L_0x1a073a0; 1 drivers
-S_0x19e1c30 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19e0e90;
- .timescale -9 -12;
-L_0x1a08170/d .functor XOR 1, L_0x1a087d0, L_0x1a08900, L_0x1a07da0, C4<0>;
-L_0x1a08170 .delay (30000,30000,30000) L_0x1a08170/d;
-L_0x1a08330/d .functor AND 1, L_0x1a087d0, L_0x1a08900, C4<1>, C4<1>;
-L_0x1a08330 .delay (20000,20000,20000) L_0x1a08330/d;
-L_0x1a08400/d .functor AND 1, L_0x1a087d0, L_0x1a07da0, C4<1>, C4<1>;
-L_0x1a08400 .delay (20000,20000,20000) L_0x1a08400/d;
-L_0x1a084a0/d .functor AND 1, L_0x1a08900, L_0x1a07da0, C4<1>, C4<1>;
-L_0x1a084a0 .delay (20000,20000,20000) L_0x1a084a0/d;
-L_0x1a08570/d .functor OR 1, L_0x1a08330, L_0x1a08400, L_0x1a084a0, C4<0>;
-L_0x1a08570 .delay (20000,20000,20000) L_0x1a08570/d;
-v0x19e1d20_0 .net "AandB", 0 0, L_0x1a08330; 1 drivers
-v0x19e1de0_0 .net "AandC", 0 0, L_0x1a08400; 1 drivers
-v0x19e1e80_0 .net "BandC", 0 0, L_0x1a084a0; 1 drivers
-v0x19e1f20_0 .net "a", 0 0, L_0x1a087d0; 1 drivers
-v0x19e1fa0_0 .net "b", 0 0, L_0x1a08900; 1 drivers
-v0x19e2040_0 .alias "carryin", 0 0, v0x19e2b10_0;
-v0x19e20e0_0 .alias "carryout", 0 0, v0x19e2b10_1;
-v0x19e2160_0 .net "sum", 0 0, L_0x1a08170; 1 drivers
-S_0x19e1630 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19e0e90;
- .timescale -9 -12;
-L_0x1a08a70/d .functor XOR 1, L_0x1a09050, L_0x1a09180, L_0x1a08570, C4<0>;
-L_0x1a08a70 .delay (30000,30000,30000) L_0x1a08a70/d;
-L_0x1a08ba0/d .functor AND 1, L_0x1a09050, L_0x1a09180, C4<1>, C4<1>;
-L_0x1a08ba0 .delay (20000,20000,20000) L_0x1a08ba0/d;
-L_0x1a08ce0/d .functor AND 1, L_0x1a09050, L_0x1a08570, C4<1>, C4<1>;
-L_0x1a08ce0 .delay (20000,20000,20000) L_0x1a08ce0/d;
-L_0x1a08d80/d .functor AND 1, L_0x1a09180, L_0x1a08570, C4<1>, C4<1>;
-L_0x1a08d80 .delay (20000,20000,20000) L_0x1a08d80/d;
-L_0x1a08e20/d .functor OR 1, L_0x1a08ba0, L_0x1a08ce0, L_0x1a08d80, C4<0>;
-L_0x1a08e20 .delay (20000,20000,20000) L_0x1a08e20/d;
-v0x19e1720_0 .net "AandB", 0 0, L_0x1a08ba0; 1 drivers
-v0x19e17e0_0 .net "AandC", 0 0, L_0x1a08ce0; 1 drivers
-v0x19e1880_0 .net "BandC", 0 0, L_0x1a08d80; 1 drivers
-v0x19e1920_0 .net "a", 0 0, L_0x1a09050; 1 drivers
-v0x19e19a0_0 .net "b", 0 0, L_0x1a09180; 1 drivers
-v0x19e1a40_0 .alias "carryin", 0 0, v0x19e2b10_1;
-v0x19e1ae0_0 .alias "carryout", 0 0, v0x19e2b10_2;
-v0x19e1b60_0 .net "sum", 0 0, L_0x1a08a70; 1 drivers
-S_0x19e0f80 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19e0e90;
- .timescale -9 -12;
-L_0x1a092b0/d .functor XOR 1, L_0x1a099c0, L_0x1a09b80, L_0x1a08e20, C4<0>;
-L_0x1a092b0 .delay (30000,30000,30000) L_0x1a092b0/d;
-L_0x1a093a0/d .functor AND 1, L_0x1a099c0, L_0x1a09b80, C4<1>, C4<1>;
-L_0x1a093a0 .delay (20000,20000,20000) L_0x1a093a0/d;
-L_0x1a094c0/d .functor AND 1, L_0x1a099c0, L_0x1a08e20, C4<1>, C4<1>;
-L_0x1a094c0 .delay (20000,20000,20000) L_0x1a094c0/d;
-L_0x1a09580/d .functor AND 1, L_0x1a09b80, L_0x1a08e20, C4<1>, C4<1>;
-L_0x1a09580 .delay (20000,20000,20000) L_0x1a09580/d;
-L_0x1a09670/d .functor OR 1, L_0x1a093a0, L_0x1a094c0, L_0x1a09580, C4<0>;
-L_0x1a09670 .delay (20000,20000,20000) L_0x1a09670/d;
-v0x19e1070_0 .net "AandB", 0 0, L_0x1a093a0; 1 drivers
-v0x19e1130_0 .net "AandC", 0 0, L_0x1a094c0; 1 drivers
-v0x19e11d0_0 .net "BandC", 0 0, L_0x1a09580; 1 drivers
-v0x19e1270_0 .net "a", 0 0, L_0x1a099c0; 1 drivers
-v0x19e12f0_0 .net "b", 0 0, L_0x1a09b80; 1 drivers
-v0x19e1390_0 .alias "carryin", 0 0, v0x19e2b10_2;
-v0x19e1470_0 .alias "carryout", 0 0, v0x19ea790_4;
-v0x19e1540_0 .net "sum", 0 0, L_0x1a092b0; 1 drivers
-S_0x19df0a0 .scope module, "f45" "CompAdder4bit" 2 64, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19e0a40_0 .net "a", 3 0, L_0x1a0c490; 1 drivers
-v0x19e0b00_0 .net "b", 3 0, L_0x1a0c530; 1 drivers
-v0x19e0ba0_0 .alias "carryin", 0 0, v0x19ea790_4;
-v0x19e0c20_0 .alias "carryout", 0 0, v0x19ea790_5;
-v0x19e0ca0_0 .net8 "sum", 3 0, RS_0x2b3f9cdf10f8; 4 drivers
-v0x19e0d20 .array "temp_cout", 0 2;
-v0x19e0d20_0 .net v0x19e0d20 0, 0 0, L_0x1a0a370; 1 drivers
-v0x19e0d20_1 .net v0x19e0d20 1, 0 0, L_0x1a0ab40; 1 drivers
-v0x19e0d20_2 .net v0x19e0d20 2, 0 0, L_0x1a0b440; 1 drivers
-L_0x1a0a440 .part/pv L_0x1a09960, 0, 1, 4;
-L_0x1a0a4e0 .part L_0x1a0c490, 0, 1;
-L_0x1a0a610 .part L_0x1a0c530, 0, 1;
-L_0x1a0ad00 .part/pv L_0x1a0a740, 1, 1, 4;
-L_0x1a0adf0 .part L_0x1a0c490, 1, 1;
-L_0x1a0af20 .part L_0x1a0c530, 1, 1;
-L_0x1a0b5d0 .part/pv L_0x1a0b090, 2, 1, 4;
-L_0x1a0b670 .part L_0x1a0c490, 2, 1;
-L_0x1a0b7a0 .part L_0x1a0c530, 2, 1;
-L_0x1a0be50 .part/pv L_0x1a0b8d0, 3, 1, 4;
-L_0x1a0bfe0 .part L_0x1a0c490, 3, 1;
-L_0x1a0c1a0 .part L_0x1a0c530, 3, 1;
-S_0x19e0440 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19df0a0;
- .timescale -9 -12;
-L_0x1a09960/d .functor XOR 1, L_0x1a0a4e0, L_0x1a0a610, L_0x1a09670, C4<0>;
-L_0x1a09960 .delay (30000,30000,30000) L_0x1a09960/d;
-L_0x1a0a050/d .functor AND 1, L_0x1a0a4e0, L_0x1a0a610, C4<1>, C4<1>;
-L_0x1a0a050 .delay (20000,20000,20000) L_0x1a0a050/d;
-L_0x1a0a120/d .functor AND 1, L_0x1a0a4e0, L_0x1a09670, C4<1>, C4<1>;
-L_0x1a0a120 .delay (20000,20000,20000) L_0x1a0a120/d;
-L_0x1a0a1e0/d .functor AND 1, L_0x1a0a610, L_0x1a09670, C4<1>, C4<1>;
-L_0x1a0a1e0 .delay (20000,20000,20000) L_0x1a0a1e0/d;
-L_0x1a0a370/d .functor OR 1, L_0x1a0a050, L_0x1a0a120, L_0x1a0a1e0, C4<0>;
-L_0x1a0a370 .delay (20000,20000,20000) L_0x1a0a370/d;
-v0x19e0530_0 .net "AandB", 0 0, L_0x1a0a050; 1 drivers
-v0x19e05f0_0 .net "AandC", 0 0, L_0x1a0a120; 1 drivers
-v0x19e0690_0 .net "BandC", 0 0, L_0x1a0a1e0; 1 drivers
-v0x19e0730_0 .net "a", 0 0, L_0x1a0a4e0; 1 drivers
-v0x19e07b0_0 .net "b", 0 0, L_0x1a0a610; 1 drivers
-v0x19e0850_0 .alias "carryin", 0 0, v0x19ea790_4;
-v0x19e08f0_0 .alias "carryout", 0 0, v0x19e0d20_0;
-v0x19e0970_0 .net "sum", 0 0, L_0x1a09960; 1 drivers
-S_0x19dfe40 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19df0a0;
- .timescale -9 -12;
-L_0x1a0a740/d .functor XOR 1, L_0x1a0adf0, L_0x1a0af20, L_0x1a0a370, C4<0>;
-L_0x1a0a740 .delay (30000,30000,30000) L_0x1a0a740/d;
-L_0x1a0a900/d .functor AND 1, L_0x1a0adf0, L_0x1a0af20, C4<1>, C4<1>;
-L_0x1a0a900 .delay (20000,20000,20000) L_0x1a0a900/d;
-L_0x1a0a9d0/d .functor AND 1, L_0x1a0adf0, L_0x1a0a370, C4<1>, C4<1>;
-L_0x1a0a9d0 .delay (20000,20000,20000) L_0x1a0a9d0/d;
-L_0x1a0aa70/d .functor AND 1, L_0x1a0af20, L_0x1a0a370, C4<1>, C4<1>;
-L_0x1a0aa70 .delay (20000,20000,20000) L_0x1a0aa70/d;
-L_0x1a0ab40/d .functor OR 1, L_0x1a0a900, L_0x1a0a9d0, L_0x1a0aa70, C4<0>;
-L_0x1a0ab40 .delay (20000,20000,20000) L_0x1a0ab40/d;
-v0x19dff30_0 .net "AandB", 0 0, L_0x1a0a900; 1 drivers
-v0x19dfff0_0 .net "AandC", 0 0, L_0x1a0a9d0; 1 drivers
-v0x19e0090_0 .net "BandC", 0 0, L_0x1a0aa70; 1 drivers
-v0x19e0130_0 .net "a", 0 0, L_0x1a0adf0; 1 drivers
-v0x19e01b0_0 .net "b", 0 0, L_0x1a0af20; 1 drivers
-v0x19e0250_0 .alias "carryin", 0 0, v0x19e0d20_0;
-v0x19e02f0_0 .alias "carryout", 0 0, v0x19e0d20_1;
-v0x19e0370_0 .net "sum", 0 0, L_0x1a0a740; 1 drivers
-S_0x19df840 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19df0a0;
- .timescale -9 -12;
-L_0x1a0b090/d .functor XOR 1, L_0x1a0b670, L_0x1a0b7a0, L_0x1a0ab40, C4<0>;
-L_0x1a0b090 .delay (30000,30000,30000) L_0x1a0b090/d;
-L_0x1a0b1c0/d .functor AND 1, L_0x1a0b670, L_0x1a0b7a0, C4<1>, C4<1>;
-L_0x1a0b1c0 .delay (20000,20000,20000) L_0x1a0b1c0/d;
-L_0x1a0b300/d .functor AND 1, L_0x1a0b670, L_0x1a0ab40, C4<1>, C4<1>;
-L_0x1a0b300 .delay (20000,20000,20000) L_0x1a0b300/d;
-L_0x1a0b3a0/d .functor AND 1, L_0x1a0b7a0, L_0x1a0ab40, C4<1>, C4<1>;
-L_0x1a0b3a0 .delay (20000,20000,20000) L_0x1a0b3a0/d;
-L_0x1a0b440/d .functor OR 1, L_0x1a0b1c0, L_0x1a0b300, L_0x1a0b3a0, C4<0>;
-L_0x1a0b440 .delay (20000,20000,20000) L_0x1a0b440/d;
-v0x19df930_0 .net "AandB", 0 0, L_0x1a0b1c0; 1 drivers
-v0x19df9f0_0 .net "AandC", 0 0, L_0x1a0b300; 1 drivers
-v0x19dfa90_0 .net "BandC", 0 0, L_0x1a0b3a0; 1 drivers
-v0x19dfb30_0 .net "a", 0 0, L_0x1a0b670; 1 drivers
-v0x19dfbb0_0 .net "b", 0 0, L_0x1a0b7a0; 1 drivers
-v0x19dfc50_0 .alias "carryin", 0 0, v0x19e0d20_1;
-v0x19dfcf0_0 .alias "carryout", 0 0, v0x19e0d20_2;
-v0x19dfd70_0 .net "sum", 0 0, L_0x1a0b090; 1 drivers
-S_0x19df190 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19df0a0;
- .timescale -9 -12;
-L_0x1a0b8d0/d .functor XOR 1, L_0x1a0bfe0, L_0x1a0c1a0, L_0x1a0b440, C4<0>;
-L_0x1a0b8d0 .delay (30000,30000,30000) L_0x1a0b8d0/d;
-L_0x1a0b9c0/d .functor AND 1, L_0x1a0bfe0, L_0x1a0c1a0, C4<1>, C4<1>;
-L_0x1a0b9c0 .delay (20000,20000,20000) L_0x1a0b9c0/d;
-L_0x1a0bae0/d .functor AND 1, L_0x1a0bfe0, L_0x1a0b440, C4<1>, C4<1>;
-L_0x1a0bae0 .delay (20000,20000,20000) L_0x1a0bae0/d;
-L_0x1a0bba0/d .functor AND 1, L_0x1a0c1a0, L_0x1a0b440, C4<1>, C4<1>;
-L_0x1a0bba0 .delay (20000,20000,20000) L_0x1a0bba0/d;
-L_0x1a0bc90/d .functor OR 1, L_0x1a0b9c0, L_0x1a0bae0, L_0x1a0bba0, C4<0>;
-L_0x1a0bc90 .delay (20000,20000,20000) L_0x1a0bc90/d;
-v0x19df280_0 .net "AandB", 0 0, L_0x1a0b9c0; 1 drivers
-v0x19df320_0 .net "AandC", 0 0, L_0x1a0bae0; 1 drivers
-v0x19df3c0_0 .net "BandC", 0 0, L_0x1a0bba0; 1 drivers
-v0x19df460_0 .net "a", 0 0, L_0x1a0bfe0; 1 drivers
-v0x19df500_0 .net "b", 0 0, L_0x1a0c1a0; 1 drivers
-v0x19df5a0_0 .alias "carryin", 0 0, v0x19e0d20_2;
-v0x19df680_0 .alias "carryout", 0 0, v0x19ea790_5;
-v0x19df750_0 .net "sum", 0 0, L_0x1a0b8d0; 1 drivers
-S_0x19dd2d0 .scope module, "f46" "CompAdder4bit" 2 65, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19dec50_0 .net "a", 3 0, L_0x1a0eb50; 1 drivers
-v0x19ded10_0 .net "b", 3 0, L_0x1a0c5d0; 1 drivers
-v0x19dedb0_0 .alias "carryin", 0 0, v0x19ea790_5;
-v0x19dee30_0 .alias "carryout", 0 0, v0x19ea790_6;
-v0x19deeb0_0 .net8 "sum", 3 0, RS_0x2b3f9cdf0b28; 4 drivers
-v0x19def30 .array "temp_cout", 0 2;
-v0x19def30_0 .net v0x19def30 0, 0 0, L_0x1a0c940; 1 drivers
-v0x19def30_1 .net v0x19def30 1, 0 0, L_0x1a0d110; 1 drivers
-v0x19def30_2 .net v0x19def30 2, 0 0, L_0x1a0da10; 1 drivers
-L_0x1a0ca10 .part/pv L_0x1a0bf80, 0, 1, 4;
-L_0x1a0cab0 .part L_0x1a0eb50, 0, 1;
-L_0x1a0cbe0 .part L_0x1a0c5d0, 0, 1;
-L_0x1a0d2d0 .part/pv L_0x1a0cd10, 1, 1, 4;
-L_0x1a0d3c0 .part L_0x1a0eb50, 1, 1;
-L_0x1a0d4f0 .part L_0x1a0c5d0, 1, 1;
-L_0x1a0dba0 .part/pv L_0x1a0d660, 2, 1, 4;
-L_0x1a0dc40 .part L_0x1a0eb50, 2, 1;
-L_0x1a0dd70 .part L_0x1a0c5d0, 2, 1;
-L_0x1a0e420 .part/pv L_0x1a0dea0, 3, 1, 4;
-L_0x1a0e5b0 .part L_0x1a0eb50, 3, 1;
-L_0x1a0e770 .part L_0x1a0c5d0, 3, 1;
-S_0x19de650 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19dd2d0;
- .timescale -9 -12;
-L_0x1a0bf80/d .functor XOR 1, L_0x1a0cab0, L_0x1a0cbe0, L_0x1a0bc90, C4<0>;
-L_0x1a0bf80 .delay (30000,30000,30000) L_0x1a0bf80/d;
-L_0x1a0c670/d .functor AND 1, L_0x1a0cab0, L_0x1a0cbe0, C4<1>, C4<1>;
-L_0x1a0c670 .delay (20000,20000,20000) L_0x1a0c670/d;
-L_0x1a0c710/d .functor AND 1, L_0x1a0cab0, L_0x1a0bc90, C4<1>, C4<1>;
-L_0x1a0c710 .delay (20000,20000,20000) L_0x1a0c710/d;
-L_0x1a0c7b0/d .functor AND 1, L_0x1a0cbe0, L_0x1a0bc90, C4<1>, C4<1>;
-L_0x1a0c7b0 .delay (20000,20000,20000) L_0x1a0c7b0/d;
-L_0x1a0c940/d .functor OR 1, L_0x1a0c670, L_0x1a0c710, L_0x1a0c7b0, C4<0>;
-L_0x1a0c940 .delay (20000,20000,20000) L_0x1a0c940/d;
-v0x19de740_0 .net "AandB", 0 0, L_0x1a0c670; 1 drivers
-v0x19de800_0 .net "AandC", 0 0, L_0x1a0c710; 1 drivers
-v0x19de8a0_0 .net "BandC", 0 0, L_0x1a0c7b0; 1 drivers
-v0x19de940_0 .net "a", 0 0, L_0x1a0cab0; 1 drivers
-v0x19de9c0_0 .net "b", 0 0, L_0x1a0cbe0; 1 drivers
-v0x19dea60_0 .alias "carryin", 0 0, v0x19ea790_5;
-v0x19deb00_0 .alias "carryout", 0 0, v0x19def30_0;
-v0x19deb80_0 .net "sum", 0 0, L_0x1a0bf80; 1 drivers
-S_0x19de050 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19dd2d0;
- .timescale -9 -12;
-L_0x1a0cd10/d .functor XOR 1, L_0x1a0d3c0, L_0x1a0d4f0, L_0x1a0c940, C4<0>;
-L_0x1a0cd10 .delay (30000,30000,30000) L_0x1a0cd10/d;
-L_0x1a0ced0/d .functor AND 1, L_0x1a0d3c0, L_0x1a0d4f0, C4<1>, C4<1>;
-L_0x1a0ced0 .delay (20000,20000,20000) L_0x1a0ced0/d;
-L_0x1a0cfa0/d .functor AND 1, L_0x1a0d3c0, L_0x1a0c940, C4<1>, C4<1>;
-L_0x1a0cfa0 .delay (20000,20000,20000) L_0x1a0cfa0/d;
-L_0x1a0d040/d .functor AND 1, L_0x1a0d4f0, L_0x1a0c940, C4<1>, C4<1>;
-L_0x1a0d040 .delay (20000,20000,20000) L_0x1a0d040/d;
-L_0x1a0d110/d .functor OR 1, L_0x1a0ced0, L_0x1a0cfa0, L_0x1a0d040, C4<0>;
-L_0x1a0d110 .delay (20000,20000,20000) L_0x1a0d110/d;
-v0x19de140_0 .net "AandB", 0 0, L_0x1a0ced0; 1 drivers
-v0x19de200_0 .net "AandC", 0 0, L_0x1a0cfa0; 1 drivers
-v0x19de2a0_0 .net "BandC", 0 0, L_0x1a0d040; 1 drivers
-v0x19de340_0 .net "a", 0 0, L_0x1a0d3c0; 1 drivers
-v0x19de3c0_0 .net "b", 0 0, L_0x1a0d4f0; 1 drivers
-v0x19de460_0 .alias "carryin", 0 0, v0x19def30_0;
-v0x19de500_0 .alias "carryout", 0 0, v0x19def30_1;
-v0x19de580_0 .net "sum", 0 0, L_0x1a0cd10; 1 drivers
-S_0x19dda50 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19dd2d0;
- .timescale -9 -12;
-L_0x1a0d660/d .functor XOR 1, L_0x1a0dc40, L_0x1a0dd70, L_0x1a0d110, C4<0>;
-L_0x1a0d660 .delay (30000,30000,30000) L_0x1a0d660/d;
-L_0x1a0d790/d .functor AND 1, L_0x1a0dc40, L_0x1a0dd70, C4<1>, C4<1>;
-L_0x1a0d790 .delay (20000,20000,20000) L_0x1a0d790/d;
-L_0x1a0d8d0/d .functor AND 1, L_0x1a0dc40, L_0x1a0d110, C4<1>, C4<1>;
-L_0x1a0d8d0 .delay (20000,20000,20000) L_0x1a0d8d0/d;
-L_0x1a0d970/d .functor AND 1, L_0x1a0dd70, L_0x1a0d110, C4<1>, C4<1>;
-L_0x1a0d970 .delay (20000,20000,20000) L_0x1a0d970/d;
-L_0x1a0da10/d .functor OR 1, L_0x1a0d790, L_0x1a0d8d0, L_0x1a0d970, C4<0>;
-L_0x1a0da10 .delay (20000,20000,20000) L_0x1a0da10/d;
-v0x19ddb40_0 .net "AandB", 0 0, L_0x1a0d790; 1 drivers
-v0x19ddc00_0 .net "AandC", 0 0, L_0x1a0d8d0; 1 drivers
-v0x19ddca0_0 .net "BandC", 0 0, L_0x1a0d970; 1 drivers
-v0x19ddd40_0 .net "a", 0 0, L_0x1a0dc40; 1 drivers
-v0x19dddc0_0 .net "b", 0 0, L_0x1a0dd70; 1 drivers
-v0x19dde60_0 .alias "carryin", 0 0, v0x19def30_1;
-v0x19ddf00_0 .alias "carryout", 0 0, v0x19def30_2;
-v0x19ddf80_0 .net "sum", 0 0, L_0x1a0d660; 1 drivers
-S_0x19dd3c0 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19dd2d0;
- .timescale -9 -12;
-L_0x1a0dea0/d .functor XOR 1, L_0x1a0e5b0, L_0x1a0e770, L_0x1a0da10, C4<0>;
-L_0x1a0dea0 .delay (30000,30000,30000) L_0x1a0dea0/d;
-L_0x1a0df90/d .functor AND 1, L_0x1a0e5b0, L_0x1a0e770, C4<1>, C4<1>;
-L_0x1a0df90 .delay (20000,20000,20000) L_0x1a0df90/d;
-L_0x1a0e0b0/d .functor AND 1, L_0x1a0e5b0, L_0x1a0da10, C4<1>, C4<1>;
-L_0x1a0e0b0 .delay (20000,20000,20000) L_0x1a0e0b0/d;
-L_0x1a0e170/d .functor AND 1, L_0x1a0e770, L_0x1a0da10, C4<1>, C4<1>;
-L_0x1a0e170 .delay (20000,20000,20000) L_0x1a0e170/d;
-L_0x1a0e260/d .functor OR 1, L_0x1a0df90, L_0x1a0e0b0, L_0x1a0e170, C4<0>;
-L_0x1a0e260 .delay (20000,20000,20000) L_0x1a0e260/d;
-v0x19dd4b0_0 .net "AandB", 0 0, L_0x1a0df90; 1 drivers
-v0x19dd550_0 .net "AandC", 0 0, L_0x1a0e0b0; 1 drivers
-v0x19dd5f0_0 .net "BandC", 0 0, L_0x1a0e170; 1 drivers
-v0x19dd690_0 .net "a", 0 0, L_0x1a0e5b0; 1 drivers
-v0x19dd710_0 .net "b", 0 0, L_0x1a0e770; 1 drivers
-v0x19dd7b0_0 .alias "carryin", 0 0, v0x19def30_2;
-v0x19dd890_0 .alias "carryout", 0 0, v0x19ea790_6;
-v0x19dd960_0 .net "sum", 0 0, L_0x1a0dea0; 1 drivers
-S_0x19db710 .scope module, "f47" "CompAdder4bit" 2 66, 2 30, S_0x19db620;
- .timescale -9 -12;
-v0x19dcf40_0 .net "a", 3 0, L_0x1a0ed00; 1 drivers
-v0x19dd000_0 .net "b", 3 0, L_0x1a11290; 1 drivers
-v0x19dd0a0_0 .alias "carryin", 0 0, v0x19ea790_6;
-v0x19dd120_0 .alias "carryout", 0 0, v0x19eada0_0;
-v0x19dd1d0_0 .net8 "sum", 3 0, RS_0x2b3f9cdf0558; 4 drivers
-v0x19dd250 .array "temp_cout", 0 2;
-v0x19dd250_0 .net v0x19dd250 0, 0 0, L_0x1a0f090; 1 drivers
-v0x19dd250_1 .net v0x19dd250 1, 0 0, L_0x1a0f860; 1 drivers
-v0x19dd250_2 .net v0x19dd250 2, 0 0, L_0x1a10160; 1 drivers
-L_0x1a0f160 .part/pv L_0x1a0e550, 0, 1, 4;
-L_0x1a0f200 .part L_0x1a0ed00, 0, 1;
-L_0x1a0f330 .part L_0x1a11290, 0, 1;
-L_0x1a0fa20 .part/pv L_0x1a0f460, 1, 1, 4;
-L_0x1a0fb10 .part L_0x1a0ed00, 1, 1;
-L_0x1a0fc40 .part L_0x1a11290, 1, 1;
-L_0x1a102f0 .part/pv L_0x1a0fdb0, 2, 1, 4;
-L_0x1a10390 .part L_0x1a0ed00, 2, 1;
-L_0x1a104c0 .part L_0x1a11290, 2, 1;
-L_0x1a10bb0 .part/pv L_0x1a105f0, 3, 1, 4;
-L_0x1a10d40 .part L_0x1a0ed00, 3, 1;
-L_0x1a10f00 .part L_0x1a11290, 3, 1;
-S_0x19dc990 .scope module, "fa0" "structuralFullAdder" 2 42, 2 8, S_0x19db710;
- .timescale -9 -12;
-L_0x1a0e550/d .functor XOR 1, L_0x1a0f200, L_0x1a0f330, L_0x1a0e260, C4<0>;
-L_0x1a0e550 .delay (30000,30000,30000) L_0x1a0e550/d;
-L_0x1a05350/d .functor AND 1, L_0x1a0f200, L_0x1a0f330, C4<1>, C4<1>;
-L_0x1a05350 .delay (20000,20000,20000) L_0x1a05350/d;
-L_0x1a05480/d .functor AND 1, L_0x1a0f200, L_0x1a0e260, C4<1>, C4<1>;
-L_0x1a05480 .delay (20000,20000,20000) L_0x1a05480/d;
-L_0x1a0ef00/d .functor AND 1, L_0x1a0f330, L_0x1a0e260, C4<1>, C4<1>;
-L_0x1a0ef00 .delay (20000,20000,20000) L_0x1a0ef00/d;
-L_0x1a0f090/d .functor OR 1, L_0x1a05350, L_0x1a05480, L_0x1a0ef00, C4<0>;
-L_0x1a0f090 .delay (20000,20000,20000) L_0x1a0f090/d;
-v0x19dca80_0 .net "AandB", 0 0, L_0x1a05350; 1 drivers
-v0x19dcb40_0 .net "AandC", 0 0, L_0x1a05480; 1 drivers
-v0x19dcbe0_0 .net "BandC", 0 0, L_0x1a0ef00; 1 drivers
-v0x19dcc80_0 .net "a", 0 0, L_0x1a0f200; 1 drivers
-v0x19dcd00_0 .net "b", 0 0, L_0x1a0f330; 1 drivers
-v0x19dcda0_0 .alias "carryin", 0 0, v0x19ea790_6;
-v0x19dce40_0 .alias "carryout", 0 0, v0x19dd250_0;
-v0x19dcec0_0 .net "sum", 0 0, L_0x1a0e550; 1 drivers
-S_0x19dc3e0 .scope module, "fa1" "structuralFullAdder" 2 43, 2 8, S_0x19db710;
- .timescale -9 -12;
-L_0x1a0f460/d .functor XOR 1, L_0x1a0fb10, L_0x1a0fc40, L_0x1a0f090, C4<0>;
-L_0x1a0f460 .delay (30000,30000,30000) L_0x1a0f460/d;
-L_0x1a0f620/d .functor AND 1, L_0x1a0fb10, L_0x1a0fc40, C4<1>, C4<1>;
-L_0x1a0f620 .delay (20000,20000,20000) L_0x1a0f620/d;
-L_0x1a0f6f0/d .functor AND 1, L_0x1a0fb10, L_0x1a0f090, C4<1>, C4<1>;
-L_0x1a0f6f0 .delay (20000,20000,20000) L_0x1a0f6f0/d;
-L_0x1a0f790/d .functor AND 1, L_0x1a0fc40, L_0x1a0f090, C4<1>, C4<1>;
-L_0x1a0f790 .delay (20000,20000,20000) L_0x1a0f790/d;
-L_0x1a0f860/d .functor OR 1, L_0x1a0f620, L_0x1a0f6f0, L_0x1a0f790, C4<0>;
-L_0x1a0f860 .delay (20000,20000,20000) L_0x1a0f860/d;
-v0x19dc4d0_0 .net "AandB", 0 0, L_0x1a0f620; 1 drivers
-v0x19dc590_0 .net "AandC", 0 0, L_0x1a0f6f0; 1 drivers
-v0x19dc630_0 .net "BandC", 0 0, L_0x1a0f790; 1 drivers
-v0x19dc6d0_0 .net "a", 0 0, L_0x1a0fb10; 1 drivers
-v0x19dc750_0 .net "b", 0 0, L_0x1a0fc40; 1 drivers
-v0x19dc7f0_0 .alias "carryin", 0 0, v0x19dd250_0;
-v0x19dc890_0 .alias "carryout", 0 0, v0x19dd250_1;
-v0x19dc910_0 .net "sum", 0 0, L_0x1a0f460; 1 drivers
-S_0x19dbe30 .scope module, "fa2" "structuralFullAdder" 2 44, 2 8, S_0x19db710;
- .timescale -9 -12;
-L_0x1a0fdb0/d .functor XOR 1, L_0x1a10390, L_0x1a104c0, L_0x1a0f860, C4<0>;
-L_0x1a0fdb0 .delay (30000,30000,30000) L_0x1a0fdb0/d;
-L_0x1a0fee0/d .functor AND 1, L_0x1a10390, L_0x1a104c0, C4<1>, C4<1>;
-L_0x1a0fee0 .delay (20000,20000,20000) L_0x1a0fee0/d;
-L_0x1a10020/d .functor AND 1, L_0x1a10390, L_0x1a0f860, C4<1>, C4<1>;
-L_0x1a10020 .delay (20000,20000,20000) L_0x1a10020/d;
-L_0x1a100c0/d .functor AND 1, L_0x1a104c0, L_0x1a0f860, C4<1>, C4<1>;
-L_0x1a100c0 .delay (20000,20000,20000) L_0x1a100c0/d;
-L_0x1a10160/d .functor OR 1, L_0x1a0fee0, L_0x1a10020, L_0x1a100c0, C4<0>;
-L_0x1a10160 .delay (20000,20000,20000) L_0x1a10160/d;
-v0x19dbf20_0 .net "AandB", 0 0, L_0x1a0fee0; 1 drivers
-v0x19dbfe0_0 .net "AandC", 0 0, L_0x1a10020; 1 drivers
-v0x19dc080_0 .net "BandC", 0 0, L_0x1a100c0; 1 drivers
-v0x19dc120_0 .net "a", 0 0, L_0x1a10390; 1 drivers
-v0x19dc1a0_0 .net "b", 0 0, L_0x1a104c0; 1 drivers
-v0x19dc240_0 .alias "carryin", 0 0, v0x19dd250_1;
-v0x19dc2e0_0 .alias "carryout", 0 0, v0x19dd250_2;
-v0x19dc360_0 .net "sum", 0 0, L_0x1a0fdb0; 1 drivers
-S_0x19db800 .scope module, "fa3" "structuralFullAdder" 2 45, 2 8, S_0x19db710;
- .timescale -9 -12;
-L_0x1a105f0/d .functor XOR 1, L_0x1a10d40, L_0x1a10f00, L_0x1a10160, C4<0>;
-L_0x1a105f0 .delay (30000,30000,30000) L_0x1a105f0/d;
-L_0x1a106e0/d .functor AND 1, L_0x1a10d40, L_0x1a10f00, C4<1>, C4<1>;
-L_0x1a106e0 .delay (20000,20000,20000) L_0x1a106e0/d;
-L_0x1a10800/d .functor AND 1, L_0x1a10d40, L_0x1a10160, C4<1>, C4<1>;
-L_0x1a10800 .delay (20000,20000,20000) L_0x1a10800/d;
-L_0x1a108c0/d .functor AND 1, L_0x1a10f00, L_0x1a10160, C4<1>, C4<1>;
-L_0x1a108c0 .delay (20000,20000,20000) L_0x1a108c0/d;
-L_0x1a109b0/d .functor OR 1, L_0x1a106e0, L_0x1a10800, L_0x1a108c0, C4<0>;
-L_0x1a109b0 .delay (20000,20000,20000) L_0x1a109b0/d;
-v0x19db8f0_0 .net "AandB", 0 0, L_0x1a106e0; 1 drivers
-v0x19db9b0_0 .net "AandC", 0 0, L_0x1a10800; 1 drivers
-v0x19dba50_0 .net "BandC", 0 0, L_0x1a108c0; 1 drivers
-v0x19dbaf0_0 .net "a", 0 0, L_0x1a10d40; 1 drivers
-v0x19dbb70_0 .net "b", 0 0, L_0x1a10f00; 1 drivers
-v0x19dbc10_0 .alias "carryin", 0 0, v0x19dd250_2;
-v0x19dbcf0_0 .alias "carryout", 0 0, v0x19eada0_0;
-v0x19dbd90_0 .net "sum", 0 0, L_0x1a105f0; 1 drivers
-    .scope S_0x199dad0;
+S_0x1f78c70 .scope module, "FullSubtractor32bit" "FullSubtractor32bit" 2 71;
+ .timescale -9 -12;
+L_0x1fbc8e0/d .functor XOR 1, L_0x1fbc5f0, L_0x1fba040, C4<0>, C4<0>;
+L_0x1fbc8e0 .delay (30000,30000,30000) L_0x1fbc8e0/d;
+v0x1f99de0_0 .net "a", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
+v0x1f99ea0_0 .net "b", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
+v0x1f99f40_0 .net "carryout", 0 0, L_0x1fbc5f0; 1 drivers
+v0x1f9a010_0 .net "overflow", 0 0, L_0x1fbc8e0; 1 drivers
+RS_0x2b15dfb9df58/0/0 .resolv tri, L_0x1fac2f0, L_0x1fae940, L_0x1fb0f60, L_0x1fb3510;
+RS_0x2b15dfb9df58/0/4 .resolv tri, L_0x1fb5b90, L_0x1fb8140, L_0x1fba780, L_0x1fbcd30;
+RS_0x2b15dfb9df58 .resolv tri, RS_0x2b15dfb9df58/0/0, RS_0x2b15dfb9df58/0/4, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>;
+v0x1f9a090_0 .net8 "sum", 31 0, RS_0x2b15dfb9df58; 8 drivers
+v0x1f9a130 .array "temp_cout", 0 6;
+v0x1f9a130_0 .net v0x1f9a130 0, 0 0, L_0x1fabbb0; 1 drivers
+v0x1f9a130_1 .net v0x1f9a130 1, 0 0, L_0x1fae200; 1 drivers
+v0x1f9a130_2 .net v0x1f9a130 2, 0 0, L_0x1fb0820; 1 drivers
+v0x1f9a130_3 .net v0x1f9a130 3, 0 0, L_0x1fb2dd0; 1 drivers
+v0x1f9a130_4 .net v0x1f9a130 4, 0 0, L_0x1fb5450; 1 drivers
+v0x1f9a130_5 .net v0x1f9a130 5, 0 0, L_0x1fb7a70; 1 drivers
+v0x1f9a130_6 .net v0x1f9a130 6, 0 0, L_0x1fba040; 1 drivers
+RS_0x2b15dfb9de98 .resolv tri, L_0x1faa3f0, L_0x1faac60, L_0x1fab530, L_0x1fabd70;
+L_0x1fac2f0 .part/pv RS_0x2b15dfb9de98, 0, 4, 32;
+L_0x1fac390 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 0, 4;
+L_0x1fac430 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 0, 4;
+RS_0x2b15dfb9d8c8 .resolv tri, L_0x1fac9b0, L_0x1fad270, L_0x1fadb40, L_0x1fae3c0;
+L_0x1fae940 .part/pv RS_0x2b15dfb9d8c8, 4, 4, 32;
+L_0x1fae9e0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 4, 4;
+L_0x1faea80 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 4, 4;
+RS_0x2b15dfb9d2f8 .resolv tri, L_0x1faefb0, L_0x1faf870, L_0x1fb0160, L_0x1fb09e0;
+L_0x1fb0f60 .part/pv RS_0x2b15dfb9d2f8, 8, 4, 32;
+L_0x1fb1000 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 8, 4;
+L_0x1fb10a0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 8, 4;
+RS_0x2b15dfb9cd28 .resolv tri, L_0x1fb1580, L_0x1fb1e40, L_0x1fb2710, L_0x1fb2f90;
+L_0x1fb3510 .part/pv RS_0x2b15dfb9cd28, 12, 4, 32;
+L_0x1fb3640 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 12, 4;
+L_0x1fb3770 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 12, 4;
+RS_0x2b15dfb9c758 .resolv tri, L_0x1fb3d40, L_0x1fb4510, L_0x1fb4d90, L_0x1fb5610;
+L_0x1fb5b90 .part/pv RS_0x2b15dfb9c758, 16, 4, 32;
+L_0x1fb5c30 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 16, 4;
+L_0x1fb5d50 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 16, 4;
+RS_0x2b15dfb9c188 .resolv tri, L_0x1fb6220, L_0x1fb6ae0, L_0x1fb73b0, L_0x1fb7c30;
+L_0x1fb8140 .part/pv RS_0x2b15dfb9c188, 20, 4, 32;
+L_0x1fb8270 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 20, 4;
+L_0x1fb8310 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 20, 4;
+RS_0x2b15dfb9bbb8 .resolv tri, L_0x1fb87f0, L_0x1fb90b0, L_0x1fb9980, L_0x1fba200;
+L_0x1fba780 .part/pv RS_0x2b15dfb9bbb8, 24, 4, 32;
+L_0x1fba820 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 24, 4;
+L_0x1fb83b0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 24, 4;
+RS_0x2b15dfb9b5e8 .resolv tri, L_0x1fbada0, L_0x1fbb660, L_0x1fbbf30, L_0x1fbc7b0;
+L_0x1fbcd30 .part/pv RS_0x2b15dfb9b5e8, 28, 4, 32;
+L_0x1fba8c0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 28, 4;
+L_0x1fbd0b0 .part C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, 28, 4;
+S_0x1f97ff0 .scope module, "f40" "CompAdder4bit" 2 81, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f99990_0 .net "a", 3 0, L_0x1fac390; 1 drivers
+v0x1f99a50_0 .net "b", 3 0, L_0x1fac430; 1 drivers
+v0x1f99af0_0 .net "carryin", 0 0, C4<1>; 1 drivers
+v0x1f99b70_0 .alias "carryout", 0 0, v0x1f9a130_0;
+v0x1f99bf0_0 .net8 "sum", 3 0, RS_0x2b15dfb9de98; 4 drivers
+v0x1f99c70 .array "temp_cout", 0 2;
+v0x1f99c70_0 .net v0x1f99c70 0, 0 0, L_0x1faa320; 1 drivers
+v0x1f99c70_1 .net v0x1f99c70 1, 0 0, L_0x1faaaf0; 1 drivers
+v0x1f99c70_2 .net v0x1f99c70 2, 0 0, L_0x1fab3a0; 1 drivers
+L_0x1faa3f0 .part/pv L_0x1fa9f20, 0, 1, 4;
+L_0x1faa490 .part L_0x1fac390, 0, 1;
+L_0x1faa5c0 .part L_0x1fac430, 0, 1;
+L_0x1faac60 .part/pv L_0x1faa6f0, 1, 1, 4;
+L_0x1faad50 .part L_0x1fac390, 1, 1;
+L_0x1faae80 .part L_0x1fac430, 1, 1;
+L_0x1fab530 .part/pv L_0x1faaff0, 2, 1, 4;
+L_0x1fab5d0 .part L_0x1fac390, 2, 1;
+L_0x1fab700 .part L_0x1fac430, 2, 1;
+L_0x1fabd70 .part/pv L_0x1fab830, 3, 1, 4;
+L_0x1fabf00 .part L_0x1fac390, 3, 1;
+L_0x1fac0c0 .part L_0x1fac430, 3, 1;
+S_0x1f99390 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f97ff0;
+ .timescale -9 -12;
+L_0x1fa9f20/d .functor XOR 1, L_0x1faa490, L_0x1faa5c0, C4<1>, C4<0>;
+L_0x1fa9f20 .delay (30000,30000,30000) L_0x1fa9f20/d;
+L_0x1faa080/d .functor AND 1, L_0x1faa490, L_0x1faa5c0, C4<1>, C4<1>;
+L_0x1faa080 .delay (20000,20000,20000) L_0x1faa080/d;
+L_0x1faa120/d .functor AND 1, L_0x1faa490, C4<1>, C4<1>, C4<1>;
+L_0x1faa120 .delay (20000,20000,20000) L_0x1faa120/d;
+L_0x1faa1c0/d .functor AND 1, L_0x1faa5c0, C4<1>, C4<1>, C4<1>;
+L_0x1faa1c0 .delay (20000,20000,20000) L_0x1faa1c0/d;
+L_0x1faa320/d .functor OR 1, L_0x1faa080, L_0x1faa120, L_0x1faa1c0, C4<0>;
+L_0x1faa320 .delay (20000,20000,20000) L_0x1faa320/d;
+v0x1f99480_0 .net "AandB", 0 0, L_0x1faa080; 1 drivers
+v0x1f99540_0 .net "AandC", 0 0, L_0x1faa120; 1 drivers
+v0x1f995e0_0 .net "BandC", 0 0, L_0x1faa1c0; 1 drivers
+v0x1f99680_0 .net "a", 0 0, L_0x1faa490; 1 drivers
+v0x1f99700_0 .net "b", 0 0, L_0x1faa5c0; 1 drivers
+v0x1f997a0_0 .alias "carryin", 0 0, v0x1f99af0_0;
+v0x1f99840_0 .alias "carryout", 0 0, v0x1f99c70_0;
+v0x1f998c0_0 .net "sum", 0 0, L_0x1fa9f20; 1 drivers
+S_0x1f98d90 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f97ff0;
+ .timescale -9 -12;
+L_0x1faa6f0/d .functor XOR 1, L_0x1faad50, L_0x1faae80, L_0x1faa320, C4<0>;
+L_0x1faa6f0 .delay (30000,30000,30000) L_0x1faa6f0/d;
+L_0x1faa8b0/d .functor AND 1, L_0x1faad50, L_0x1faae80, C4<1>, C4<1>;
+L_0x1faa8b0 .delay (20000,20000,20000) L_0x1faa8b0/d;
+L_0x1faa980/d .functor AND 1, L_0x1faad50, L_0x1faa320, C4<1>, C4<1>;
+L_0x1faa980 .delay (20000,20000,20000) L_0x1faa980/d;
+L_0x1faaa20/d .functor AND 1, L_0x1faae80, L_0x1faa320, C4<1>, C4<1>;
+L_0x1faaa20 .delay (20000,20000,20000) L_0x1faaa20/d;
+L_0x1faaaf0/d .functor OR 1, L_0x1faa8b0, L_0x1faa980, L_0x1faaa20, C4<0>;
+L_0x1faaaf0 .delay (20000,20000,20000) L_0x1faaaf0/d;
+v0x1f98e80_0 .net "AandB", 0 0, L_0x1faa8b0; 1 drivers
+v0x1f98f40_0 .net "AandC", 0 0, L_0x1faa980; 1 drivers
+v0x1f98fe0_0 .net "BandC", 0 0, L_0x1faaa20; 1 drivers
+v0x1f99080_0 .net "a", 0 0, L_0x1faad50; 1 drivers
+v0x1f99100_0 .net "b", 0 0, L_0x1faae80; 1 drivers
+v0x1f991a0_0 .alias "carryin", 0 0, v0x1f99c70_0;
+v0x1f99240_0 .alias "carryout", 0 0, v0x1f99c70_1;
+v0x1f992c0_0 .net "sum", 0 0, L_0x1faa6f0; 1 drivers
+S_0x1f98790 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f97ff0;
+ .timescale -9 -12;
+L_0x1faaff0/d .functor XOR 1, L_0x1fab5d0, L_0x1fab700, L_0x1faaaf0, C4<0>;
+L_0x1faaff0 .delay (30000,30000,30000) L_0x1faaff0/d;
+L_0x1fab120/d .functor AND 1, L_0x1fab5d0, L_0x1fab700, C4<1>, C4<1>;
+L_0x1fab120 .delay (20000,20000,20000) L_0x1fab120/d;
+L_0x1fab260/d .functor AND 1, L_0x1fab5d0, L_0x1faaaf0, C4<1>, C4<1>;
+L_0x1fab260 .delay (20000,20000,20000) L_0x1fab260/d;
+L_0x1fab300/d .functor AND 1, L_0x1fab700, L_0x1faaaf0, C4<1>, C4<1>;
+L_0x1fab300 .delay (20000,20000,20000) L_0x1fab300/d;
+L_0x1fab3a0/d .functor OR 1, L_0x1fab120, L_0x1fab260, L_0x1fab300, C4<0>;
+L_0x1fab3a0 .delay (20000,20000,20000) L_0x1fab3a0/d;
+v0x1f98880_0 .net "AandB", 0 0, L_0x1fab120; 1 drivers
+v0x1f98940_0 .net "AandC", 0 0, L_0x1fab260; 1 drivers
+v0x1f989e0_0 .net "BandC", 0 0, L_0x1fab300; 1 drivers
+v0x1f98a80_0 .net "a", 0 0, L_0x1fab5d0; 1 drivers
+v0x1f98b00_0 .net "b", 0 0, L_0x1fab700; 1 drivers
+v0x1f98ba0_0 .alias "carryin", 0 0, v0x1f99c70_1;
+v0x1f98c40_0 .alias "carryout", 0 0, v0x1f99c70_2;
+v0x1f98cc0_0 .net "sum", 0 0, L_0x1faaff0; 1 drivers
+S_0x1f980e0 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f97ff0;
+ .timescale -9 -12;
+L_0x1fab830/d .functor XOR 1, L_0x1fabf00, L_0x1fac0c0, L_0x1fab3a0, C4<0>;
+L_0x1fab830 .delay (30000,30000,30000) L_0x1fab830/d;
+L_0x1fab920/d .functor AND 1, L_0x1fabf00, L_0x1fac0c0, C4<1>, C4<1>;
+L_0x1fab920 .delay (20000,20000,20000) L_0x1fab920/d;
+L_0x1faba40/d .functor AND 1, L_0x1fabf00, L_0x1fab3a0, C4<1>, C4<1>;
+L_0x1faba40 .delay (20000,20000,20000) L_0x1faba40/d;
+L_0x1fabae0/d .functor AND 1, L_0x1fac0c0, L_0x1fab3a0, C4<1>, C4<1>;
+L_0x1fabae0 .delay (20000,20000,20000) L_0x1fabae0/d;
+L_0x1fabbb0/d .functor OR 1, L_0x1fab920, L_0x1faba40, L_0x1fabae0, C4<0>;
+L_0x1fabbb0 .delay (20000,20000,20000) L_0x1fabbb0/d;
+v0x1f981d0_0 .net "AandB", 0 0, L_0x1fab920; 1 drivers
+v0x1f98290_0 .net "AandC", 0 0, L_0x1faba40; 1 drivers
+v0x1f98330_0 .net "BandC", 0 0, L_0x1fabae0; 1 drivers
+v0x1f983d0_0 .net "a", 0 0, L_0x1fabf00; 1 drivers
+v0x1f98450_0 .net "b", 0 0, L_0x1fac0c0; 1 drivers
+v0x1f984f0_0 .alias "carryin", 0 0, v0x1f99c70_2;
+v0x1f985d0_0 .alias "carryout", 0 0, v0x1f9a130_0;
+v0x1f986a0_0 .net "sum", 0 0, L_0x1fab830; 1 drivers
+S_0x1f96200 .scope module, "f41" "CompAdder4bit" 2 82, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f97ba0_0 .net "a", 3 0, L_0x1fae9e0; 1 drivers
+v0x1f97c60_0 .net "b", 3 0, L_0x1faea80; 1 drivers
+v0x1f97d00_0 .alias "carryin", 0 0, v0x1f9a130_0;
+v0x1f97d80_0 .alias "carryout", 0 0, v0x1f9a130_1;
+v0x1f97e00_0 .net8 "sum", 3 0, RS_0x2b15dfb9d8c8; 4 drivers
+v0x1f97e80 .array "temp_cout", 0 2;
+v0x1f97e80_0 .net v0x1f97e80 0, 0 0, L_0x1fac8e0; 1 drivers
+v0x1f97e80_1 .net v0x1f97e80 1, 0 0, L_0x1fad0b0; 1 drivers
+v0x1f97e80_2 .net v0x1f97e80 2, 0 0, L_0x1fad9b0; 1 drivers
+L_0x1fac9b0 .part/pv L_0x1fabea0, 0, 1, 4;
+L_0x1faca50 .part L_0x1fae9e0, 0, 1;
+L_0x1facb80 .part L_0x1faea80, 0, 1;
+L_0x1fad270 .part/pv L_0x1faccb0, 1, 1, 4;
+L_0x1fad360 .part L_0x1fae9e0, 1, 1;
+L_0x1fad490 .part L_0x1faea80, 1, 1;
+L_0x1fadb40 .part/pv L_0x1fad600, 2, 1, 4;
+L_0x1fadbe0 .part L_0x1fae9e0, 2, 1;
+L_0x1fadd10 .part L_0x1faea80, 2, 1;
+L_0x1fae3c0 .part/pv L_0x1fade40, 3, 1, 4;
+L_0x1fae550 .part L_0x1fae9e0, 3, 1;
+L_0x1fae710 .part L_0x1faea80, 3, 1;
+S_0x1f975a0 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f96200;
+ .timescale -9 -12;
+L_0x1fabea0/d .functor XOR 1, L_0x1faca50, L_0x1facb80, L_0x1fabbb0, C4<0>;
+L_0x1fabea0 .delay (30000,30000,30000) L_0x1fabea0/d;
+L_0x1fac5e0/d .functor AND 1, L_0x1faca50, L_0x1facb80, C4<1>, C4<1>;
+L_0x1fac5e0 .delay (20000,20000,20000) L_0x1fac5e0/d;
+L_0x1fac6b0/d .functor AND 1, L_0x1faca50, L_0x1fabbb0, C4<1>, C4<1>;
+L_0x1fac6b0 .delay (20000,20000,20000) L_0x1fac6b0/d;
+L_0x1fac750/d .functor AND 1, L_0x1facb80, L_0x1fabbb0, C4<1>, C4<1>;
+L_0x1fac750 .delay (20000,20000,20000) L_0x1fac750/d;
+L_0x1fac8e0/d .functor OR 1, L_0x1fac5e0, L_0x1fac6b0, L_0x1fac750, C4<0>;
+L_0x1fac8e0 .delay (20000,20000,20000) L_0x1fac8e0/d;
+v0x1f97690_0 .net "AandB", 0 0, L_0x1fac5e0; 1 drivers
+v0x1f97750_0 .net "AandC", 0 0, L_0x1fac6b0; 1 drivers
+v0x1f977f0_0 .net "BandC", 0 0, L_0x1fac750; 1 drivers
+v0x1f97890_0 .net "a", 0 0, L_0x1faca50; 1 drivers
+v0x1f97910_0 .net "b", 0 0, L_0x1facb80; 1 drivers
+v0x1f979b0_0 .alias "carryin", 0 0, v0x1f9a130_0;
+v0x1f97a50_0 .alias "carryout", 0 0, v0x1f97e80_0;
+v0x1f97ad0_0 .net "sum", 0 0, L_0x1fabea0; 1 drivers
+S_0x1f96fa0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f96200;
+ .timescale -9 -12;
+L_0x1faccb0/d .functor XOR 1, L_0x1fad360, L_0x1fad490, L_0x1fac8e0, C4<0>;
+L_0x1faccb0 .delay (30000,30000,30000) L_0x1faccb0/d;
+L_0x1face70/d .functor AND 1, L_0x1fad360, L_0x1fad490, C4<1>, C4<1>;
+L_0x1face70 .delay (20000,20000,20000) L_0x1face70/d;
+L_0x1facf40/d .functor AND 1, L_0x1fad360, L_0x1fac8e0, C4<1>, C4<1>;
+L_0x1facf40 .delay (20000,20000,20000) L_0x1facf40/d;
+L_0x1facfe0/d .functor AND 1, L_0x1fad490, L_0x1fac8e0, C4<1>, C4<1>;
+L_0x1facfe0 .delay (20000,20000,20000) L_0x1facfe0/d;
+L_0x1fad0b0/d .functor OR 1, L_0x1face70, L_0x1facf40, L_0x1facfe0, C4<0>;
+L_0x1fad0b0 .delay (20000,20000,20000) L_0x1fad0b0/d;
+v0x1f97090_0 .net "AandB", 0 0, L_0x1face70; 1 drivers
+v0x1f97150_0 .net "AandC", 0 0, L_0x1facf40; 1 drivers
+v0x1f971f0_0 .net "BandC", 0 0, L_0x1facfe0; 1 drivers
+v0x1f97290_0 .net "a", 0 0, L_0x1fad360; 1 drivers
+v0x1f97310_0 .net "b", 0 0, L_0x1fad490; 1 drivers
+v0x1f973b0_0 .alias "carryin", 0 0, v0x1f97e80_0;
+v0x1f97450_0 .alias "carryout", 0 0, v0x1f97e80_1;
+v0x1f974d0_0 .net "sum", 0 0, L_0x1faccb0; 1 drivers
+S_0x1f969a0 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f96200;
+ .timescale -9 -12;
+L_0x1fad600/d .functor XOR 1, L_0x1fadbe0, L_0x1fadd10, L_0x1fad0b0, C4<0>;
+L_0x1fad600 .delay (30000,30000,30000) L_0x1fad600/d;
+L_0x1fad730/d .functor AND 1, L_0x1fadbe0, L_0x1fadd10, C4<1>, C4<1>;
+L_0x1fad730 .delay (20000,20000,20000) L_0x1fad730/d;
+L_0x1fad870/d .functor AND 1, L_0x1fadbe0, L_0x1fad0b0, C4<1>, C4<1>;
+L_0x1fad870 .delay (20000,20000,20000) L_0x1fad870/d;
+L_0x1fad910/d .functor AND 1, L_0x1fadd10, L_0x1fad0b0, C4<1>, C4<1>;
+L_0x1fad910 .delay (20000,20000,20000) L_0x1fad910/d;
+L_0x1fad9b0/d .functor OR 1, L_0x1fad730, L_0x1fad870, L_0x1fad910, C4<0>;
+L_0x1fad9b0 .delay (20000,20000,20000) L_0x1fad9b0/d;
+v0x1f96a90_0 .net "AandB", 0 0, L_0x1fad730; 1 drivers
+v0x1f96b50_0 .net "AandC", 0 0, L_0x1fad870; 1 drivers
+v0x1f96bf0_0 .net "BandC", 0 0, L_0x1fad910; 1 drivers
+v0x1f96c90_0 .net "a", 0 0, L_0x1fadbe0; 1 drivers
+v0x1f96d10_0 .net "b", 0 0, L_0x1fadd10; 1 drivers
+v0x1f96db0_0 .alias "carryin", 0 0, v0x1f97e80_1;
+v0x1f96e50_0 .alias "carryout", 0 0, v0x1f97e80_2;
+v0x1f96ed0_0 .net "sum", 0 0, L_0x1fad600; 1 drivers
+S_0x1f962f0 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f96200;
+ .timescale -9 -12;
+L_0x1fade40/d .functor XOR 1, L_0x1fae550, L_0x1fae710, L_0x1fad9b0, C4<0>;
+L_0x1fade40 .delay (30000,30000,30000) L_0x1fade40/d;
+L_0x1fadf30/d .functor AND 1, L_0x1fae550, L_0x1fae710, C4<1>, C4<1>;
+L_0x1fadf30 .delay (20000,20000,20000) L_0x1fadf30/d;
+L_0x1fae050/d .functor AND 1, L_0x1fae550, L_0x1fad9b0, C4<1>, C4<1>;
+L_0x1fae050 .delay (20000,20000,20000) L_0x1fae050/d;
+L_0x1fae110/d .functor AND 1, L_0x1fae710, L_0x1fad9b0, C4<1>, C4<1>;
+L_0x1fae110 .delay (20000,20000,20000) L_0x1fae110/d;
+L_0x1fae200/d .functor OR 1, L_0x1fadf30, L_0x1fae050, L_0x1fae110, C4<0>;
+L_0x1fae200 .delay (20000,20000,20000) L_0x1fae200/d;
+v0x1f963e0_0 .net "AandB", 0 0, L_0x1fadf30; 1 drivers
+v0x1f964a0_0 .net "AandC", 0 0, L_0x1fae050; 1 drivers
+v0x1f96540_0 .net "BandC", 0 0, L_0x1fae110; 1 drivers
+v0x1f965e0_0 .net "a", 0 0, L_0x1fae550; 1 drivers
+v0x1f96660_0 .net "b", 0 0, L_0x1fae710; 1 drivers
+v0x1f96700_0 .alias "carryin", 0 0, v0x1f97e80_2;
+v0x1f967e0_0 .alias "carryout", 0 0, v0x1f9a130_1;
+v0x1f968b0_0 .net "sum", 0 0, L_0x1fade40; 1 drivers
+S_0x1f94410 .scope module, "f42" "CompAdder4bit" 2 83, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f95db0_0 .net "a", 3 0, L_0x1fb1000; 1 drivers
+v0x1f95e70_0 .net "b", 3 0, L_0x1fb10a0; 1 drivers
+v0x1f95f10_0 .alias "carryin", 0 0, v0x1f9a130_1;
+v0x1f95f90_0 .alias "carryout", 0 0, v0x1f9a130_2;
+v0x1f96010_0 .net8 "sum", 3 0, RS_0x2b15dfb9d2f8; 4 drivers
+v0x1f96090 .array "temp_cout", 0 2;
+v0x1f96090_0 .net v0x1f96090 0, 0 0, L_0x1faee70; 1 drivers
+v0x1f96090_1 .net v0x1f96090 1, 0 0, L_0x1faf6b0; 1 drivers
+v0x1f96090_2 .net v0x1f96090 2, 0 0, L_0x1faffd0; 1 drivers
+L_0x1faefb0 .part/pv L_0x1fae4f0, 0, 1, 4;
+L_0x1faf050 .part L_0x1fb1000, 0, 1;
+L_0x1faf180 .part L_0x1fb10a0, 0, 1;
+L_0x1faf870 .part/pv L_0x1faf2b0, 1, 1, 4;
+L_0x1faf960 .part L_0x1fb1000, 1, 1;
+L_0x1fafa90 .part L_0x1fb10a0, 1, 1;
+L_0x1fb0160 .part/pv L_0x1fafc00, 2, 1, 4;
+L_0x1fb0200 .part L_0x1fb1000, 2, 1;
+L_0x1fb0330 .part L_0x1fb10a0, 2, 1;
+L_0x1fb09e0 .part/pv L_0x1fb0460, 3, 1, 4;
+L_0x1fb0b70 .part L_0x1fb1000, 3, 1;
+L_0x1fb0d30 .part L_0x1fb10a0, 3, 1;
+S_0x1f957b0 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f94410;
+ .timescale -9 -12;
+L_0x1fae4f0/d .functor XOR 1, L_0x1faf050, L_0x1faf180, L_0x1fae200, C4<0>;
+L_0x1fae4f0 .delay (30000,30000,30000) L_0x1fae4f0/d;
+L_0x1faeba0/d .functor AND 1, L_0x1faf050, L_0x1faf180, C4<1>, C4<1>;
+L_0x1faeba0 .delay (20000,20000,20000) L_0x1faeba0/d;
+L_0x1faec40/d .functor AND 1, L_0x1faf050, L_0x1fae200, C4<1>, C4<1>;
+L_0x1faec40 .delay (20000,20000,20000) L_0x1faec40/d;
+L_0x1faece0/d .functor AND 1, L_0x1faf180, L_0x1fae200, C4<1>, C4<1>;
+L_0x1faece0 .delay (20000,20000,20000) L_0x1faece0/d;
+L_0x1faee70/d .functor OR 1, L_0x1faeba0, L_0x1faec40, L_0x1faece0, C4<0>;
+L_0x1faee70 .delay (20000,20000,20000) L_0x1faee70/d;
+v0x1f958a0_0 .net "AandB", 0 0, L_0x1faeba0; 1 drivers
+v0x1f95960_0 .net "AandC", 0 0, L_0x1faec40; 1 drivers
+v0x1f95a00_0 .net "BandC", 0 0, L_0x1faece0; 1 drivers
+v0x1f95aa0_0 .net "a", 0 0, L_0x1faf050; 1 drivers
+v0x1f95b20_0 .net "b", 0 0, L_0x1faf180; 1 drivers
+v0x1f95bc0_0 .alias "carryin", 0 0, v0x1f9a130_1;
+v0x1f95c60_0 .alias "carryout", 0 0, v0x1f96090_0;
+v0x1f95ce0_0 .net "sum", 0 0, L_0x1fae4f0; 1 drivers
+S_0x1f951b0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f94410;
+ .timescale -9 -12;
+L_0x1faf2b0/d .functor XOR 1, L_0x1faf960, L_0x1fafa90, L_0x1faee70, C4<0>;
+L_0x1faf2b0 .delay (30000,30000,30000) L_0x1faf2b0/d;
+L_0x1faf470/d .functor AND 1, L_0x1faf960, L_0x1fafa90, C4<1>, C4<1>;
+L_0x1faf470 .delay (20000,20000,20000) L_0x1faf470/d;
+L_0x1faf540/d .functor AND 1, L_0x1faf960, L_0x1faee70, C4<1>, C4<1>;
+L_0x1faf540 .delay (20000,20000,20000) L_0x1faf540/d;
+L_0x1faf5e0/d .functor AND 1, L_0x1fafa90, L_0x1faee70, C4<1>, C4<1>;
+L_0x1faf5e0 .delay (20000,20000,20000) L_0x1faf5e0/d;
+L_0x1faf6b0/d .functor OR 1, L_0x1faf470, L_0x1faf540, L_0x1faf5e0, C4<0>;
+L_0x1faf6b0 .delay (20000,20000,20000) L_0x1faf6b0/d;
+v0x1f952a0_0 .net "AandB", 0 0, L_0x1faf470; 1 drivers
+v0x1f95360_0 .net "AandC", 0 0, L_0x1faf540; 1 drivers
+v0x1f95400_0 .net "BandC", 0 0, L_0x1faf5e0; 1 drivers
+v0x1f954a0_0 .net "a", 0 0, L_0x1faf960; 1 drivers
+v0x1f95520_0 .net "b", 0 0, L_0x1fafa90; 1 drivers
+v0x1f955c0_0 .alias "carryin", 0 0, v0x1f96090_0;
+v0x1f95660_0 .alias "carryout", 0 0, v0x1f96090_1;
+v0x1f956e0_0 .net "sum", 0 0, L_0x1faf2b0; 1 drivers
+S_0x1f94bb0 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f94410;
+ .timescale -9 -12;
+L_0x1fafc00/d .functor XOR 1, L_0x1fb0200, L_0x1fb0330, L_0x1faf6b0, C4<0>;
+L_0x1fafc00 .delay (30000,30000,30000) L_0x1fafc00/d;
+L_0x1fafd30/d .functor AND 1, L_0x1fb0200, L_0x1fb0330, C4<1>, C4<1>;
+L_0x1fafd30 .delay (20000,20000,20000) L_0x1fafd30/d;
+L_0x1fafe70/d .functor AND 1, L_0x1fb0200, L_0x1faf6b0, C4<1>, C4<1>;
+L_0x1fafe70 .delay (20000,20000,20000) L_0x1fafe70/d;
+L_0x1faff10/d .functor AND 1, L_0x1fb0330, L_0x1faf6b0, C4<1>, C4<1>;
+L_0x1faff10 .delay (20000,20000,20000) L_0x1faff10/d;
+L_0x1faffd0/d .functor OR 1, L_0x1fafd30, L_0x1fafe70, L_0x1faff10, C4<0>;
+L_0x1faffd0 .delay (20000,20000,20000) L_0x1faffd0/d;
+v0x1f94ca0_0 .net "AandB", 0 0, L_0x1fafd30; 1 drivers
+v0x1f94d60_0 .net "AandC", 0 0, L_0x1fafe70; 1 drivers
+v0x1f94e00_0 .net "BandC", 0 0, L_0x1faff10; 1 drivers
+v0x1f94ea0_0 .net "a", 0 0, L_0x1fb0200; 1 drivers
+v0x1f94f20_0 .net "b", 0 0, L_0x1fb0330; 1 drivers
+v0x1f94fc0_0 .alias "carryin", 0 0, v0x1f96090_1;
+v0x1f95060_0 .alias "carryout", 0 0, v0x1f96090_2;
+v0x1f950e0_0 .net "sum", 0 0, L_0x1fafc00; 1 drivers
+S_0x1f94500 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f94410;
+ .timescale -9 -12;
+L_0x1fb0460/d .functor XOR 1, L_0x1fb0b70, L_0x1fb0d30, L_0x1faffd0, C4<0>;
+L_0x1fb0460 .delay (30000,30000,30000) L_0x1fb0460/d;
+L_0x1fb0550/d .functor AND 1, L_0x1fb0b70, L_0x1fb0d30, C4<1>, C4<1>;
+L_0x1fb0550 .delay (20000,20000,20000) L_0x1fb0550/d;
+L_0x1fb0670/d .functor AND 1, L_0x1fb0b70, L_0x1faffd0, C4<1>, C4<1>;
+L_0x1fb0670 .delay (20000,20000,20000) L_0x1fb0670/d;
+L_0x1fb0730/d .functor AND 1, L_0x1fb0d30, L_0x1faffd0, C4<1>, C4<1>;
+L_0x1fb0730 .delay (20000,20000,20000) L_0x1fb0730/d;
+L_0x1fb0820/d .functor OR 1, L_0x1fb0550, L_0x1fb0670, L_0x1fb0730, C4<0>;
+L_0x1fb0820 .delay (20000,20000,20000) L_0x1fb0820/d;
+v0x1f945f0_0 .net "AandB", 0 0, L_0x1fb0550; 1 drivers
+v0x1f946b0_0 .net "AandC", 0 0, L_0x1fb0670; 1 drivers
+v0x1f94750_0 .net "BandC", 0 0, L_0x1fb0730; 1 drivers
+v0x1f947f0_0 .net "a", 0 0, L_0x1fb0b70; 1 drivers
+v0x1f94870_0 .net "b", 0 0, L_0x1fb0d30; 1 drivers
+v0x1f94910_0 .alias "carryin", 0 0, v0x1f96090_2;
+v0x1f949f0_0 .alias "carryout", 0 0, v0x1f9a130_2;
+v0x1f94ac0_0 .net "sum", 0 0, L_0x1fb0460; 1 drivers
+S_0x1f92620 .scope module, "f43" "CompAdder4bit" 2 84, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f93fc0_0 .net "a", 3 0, L_0x1fb3640; 1 drivers
+v0x1f94080_0 .net "b", 3 0, L_0x1fb3770; 1 drivers
+v0x1f94120_0 .alias "carryin", 0 0, v0x1f9a130_2;
+v0x1f941a0_0 .alias "carryout", 0 0, v0x1f9a130_3;
+v0x1f94220_0 .net8 "sum", 3 0, RS_0x2b15dfb9cd28; 4 drivers
+v0x1f942a0 .array "temp_cout", 0 2;
+v0x1f942a0_0 .net v0x1f942a0 0, 0 0, L_0x1fb1460; 1 drivers
+v0x1f942a0_1 .net v0x1f942a0 1, 0 0, L_0x1fb1c80; 1 drivers
+v0x1f942a0_2 .net v0x1f942a0 2, 0 0, L_0x1fb2580; 1 drivers
+L_0x1fb1580 .part/pv L_0x1fb0b10, 0, 1, 4;
+L_0x1fb1620 .part L_0x1fb3640, 0, 1;
+L_0x1fb1750 .part L_0x1fb3770, 0, 1;
+L_0x1fb1e40 .part/pv L_0x1fb1880, 1, 1, 4;
+L_0x1fb1f30 .part L_0x1fb3640, 1, 1;
+L_0x1fb2060 .part L_0x1fb3770, 1, 1;
+L_0x1fb2710 .part/pv L_0x1fb21d0, 2, 1, 4;
+L_0x1fb27b0 .part L_0x1fb3640, 2, 1;
+L_0x1fb28e0 .part L_0x1fb3770, 2, 1;
+L_0x1fb2f90 .part/pv L_0x1fb2a10, 3, 1, 4;
+L_0x1fb3120 .part L_0x1fb3640, 3, 1;
+L_0x1fb32e0 .part L_0x1fb3770, 3, 1;
+S_0x1f939c0 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f92620;
+ .timescale -9 -12;
+L_0x1fb0b10/d .functor XOR 1, L_0x1fb1620, L_0x1fb1750, L_0x1fb0820, C4<0>;
+L_0x1fb0b10 .delay (30000,30000,30000) L_0x1fb0b10/d;
+L_0x1fb1140/d .functor AND 1, L_0x1fb1620, L_0x1fb1750, C4<1>, C4<1>;
+L_0x1fb1140 .delay (20000,20000,20000) L_0x1fb1140/d;
+L_0x1fb1210/d .functor AND 1, L_0x1fb1620, L_0x1fb0820, C4<1>, C4<1>;
+L_0x1fb1210 .delay (20000,20000,20000) L_0x1fb1210/d;
+L_0x1fb12d0/d .functor AND 1, L_0x1fb1750, L_0x1fb0820, C4<1>, C4<1>;
+L_0x1fb12d0 .delay (20000,20000,20000) L_0x1fb12d0/d;
+L_0x1fb1460/d .functor OR 1, L_0x1fb1140, L_0x1fb1210, L_0x1fb12d0, C4<0>;
+L_0x1fb1460 .delay (20000,20000,20000) L_0x1fb1460/d;
+v0x1f93ab0_0 .net "AandB", 0 0, L_0x1fb1140; 1 drivers
+v0x1f93b70_0 .net "AandC", 0 0, L_0x1fb1210; 1 drivers
+v0x1f93c10_0 .net "BandC", 0 0, L_0x1fb12d0; 1 drivers
+v0x1f93cb0_0 .net "a", 0 0, L_0x1fb1620; 1 drivers
+v0x1f93d30_0 .net "b", 0 0, L_0x1fb1750; 1 drivers
+v0x1f93dd0_0 .alias "carryin", 0 0, v0x1f9a130_2;
+v0x1f93e70_0 .alias "carryout", 0 0, v0x1f942a0_0;
+v0x1f93ef0_0 .net "sum", 0 0, L_0x1fb0b10; 1 drivers
+S_0x1f933c0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f92620;
+ .timescale -9 -12;
+L_0x1fb1880/d .functor XOR 1, L_0x1fb1f30, L_0x1fb2060, L_0x1fb1460, C4<0>;
+L_0x1fb1880 .delay (30000,30000,30000) L_0x1fb1880/d;
+L_0x1fb1a40/d .functor AND 1, L_0x1fb1f30, L_0x1fb2060, C4<1>, C4<1>;
+L_0x1fb1a40 .delay (20000,20000,20000) L_0x1fb1a40/d;
+L_0x1fb1b10/d .functor AND 1, L_0x1fb1f30, L_0x1fb1460, C4<1>, C4<1>;
+L_0x1fb1b10 .delay (20000,20000,20000) L_0x1fb1b10/d;
+L_0x1fb1bb0/d .functor AND 1, L_0x1fb2060, L_0x1fb1460, C4<1>, C4<1>;
+L_0x1fb1bb0 .delay (20000,20000,20000) L_0x1fb1bb0/d;
+L_0x1fb1c80/d .functor OR 1, L_0x1fb1a40, L_0x1fb1b10, L_0x1fb1bb0, C4<0>;
+L_0x1fb1c80 .delay (20000,20000,20000) L_0x1fb1c80/d;
+v0x1f934b0_0 .net "AandB", 0 0, L_0x1fb1a40; 1 drivers
+v0x1f93570_0 .net "AandC", 0 0, L_0x1fb1b10; 1 drivers
+v0x1f93610_0 .net "BandC", 0 0, L_0x1fb1bb0; 1 drivers
+v0x1f936b0_0 .net "a", 0 0, L_0x1fb1f30; 1 drivers
+v0x1f93730_0 .net "b", 0 0, L_0x1fb2060; 1 drivers
+v0x1f937d0_0 .alias "carryin", 0 0, v0x1f942a0_0;
+v0x1f93870_0 .alias "carryout", 0 0, v0x1f942a0_1;
+v0x1f938f0_0 .net "sum", 0 0, L_0x1fb1880; 1 drivers
+S_0x1f92dc0 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f92620;
+ .timescale -9 -12;
+L_0x1fb21d0/d .functor XOR 1, L_0x1fb27b0, L_0x1fb28e0, L_0x1fb1c80, C4<0>;
+L_0x1fb21d0 .delay (30000,30000,30000) L_0x1fb21d0/d;
+L_0x1fb2300/d .functor AND 1, L_0x1fb27b0, L_0x1fb28e0, C4<1>, C4<1>;
+L_0x1fb2300 .delay (20000,20000,20000) L_0x1fb2300/d;
+L_0x1fb2440/d .functor AND 1, L_0x1fb27b0, L_0x1fb1c80, C4<1>, C4<1>;
+L_0x1fb2440 .delay (20000,20000,20000) L_0x1fb2440/d;
+L_0x1fb24e0/d .functor AND 1, L_0x1fb28e0, L_0x1fb1c80, C4<1>, C4<1>;
+L_0x1fb24e0 .delay (20000,20000,20000) L_0x1fb24e0/d;
+L_0x1fb2580/d .functor OR 1, L_0x1fb2300, L_0x1fb2440, L_0x1fb24e0, C4<0>;
+L_0x1fb2580 .delay (20000,20000,20000) L_0x1fb2580/d;
+v0x1f92eb0_0 .net "AandB", 0 0, L_0x1fb2300; 1 drivers
+v0x1f92f70_0 .net "AandC", 0 0, L_0x1fb2440; 1 drivers
+v0x1f93010_0 .net "BandC", 0 0, L_0x1fb24e0; 1 drivers
+v0x1f930b0_0 .net "a", 0 0, L_0x1fb27b0; 1 drivers
+v0x1f93130_0 .net "b", 0 0, L_0x1fb28e0; 1 drivers
+v0x1f931d0_0 .alias "carryin", 0 0, v0x1f942a0_1;
+v0x1f93270_0 .alias "carryout", 0 0, v0x1f942a0_2;
+v0x1f932f0_0 .net "sum", 0 0, L_0x1fb21d0; 1 drivers
+S_0x1f92710 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f92620;
+ .timescale -9 -12;
+L_0x1fb2a10/d .functor XOR 1, L_0x1fb3120, L_0x1fb32e0, L_0x1fb2580, C4<0>;
+L_0x1fb2a10 .delay (30000,30000,30000) L_0x1fb2a10/d;
+L_0x1fb2b00/d .functor AND 1, L_0x1fb3120, L_0x1fb32e0, C4<1>, C4<1>;
+L_0x1fb2b00 .delay (20000,20000,20000) L_0x1fb2b00/d;
+L_0x1fb2c20/d .functor AND 1, L_0x1fb3120, L_0x1fb2580, C4<1>, C4<1>;
+L_0x1fb2c20 .delay (20000,20000,20000) L_0x1fb2c20/d;
+L_0x1fb2ce0/d .functor AND 1, L_0x1fb32e0, L_0x1fb2580, C4<1>, C4<1>;
+L_0x1fb2ce0 .delay (20000,20000,20000) L_0x1fb2ce0/d;
+L_0x1fb2dd0/d .functor OR 1, L_0x1fb2b00, L_0x1fb2c20, L_0x1fb2ce0, C4<0>;
+L_0x1fb2dd0 .delay (20000,20000,20000) L_0x1fb2dd0/d;
+v0x1f92800_0 .net "AandB", 0 0, L_0x1fb2b00; 1 drivers
+v0x1f928c0_0 .net "AandC", 0 0, L_0x1fb2c20; 1 drivers
+v0x1f92960_0 .net "BandC", 0 0, L_0x1fb2ce0; 1 drivers
+v0x1f92a00_0 .net "a", 0 0, L_0x1fb3120; 1 drivers
+v0x1f92a80_0 .net "b", 0 0, L_0x1fb32e0; 1 drivers
+v0x1f92b20_0 .alias "carryin", 0 0, v0x1f942a0_2;
+v0x1f92c00_0 .alias "carryout", 0 0, v0x1f9a130_3;
+v0x1f92cd0_0 .net "sum", 0 0, L_0x1fb2a10; 1 drivers
+S_0x1f90830 .scope module, "f44" "CompAdder4bit" 2 85, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f921d0_0 .net "a", 3 0, L_0x1fb5c30; 1 drivers
+v0x1f92290_0 .net "b", 3 0, L_0x1fb5d50; 1 drivers
+v0x1f92330_0 .alias "carryin", 0 0, v0x1f9a130_3;
+v0x1f923b0_0 .alias "carryout", 0 0, v0x1f9a130_4;
+v0x1f92430_0 .net8 "sum", 3 0, RS_0x2b15dfb9c758; 4 drivers
+v0x1f924b0 .array "temp_cout", 0 2;
+v0x1f924b0_0 .net v0x1f924b0 0, 0 0, L_0x1fb3c70; 1 drivers
+v0x1f924b0_1 .net v0x1f924b0 1, 0 0, L_0x1fb4440; 1 drivers
+v0x1f924b0_2 .net v0x1f924b0 2, 0 0, L_0x1fb4c00; 1 drivers
+L_0x1fb3d40 .part/pv L_0x1fb30c0, 0, 1, 4;
+L_0x1fb3de0 .part L_0x1fb5c30, 0, 1;
+L_0x1fb3f10 .part L_0x1fb5d50, 0, 1;
+L_0x1fb4510 .part/pv L_0x1fb4040, 1, 1, 4;
+L_0x1fb45b0 .part L_0x1fb5c30, 1, 1;
+L_0x1fb46e0 .part L_0x1fb5d50, 1, 1;
+L_0x1fb4d90 .part/pv L_0x1fb4850, 2, 1, 4;
+L_0x1fb4e30 .part L_0x1fb5c30, 2, 1;
+L_0x1fb4f60 .part L_0x1fb5d50, 2, 1;
+L_0x1fb5610 .part/pv L_0x1fb5090, 3, 1, 4;
+L_0x1fb57a0 .part L_0x1fb5c30, 3, 1;
+L_0x1fb5960 .part L_0x1fb5d50, 3, 1;
+S_0x1f91bd0 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f90830;
+ .timescale -9 -12;
+L_0x1fb30c0/d .functor XOR 1, L_0x1fb3de0, L_0x1fb3f10, L_0x1fb2dd0, C4<0>;
+L_0x1fb30c0 .delay (30000,30000,30000) L_0x1fb30c0/d;
+L_0x1fb3950/d .functor AND 1, L_0x1fb3de0, L_0x1fb3f10, C4<1>, C4<1>;
+L_0x1fb3950 .delay (20000,20000,20000) L_0x1fb3950/d;
+L_0x1fb3a20/d .functor AND 1, L_0x1fb3de0, L_0x1fb2dd0, C4<1>, C4<1>;
+L_0x1fb3a20 .delay (20000,20000,20000) L_0x1fb3a20/d;
+L_0x1fb3ae0/d .functor AND 1, L_0x1fb3f10, L_0x1fb2dd0, C4<1>, C4<1>;
+L_0x1fb3ae0 .delay (20000,20000,20000) L_0x1fb3ae0/d;
+L_0x1fb3c70/d .functor OR 1, L_0x1fb3950, L_0x1fb3a20, L_0x1fb3ae0, C4<0>;
+L_0x1fb3c70 .delay (20000,20000,20000) L_0x1fb3c70/d;
+v0x1f91cc0_0 .net "AandB", 0 0, L_0x1fb3950; 1 drivers
+v0x1f91d80_0 .net "AandC", 0 0, L_0x1fb3a20; 1 drivers
+v0x1f91e20_0 .net "BandC", 0 0, L_0x1fb3ae0; 1 drivers
+v0x1f91ec0_0 .net "a", 0 0, L_0x1fb3de0; 1 drivers
+v0x1f91f40_0 .net "b", 0 0, L_0x1fb3f10; 1 drivers
+v0x1f91fe0_0 .alias "carryin", 0 0, v0x1f9a130_3;
+v0x1f92080_0 .alias "carryout", 0 0, v0x1f924b0_0;
+v0x1f92100_0 .net "sum", 0 0, L_0x1fb30c0; 1 drivers
+S_0x1f915d0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f90830;
+ .timescale -9 -12;
+L_0x1fb4040/d .functor XOR 1, L_0x1fb45b0, L_0x1fb46e0, L_0x1fb3c70, C4<0>;
+L_0x1fb4040 .delay (30000,30000,30000) L_0x1fb4040/d;
+L_0x1fb4200/d .functor AND 1, L_0x1fb45b0, L_0x1fb46e0, C4<1>, C4<1>;
+L_0x1fb4200 .delay (20000,20000,20000) L_0x1fb4200/d;
+L_0x1fb42d0/d .functor AND 1, L_0x1fb45b0, L_0x1fb3c70, C4<1>, C4<1>;
+L_0x1fb42d0 .delay (20000,20000,20000) L_0x1fb42d0/d;
+L_0x1fb4370/d .functor AND 1, L_0x1fb46e0, L_0x1fb3c70, C4<1>, C4<1>;
+L_0x1fb4370 .delay (20000,20000,20000) L_0x1fb4370/d;
+L_0x1fb4440/d .functor OR 1, L_0x1fb4200, L_0x1fb42d0, L_0x1fb4370, C4<0>;
+L_0x1fb4440 .delay (20000,20000,20000) L_0x1fb4440/d;
+v0x1f916c0_0 .net "AandB", 0 0, L_0x1fb4200; 1 drivers
+v0x1f91780_0 .net "AandC", 0 0, L_0x1fb42d0; 1 drivers
+v0x1f91820_0 .net "BandC", 0 0, L_0x1fb4370; 1 drivers
+v0x1f918c0_0 .net "a", 0 0, L_0x1fb45b0; 1 drivers
+v0x1f91940_0 .net "b", 0 0, L_0x1fb46e0; 1 drivers
+v0x1f919e0_0 .alias "carryin", 0 0, v0x1f924b0_0;
+v0x1f91a80_0 .alias "carryout", 0 0, v0x1f924b0_1;
+v0x1f91b00_0 .net "sum", 0 0, L_0x1fb4040; 1 drivers
+S_0x1f90fd0 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f90830;
+ .timescale -9 -12;
+L_0x1fb4850/d .functor XOR 1, L_0x1fb4e30, L_0x1fb4f60, L_0x1fb4440, C4<0>;
+L_0x1fb4850 .delay (30000,30000,30000) L_0x1fb4850/d;
+L_0x1fb4980/d .functor AND 1, L_0x1fb4e30, L_0x1fb4f60, C4<1>, C4<1>;
+L_0x1fb4980 .delay (20000,20000,20000) L_0x1fb4980/d;
+L_0x1fb4ac0/d .functor AND 1, L_0x1fb4e30, L_0x1fb4440, C4<1>, C4<1>;
+L_0x1fb4ac0 .delay (20000,20000,20000) L_0x1fb4ac0/d;
+L_0x1fb4b60/d .functor AND 1, L_0x1fb4f60, L_0x1fb4440, C4<1>, C4<1>;
+L_0x1fb4b60 .delay (20000,20000,20000) L_0x1fb4b60/d;
+L_0x1fb4c00/d .functor OR 1, L_0x1fb4980, L_0x1fb4ac0, L_0x1fb4b60, C4<0>;
+L_0x1fb4c00 .delay (20000,20000,20000) L_0x1fb4c00/d;
+v0x1f910c0_0 .net "AandB", 0 0, L_0x1fb4980; 1 drivers
+v0x1f91180_0 .net "AandC", 0 0, L_0x1fb4ac0; 1 drivers
+v0x1f91220_0 .net "BandC", 0 0, L_0x1fb4b60; 1 drivers
+v0x1f912c0_0 .net "a", 0 0, L_0x1fb4e30; 1 drivers
+v0x1f91340_0 .net "b", 0 0, L_0x1fb4f60; 1 drivers
+v0x1f913e0_0 .alias "carryin", 0 0, v0x1f924b0_1;
+v0x1f91480_0 .alias "carryout", 0 0, v0x1f924b0_2;
+v0x1f91500_0 .net "sum", 0 0, L_0x1fb4850; 1 drivers
+S_0x1f90920 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f90830;
+ .timescale -9 -12;
+L_0x1fb5090/d .functor XOR 1, L_0x1fb57a0, L_0x1fb5960, L_0x1fb4c00, C4<0>;
+L_0x1fb5090 .delay (30000,30000,30000) L_0x1fb5090/d;
+L_0x1fb5180/d .functor AND 1, L_0x1fb57a0, L_0x1fb5960, C4<1>, C4<1>;
+L_0x1fb5180 .delay (20000,20000,20000) L_0x1fb5180/d;
+L_0x1fb52a0/d .functor AND 1, L_0x1fb57a0, L_0x1fb4c00, C4<1>, C4<1>;
+L_0x1fb52a0 .delay (20000,20000,20000) L_0x1fb52a0/d;
+L_0x1fb5360/d .functor AND 1, L_0x1fb5960, L_0x1fb4c00, C4<1>, C4<1>;
+L_0x1fb5360 .delay (20000,20000,20000) L_0x1fb5360/d;
+L_0x1fb5450/d .functor OR 1, L_0x1fb5180, L_0x1fb52a0, L_0x1fb5360, C4<0>;
+L_0x1fb5450 .delay (20000,20000,20000) L_0x1fb5450/d;
+v0x1f90a10_0 .net "AandB", 0 0, L_0x1fb5180; 1 drivers
+v0x1f90ad0_0 .net "AandC", 0 0, L_0x1fb52a0; 1 drivers
+v0x1f90b70_0 .net "BandC", 0 0, L_0x1fb5360; 1 drivers
+v0x1f90c10_0 .net "a", 0 0, L_0x1fb57a0; 1 drivers
+v0x1f90c90_0 .net "b", 0 0, L_0x1fb5960; 1 drivers
+v0x1f90d30_0 .alias "carryin", 0 0, v0x1f924b0_2;
+v0x1f90e10_0 .alias "carryout", 0 0, v0x1f9a130_4;
+v0x1f90ee0_0 .net "sum", 0 0, L_0x1fb5090; 1 drivers
+S_0x1f8ea40 .scope module, "f45" "CompAdder4bit" 2 86, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f903e0_0 .net "a", 3 0, L_0x1fb8270; 1 drivers
+v0x1f904a0_0 .net "b", 3 0, L_0x1fb8310; 1 drivers
+v0x1f90540_0 .alias "carryin", 0 0, v0x1f9a130_4;
+v0x1f905c0_0 .alias "carryout", 0 0, v0x1f9a130_5;
+v0x1f90640_0 .net8 "sum", 3 0, RS_0x2b15dfb9c188; 4 drivers
+v0x1f906c0 .array "temp_cout", 0 2;
+v0x1f906c0_0 .net v0x1f906c0 0, 0 0, L_0x1fb6150; 1 drivers
+v0x1f906c0_1 .net v0x1f906c0 1, 0 0, L_0x1fb6920; 1 drivers
+v0x1f906c0_2 .net v0x1f906c0 2, 0 0, L_0x1fb7220; 1 drivers
+L_0x1fb6220 .part/pv L_0x1fb5740, 0, 1, 4;
+L_0x1fb62c0 .part L_0x1fb8270, 0, 1;
+L_0x1fb63f0 .part L_0x1fb8310, 0, 1;
+L_0x1fb6ae0 .part/pv L_0x1fb6520, 1, 1, 4;
+L_0x1fb6bd0 .part L_0x1fb8270, 1, 1;
+L_0x1fb6d00 .part L_0x1fb8310, 1, 1;
+L_0x1fb73b0 .part/pv L_0x1fb6e70, 2, 1, 4;
+L_0x1fb7450 .part L_0x1fb8270, 2, 1;
+L_0x1fb7580 .part L_0x1fb8310, 2, 1;
+L_0x1fb7c30 .part/pv L_0x1fb76b0, 3, 1, 4;
+L_0x1fb7dc0 .part L_0x1fb8270, 3, 1;
+L_0x1fb7f80 .part L_0x1fb8310, 3, 1;
+S_0x1f8fde0 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f8ea40;
+ .timescale -9 -12;
+L_0x1fb5740/d .functor XOR 1, L_0x1fb62c0, L_0x1fb63f0, L_0x1fb5450, C4<0>;
+L_0x1fb5740 .delay (30000,30000,30000) L_0x1fb5740/d;
+L_0x1fb5e30/d .functor AND 1, L_0x1fb62c0, L_0x1fb63f0, C4<1>, C4<1>;
+L_0x1fb5e30 .delay (20000,20000,20000) L_0x1fb5e30/d;
+L_0x1fb5f00/d .functor AND 1, L_0x1fb62c0, L_0x1fb5450, C4<1>, C4<1>;
+L_0x1fb5f00 .delay (20000,20000,20000) L_0x1fb5f00/d;
+L_0x1fb5fc0/d .functor AND 1, L_0x1fb63f0, L_0x1fb5450, C4<1>, C4<1>;
+L_0x1fb5fc0 .delay (20000,20000,20000) L_0x1fb5fc0/d;
+L_0x1fb6150/d .functor OR 1, L_0x1fb5e30, L_0x1fb5f00, L_0x1fb5fc0, C4<0>;
+L_0x1fb6150 .delay (20000,20000,20000) L_0x1fb6150/d;
+v0x1f8fed0_0 .net "AandB", 0 0, L_0x1fb5e30; 1 drivers
+v0x1f8ff90_0 .net "AandC", 0 0, L_0x1fb5f00; 1 drivers
+v0x1f90030_0 .net "BandC", 0 0, L_0x1fb5fc0; 1 drivers
+v0x1f900d0_0 .net "a", 0 0, L_0x1fb62c0; 1 drivers
+v0x1f90150_0 .net "b", 0 0, L_0x1fb63f0; 1 drivers
+v0x1f901f0_0 .alias "carryin", 0 0, v0x1f9a130_4;
+v0x1f90290_0 .alias "carryout", 0 0, v0x1f906c0_0;
+v0x1f90310_0 .net "sum", 0 0, L_0x1fb5740; 1 drivers
+S_0x1f8f7e0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f8ea40;
+ .timescale -9 -12;
+L_0x1fb6520/d .functor XOR 1, L_0x1fb6bd0, L_0x1fb6d00, L_0x1fb6150, C4<0>;
+L_0x1fb6520 .delay (30000,30000,30000) L_0x1fb6520/d;
+L_0x1fb66e0/d .functor AND 1, L_0x1fb6bd0, L_0x1fb6d00, C4<1>, C4<1>;
+L_0x1fb66e0 .delay (20000,20000,20000) L_0x1fb66e0/d;
+L_0x1fb67b0/d .functor AND 1, L_0x1fb6bd0, L_0x1fb6150, C4<1>, C4<1>;
+L_0x1fb67b0 .delay (20000,20000,20000) L_0x1fb67b0/d;
+L_0x1fb6850/d .functor AND 1, L_0x1fb6d00, L_0x1fb6150, C4<1>, C4<1>;
+L_0x1fb6850 .delay (20000,20000,20000) L_0x1fb6850/d;
+L_0x1fb6920/d .functor OR 1, L_0x1fb66e0, L_0x1fb67b0, L_0x1fb6850, C4<0>;
+L_0x1fb6920 .delay (20000,20000,20000) L_0x1fb6920/d;
+v0x1f8f8d0_0 .net "AandB", 0 0, L_0x1fb66e0; 1 drivers
+v0x1f8f990_0 .net "AandC", 0 0, L_0x1fb67b0; 1 drivers
+v0x1f8fa30_0 .net "BandC", 0 0, L_0x1fb6850; 1 drivers
+v0x1f8fad0_0 .net "a", 0 0, L_0x1fb6bd0; 1 drivers
+v0x1f8fb50_0 .net "b", 0 0, L_0x1fb6d00; 1 drivers
+v0x1f8fbf0_0 .alias "carryin", 0 0, v0x1f906c0_0;
+v0x1f8fc90_0 .alias "carryout", 0 0, v0x1f906c0_1;
+v0x1f8fd10_0 .net "sum", 0 0, L_0x1fb6520; 1 drivers
+S_0x1f8f1e0 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f8ea40;
+ .timescale -9 -12;
+L_0x1fb6e70/d .functor XOR 1, L_0x1fb7450, L_0x1fb7580, L_0x1fb6920, C4<0>;
+L_0x1fb6e70 .delay (30000,30000,30000) L_0x1fb6e70/d;
+L_0x1fb6fa0/d .functor AND 1, L_0x1fb7450, L_0x1fb7580, C4<1>, C4<1>;
+L_0x1fb6fa0 .delay (20000,20000,20000) L_0x1fb6fa0/d;
+L_0x1fb70e0/d .functor AND 1, L_0x1fb7450, L_0x1fb6920, C4<1>, C4<1>;
+L_0x1fb70e0 .delay (20000,20000,20000) L_0x1fb70e0/d;
+L_0x1fb7180/d .functor AND 1, L_0x1fb7580, L_0x1fb6920, C4<1>, C4<1>;
+L_0x1fb7180 .delay (20000,20000,20000) L_0x1fb7180/d;
+L_0x1fb7220/d .functor OR 1, L_0x1fb6fa0, L_0x1fb70e0, L_0x1fb7180, C4<0>;
+L_0x1fb7220 .delay (20000,20000,20000) L_0x1fb7220/d;
+v0x1f8f2d0_0 .net "AandB", 0 0, L_0x1fb6fa0; 1 drivers
+v0x1f8f390_0 .net "AandC", 0 0, L_0x1fb70e0; 1 drivers
+v0x1f8f430_0 .net "BandC", 0 0, L_0x1fb7180; 1 drivers
+v0x1f8f4d0_0 .net "a", 0 0, L_0x1fb7450; 1 drivers
+v0x1f8f550_0 .net "b", 0 0, L_0x1fb7580; 1 drivers
+v0x1f8f5f0_0 .alias "carryin", 0 0, v0x1f906c0_1;
+v0x1f8f690_0 .alias "carryout", 0 0, v0x1f906c0_2;
+v0x1f8f710_0 .net "sum", 0 0, L_0x1fb6e70; 1 drivers
+S_0x1f8eb30 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f8ea40;
+ .timescale -9 -12;
+L_0x1fb76b0/d .functor XOR 1, L_0x1fb7dc0, L_0x1fb7f80, L_0x1fb7220, C4<0>;
+L_0x1fb76b0 .delay (30000,30000,30000) L_0x1fb76b0/d;
+L_0x1fb77a0/d .functor AND 1, L_0x1fb7dc0, L_0x1fb7f80, C4<1>, C4<1>;
+L_0x1fb77a0 .delay (20000,20000,20000) L_0x1fb77a0/d;
+L_0x1fb78c0/d .functor AND 1, L_0x1fb7dc0, L_0x1fb7220, C4<1>, C4<1>;
+L_0x1fb78c0 .delay (20000,20000,20000) L_0x1fb78c0/d;
+L_0x1fb7980/d .functor AND 1, L_0x1fb7f80, L_0x1fb7220, C4<1>, C4<1>;
+L_0x1fb7980 .delay (20000,20000,20000) L_0x1fb7980/d;
+L_0x1fb7a70/d .functor OR 1, L_0x1fb77a0, L_0x1fb78c0, L_0x1fb7980, C4<0>;
+L_0x1fb7a70 .delay (20000,20000,20000) L_0x1fb7a70/d;
+v0x1f8ec20_0 .net "AandB", 0 0, L_0x1fb77a0; 1 drivers
+v0x1f8ece0_0 .net "AandC", 0 0, L_0x1fb78c0; 1 drivers
+v0x1f8ed80_0 .net "BandC", 0 0, L_0x1fb7980; 1 drivers
+v0x1f8ee20_0 .net "a", 0 0, L_0x1fb7dc0; 1 drivers
+v0x1f8eea0_0 .net "b", 0 0, L_0x1fb7f80; 1 drivers
+v0x1f8ef40_0 .alias "carryin", 0 0, v0x1f906c0_2;
+v0x1f8f020_0 .alias "carryout", 0 0, v0x1f9a130_5;
+v0x1f8f0f0_0 .net "sum", 0 0, L_0x1fb76b0; 1 drivers
+S_0x1f8cc70 .scope module, "f46" "CompAdder4bit" 2 87, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f8e5f0_0 .net "a", 3 0, L_0x1fba820; 1 drivers
+v0x1f8e6b0_0 .net "b", 3 0, L_0x1fb83b0; 1 drivers
+v0x1f8e750_0 .alias "carryin", 0 0, v0x1f9a130_5;
+v0x1f8e7d0_0 .alias "carryout", 0 0, v0x1f9a130_6;
+v0x1f8e850_0 .net8 "sum", 3 0, RS_0x2b15dfb9bbb8; 4 drivers
+v0x1f8e8d0 .array "temp_cout", 0 2;
+v0x1f8e8d0_0 .net v0x1f8e8d0 0, 0 0, L_0x1fb8720; 1 drivers
+v0x1f8e8d0_1 .net v0x1f8e8d0 1, 0 0, L_0x1fb8ef0; 1 drivers
+v0x1f8e8d0_2 .net v0x1f8e8d0 2, 0 0, L_0x1fb97f0; 1 drivers
+L_0x1fb87f0 .part/pv L_0x1fb7d60, 0, 1, 4;
+L_0x1fb8890 .part L_0x1fba820, 0, 1;
+L_0x1fb89c0 .part L_0x1fb83b0, 0, 1;
+L_0x1fb90b0 .part/pv L_0x1fb8af0, 1, 1, 4;
+L_0x1fb91a0 .part L_0x1fba820, 1, 1;
+L_0x1fb92d0 .part L_0x1fb83b0, 1, 1;
+L_0x1fb9980 .part/pv L_0x1fb9440, 2, 1, 4;
+L_0x1fb9a20 .part L_0x1fba820, 2, 1;
+L_0x1fb9b50 .part L_0x1fb83b0, 2, 1;
+L_0x1fba200 .part/pv L_0x1fb9c80, 3, 1, 4;
+L_0x1fba390 .part L_0x1fba820, 3, 1;
+L_0x1fba550 .part L_0x1fb83b0, 3, 1;
+S_0x1f8dff0 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f8cc70;
+ .timescale -9 -12;
+L_0x1fb7d60/d .functor XOR 1, L_0x1fb8890, L_0x1fb89c0, L_0x1fb7a70, C4<0>;
+L_0x1fb7d60 .delay (30000,30000,30000) L_0x1fb7d60/d;
+L_0x1fb8450/d .functor AND 1, L_0x1fb8890, L_0x1fb89c0, C4<1>, C4<1>;
+L_0x1fb8450 .delay (20000,20000,20000) L_0x1fb8450/d;
+L_0x1fb84f0/d .functor AND 1, L_0x1fb8890, L_0x1fb7a70, C4<1>, C4<1>;
+L_0x1fb84f0 .delay (20000,20000,20000) L_0x1fb84f0/d;
+L_0x1fb8590/d .functor AND 1, L_0x1fb89c0, L_0x1fb7a70, C4<1>, C4<1>;
+L_0x1fb8590 .delay (20000,20000,20000) L_0x1fb8590/d;
+L_0x1fb8720/d .functor OR 1, L_0x1fb8450, L_0x1fb84f0, L_0x1fb8590, C4<0>;
+L_0x1fb8720 .delay (20000,20000,20000) L_0x1fb8720/d;
+v0x1f8e0e0_0 .net "AandB", 0 0, L_0x1fb8450; 1 drivers
+v0x1f8e1a0_0 .net "AandC", 0 0, L_0x1fb84f0; 1 drivers
+v0x1f8e240_0 .net "BandC", 0 0, L_0x1fb8590; 1 drivers
+v0x1f8e2e0_0 .net "a", 0 0, L_0x1fb8890; 1 drivers
+v0x1f8e360_0 .net "b", 0 0, L_0x1fb89c0; 1 drivers
+v0x1f8e400_0 .alias "carryin", 0 0, v0x1f9a130_5;
+v0x1f8e4a0_0 .alias "carryout", 0 0, v0x1f8e8d0_0;
+v0x1f8e520_0 .net "sum", 0 0, L_0x1fb7d60; 1 drivers
+S_0x1f8d9f0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f8cc70;
+ .timescale -9 -12;
+L_0x1fb8af0/d .functor XOR 1, L_0x1fb91a0, L_0x1fb92d0, L_0x1fb8720, C4<0>;
+L_0x1fb8af0 .delay (30000,30000,30000) L_0x1fb8af0/d;
+L_0x1fb8cb0/d .functor AND 1, L_0x1fb91a0, L_0x1fb92d0, C4<1>, C4<1>;
+L_0x1fb8cb0 .delay (20000,20000,20000) L_0x1fb8cb0/d;
+L_0x1fb8d80/d .functor AND 1, L_0x1fb91a0, L_0x1fb8720, C4<1>, C4<1>;
+L_0x1fb8d80 .delay (20000,20000,20000) L_0x1fb8d80/d;
+L_0x1fb8e20/d .functor AND 1, L_0x1fb92d0, L_0x1fb8720, C4<1>, C4<1>;
+L_0x1fb8e20 .delay (20000,20000,20000) L_0x1fb8e20/d;
+L_0x1fb8ef0/d .functor OR 1, L_0x1fb8cb0, L_0x1fb8d80, L_0x1fb8e20, C4<0>;
+L_0x1fb8ef0 .delay (20000,20000,20000) L_0x1fb8ef0/d;
+v0x1f8dae0_0 .net "AandB", 0 0, L_0x1fb8cb0; 1 drivers
+v0x1f8dba0_0 .net "AandC", 0 0, L_0x1fb8d80; 1 drivers
+v0x1f8dc40_0 .net "BandC", 0 0, L_0x1fb8e20; 1 drivers
+v0x1f8dce0_0 .net "a", 0 0, L_0x1fb91a0; 1 drivers
+v0x1f8dd60_0 .net "b", 0 0, L_0x1fb92d0; 1 drivers
+v0x1f8de00_0 .alias "carryin", 0 0, v0x1f8e8d0_0;
+v0x1f8dea0_0 .alias "carryout", 0 0, v0x1f8e8d0_1;
+v0x1f8df20_0 .net "sum", 0 0, L_0x1fb8af0; 1 drivers
+S_0x1f8d3f0 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f8cc70;
+ .timescale -9 -12;
+L_0x1fb9440/d .functor XOR 1, L_0x1fb9a20, L_0x1fb9b50, L_0x1fb8ef0, C4<0>;
+L_0x1fb9440 .delay (30000,30000,30000) L_0x1fb9440/d;
+L_0x1fb9570/d .functor AND 1, L_0x1fb9a20, L_0x1fb9b50, C4<1>, C4<1>;
+L_0x1fb9570 .delay (20000,20000,20000) L_0x1fb9570/d;
+L_0x1fb96b0/d .functor AND 1, L_0x1fb9a20, L_0x1fb8ef0, C4<1>, C4<1>;
+L_0x1fb96b0 .delay (20000,20000,20000) L_0x1fb96b0/d;
+L_0x1fb9750/d .functor AND 1, L_0x1fb9b50, L_0x1fb8ef0, C4<1>, C4<1>;
+L_0x1fb9750 .delay (20000,20000,20000) L_0x1fb9750/d;
+L_0x1fb97f0/d .functor OR 1, L_0x1fb9570, L_0x1fb96b0, L_0x1fb9750, C4<0>;
+L_0x1fb97f0 .delay (20000,20000,20000) L_0x1fb97f0/d;
+v0x1f8d4e0_0 .net "AandB", 0 0, L_0x1fb9570; 1 drivers
+v0x1f8d5a0_0 .net "AandC", 0 0, L_0x1fb96b0; 1 drivers
+v0x1f8d640_0 .net "BandC", 0 0, L_0x1fb9750; 1 drivers
+v0x1f8d6e0_0 .net "a", 0 0, L_0x1fb9a20; 1 drivers
+v0x1f8d760_0 .net "b", 0 0, L_0x1fb9b50; 1 drivers
+v0x1f8d800_0 .alias "carryin", 0 0, v0x1f8e8d0_1;
+v0x1f8d8a0_0 .alias "carryout", 0 0, v0x1f8e8d0_2;
+v0x1f8d920_0 .net "sum", 0 0, L_0x1fb9440; 1 drivers
+S_0x1f8cd60 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f8cc70;
+ .timescale -9 -12;
+L_0x1fb9c80/d .functor XOR 1, L_0x1fba390, L_0x1fba550, L_0x1fb97f0, C4<0>;
+L_0x1fb9c80 .delay (30000,30000,30000) L_0x1fb9c80/d;
+L_0x1fb9d70/d .functor AND 1, L_0x1fba390, L_0x1fba550, C4<1>, C4<1>;
+L_0x1fb9d70 .delay (20000,20000,20000) L_0x1fb9d70/d;
+L_0x1fb9e90/d .functor AND 1, L_0x1fba390, L_0x1fb97f0, C4<1>, C4<1>;
+L_0x1fb9e90 .delay (20000,20000,20000) L_0x1fb9e90/d;
+L_0x1fb9f50/d .functor AND 1, L_0x1fba550, L_0x1fb97f0, C4<1>, C4<1>;
+L_0x1fb9f50 .delay (20000,20000,20000) L_0x1fb9f50/d;
+L_0x1fba040/d .functor OR 1, L_0x1fb9d70, L_0x1fb9e90, L_0x1fb9f50, C4<0>;
+L_0x1fba040 .delay (20000,20000,20000) L_0x1fba040/d;
+v0x1f8ce50_0 .net "AandB", 0 0, L_0x1fb9d70; 1 drivers
+v0x1f8cef0_0 .net "AandC", 0 0, L_0x1fb9e90; 1 drivers
+v0x1f8cf90_0 .net "BandC", 0 0, L_0x1fb9f50; 1 drivers
+v0x1f8d030_0 .net "a", 0 0, L_0x1fba390; 1 drivers
+v0x1f8d0b0_0 .net "b", 0 0, L_0x1fba550; 1 drivers
+v0x1f8d150_0 .alias "carryin", 0 0, v0x1f8e8d0_2;
+v0x1f8d230_0 .alias "carryout", 0 0, v0x1f9a130_6;
+v0x1f8d300_0 .net "sum", 0 0, L_0x1fb9c80; 1 drivers
+S_0x1f73350 .scope module, "f47" "CompAdder4bit" 2 88, 2 31, S_0x1f78c70;
+ .timescale -9 -12;
+v0x1f8c790_0 .net "a", 3 0, L_0x1fba8c0; 1 drivers
+v0x1f8c850_0 .net "b", 3 0, L_0x1fbd0b0; 1 drivers
+v0x1f8c8f0_0 .alias "carryin", 0 0, v0x1f9a130_6;
+v0x1f8c9a0_0 .alias "carryout", 0 0, v0x1f99f40_0;
+v0x1f8ca80_0 .net8 "sum", 3 0, RS_0x2b15dfb9b5e8; 4 drivers
+v0x1f8cb00 .array "temp_cout", 0 2;
+v0x1f8cb00_0 .net v0x1f8cb00 0, 0 0, L_0x1fbacd0; 1 drivers
+v0x1f8cb00_1 .net v0x1f8cb00 1, 0 0, L_0x1fbb4a0; 1 drivers
+v0x1f8cb00_2 .net v0x1f8cb00 2, 0 0, L_0x1fbbda0; 1 drivers
+L_0x1fbada0 .part/pv L_0x1fba330, 0, 1, 4;
+L_0x1fbae40 .part L_0x1fba8c0, 0, 1;
+L_0x1fbaf70 .part L_0x1fbd0b0, 0, 1;
+L_0x1fbb660 .part/pv L_0x1fbb0a0, 1, 1, 4;
+L_0x1fbb750 .part L_0x1fba8c0, 1, 1;
+L_0x1fbb880 .part L_0x1fbd0b0, 1, 1;
+L_0x1fbbf30 .part/pv L_0x1fbb9f0, 2, 1, 4;
+L_0x1fbbfd0 .part L_0x1fba8c0, 2, 1;
+L_0x1fbc100 .part L_0x1fbd0b0, 2, 1;
+L_0x1fbc7b0 .part/pv L_0x1fbc230, 3, 1, 4;
+L_0x1fbc940 .part L_0x1fba8c0, 3, 1;
+L_0x1fbcb00 .part L_0x1fbd0b0, 3, 1;
+S_0x1f8c160 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f73350;
+ .timescale -9 -12;
+L_0x1fba330/d .functor XOR 1, L_0x1fbae40, L_0x1fbaf70, L_0x1fba040, C4<0>;
+L_0x1fba330 .delay (30000,30000,30000) L_0x1fba330/d;
+L_0x1fba9b0/d .functor AND 1, L_0x1fbae40, L_0x1fbaf70, C4<1>, C4<1>;
+L_0x1fba9b0 .delay (20000,20000,20000) L_0x1fba9b0/d;
+L_0x1fbaa80/d .functor AND 1, L_0x1fbae40, L_0x1fba040, C4<1>, C4<1>;
+L_0x1fbaa80 .delay (20000,20000,20000) L_0x1fbaa80/d;
+L_0x1fbab40/d .functor AND 1, L_0x1fbaf70, L_0x1fba040, C4<1>, C4<1>;
+L_0x1fbab40 .delay (20000,20000,20000) L_0x1fbab40/d;
+L_0x1fbacd0/d .functor OR 1, L_0x1fba9b0, L_0x1fbaa80, L_0x1fbab40, C4<0>;
+L_0x1fbacd0 .delay (20000,20000,20000) L_0x1fbacd0/d;
+v0x1f8c250_0 .net "AandB", 0 0, L_0x1fba9b0; 1 drivers
+v0x1f8c310_0 .net "AandC", 0 0, L_0x1fbaa80; 1 drivers
+v0x1f8c3b0_0 .net "BandC", 0 0, L_0x1fbab40; 1 drivers
+v0x1f8c450_0 .net "a", 0 0, L_0x1fbae40; 1 drivers
+v0x1f8c500_0 .net "b", 0 0, L_0x1fbaf70; 1 drivers
+v0x1f8c5a0_0 .alias "carryin", 0 0, v0x1f9a130_6;
+v0x1f8c640_0 .alias "carryout", 0 0, v0x1f8cb00_0;
+v0x1f8c6c0_0 .net "sum", 0 0, L_0x1fba330; 1 drivers
+S_0x1f8bb30 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f73350;
+ .timescale -9 -12;
+L_0x1fbb0a0/d .functor XOR 1, L_0x1fbb750, L_0x1fbb880, L_0x1fbacd0, C4<0>;
+L_0x1fbb0a0 .delay (30000,30000,30000) L_0x1fbb0a0/d;
+L_0x1fbb260/d .functor AND 1, L_0x1fbb750, L_0x1fbb880, C4<1>, C4<1>;
+L_0x1fbb260 .delay (20000,20000,20000) L_0x1fbb260/d;
+L_0x1fbb330/d .functor AND 1, L_0x1fbb750, L_0x1fbacd0, C4<1>, C4<1>;
+L_0x1fbb330 .delay (20000,20000,20000) L_0x1fbb330/d;
+L_0x1fbb3d0/d .functor AND 1, L_0x1fbb880, L_0x1fbacd0, C4<1>, C4<1>;
+L_0x1fbb3d0 .delay (20000,20000,20000) L_0x1fbb3d0/d;
+L_0x1fbb4a0/d .functor OR 1, L_0x1fbb260, L_0x1fbb330, L_0x1fbb3d0, C4<0>;
+L_0x1fbb4a0 .delay (20000,20000,20000) L_0x1fbb4a0/d;
+v0x1f8bc20_0 .net "AandB", 0 0, L_0x1fbb260; 1 drivers
+v0x1f8bce0_0 .net "AandC", 0 0, L_0x1fbb330; 1 drivers
+v0x1f8bd80_0 .net "BandC", 0 0, L_0x1fbb3d0; 1 drivers
+v0x1f8be20_0 .net "a", 0 0, L_0x1fbb750; 1 drivers
+v0x1f8bed0_0 .net "b", 0 0, L_0x1fbb880; 1 drivers
+v0x1f8bf70_0 .alias "carryin", 0 0, v0x1f8cb00_0;
+v0x1f8c010_0 .alias "carryout", 0 0, v0x1f8cb00_1;
+v0x1f8c090_0 .net "sum", 0 0, L_0x1fbb0a0; 1 drivers
+S_0x1f8b530 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f73350;
+ .timescale -9 -12;
+L_0x1fbb9f0/d .functor XOR 1, L_0x1fbbfd0, L_0x1fbc100, L_0x1fbb4a0, C4<0>;
+L_0x1fbb9f0 .delay (30000,30000,30000) L_0x1fbb9f0/d;
+L_0x1fbbb20/d .functor AND 1, L_0x1fbbfd0, L_0x1fbc100, C4<1>, C4<1>;
+L_0x1fbbb20 .delay (20000,20000,20000) L_0x1fbbb20/d;
+L_0x1fbbc60/d .functor AND 1, L_0x1fbbfd0, L_0x1fbb4a0, C4<1>, C4<1>;
+L_0x1fbbc60 .delay (20000,20000,20000) L_0x1fbbc60/d;
+L_0x1fbbd00/d .functor AND 1, L_0x1fbc100, L_0x1fbb4a0, C4<1>, C4<1>;
+L_0x1fbbd00 .delay (20000,20000,20000) L_0x1fbbd00/d;
+L_0x1fbbda0/d .functor OR 1, L_0x1fbbb20, L_0x1fbbc60, L_0x1fbbd00, C4<0>;
+L_0x1fbbda0 .delay (20000,20000,20000) L_0x1fbbda0/d;
+v0x1f8b620_0 .net "AandB", 0 0, L_0x1fbbb20; 1 drivers
+v0x1f8b6e0_0 .net "AandC", 0 0, L_0x1fbbc60; 1 drivers
+v0x1f8b780_0 .net "BandC", 0 0, L_0x1fbbd00; 1 drivers
+v0x1f8b820_0 .net "a", 0 0, L_0x1fbbfd0; 1 drivers
+v0x1f8b8a0_0 .net "b", 0 0, L_0x1fbc100; 1 drivers
+v0x1f8b940_0 .alias "carryin", 0 0, v0x1f8cb00_1;
+v0x1f8b9e0_0 .alias "carryout", 0 0, v0x1f8cb00_2;
+v0x1f8ba60_0 .net "sum", 0 0, L_0x1fbb9f0; 1 drivers
+S_0x1f6e0f0 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f73350;
+ .timescale -9 -12;
+L_0x1fbc230/d .functor XOR 1, L_0x1fbc940, L_0x1fbcb00, L_0x1fbbda0, C4<0>;
+L_0x1fbc230 .delay (30000,30000,30000) L_0x1fbc230/d;
+L_0x1fbc320/d .functor AND 1, L_0x1fbc940, L_0x1fbcb00, C4<1>, C4<1>;
+L_0x1fbc320 .delay (20000,20000,20000) L_0x1fbc320/d;
+L_0x1fbc440/d .functor AND 1, L_0x1fbc940, L_0x1fbbda0, C4<1>, C4<1>;
+L_0x1fbc440 .delay (20000,20000,20000) L_0x1fbc440/d;
+L_0x1fbc500/d .functor AND 1, L_0x1fbcb00, L_0x1fbbda0, C4<1>, C4<1>;
+L_0x1fbc500 .delay (20000,20000,20000) L_0x1fbc500/d;
+L_0x1fbc5f0/d .functor OR 1, L_0x1fbc320, L_0x1fbc440, L_0x1fbc500, C4<0>;
+L_0x1fbc5f0 .delay (20000,20000,20000) L_0x1fbc5f0/d;
+v0x1f403d0_0 .net "AandB", 0 0, L_0x1fbc320; 1 drivers
+v0x1f8b030_0 .net "AandC", 0 0, L_0x1fbc440; 1 drivers
+v0x1f8b0d0_0 .net "BandC", 0 0, L_0x1fbc500; 1 drivers
+v0x1f8b170_0 .net "a", 0 0, L_0x1fbc940; 1 drivers
+v0x1f8b220_0 .net "b", 0 0, L_0x1fbcb00; 1 drivers
+v0x1f8b2c0_0 .alias "carryin", 0 0, v0x1f8cb00_2;
+v0x1f8b3a0_0 .alias "carryout", 0 0, v0x1f99f40_0;
+v0x1f8b440_0 .net "sum", 0 0, L_0x1fbc230; 1 drivers
+S_0x1f5cad0 .scope module, "testFullAdder16bit" "testFullAdder16bit" 3 5;
+ .timescale -9 -12;
+v0x1fa9c80_0 .var "a", 31 0;
+v0x1fa9d20_0 .var "b", 31 0;
+v0x1fa9da0_0 .net "carryout", 0 0, L_0x1fcf9b0; 1 drivers
+v0x1fa9e20_0 .net "overflow", 0 0, L_0x1fcfce0; 1 drivers
+RS_0x2b15dfba0ec8/0/0 .resolv tri, L_0x1fbf4a0, L_0x1fc1bd0, L_0x1fc4180, L_0x1fc67f0;
+RS_0x2b15dfba0ec8/0/4 .resolv tri, L_0x1fc8db0, L_0x1fcb360, L_0x1fcd9a0, L_0x1fd0130;
+RS_0x2b15dfba0ec8 .resolv tri, RS_0x2b15dfba0ec8/0/0, RS_0x2b15dfba0ec8/0/4, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>;
+v0x1fa9ea0_0 .net8 "sum", 31 0, RS_0x2b15dfba0ec8; 8 drivers
+S_0x1f9a620 .scope module, "fa16b" "FullAdder32bit" 3 11, 2 50, S_0x1f5cad0;
+ .timescale -9 -12;
+L_0x1fcfce0/d .functor XOR 1, L_0x1fcf9b0, L_0x1fcd260, C4<0>, C4<0>;
+L_0x1fcfce0 .delay (30000,30000,30000) L_0x1fcfce0/d;
+v0x1fa9440_0 .net "a", 31 0, v0x1fa9c80_0; 1 drivers
+v0x1fa9500_0 .net "b", 31 0, v0x1fa9d20_0; 1 drivers
+v0x1fa95a0_0 .alias "carryout", 0 0, v0x1fa9da0_0;
+v0x1fa9670_0 .alias "overflow", 0 0, v0x1fa9e20_0;
+v0x1fa96f0_0 .alias "sum", 31 0, v0x1fa9ea0_0;
+v0x1fa9790 .array "temp_cout", 0 6;
+v0x1fa9790_0 .net v0x1fa9790 0, 0 0, L_0x1fbee80; 1 drivers
+v0x1fa9790_1 .net v0x1fa9790 1, 0 0, L_0x1fc1490; 1 drivers
+v0x1fa9790_2 .net v0x1fa9790 2, 0 0, L_0x1fc3a40; 1 drivers
+v0x1fa9790_3 .net v0x1fa9790 3, 0 0, L_0x1fc60b0; 1 drivers
+v0x1fa9790_4 .net v0x1fa9790 4, 0 0, L_0x1fc8670; 1 drivers
+v0x1fa9790_5 .net v0x1fa9790 5, 0 0, L_0x1fcac90; 1 drivers
+v0x1fa9790_6 .net v0x1fa9790 6, 0 0, L_0x1fcd260; 1 drivers
+RS_0x2b15dfba0e08 .resolv tri, L_0x1fbd660, L_0x1fbded0, L_0x1fbe7c0, L_0x1fbeff0;
+L_0x1fbf4a0 .part/pv RS_0x2b15dfba0e08, 0, 4, 32;
+L_0x1fbf540 .part v0x1fa9c80_0, 0, 4;
+L_0x1fbf5e0 .part v0x1fa9d20_0, 0, 4;
+RS_0x2b15dfba0838 .resolv tri, L_0x1fbfc40, L_0x1fc0500, L_0x1fc0dd0, L_0x1fc1650;
+L_0x1fc1bd0 .part/pv RS_0x2b15dfba0838, 4, 4, 32;
+L_0x1fc1c70 .part v0x1fa9c80_0, 4, 4;
+L_0x1fc1d10 .part v0x1fa9d20_0, 4, 4;
+RS_0x2b15dfba0268 .resolv tri, L_0x1fc21f0, L_0x1fc2ab0, L_0x1fc3380, L_0x1fc3c00;
+L_0x1fc4180 .part/pv RS_0x2b15dfba0268, 8, 4, 32;
+L_0x1fc42b0 .part v0x1fa9c80_0, 8, 4;
+L_0x1fc43e0 .part v0x1fa9d20_0, 8, 4;
+RS_0x2b15dfb9fc98 .resolv tri, L_0x1fc4900, L_0x1fc5120, L_0x1fc59f0, L_0x1fc6270;
+L_0x1fc67f0 .part/pv RS_0x2b15dfb9fc98, 12, 4, 32;
+L_0x1fc6890 .part v0x1fa9c80_0, 12, 4;
+L_0x1fc6930 .part v0x1fa9d20_0, 12, 4;
+RS_0x2b15dfb9f6c8 .resolv tri, L_0x1fc6e70, L_0x1fc76e0, L_0x1fc7fb0, L_0x1fc8830;
+L_0x1fc8db0 .part/pv RS_0x2b15dfb9f6c8, 16, 4, 32;
+L_0x1fc8e50 .part v0x1fa9c80_0, 16, 4;
+L_0x1fc8f70 .part v0x1fa9d20_0, 16, 4;
+RS_0x2b15dfb9f0f8 .resolv tri, L_0x1fc9440, L_0x1fc9d00, L_0x1fca5d0, L_0x1fcae50;
+L_0x1fcb360 .part/pv RS_0x2b15dfb9f0f8, 20, 4, 32;
+L_0x1fcb490 .part v0x1fa9c80_0, 20, 4;
+L_0x1fcb530 .part v0x1fa9d20_0, 20, 4;
+RS_0x2b15dfb9eb28 .resolv tri, L_0x1fcba10, L_0x1fcc2d0, L_0x1fccba0, L_0x1fcd420;
+L_0x1fcd9a0 .part/pv RS_0x2b15dfb9eb28, 24, 4, 32;
+L_0x1fcdb50 .part v0x1fa9c80_0, 24, 4;
+L_0x1fcb5d0 .part v0x1fa9d20_0, 24, 4;
+RS_0x2b15dfb9e558 .resolv tri, L_0x1fce160, L_0x1fcea20, L_0x1fcf2f0, L_0x1fcfbb0;
+L_0x1fd0130 .part/pv RS_0x2b15dfb9e558, 28, 4, 32;
+L_0x1fcdd00 .part v0x1fa9c80_0, 28, 4;
+L_0x1fd0290 .part v0x1fa9d20_0, 28, 4;
+S_0x1fa7650 .scope module, "f40" "CompAdder4bit" 2 60, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1fa8ff0_0 .net "a", 3 0, L_0x1fbf540; 1 drivers
+v0x1fa90b0_0 .net "b", 3 0, L_0x1fbf5e0; 1 drivers
+v0x1fa9150_0 .net "carryin", 0 0, C4<0>; 1 drivers
+v0x1fa91d0_0 .alias "carryout", 0 0, v0x1fa9790_0;
+v0x1fa9250_0 .net8 "sum", 3 0, RS_0x2b15dfba0e08; 4 drivers
+v0x1fa92d0 .array "temp_cout", 0 2;
+v0x1fa92d0_0 .net v0x1fa92d0 0, 0 0, L_0x1fbd590; 1 drivers
+v0x1fa92d0_1 .net v0x1fa92d0 1, 0 0, L_0x1fbdd60; 1 drivers
+v0x1fa92d0_2 .net v0x1fa92d0 2, 0 0, L_0x1fbe630; 1 drivers
+L_0x1fbd660 .part/pv L_0x1fb3810, 0, 1, 4;
+L_0x1fbd700 .part L_0x1fbf540, 0, 1;
+L_0x1fbd830 .part L_0x1fbf5e0, 0, 1;
+L_0x1fbded0 .part/pv L_0x1fbd960, 1, 1, 4;
+L_0x1fbdfc0 .part L_0x1fbf540, 1, 1;
+L_0x1fbe0f0 .part L_0x1fbf5e0, 1, 1;
+L_0x1fbe7c0 .part/pv L_0x1fbe260, 2, 1, 4;
+L_0x1fbe860 .part L_0x1fbf540, 2, 1;
+L_0x1fbe990 .part L_0x1fbf5e0, 2, 1;
+L_0x1fbeff0 .part/pv L_0x1fbeac0, 3, 1, 4;
+L_0x1fbf120 .part L_0x1fbf540, 3, 1;
+L_0x1fbf2e0 .part L_0x1fbf5e0, 3, 1;
+S_0x1fa89f0 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1fa7650;
+ .timescale -9 -12;
+L_0x1fb3810/d .functor XOR 1, L_0x1fbd700, L_0x1fbd830, C4<0>, C4<0>;
+L_0x1fb3810 .delay (30000,30000,30000) L_0x1fb3810/d;
+L_0x1fbcf20/d .functor AND 1, L_0x1fbd700, L_0x1fbd830, C4<1>, C4<1>;
+L_0x1fbcf20 .delay (20000,20000,20000) L_0x1fbcf20/d;
+L_0x1fbd370/d .functor AND 1, L_0x1fbd700, C4<0>, C4<1>, C4<1>;
+L_0x1fbd370 .delay (20000,20000,20000) L_0x1fbd370/d;
+L_0x1fbd410/d .functor AND 1, L_0x1fbd830, C4<0>, C4<1>, C4<1>;
+L_0x1fbd410 .delay (20000,20000,20000) L_0x1fbd410/d;
+L_0x1fbd590/d .functor OR 1, L_0x1fbcf20, L_0x1fbd370, L_0x1fbd410, C4<0>;
+L_0x1fbd590 .delay (20000,20000,20000) L_0x1fbd590/d;
+v0x1fa8ae0_0 .net "AandB", 0 0, L_0x1fbcf20; 1 drivers
+v0x1fa8ba0_0 .net "AandC", 0 0, L_0x1fbd370; 1 drivers
+v0x1fa8c40_0 .net "BandC", 0 0, L_0x1fbd410; 1 drivers
+v0x1fa8ce0_0 .net "a", 0 0, L_0x1fbd700; 1 drivers
+v0x1fa8d60_0 .net "b", 0 0, L_0x1fbd830; 1 drivers
+v0x1fa8e00_0 .alias "carryin", 0 0, v0x1fa9150_0;
+v0x1fa8ea0_0 .alias "carryout", 0 0, v0x1fa92d0_0;
+v0x1fa8f20_0 .net "sum", 0 0, L_0x1fb3810; 1 drivers
+S_0x1fa83f0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1fa7650;
+ .timescale -9 -12;
+L_0x1fbd960/d .functor XOR 1, L_0x1fbdfc0, L_0x1fbe0f0, L_0x1fbd590, C4<0>;
+L_0x1fbd960 .delay (30000,30000,30000) L_0x1fbd960/d;
+L_0x1fbdb20/d .functor AND 1, L_0x1fbdfc0, L_0x1fbe0f0, C4<1>, C4<1>;
+L_0x1fbdb20 .delay (20000,20000,20000) L_0x1fbdb20/d;
+L_0x1fbdbf0/d .functor AND 1, L_0x1fbdfc0, L_0x1fbd590, C4<1>, C4<1>;
+L_0x1fbdbf0 .delay (20000,20000,20000) L_0x1fbdbf0/d;
+L_0x1fbdc90/d .functor AND 1, L_0x1fbe0f0, L_0x1fbd590, C4<1>, C4<1>;
+L_0x1fbdc90 .delay (20000,20000,20000) L_0x1fbdc90/d;
+L_0x1fbdd60/d .functor OR 1, L_0x1fbdb20, L_0x1fbdbf0, L_0x1fbdc90, C4<0>;
+L_0x1fbdd60 .delay (20000,20000,20000) L_0x1fbdd60/d;
+v0x1fa84e0_0 .net "AandB", 0 0, L_0x1fbdb20; 1 drivers
+v0x1fa85a0_0 .net "AandC", 0 0, L_0x1fbdbf0; 1 drivers
+v0x1fa8640_0 .net "BandC", 0 0, L_0x1fbdc90; 1 drivers
+v0x1fa86e0_0 .net "a", 0 0, L_0x1fbdfc0; 1 drivers
+v0x1fa8760_0 .net "b", 0 0, L_0x1fbe0f0; 1 drivers
+v0x1fa8800_0 .alias "carryin", 0 0, v0x1fa92d0_0;
+v0x1fa88a0_0 .alias "carryout", 0 0, v0x1fa92d0_1;
+v0x1fa8920_0 .net "sum", 0 0, L_0x1fbd960; 1 drivers
+S_0x1fa7df0 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1fa7650;
+ .timescale -9 -12;
+L_0x1fbe260/d .functor XOR 1, L_0x1fbe860, L_0x1fbe990, L_0x1fbdd60, C4<0>;
+L_0x1fbe260 .delay (30000,30000,30000) L_0x1fbe260/d;
+L_0x1fbe390/d .functor AND 1, L_0x1fbe860, L_0x1fbe990, C4<1>, C4<1>;
+L_0x1fbe390 .delay (20000,20000,20000) L_0x1fbe390/d;
+L_0x1fbe4d0/d .functor AND 1, L_0x1fbe860, L_0x1fbdd60, C4<1>, C4<1>;
+L_0x1fbe4d0 .delay (20000,20000,20000) L_0x1fbe4d0/d;
+L_0x1fbe570/d .functor AND 1, L_0x1fbe990, L_0x1fbdd60, C4<1>, C4<1>;
+L_0x1fbe570 .delay (20000,20000,20000) L_0x1fbe570/d;
+L_0x1fbe630/d .functor OR 1, L_0x1fbe390, L_0x1fbe4d0, L_0x1fbe570, C4<0>;
+L_0x1fbe630 .delay (20000,20000,20000) L_0x1fbe630/d;
+v0x1fa7ee0_0 .net "AandB", 0 0, L_0x1fbe390; 1 drivers
+v0x1fa7fa0_0 .net "AandC", 0 0, L_0x1fbe4d0; 1 drivers
+v0x1fa8040_0 .net "BandC", 0 0, L_0x1fbe570; 1 drivers
+v0x1fa80e0_0 .net "a", 0 0, L_0x1fbe860; 1 drivers
+v0x1fa8160_0 .net "b", 0 0, L_0x1fbe990; 1 drivers
+v0x1fa8200_0 .alias "carryin", 0 0, v0x1fa92d0_1;
+v0x1fa82a0_0 .alias "carryout", 0 0, v0x1fa92d0_2;
+v0x1fa8320_0 .net "sum", 0 0, L_0x1fbe260; 1 drivers
+S_0x1fa7740 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1fa7650;
+ .timescale -9 -12;
+L_0x1fbeac0/d .functor XOR 1, L_0x1fbf120, L_0x1fbf2e0, L_0x1fbe630, C4<0>;
+L_0x1fbeac0 .delay (30000,30000,30000) L_0x1fbeac0/d;
+L_0x1fbebb0/d .functor AND 1, L_0x1fbf120, L_0x1fbf2e0, C4<1>, C4<1>;
+L_0x1fbebb0 .delay (20000,20000,20000) L_0x1fbebb0/d;
+L_0x1fbecd0/d .functor AND 1, L_0x1fbf120, L_0x1fbe630, C4<1>, C4<1>;
+L_0x1fbecd0 .delay (20000,20000,20000) L_0x1fbecd0/d;
+L_0x1fbed90/d .functor AND 1, L_0x1fbf2e0, L_0x1fbe630, C4<1>, C4<1>;
+L_0x1fbed90 .delay (20000,20000,20000) L_0x1fbed90/d;
+L_0x1fbee80/d .functor OR 1, L_0x1fbebb0, L_0x1fbecd0, L_0x1fbed90, C4<0>;
+L_0x1fbee80 .delay (20000,20000,20000) L_0x1fbee80/d;
+v0x1fa7830_0 .net "AandB", 0 0, L_0x1fbebb0; 1 drivers
+v0x1fa78f0_0 .net "AandC", 0 0, L_0x1fbecd0; 1 drivers
+v0x1fa7990_0 .net "BandC", 0 0, L_0x1fbed90; 1 drivers
+v0x1fa7a30_0 .net "a", 0 0, L_0x1fbf120; 1 drivers
+v0x1fa7ab0_0 .net "b", 0 0, L_0x1fbf2e0; 1 drivers
+v0x1fa7b50_0 .alias "carryin", 0 0, v0x1fa92d0_2;
+v0x1fa7c30_0 .alias "carryout", 0 0, v0x1fa9790_0;
+v0x1fa7d00_0 .net "sum", 0 0, L_0x1fbeac0; 1 drivers
+S_0x1fa5860 .scope module, "f41" "CompAdder4bit" 2 61, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1fa7200_0 .net "a", 3 0, L_0x1fc1c70; 1 drivers
+v0x1fa72c0_0 .net "b", 3 0, L_0x1fc1d10; 1 drivers
+v0x1fa7360_0 .alias "carryin", 0 0, v0x1fa9790_0;
+v0x1fa73e0_0 .alias "carryout", 0 0, v0x1fa9790_1;
+v0x1fa7460_0 .net8 "sum", 3 0, RS_0x2b15dfba0838; 4 drivers
+v0x1fa74e0 .array "temp_cout", 0 2;
+v0x1fa74e0_0 .net v0x1fa74e0 0, 0 0, L_0x1fbfa80; 1 drivers
+v0x1fa74e0_1 .net v0x1fa74e0 1, 0 0, L_0x1fc0340; 1 drivers
+v0x1fa74e0_2 .net v0x1fa74e0 2, 0 0, L_0x1fc0c40; 1 drivers
+L_0x1fbfc40 .part/pv L_0x1fbf6c0, 0, 1, 4;
+L_0x1fbfce0 .part L_0x1fc1c70, 0, 1;
+L_0x1fbfe10 .part L_0x1fc1d10, 0, 1;
+L_0x1fc0500 .part/pv L_0x1fbff40, 1, 1, 4;
+L_0x1fc05f0 .part L_0x1fc1c70, 1, 1;
+L_0x1fc0720 .part L_0x1fc1d10, 1, 1;
+L_0x1fc0dd0 .part/pv L_0x1fc0890, 2, 1, 4;
+L_0x1fc0e70 .part L_0x1fc1c70, 2, 1;
+L_0x1fc0fa0 .part L_0x1fc1d10, 2, 1;
+L_0x1fc1650 .part/pv L_0x1fc10d0, 3, 1, 4;
+L_0x1fc17e0 .part L_0x1fc1c70, 3, 1;
+L_0x1fc19a0 .part L_0x1fc1d10, 3, 1;
+S_0x1fa6c00 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1fa5860;
+ .timescale -9 -12;
+L_0x1fbf6c0/d .functor XOR 1, L_0x1fbfce0, L_0x1fbfe10, L_0x1fbee80, C4<0>;
+L_0x1fbf6c0 .delay (30000,30000,30000) L_0x1fbf6c0/d;
+L_0x1fbf760/d .functor AND 1, L_0x1fbfce0, L_0x1fbfe10, C4<1>, C4<1>;
+L_0x1fbf760 .delay (20000,20000,20000) L_0x1fbf760/d;
+L_0x1fbf850/d .functor AND 1, L_0x1fbfce0, L_0x1fbee80, C4<1>, C4<1>;
+L_0x1fbf850 .delay (20000,20000,20000) L_0x1fbf850/d;
+L_0x1fbf8f0/d .functor AND 1, L_0x1fbfe10, L_0x1fbee80, C4<1>, C4<1>;
+L_0x1fbf8f0 .delay (20000,20000,20000) L_0x1fbf8f0/d;
+L_0x1fbfa80/d .functor OR 1, L_0x1fbf760, L_0x1fbf850, L_0x1fbf8f0, C4<0>;
+L_0x1fbfa80 .delay (20000,20000,20000) L_0x1fbfa80/d;
+v0x1fa6cf0_0 .net "AandB", 0 0, L_0x1fbf760; 1 drivers
+v0x1fa6db0_0 .net "AandC", 0 0, L_0x1fbf850; 1 drivers
+v0x1fa6e50_0 .net "BandC", 0 0, L_0x1fbf8f0; 1 drivers
+v0x1fa6ef0_0 .net "a", 0 0, L_0x1fbfce0; 1 drivers
+v0x1fa6f70_0 .net "b", 0 0, L_0x1fbfe10; 1 drivers
+v0x1fa7010_0 .alias "carryin", 0 0, v0x1fa9790_0;
+v0x1fa70b0_0 .alias "carryout", 0 0, v0x1fa74e0_0;
+v0x1fa7130_0 .net "sum", 0 0, L_0x1fbf6c0; 1 drivers
+S_0x1fa6600 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1fa5860;
+ .timescale -9 -12;
+L_0x1fbff40/d .functor XOR 1, L_0x1fc05f0, L_0x1fc0720, L_0x1fbfa80, C4<0>;
+L_0x1fbff40 .delay (30000,30000,30000) L_0x1fbff40/d;
+L_0x1fc0100/d .functor AND 1, L_0x1fc05f0, L_0x1fc0720, C4<1>, C4<1>;
+L_0x1fc0100 .delay (20000,20000,20000) L_0x1fc0100/d;
+L_0x1fc01d0/d .functor AND 1, L_0x1fc05f0, L_0x1fbfa80, C4<1>, C4<1>;
+L_0x1fc01d0 .delay (20000,20000,20000) L_0x1fc01d0/d;
+L_0x1fc0270/d .functor AND 1, L_0x1fc0720, L_0x1fbfa80, C4<1>, C4<1>;
+L_0x1fc0270 .delay (20000,20000,20000) L_0x1fc0270/d;
+L_0x1fc0340/d .functor OR 1, L_0x1fc0100, L_0x1fc01d0, L_0x1fc0270, C4<0>;
+L_0x1fc0340 .delay (20000,20000,20000) L_0x1fc0340/d;
+v0x1fa66f0_0 .net "AandB", 0 0, L_0x1fc0100; 1 drivers
+v0x1fa67b0_0 .net "AandC", 0 0, L_0x1fc01d0; 1 drivers
+v0x1fa6850_0 .net "BandC", 0 0, L_0x1fc0270; 1 drivers
+v0x1fa68f0_0 .net "a", 0 0, L_0x1fc05f0; 1 drivers
+v0x1fa6970_0 .net "b", 0 0, L_0x1fc0720; 1 drivers
+v0x1fa6a10_0 .alias "carryin", 0 0, v0x1fa74e0_0;
+v0x1fa6ab0_0 .alias "carryout", 0 0, v0x1fa74e0_1;
+v0x1fa6b30_0 .net "sum", 0 0, L_0x1fbff40; 1 drivers
+S_0x1fa6000 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1fa5860;
+ .timescale -9 -12;
+L_0x1fc0890/d .functor XOR 1, L_0x1fc0e70, L_0x1fc0fa0, L_0x1fc0340, C4<0>;
+L_0x1fc0890 .delay (30000,30000,30000) L_0x1fc0890/d;
+L_0x1fc09c0/d .functor AND 1, L_0x1fc0e70, L_0x1fc0fa0, C4<1>, C4<1>;
+L_0x1fc09c0 .delay (20000,20000,20000) L_0x1fc09c0/d;
+L_0x1fc0b00/d .functor AND 1, L_0x1fc0e70, L_0x1fc0340, C4<1>, C4<1>;
+L_0x1fc0b00 .delay (20000,20000,20000) L_0x1fc0b00/d;
+L_0x1fc0ba0/d .functor AND 1, L_0x1fc0fa0, L_0x1fc0340, C4<1>, C4<1>;
+L_0x1fc0ba0 .delay (20000,20000,20000) L_0x1fc0ba0/d;
+L_0x1fc0c40/d .functor OR 1, L_0x1fc09c0, L_0x1fc0b00, L_0x1fc0ba0, C4<0>;
+L_0x1fc0c40 .delay (20000,20000,20000) L_0x1fc0c40/d;
+v0x1fa60f0_0 .net "AandB", 0 0, L_0x1fc09c0; 1 drivers
+v0x1fa61b0_0 .net "AandC", 0 0, L_0x1fc0b00; 1 drivers
+v0x1fa6250_0 .net "BandC", 0 0, L_0x1fc0ba0; 1 drivers
+v0x1fa62f0_0 .net "a", 0 0, L_0x1fc0e70; 1 drivers
+v0x1fa6370_0 .net "b", 0 0, L_0x1fc0fa0; 1 drivers
+v0x1fa6410_0 .alias "carryin", 0 0, v0x1fa74e0_1;
+v0x1fa64b0_0 .alias "carryout", 0 0, v0x1fa74e0_2;
+v0x1fa6530_0 .net "sum", 0 0, L_0x1fc0890; 1 drivers
+S_0x1fa5950 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1fa5860;
+ .timescale -9 -12;
+L_0x1fc10d0/d .functor XOR 1, L_0x1fc17e0, L_0x1fc19a0, L_0x1fc0c40, C4<0>;
+L_0x1fc10d0 .delay (30000,30000,30000) L_0x1fc10d0/d;
+L_0x1fc11c0/d .functor AND 1, L_0x1fc17e0, L_0x1fc19a0, C4<1>, C4<1>;
+L_0x1fc11c0 .delay (20000,20000,20000) L_0x1fc11c0/d;
+L_0x1fc12e0/d .functor AND 1, L_0x1fc17e0, L_0x1fc0c40, C4<1>, C4<1>;
+L_0x1fc12e0 .delay (20000,20000,20000) L_0x1fc12e0/d;
+L_0x1fc13a0/d .functor AND 1, L_0x1fc19a0, L_0x1fc0c40, C4<1>, C4<1>;
+L_0x1fc13a0 .delay (20000,20000,20000) L_0x1fc13a0/d;
+L_0x1fc1490/d .functor OR 1, L_0x1fc11c0, L_0x1fc12e0, L_0x1fc13a0, C4<0>;
+L_0x1fc1490 .delay (20000,20000,20000) L_0x1fc1490/d;
+v0x1fa5a40_0 .net "AandB", 0 0, L_0x1fc11c0; 1 drivers
+v0x1fa5b00_0 .net "AandC", 0 0, L_0x1fc12e0; 1 drivers
+v0x1fa5ba0_0 .net "BandC", 0 0, L_0x1fc13a0; 1 drivers
+v0x1fa5c40_0 .net "a", 0 0, L_0x1fc17e0; 1 drivers
+v0x1fa5cc0_0 .net "b", 0 0, L_0x1fc19a0; 1 drivers
+v0x1fa5d60_0 .alias "carryin", 0 0, v0x1fa74e0_2;
+v0x1fa5e40_0 .alias "carryout", 0 0, v0x1fa9790_1;
+v0x1fa5f10_0 .net "sum", 0 0, L_0x1fc10d0; 1 drivers
+S_0x1fa3a70 .scope module, "f42" "CompAdder4bit" 2 62, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1fa5410_0 .net "a", 3 0, L_0x1fc42b0; 1 drivers
+v0x1fa54d0_0 .net "b", 3 0, L_0x1fc43e0; 1 drivers
+v0x1fa5570_0 .alias "carryin", 0 0, v0x1fa9790_1;
+v0x1fa55f0_0 .alias "carryout", 0 0, v0x1fa9790_2;
+v0x1fa5670_0 .net8 "sum", 3 0, RS_0x2b15dfba0268; 4 drivers
+v0x1fa56f0 .array "temp_cout", 0 2;
+v0x1fa56f0_0 .net v0x1fa56f0 0, 0 0, L_0x1fc2120; 1 drivers
+v0x1fa56f0_1 .net v0x1fa56f0 1, 0 0, L_0x1fc28f0; 1 drivers
+v0x1fa56f0_2 .net v0x1fa56f0 2, 0 0, L_0x1fc31f0; 1 drivers
+L_0x1fc21f0 .part/pv L_0x1fc1780, 0, 1, 4;
+L_0x1fc2290 .part L_0x1fc42b0, 0, 1;
+L_0x1fc23c0 .part L_0x1fc43e0, 0, 1;
+L_0x1fc2ab0 .part/pv L_0x1fc24f0, 1, 1, 4;
+L_0x1fc2ba0 .part L_0x1fc42b0, 1, 1;
+L_0x1fc2cd0 .part L_0x1fc43e0, 1, 1;
+L_0x1fc3380 .part/pv L_0x1fc2e40, 2, 1, 4;
+L_0x1fc3420 .part L_0x1fc42b0, 2, 1;
+L_0x1fc3550 .part L_0x1fc43e0, 2, 1;
+L_0x1fc3c00 .part/pv L_0x1fc3680, 3, 1, 4;
+L_0x1fc3d90 .part L_0x1fc42b0, 3, 1;
+L_0x1fc3f50 .part L_0x1fc43e0, 3, 1;
+S_0x1fa4e10 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1fa3a70;
+ .timescale -9 -12;
+L_0x1fc1780/d .functor XOR 1, L_0x1fc2290, L_0x1fc23c0, L_0x1fc1490, C4<0>;
+L_0x1fc1780 .delay (30000,30000,30000) L_0x1fc1780/d;
+L_0x1fc1e30/d .functor AND 1, L_0x1fc2290, L_0x1fc23c0, C4<1>, C4<1>;
+L_0x1fc1e30 .delay (20000,20000,20000) L_0x1fc1e30/d;
+L_0x1fc1ed0/d .functor AND 1, L_0x1fc2290, L_0x1fc1490, C4<1>, C4<1>;
+L_0x1fc1ed0 .delay (20000,20000,20000) L_0x1fc1ed0/d;
+L_0x1fc1f90/d .functor AND 1, L_0x1fc23c0, L_0x1fc1490, C4<1>, C4<1>;
+L_0x1fc1f90 .delay (20000,20000,20000) L_0x1fc1f90/d;
+L_0x1fc2120/d .functor OR 1, L_0x1fc1e30, L_0x1fc1ed0, L_0x1fc1f90, C4<0>;
+L_0x1fc2120 .delay (20000,20000,20000) L_0x1fc2120/d;
+v0x1fa4f00_0 .net "AandB", 0 0, L_0x1fc1e30; 1 drivers
+v0x1fa4fc0_0 .net "AandC", 0 0, L_0x1fc1ed0; 1 drivers
+v0x1fa5060_0 .net "BandC", 0 0, L_0x1fc1f90; 1 drivers
+v0x1fa5100_0 .net "a", 0 0, L_0x1fc2290; 1 drivers
+v0x1fa5180_0 .net "b", 0 0, L_0x1fc23c0; 1 drivers
+v0x1fa5220_0 .alias "carryin", 0 0, v0x1fa9790_1;
+v0x1fa52c0_0 .alias "carryout", 0 0, v0x1fa56f0_0;
+v0x1fa5340_0 .net "sum", 0 0, L_0x1fc1780; 1 drivers
+S_0x1fa4810 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1fa3a70;
+ .timescale -9 -12;
+L_0x1fc24f0/d .functor XOR 1, L_0x1fc2ba0, L_0x1fc2cd0, L_0x1fc2120, C4<0>;
+L_0x1fc24f0 .delay (30000,30000,30000) L_0x1fc24f0/d;
+L_0x1fc26b0/d .functor AND 1, L_0x1fc2ba0, L_0x1fc2cd0, C4<1>, C4<1>;
+L_0x1fc26b0 .delay (20000,20000,20000) L_0x1fc26b0/d;
+L_0x1fc2780/d .functor AND 1, L_0x1fc2ba0, L_0x1fc2120, C4<1>, C4<1>;
+L_0x1fc2780 .delay (20000,20000,20000) L_0x1fc2780/d;
+L_0x1fc2820/d .functor AND 1, L_0x1fc2cd0, L_0x1fc2120, C4<1>, C4<1>;
+L_0x1fc2820 .delay (20000,20000,20000) L_0x1fc2820/d;
+L_0x1fc28f0/d .functor OR 1, L_0x1fc26b0, L_0x1fc2780, L_0x1fc2820, C4<0>;
+L_0x1fc28f0 .delay (20000,20000,20000) L_0x1fc28f0/d;
+v0x1fa4900_0 .net "AandB", 0 0, L_0x1fc26b0; 1 drivers
+v0x1fa49c0_0 .net "AandC", 0 0, L_0x1fc2780; 1 drivers
+v0x1fa4a60_0 .net "BandC", 0 0, L_0x1fc2820; 1 drivers
+v0x1fa4b00_0 .net "a", 0 0, L_0x1fc2ba0; 1 drivers
+v0x1fa4b80_0 .net "b", 0 0, L_0x1fc2cd0; 1 drivers
+v0x1fa4c20_0 .alias "carryin", 0 0, v0x1fa56f0_0;
+v0x1fa4cc0_0 .alias "carryout", 0 0, v0x1fa56f0_1;
+v0x1fa4d40_0 .net "sum", 0 0, L_0x1fc24f0; 1 drivers
+S_0x1fa4210 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1fa3a70;
+ .timescale -9 -12;
+L_0x1fc2e40/d .functor XOR 1, L_0x1fc3420, L_0x1fc3550, L_0x1fc28f0, C4<0>;
+L_0x1fc2e40 .delay (30000,30000,30000) L_0x1fc2e40/d;
+L_0x1fc2f70/d .functor AND 1, L_0x1fc3420, L_0x1fc3550, C4<1>, C4<1>;
+L_0x1fc2f70 .delay (20000,20000,20000) L_0x1fc2f70/d;
+L_0x1fc30b0/d .functor AND 1, L_0x1fc3420, L_0x1fc28f0, C4<1>, C4<1>;
+L_0x1fc30b0 .delay (20000,20000,20000) L_0x1fc30b0/d;
+L_0x1fc3150/d .functor AND 1, L_0x1fc3550, L_0x1fc28f0, C4<1>, C4<1>;
+L_0x1fc3150 .delay (20000,20000,20000) L_0x1fc3150/d;
+L_0x1fc31f0/d .functor OR 1, L_0x1fc2f70, L_0x1fc30b0, L_0x1fc3150, C4<0>;
+L_0x1fc31f0 .delay (20000,20000,20000) L_0x1fc31f0/d;
+v0x1fa4300_0 .net "AandB", 0 0, L_0x1fc2f70; 1 drivers
+v0x1fa43c0_0 .net "AandC", 0 0, L_0x1fc30b0; 1 drivers
+v0x1fa4460_0 .net "BandC", 0 0, L_0x1fc3150; 1 drivers
+v0x1fa4500_0 .net "a", 0 0, L_0x1fc3420; 1 drivers
+v0x1fa4580_0 .net "b", 0 0, L_0x1fc3550; 1 drivers
+v0x1fa4620_0 .alias "carryin", 0 0, v0x1fa56f0_1;
+v0x1fa46c0_0 .alias "carryout", 0 0, v0x1fa56f0_2;
+v0x1fa4740_0 .net "sum", 0 0, L_0x1fc2e40; 1 drivers
+S_0x1fa3b60 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1fa3a70;
+ .timescale -9 -12;
+L_0x1fc3680/d .functor XOR 1, L_0x1fc3d90, L_0x1fc3f50, L_0x1fc31f0, C4<0>;
+L_0x1fc3680 .delay (30000,30000,30000) L_0x1fc3680/d;
+L_0x1fc3770/d .functor AND 1, L_0x1fc3d90, L_0x1fc3f50, C4<1>, C4<1>;
+L_0x1fc3770 .delay (20000,20000,20000) L_0x1fc3770/d;
+L_0x1fc3890/d .functor AND 1, L_0x1fc3d90, L_0x1fc31f0, C4<1>, C4<1>;
+L_0x1fc3890 .delay (20000,20000,20000) L_0x1fc3890/d;
+L_0x1fc3950/d .functor AND 1, L_0x1fc3f50, L_0x1fc31f0, C4<1>, C4<1>;
+L_0x1fc3950 .delay (20000,20000,20000) L_0x1fc3950/d;
+L_0x1fc3a40/d .functor OR 1, L_0x1fc3770, L_0x1fc3890, L_0x1fc3950, C4<0>;
+L_0x1fc3a40 .delay (20000,20000,20000) L_0x1fc3a40/d;
+v0x1fa3c50_0 .net "AandB", 0 0, L_0x1fc3770; 1 drivers
+v0x1fa3d10_0 .net "AandC", 0 0, L_0x1fc3890; 1 drivers
+v0x1fa3db0_0 .net "BandC", 0 0, L_0x1fc3950; 1 drivers
+v0x1fa3e50_0 .net "a", 0 0, L_0x1fc3d90; 1 drivers
+v0x1fa3ed0_0 .net "b", 0 0, L_0x1fc3f50; 1 drivers
+v0x1fa3f70_0 .alias "carryin", 0 0, v0x1fa56f0_2;
+v0x1fa4050_0 .alias "carryout", 0 0, v0x1fa9790_2;
+v0x1fa4120_0 .net "sum", 0 0, L_0x1fc3680; 1 drivers
+S_0x1fa1c80 .scope module, "f43" "CompAdder4bit" 2 63, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1fa3620_0 .net "a", 3 0, L_0x1fc6890; 1 drivers
+v0x1fa36e0_0 .net "b", 3 0, L_0x1fc6930; 1 drivers
+v0x1fa3780_0 .alias "carryin", 0 0, v0x1fa9790_2;
+v0x1fa3800_0 .alias "carryout", 0 0, v0x1fa9790_3;
+v0x1fa3880_0 .net8 "sum", 3 0, RS_0x2b15dfb9fc98; 4 drivers
+v0x1fa3900 .array "temp_cout", 0 2;
+v0x1fa3900_0 .net v0x1fa3900 0, 0 0, L_0x1fc4830; 1 drivers
+v0x1fa3900_1 .net v0x1fa3900 1, 0 0, L_0x1fc5000; 1 drivers
+v0x1fa3900_2 .net v0x1fa3900 2, 0 0, L_0x1fc5860; 1 drivers
+L_0x1fc4900 .part/pv L_0x1fc3d30, 0, 1, 4;
+L_0x1fc49a0 .part L_0x1fc6890, 0, 1;
+L_0x1fc4ad0 .part L_0x1fc6930, 0, 1;
+L_0x1fc5120 .part/pv L_0x1fc4c00, 1, 1, 4;
+L_0x1fc5210 .part L_0x1fc6890, 1, 1;
+L_0x1fc5340 .part L_0x1fc6930, 1, 1;
+L_0x1fc59f0 .part/pv L_0x1fc54b0, 2, 1, 4;
+L_0x1fc5a90 .part L_0x1fc6890, 2, 1;
+L_0x1fc5bc0 .part L_0x1fc6930, 2, 1;
+L_0x1fc6270 .part/pv L_0x1fc5cf0, 3, 1, 4;
+L_0x1fc6400 .part L_0x1fc6890, 3, 1;
+L_0x1fc65c0 .part L_0x1fc6930, 3, 1;
+S_0x1fa3020 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1fa1c80;
+ .timescale -9 -12;
+L_0x1fc3d30/d .functor XOR 1, L_0x1fc49a0, L_0x1fc4ad0, L_0x1fc3a40, C4<0>;
+L_0x1fc3d30 .delay (30000,30000,30000) L_0x1fc3d30/d;
+L_0x1fc4510/d .functor AND 1, L_0x1fc49a0, L_0x1fc4ad0, C4<1>, C4<1>;
+L_0x1fc4510 .delay (20000,20000,20000) L_0x1fc4510/d;
+L_0x1fc45e0/d .functor AND 1, L_0x1fc49a0, L_0x1fc3a40, C4<1>, C4<1>;
+L_0x1fc45e0 .delay (20000,20000,20000) L_0x1fc45e0/d;
+L_0x1fc46a0/d .functor AND 1, L_0x1fc4ad0, L_0x1fc3a40, C4<1>, C4<1>;
+L_0x1fc46a0 .delay (20000,20000,20000) L_0x1fc46a0/d;
+L_0x1fc4830/d .functor OR 1, L_0x1fc4510, L_0x1fc45e0, L_0x1fc46a0, C4<0>;
+L_0x1fc4830 .delay (20000,20000,20000) L_0x1fc4830/d;
+v0x1fa3110_0 .net "AandB", 0 0, L_0x1fc4510; 1 drivers
+v0x1fa31d0_0 .net "AandC", 0 0, L_0x1fc45e0; 1 drivers
+v0x1fa3270_0 .net "BandC", 0 0, L_0x1fc46a0; 1 drivers
+v0x1fa3310_0 .net "a", 0 0, L_0x1fc49a0; 1 drivers
+v0x1fa3390_0 .net "b", 0 0, L_0x1fc4ad0; 1 drivers
+v0x1fa3430_0 .alias "carryin", 0 0, v0x1fa9790_2;
+v0x1fa34d0_0 .alias "carryout", 0 0, v0x1fa3900_0;
+v0x1fa3550_0 .net "sum", 0 0, L_0x1fc3d30; 1 drivers
+S_0x1fa2a20 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1fa1c80;
+ .timescale -9 -12;
+L_0x1fc4c00/d .functor XOR 1, L_0x1fc5210, L_0x1fc5340, L_0x1fc4830, C4<0>;
+L_0x1fc4c00 .delay (30000,30000,30000) L_0x1fc4c00/d;
+L_0x1fc4dc0/d .functor AND 1, L_0x1fc5210, L_0x1fc5340, C4<1>, C4<1>;
+L_0x1fc4dc0 .delay (20000,20000,20000) L_0x1fc4dc0/d;
+L_0x1fc4e90/d .functor AND 1, L_0x1fc5210, L_0x1fc4830, C4<1>, C4<1>;
+L_0x1fc4e90 .delay (20000,20000,20000) L_0x1fc4e90/d;
+L_0x1fc4f30/d .functor AND 1, L_0x1fc5340, L_0x1fc4830, C4<1>, C4<1>;
+L_0x1fc4f30 .delay (20000,20000,20000) L_0x1fc4f30/d;
+L_0x1fc5000/d .functor OR 1, L_0x1fc4dc0, L_0x1fc4e90, L_0x1fc4f30, C4<0>;
+L_0x1fc5000 .delay (20000,20000,20000) L_0x1fc5000/d;
+v0x1fa2b10_0 .net "AandB", 0 0, L_0x1fc4dc0; 1 drivers
+v0x1fa2bd0_0 .net "AandC", 0 0, L_0x1fc4e90; 1 drivers
+v0x1fa2c70_0 .net "BandC", 0 0, L_0x1fc4f30; 1 drivers
+v0x1fa2d10_0 .net "a", 0 0, L_0x1fc5210; 1 drivers
+v0x1fa2d90_0 .net "b", 0 0, L_0x1fc5340; 1 drivers
+v0x1fa2e30_0 .alias "carryin", 0 0, v0x1fa3900_0;
+v0x1fa2ed0_0 .alias "carryout", 0 0, v0x1fa3900_1;
+v0x1fa2f50_0 .net "sum", 0 0, L_0x1fc4c00; 1 drivers
+S_0x1fa2420 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1fa1c80;
+ .timescale -9 -12;
+L_0x1fc54b0/d .functor XOR 1, L_0x1fc5a90, L_0x1fc5bc0, L_0x1fc5000, C4<0>;
+L_0x1fc54b0 .delay (30000,30000,30000) L_0x1fc54b0/d;
+L_0x1fc55e0/d .functor AND 1, L_0x1fc5a90, L_0x1fc5bc0, C4<1>, C4<1>;
+L_0x1fc55e0 .delay (20000,20000,20000) L_0x1fc55e0/d;
+L_0x1fc5720/d .functor AND 1, L_0x1fc5a90, L_0x1fc5000, C4<1>, C4<1>;
+L_0x1fc5720 .delay (20000,20000,20000) L_0x1fc5720/d;
+L_0x1fc57c0/d .functor AND 1, L_0x1fc5bc0, L_0x1fc5000, C4<1>, C4<1>;
+L_0x1fc57c0 .delay (20000,20000,20000) L_0x1fc57c0/d;
+L_0x1fc5860/d .functor OR 1, L_0x1fc55e0, L_0x1fc5720, L_0x1fc57c0, C4<0>;
+L_0x1fc5860 .delay (20000,20000,20000) L_0x1fc5860/d;
+v0x1fa2510_0 .net "AandB", 0 0, L_0x1fc55e0; 1 drivers
+v0x1fa25d0_0 .net "AandC", 0 0, L_0x1fc5720; 1 drivers
+v0x1fa2670_0 .net "BandC", 0 0, L_0x1fc57c0; 1 drivers
+v0x1fa2710_0 .net "a", 0 0, L_0x1fc5a90; 1 drivers
+v0x1fa2790_0 .net "b", 0 0, L_0x1fc5bc0; 1 drivers
+v0x1fa2830_0 .alias "carryin", 0 0, v0x1fa3900_1;
+v0x1fa28d0_0 .alias "carryout", 0 0, v0x1fa3900_2;
+v0x1fa2950_0 .net "sum", 0 0, L_0x1fc54b0; 1 drivers
+S_0x1fa1d70 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1fa1c80;
+ .timescale -9 -12;
+L_0x1fc5cf0/d .functor XOR 1, L_0x1fc6400, L_0x1fc65c0, L_0x1fc5860, C4<0>;
+L_0x1fc5cf0 .delay (30000,30000,30000) L_0x1fc5cf0/d;
+L_0x1fc5de0/d .functor AND 1, L_0x1fc6400, L_0x1fc65c0, C4<1>, C4<1>;
+L_0x1fc5de0 .delay (20000,20000,20000) L_0x1fc5de0/d;
+L_0x1fc5f00/d .functor AND 1, L_0x1fc6400, L_0x1fc5860, C4<1>, C4<1>;
+L_0x1fc5f00 .delay (20000,20000,20000) L_0x1fc5f00/d;
+L_0x1fc5fc0/d .functor AND 1, L_0x1fc65c0, L_0x1fc5860, C4<1>, C4<1>;
+L_0x1fc5fc0 .delay (20000,20000,20000) L_0x1fc5fc0/d;
+L_0x1fc60b0/d .functor OR 1, L_0x1fc5de0, L_0x1fc5f00, L_0x1fc5fc0, C4<0>;
+L_0x1fc60b0 .delay (20000,20000,20000) L_0x1fc60b0/d;
+v0x1fa1e60_0 .net "AandB", 0 0, L_0x1fc5de0; 1 drivers
+v0x1fa1f20_0 .net "AandC", 0 0, L_0x1fc5f00; 1 drivers
+v0x1fa1fc0_0 .net "BandC", 0 0, L_0x1fc5fc0; 1 drivers
+v0x1fa2060_0 .net "a", 0 0, L_0x1fc6400; 1 drivers
+v0x1fa20e0_0 .net "b", 0 0, L_0x1fc65c0; 1 drivers
+v0x1fa2180_0 .alias "carryin", 0 0, v0x1fa3900_2;
+v0x1fa2260_0 .alias "carryout", 0 0, v0x1fa9790_3;
+v0x1fa2330_0 .net "sum", 0 0, L_0x1fc5cf0; 1 drivers
+S_0x1f9fe90 .scope module, "f44" "CompAdder4bit" 2 64, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1fa1830_0 .net "a", 3 0, L_0x1fc8e50; 1 drivers
+v0x1fa18f0_0 .net "b", 3 0, L_0x1fc8f70; 1 drivers
+v0x1fa1990_0 .alias "carryin", 0 0, v0x1fa9790_3;
+v0x1fa1a10_0 .alias "carryout", 0 0, v0x1fa9790_4;
+v0x1fa1a90_0 .net8 "sum", 3 0, RS_0x2b15dfb9f6c8; 4 drivers
+v0x1fa1b10 .array "temp_cout", 0 2;
+v0x1fa1b10_0 .net v0x1fa1b10 0, 0 0, L_0x1fc6da0; 1 drivers
+v0x1fa1b10_1 .net v0x1fa1b10 1, 0 0, L_0x1fc7570; 1 drivers
+v0x1fa1b10_2 .net v0x1fa1b10 2, 0 0, L_0x1fc7e20; 1 drivers
+L_0x1fc6e70 .part/pv L_0x1fc63a0, 0, 1, 4;
+L_0x1fc6f10 .part L_0x1fc8e50, 0, 1;
+L_0x1fc7040 .part L_0x1fc8f70, 0, 1;
+L_0x1fc76e0 .part/pv L_0x1fc7170, 1, 1, 4;
+L_0x1fc77d0 .part L_0x1fc8e50, 1, 1;
+L_0x1fc7900 .part L_0x1fc8f70, 1, 1;
+L_0x1fc7fb0 .part/pv L_0x1fc7a70, 2, 1, 4;
+L_0x1fc8050 .part L_0x1fc8e50, 2, 1;
+L_0x1fc8180 .part L_0x1fc8f70, 2, 1;
+L_0x1fc8830 .part/pv L_0x1fc82b0, 3, 1, 4;
+L_0x1fc89c0 .part L_0x1fc8e50, 3, 1;
+L_0x1fc8b80 .part L_0x1fc8f70, 3, 1;
+S_0x1fa1230 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f9fe90;
+ .timescale -9 -12;
+L_0x1fc63a0/d .functor XOR 1, L_0x1fc6f10, L_0x1fc7040, L_0x1fc60b0, C4<0>;
+L_0x1fc63a0 .delay (30000,30000,30000) L_0x1fc63a0/d;
+L_0x1fc6a80/d .functor AND 1, L_0x1fc6f10, L_0x1fc7040, C4<1>, C4<1>;
+L_0x1fc6a80 .delay (20000,20000,20000) L_0x1fc6a80/d;
+L_0x1fc6b50/d .functor AND 1, L_0x1fc6f10, L_0x1fc60b0, C4<1>, C4<1>;
+L_0x1fc6b50 .delay (20000,20000,20000) L_0x1fc6b50/d;
+L_0x1fc6c10/d .functor AND 1, L_0x1fc7040, L_0x1fc60b0, C4<1>, C4<1>;
+L_0x1fc6c10 .delay (20000,20000,20000) L_0x1fc6c10/d;
+L_0x1fc6da0/d .functor OR 1, L_0x1fc6a80, L_0x1fc6b50, L_0x1fc6c10, C4<0>;
+L_0x1fc6da0 .delay (20000,20000,20000) L_0x1fc6da0/d;
+v0x1fa1320_0 .net "AandB", 0 0, L_0x1fc6a80; 1 drivers
+v0x1fa13e0_0 .net "AandC", 0 0, L_0x1fc6b50; 1 drivers
+v0x1fa1480_0 .net "BandC", 0 0, L_0x1fc6c10; 1 drivers
+v0x1fa1520_0 .net "a", 0 0, L_0x1fc6f10; 1 drivers
+v0x1fa15a0_0 .net "b", 0 0, L_0x1fc7040; 1 drivers
+v0x1fa1640_0 .alias "carryin", 0 0, v0x1fa9790_3;
+v0x1fa16e0_0 .alias "carryout", 0 0, v0x1fa1b10_0;
+v0x1fa1760_0 .net "sum", 0 0, L_0x1fc63a0; 1 drivers
+S_0x1fa0c30 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f9fe90;
+ .timescale -9 -12;
+L_0x1fc7170/d .functor XOR 1, L_0x1fc77d0, L_0x1fc7900, L_0x1fc6da0, C4<0>;
+L_0x1fc7170 .delay (30000,30000,30000) L_0x1fc7170/d;
+L_0x1fc7330/d .functor AND 1, L_0x1fc77d0, L_0x1fc7900, C4<1>, C4<1>;
+L_0x1fc7330 .delay (20000,20000,20000) L_0x1fc7330/d;
+L_0x1fc7400/d .functor AND 1, L_0x1fc77d0, L_0x1fc6da0, C4<1>, C4<1>;
+L_0x1fc7400 .delay (20000,20000,20000) L_0x1fc7400/d;
+L_0x1fc74a0/d .functor AND 1, L_0x1fc7900, L_0x1fc6da0, C4<1>, C4<1>;
+L_0x1fc74a0 .delay (20000,20000,20000) L_0x1fc74a0/d;
+L_0x1fc7570/d .functor OR 1, L_0x1fc7330, L_0x1fc7400, L_0x1fc74a0, C4<0>;
+L_0x1fc7570 .delay (20000,20000,20000) L_0x1fc7570/d;
+v0x1fa0d20_0 .net "AandB", 0 0, L_0x1fc7330; 1 drivers
+v0x1fa0de0_0 .net "AandC", 0 0, L_0x1fc7400; 1 drivers
+v0x1fa0e80_0 .net "BandC", 0 0, L_0x1fc74a0; 1 drivers
+v0x1fa0f20_0 .net "a", 0 0, L_0x1fc77d0; 1 drivers
+v0x1fa0fa0_0 .net "b", 0 0, L_0x1fc7900; 1 drivers
+v0x1fa1040_0 .alias "carryin", 0 0, v0x1fa1b10_0;
+v0x1fa10e0_0 .alias "carryout", 0 0, v0x1fa1b10_1;
+v0x1fa1160_0 .net "sum", 0 0, L_0x1fc7170; 1 drivers
+S_0x1fa0630 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f9fe90;
+ .timescale -9 -12;
+L_0x1fc7a70/d .functor XOR 1, L_0x1fc8050, L_0x1fc8180, L_0x1fc7570, C4<0>;
+L_0x1fc7a70 .delay (30000,30000,30000) L_0x1fc7a70/d;
+L_0x1fc7ba0/d .functor AND 1, L_0x1fc8050, L_0x1fc8180, C4<1>, C4<1>;
+L_0x1fc7ba0 .delay (20000,20000,20000) L_0x1fc7ba0/d;
+L_0x1fc7ce0/d .functor AND 1, L_0x1fc8050, L_0x1fc7570, C4<1>, C4<1>;
+L_0x1fc7ce0 .delay (20000,20000,20000) L_0x1fc7ce0/d;
+L_0x1fc7d80/d .functor AND 1, L_0x1fc8180, L_0x1fc7570, C4<1>, C4<1>;
+L_0x1fc7d80 .delay (20000,20000,20000) L_0x1fc7d80/d;
+L_0x1fc7e20/d .functor OR 1, L_0x1fc7ba0, L_0x1fc7ce0, L_0x1fc7d80, C4<0>;
+L_0x1fc7e20 .delay (20000,20000,20000) L_0x1fc7e20/d;
+v0x1fa0720_0 .net "AandB", 0 0, L_0x1fc7ba0; 1 drivers
+v0x1fa07e0_0 .net "AandC", 0 0, L_0x1fc7ce0; 1 drivers
+v0x1fa0880_0 .net "BandC", 0 0, L_0x1fc7d80; 1 drivers
+v0x1fa0920_0 .net "a", 0 0, L_0x1fc8050; 1 drivers
+v0x1fa09a0_0 .net "b", 0 0, L_0x1fc8180; 1 drivers
+v0x1fa0a40_0 .alias "carryin", 0 0, v0x1fa1b10_1;
+v0x1fa0ae0_0 .alias "carryout", 0 0, v0x1fa1b10_2;
+v0x1fa0b60_0 .net "sum", 0 0, L_0x1fc7a70; 1 drivers
+S_0x1f9ff80 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f9fe90;
+ .timescale -9 -12;
+L_0x1fc82b0/d .functor XOR 1, L_0x1fc89c0, L_0x1fc8b80, L_0x1fc7e20, C4<0>;
+L_0x1fc82b0 .delay (30000,30000,30000) L_0x1fc82b0/d;
+L_0x1fc83a0/d .functor AND 1, L_0x1fc89c0, L_0x1fc8b80, C4<1>, C4<1>;
+L_0x1fc83a0 .delay (20000,20000,20000) L_0x1fc83a0/d;
+L_0x1fc84c0/d .functor AND 1, L_0x1fc89c0, L_0x1fc7e20, C4<1>, C4<1>;
+L_0x1fc84c0 .delay (20000,20000,20000) L_0x1fc84c0/d;
+L_0x1fc8580/d .functor AND 1, L_0x1fc8b80, L_0x1fc7e20, C4<1>, C4<1>;
+L_0x1fc8580 .delay (20000,20000,20000) L_0x1fc8580/d;
+L_0x1fc8670/d .functor OR 1, L_0x1fc83a0, L_0x1fc84c0, L_0x1fc8580, C4<0>;
+L_0x1fc8670 .delay (20000,20000,20000) L_0x1fc8670/d;
+v0x1fa0070_0 .net "AandB", 0 0, L_0x1fc83a0; 1 drivers
+v0x1fa0130_0 .net "AandC", 0 0, L_0x1fc84c0; 1 drivers
+v0x1fa01d0_0 .net "BandC", 0 0, L_0x1fc8580; 1 drivers
+v0x1fa0270_0 .net "a", 0 0, L_0x1fc89c0; 1 drivers
+v0x1fa02f0_0 .net "b", 0 0, L_0x1fc8b80; 1 drivers
+v0x1fa0390_0 .alias "carryin", 0 0, v0x1fa1b10_2;
+v0x1fa0470_0 .alias "carryout", 0 0, v0x1fa9790_4;
+v0x1fa0540_0 .net "sum", 0 0, L_0x1fc82b0; 1 drivers
+S_0x1f9e0a0 .scope module, "f45" "CompAdder4bit" 2 65, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1f9fa40_0 .net "a", 3 0, L_0x1fcb490; 1 drivers
+v0x1f9fb00_0 .net "b", 3 0, L_0x1fcb530; 1 drivers
+v0x1f9fba0_0 .alias "carryin", 0 0, v0x1fa9790_4;
+v0x1f9fc20_0 .alias "carryout", 0 0, v0x1fa9790_5;
+v0x1f9fca0_0 .net8 "sum", 3 0, RS_0x2b15dfb9f0f8; 4 drivers
+v0x1f9fd20 .array "temp_cout", 0 2;
+v0x1f9fd20_0 .net v0x1f9fd20 0, 0 0, L_0x1fc9370; 1 drivers
+v0x1f9fd20_1 .net v0x1f9fd20 1, 0 0, L_0x1fc9b40; 1 drivers
+v0x1f9fd20_2 .net v0x1f9fd20 2, 0 0, L_0x1fca440; 1 drivers
+L_0x1fc9440 .part/pv L_0x1fc8960, 0, 1, 4;
+L_0x1fc94e0 .part L_0x1fcb490, 0, 1;
+L_0x1fc9610 .part L_0x1fcb530, 0, 1;
+L_0x1fc9d00 .part/pv L_0x1fc9740, 1, 1, 4;
+L_0x1fc9df0 .part L_0x1fcb490, 1, 1;
+L_0x1fc9f20 .part L_0x1fcb530, 1, 1;
+L_0x1fca5d0 .part/pv L_0x1fca090, 2, 1, 4;
+L_0x1fca670 .part L_0x1fcb490, 2, 1;
+L_0x1fca7a0 .part L_0x1fcb530, 2, 1;
+L_0x1fcae50 .part/pv L_0x1fca8d0, 3, 1, 4;
+L_0x1fcafe0 .part L_0x1fcb490, 3, 1;
+L_0x1fcb1a0 .part L_0x1fcb530, 3, 1;
+S_0x1f9f440 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f9e0a0;
+ .timescale -9 -12;
+L_0x1fc8960/d .functor XOR 1, L_0x1fc94e0, L_0x1fc9610, L_0x1fc8670, C4<0>;
+L_0x1fc8960 .delay (30000,30000,30000) L_0x1fc8960/d;
+L_0x1fc9050/d .functor AND 1, L_0x1fc94e0, L_0x1fc9610, C4<1>, C4<1>;
+L_0x1fc9050 .delay (20000,20000,20000) L_0x1fc9050/d;
+L_0x1fc9120/d .functor AND 1, L_0x1fc94e0, L_0x1fc8670, C4<1>, C4<1>;
+L_0x1fc9120 .delay (20000,20000,20000) L_0x1fc9120/d;
+L_0x1fc91e0/d .functor AND 1, L_0x1fc9610, L_0x1fc8670, C4<1>, C4<1>;
+L_0x1fc91e0 .delay (20000,20000,20000) L_0x1fc91e0/d;
+L_0x1fc9370/d .functor OR 1, L_0x1fc9050, L_0x1fc9120, L_0x1fc91e0, C4<0>;
+L_0x1fc9370 .delay (20000,20000,20000) L_0x1fc9370/d;
+v0x1f9f530_0 .net "AandB", 0 0, L_0x1fc9050; 1 drivers
+v0x1f9f5f0_0 .net "AandC", 0 0, L_0x1fc9120; 1 drivers
+v0x1f9f690_0 .net "BandC", 0 0, L_0x1fc91e0; 1 drivers
+v0x1f9f730_0 .net "a", 0 0, L_0x1fc94e0; 1 drivers
+v0x1f9f7b0_0 .net "b", 0 0, L_0x1fc9610; 1 drivers
+v0x1f9f850_0 .alias "carryin", 0 0, v0x1fa9790_4;
+v0x1f9f8f0_0 .alias "carryout", 0 0, v0x1f9fd20_0;
+v0x1f9f970_0 .net "sum", 0 0, L_0x1fc8960; 1 drivers
+S_0x1f9ee40 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f9e0a0;
+ .timescale -9 -12;
+L_0x1fc9740/d .functor XOR 1, L_0x1fc9df0, L_0x1fc9f20, L_0x1fc9370, C4<0>;
+L_0x1fc9740 .delay (30000,30000,30000) L_0x1fc9740/d;
+L_0x1fc9900/d .functor AND 1, L_0x1fc9df0, L_0x1fc9f20, C4<1>, C4<1>;
+L_0x1fc9900 .delay (20000,20000,20000) L_0x1fc9900/d;
+L_0x1fc99d0/d .functor AND 1, L_0x1fc9df0, L_0x1fc9370, C4<1>, C4<1>;
+L_0x1fc99d0 .delay (20000,20000,20000) L_0x1fc99d0/d;
+L_0x1fc9a70/d .functor AND 1, L_0x1fc9f20, L_0x1fc9370, C4<1>, C4<1>;
+L_0x1fc9a70 .delay (20000,20000,20000) L_0x1fc9a70/d;
+L_0x1fc9b40/d .functor OR 1, L_0x1fc9900, L_0x1fc99d0, L_0x1fc9a70, C4<0>;
+L_0x1fc9b40 .delay (20000,20000,20000) L_0x1fc9b40/d;
+v0x1f9ef30_0 .net "AandB", 0 0, L_0x1fc9900; 1 drivers
+v0x1f9eff0_0 .net "AandC", 0 0, L_0x1fc99d0; 1 drivers
+v0x1f9f090_0 .net "BandC", 0 0, L_0x1fc9a70; 1 drivers
+v0x1f9f130_0 .net "a", 0 0, L_0x1fc9df0; 1 drivers
+v0x1f9f1b0_0 .net "b", 0 0, L_0x1fc9f20; 1 drivers
+v0x1f9f250_0 .alias "carryin", 0 0, v0x1f9fd20_0;
+v0x1f9f2f0_0 .alias "carryout", 0 0, v0x1f9fd20_1;
+v0x1f9f370_0 .net "sum", 0 0, L_0x1fc9740; 1 drivers
+S_0x1f9e840 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f9e0a0;
+ .timescale -9 -12;
+L_0x1fca090/d .functor XOR 1, L_0x1fca670, L_0x1fca7a0, L_0x1fc9b40, C4<0>;
+L_0x1fca090 .delay (30000,30000,30000) L_0x1fca090/d;
+L_0x1fca1c0/d .functor AND 1, L_0x1fca670, L_0x1fca7a0, C4<1>, C4<1>;
+L_0x1fca1c0 .delay (20000,20000,20000) L_0x1fca1c0/d;
+L_0x1fca300/d .functor AND 1, L_0x1fca670, L_0x1fc9b40, C4<1>, C4<1>;
+L_0x1fca300 .delay (20000,20000,20000) L_0x1fca300/d;
+L_0x1fca3a0/d .functor AND 1, L_0x1fca7a0, L_0x1fc9b40, C4<1>, C4<1>;
+L_0x1fca3a0 .delay (20000,20000,20000) L_0x1fca3a0/d;
+L_0x1fca440/d .functor OR 1, L_0x1fca1c0, L_0x1fca300, L_0x1fca3a0, C4<0>;
+L_0x1fca440 .delay (20000,20000,20000) L_0x1fca440/d;
+v0x1f9e930_0 .net "AandB", 0 0, L_0x1fca1c0; 1 drivers
+v0x1f9e9f0_0 .net "AandC", 0 0, L_0x1fca300; 1 drivers
+v0x1f9ea90_0 .net "BandC", 0 0, L_0x1fca3a0; 1 drivers
+v0x1f9eb30_0 .net "a", 0 0, L_0x1fca670; 1 drivers
+v0x1f9ebb0_0 .net "b", 0 0, L_0x1fca7a0; 1 drivers
+v0x1f9ec50_0 .alias "carryin", 0 0, v0x1f9fd20_1;
+v0x1f9ecf0_0 .alias "carryout", 0 0, v0x1f9fd20_2;
+v0x1f9ed70_0 .net "sum", 0 0, L_0x1fca090; 1 drivers
+S_0x1f9e190 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f9e0a0;
+ .timescale -9 -12;
+L_0x1fca8d0/d .functor XOR 1, L_0x1fcafe0, L_0x1fcb1a0, L_0x1fca440, C4<0>;
+L_0x1fca8d0 .delay (30000,30000,30000) L_0x1fca8d0/d;
+L_0x1fca9c0/d .functor AND 1, L_0x1fcafe0, L_0x1fcb1a0, C4<1>, C4<1>;
+L_0x1fca9c0 .delay (20000,20000,20000) L_0x1fca9c0/d;
+L_0x1fcaae0/d .functor AND 1, L_0x1fcafe0, L_0x1fca440, C4<1>, C4<1>;
+L_0x1fcaae0 .delay (20000,20000,20000) L_0x1fcaae0/d;
+L_0x1fcaba0/d .functor AND 1, L_0x1fcb1a0, L_0x1fca440, C4<1>, C4<1>;
+L_0x1fcaba0 .delay (20000,20000,20000) L_0x1fcaba0/d;
+L_0x1fcac90/d .functor OR 1, L_0x1fca9c0, L_0x1fcaae0, L_0x1fcaba0, C4<0>;
+L_0x1fcac90 .delay (20000,20000,20000) L_0x1fcac90/d;
+v0x1f9e280_0 .net "AandB", 0 0, L_0x1fca9c0; 1 drivers
+v0x1f9e320_0 .net "AandC", 0 0, L_0x1fcaae0; 1 drivers
+v0x1f9e3c0_0 .net "BandC", 0 0, L_0x1fcaba0; 1 drivers
+v0x1f9e460_0 .net "a", 0 0, L_0x1fcafe0; 1 drivers
+v0x1f9e500_0 .net "b", 0 0, L_0x1fcb1a0; 1 drivers
+v0x1f9e5a0_0 .alias "carryin", 0 0, v0x1f9fd20_2;
+v0x1f9e680_0 .alias "carryout", 0 0, v0x1fa9790_5;
+v0x1f9e750_0 .net "sum", 0 0, L_0x1fca8d0; 1 drivers
+S_0x1f9c2d0 .scope module, "f46" "CompAdder4bit" 2 66, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1f9dc50_0 .net "a", 3 0, L_0x1fcdb50; 1 drivers
+v0x1f9dd10_0 .net "b", 3 0, L_0x1fcb5d0; 1 drivers
+v0x1f9ddb0_0 .alias "carryin", 0 0, v0x1fa9790_5;
+v0x1f9de30_0 .alias "carryout", 0 0, v0x1fa9790_6;
+v0x1f9deb0_0 .net8 "sum", 3 0, RS_0x2b15dfb9eb28; 4 drivers
+v0x1f9df30 .array "temp_cout", 0 2;
+v0x1f9df30_0 .net v0x1f9df30 0, 0 0, L_0x1fcb940; 1 drivers
+v0x1f9df30_1 .net v0x1f9df30 1, 0 0, L_0x1fcc110; 1 drivers
+v0x1f9df30_2 .net v0x1f9df30 2, 0 0, L_0x1fcca10; 1 drivers
+L_0x1fcba10 .part/pv L_0x1fcaf80, 0, 1, 4;
+L_0x1fcbab0 .part L_0x1fcdb50, 0, 1;
+L_0x1fcbbe0 .part L_0x1fcb5d0, 0, 1;
+L_0x1fcc2d0 .part/pv L_0x1fcbd10, 1, 1, 4;
+L_0x1fcc3c0 .part L_0x1fcdb50, 1, 1;
+L_0x1fcc4f0 .part L_0x1fcb5d0, 1, 1;
+L_0x1fccba0 .part/pv L_0x1fcc660, 2, 1, 4;
+L_0x1fccc40 .part L_0x1fcdb50, 2, 1;
+L_0x1fccd70 .part L_0x1fcb5d0, 2, 1;
+L_0x1fcd420 .part/pv L_0x1fccea0, 3, 1, 4;
+L_0x1fcd5b0 .part L_0x1fcdb50, 3, 1;
+L_0x1fcd770 .part L_0x1fcb5d0, 3, 1;
+S_0x1f9d650 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f9c2d0;
+ .timescale -9 -12;
+L_0x1fcaf80/d .functor XOR 1, L_0x1fcbab0, L_0x1fcbbe0, L_0x1fcac90, C4<0>;
+L_0x1fcaf80 .delay (30000,30000,30000) L_0x1fcaf80/d;
+L_0x1fcb670/d .functor AND 1, L_0x1fcbab0, L_0x1fcbbe0, C4<1>, C4<1>;
+L_0x1fcb670 .delay (20000,20000,20000) L_0x1fcb670/d;
+L_0x1fcb710/d .functor AND 1, L_0x1fcbab0, L_0x1fcac90, C4<1>, C4<1>;
+L_0x1fcb710 .delay (20000,20000,20000) L_0x1fcb710/d;
+L_0x1fcb7b0/d .functor AND 1, L_0x1fcbbe0, L_0x1fcac90, C4<1>, C4<1>;
+L_0x1fcb7b0 .delay (20000,20000,20000) L_0x1fcb7b0/d;
+L_0x1fcb940/d .functor OR 1, L_0x1fcb670, L_0x1fcb710, L_0x1fcb7b0, C4<0>;
+L_0x1fcb940 .delay (20000,20000,20000) L_0x1fcb940/d;
+v0x1f9d740_0 .net "AandB", 0 0, L_0x1fcb670; 1 drivers
+v0x1f9d800_0 .net "AandC", 0 0, L_0x1fcb710; 1 drivers
+v0x1f9d8a0_0 .net "BandC", 0 0, L_0x1fcb7b0; 1 drivers
+v0x1f9d940_0 .net "a", 0 0, L_0x1fcbab0; 1 drivers
+v0x1f9d9c0_0 .net "b", 0 0, L_0x1fcbbe0; 1 drivers
+v0x1f9da60_0 .alias "carryin", 0 0, v0x1fa9790_5;
+v0x1f9db00_0 .alias "carryout", 0 0, v0x1f9df30_0;
+v0x1f9db80_0 .net "sum", 0 0, L_0x1fcaf80; 1 drivers
+S_0x1f9d050 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f9c2d0;
+ .timescale -9 -12;
+L_0x1fcbd10/d .functor XOR 1, L_0x1fcc3c0, L_0x1fcc4f0, L_0x1fcb940, C4<0>;
+L_0x1fcbd10 .delay (30000,30000,30000) L_0x1fcbd10/d;
+L_0x1fcbed0/d .functor AND 1, L_0x1fcc3c0, L_0x1fcc4f0, C4<1>, C4<1>;
+L_0x1fcbed0 .delay (20000,20000,20000) L_0x1fcbed0/d;
+L_0x1fcbfa0/d .functor AND 1, L_0x1fcc3c0, L_0x1fcb940, C4<1>, C4<1>;
+L_0x1fcbfa0 .delay (20000,20000,20000) L_0x1fcbfa0/d;
+L_0x1fcc040/d .functor AND 1, L_0x1fcc4f0, L_0x1fcb940, C4<1>, C4<1>;
+L_0x1fcc040 .delay (20000,20000,20000) L_0x1fcc040/d;
+L_0x1fcc110/d .functor OR 1, L_0x1fcbed0, L_0x1fcbfa0, L_0x1fcc040, C4<0>;
+L_0x1fcc110 .delay (20000,20000,20000) L_0x1fcc110/d;
+v0x1f9d140_0 .net "AandB", 0 0, L_0x1fcbed0; 1 drivers
+v0x1f9d200_0 .net "AandC", 0 0, L_0x1fcbfa0; 1 drivers
+v0x1f9d2a0_0 .net "BandC", 0 0, L_0x1fcc040; 1 drivers
+v0x1f9d340_0 .net "a", 0 0, L_0x1fcc3c0; 1 drivers
+v0x1f9d3c0_0 .net "b", 0 0, L_0x1fcc4f0; 1 drivers
+v0x1f9d460_0 .alias "carryin", 0 0, v0x1f9df30_0;
+v0x1f9d500_0 .alias "carryout", 0 0, v0x1f9df30_1;
+v0x1f9d580_0 .net "sum", 0 0, L_0x1fcbd10; 1 drivers
+S_0x1f9ca50 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f9c2d0;
+ .timescale -9 -12;
+L_0x1fcc660/d .functor XOR 1, L_0x1fccc40, L_0x1fccd70, L_0x1fcc110, C4<0>;
+L_0x1fcc660 .delay (30000,30000,30000) L_0x1fcc660/d;
+L_0x1fcc790/d .functor AND 1, L_0x1fccc40, L_0x1fccd70, C4<1>, C4<1>;
+L_0x1fcc790 .delay (20000,20000,20000) L_0x1fcc790/d;
+L_0x1fcc8d0/d .functor AND 1, L_0x1fccc40, L_0x1fcc110, C4<1>, C4<1>;
+L_0x1fcc8d0 .delay (20000,20000,20000) L_0x1fcc8d0/d;
+L_0x1fcc970/d .functor AND 1, L_0x1fccd70, L_0x1fcc110, C4<1>, C4<1>;
+L_0x1fcc970 .delay (20000,20000,20000) L_0x1fcc970/d;
+L_0x1fcca10/d .functor OR 1, L_0x1fcc790, L_0x1fcc8d0, L_0x1fcc970, C4<0>;
+L_0x1fcca10 .delay (20000,20000,20000) L_0x1fcca10/d;
+v0x1f9cb40_0 .net "AandB", 0 0, L_0x1fcc790; 1 drivers
+v0x1f9cc00_0 .net "AandC", 0 0, L_0x1fcc8d0; 1 drivers
+v0x1f9cca0_0 .net "BandC", 0 0, L_0x1fcc970; 1 drivers
+v0x1f9cd40_0 .net "a", 0 0, L_0x1fccc40; 1 drivers
+v0x1f9cdc0_0 .net "b", 0 0, L_0x1fccd70; 1 drivers
+v0x1f9ce60_0 .alias "carryin", 0 0, v0x1f9df30_1;
+v0x1f9cf00_0 .alias "carryout", 0 0, v0x1f9df30_2;
+v0x1f9cf80_0 .net "sum", 0 0, L_0x1fcc660; 1 drivers
+S_0x1f9c3c0 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f9c2d0;
+ .timescale -9 -12;
+L_0x1fccea0/d .functor XOR 1, L_0x1fcd5b0, L_0x1fcd770, L_0x1fcca10, C4<0>;
+L_0x1fccea0 .delay (30000,30000,30000) L_0x1fccea0/d;
+L_0x1fccf90/d .functor AND 1, L_0x1fcd5b0, L_0x1fcd770, C4<1>, C4<1>;
+L_0x1fccf90 .delay (20000,20000,20000) L_0x1fccf90/d;
+L_0x1fcd0b0/d .functor AND 1, L_0x1fcd5b0, L_0x1fcca10, C4<1>, C4<1>;
+L_0x1fcd0b0 .delay (20000,20000,20000) L_0x1fcd0b0/d;
+L_0x1fcd170/d .functor AND 1, L_0x1fcd770, L_0x1fcca10, C4<1>, C4<1>;
+L_0x1fcd170 .delay (20000,20000,20000) L_0x1fcd170/d;
+L_0x1fcd260/d .functor OR 1, L_0x1fccf90, L_0x1fcd0b0, L_0x1fcd170, C4<0>;
+L_0x1fcd260 .delay (20000,20000,20000) L_0x1fcd260/d;
+v0x1f9c4b0_0 .net "AandB", 0 0, L_0x1fccf90; 1 drivers
+v0x1f9c550_0 .net "AandC", 0 0, L_0x1fcd0b0; 1 drivers
+v0x1f9c5f0_0 .net "BandC", 0 0, L_0x1fcd170; 1 drivers
+v0x1f9c690_0 .net "a", 0 0, L_0x1fcd5b0; 1 drivers
+v0x1f9c710_0 .net "b", 0 0, L_0x1fcd770; 1 drivers
+v0x1f9c7b0_0 .alias "carryin", 0 0, v0x1f9df30_2;
+v0x1f9c890_0 .alias "carryout", 0 0, v0x1fa9790_6;
+v0x1f9c960_0 .net "sum", 0 0, L_0x1fccea0; 1 drivers
+S_0x1f9a710 .scope module, "f47" "CompAdder4bit" 2 67, 2 31, S_0x1f9a620;
+ .timescale -9 -12;
+v0x1f9bf40_0 .net "a", 3 0, L_0x1fcdd00; 1 drivers
+v0x1f9c000_0 .net "b", 3 0, L_0x1fd0290; 1 drivers
+v0x1f9c0a0_0 .alias "carryin", 0 0, v0x1fa9790_6;
+v0x1f9c120_0 .alias "carryout", 0 0, v0x1fa9da0_0;
+v0x1f9c1d0_0 .net8 "sum", 3 0, RS_0x2b15dfb9e558; 4 drivers
+v0x1f9c250 .array "temp_cout", 0 2;
+v0x1f9c250_0 .net v0x1f9c250 0, 0 0, L_0x1fce090; 1 drivers
+v0x1f9c250_1 .net v0x1f9c250 1, 0 0, L_0x1fce860; 1 drivers
+v0x1f9c250_2 .net v0x1f9c250 2, 0 0, L_0x1fcf160; 1 drivers
+L_0x1fce160 .part/pv L_0x1fcd550, 0, 1, 4;
+L_0x1fce200 .part L_0x1fcdd00, 0, 1;
+L_0x1fce330 .part L_0x1fd0290, 0, 1;
+L_0x1fcea20 .part/pv L_0x1fce460, 1, 1, 4;
+L_0x1fceb10 .part L_0x1fcdd00, 1, 1;
+L_0x1fcec40 .part L_0x1fd0290, 1, 1;
+L_0x1fcf2f0 .part/pv L_0x1fcedb0, 2, 1, 4;
+L_0x1fcf390 .part L_0x1fcdd00, 2, 1;
+L_0x1fcf4c0 .part L_0x1fd0290, 2, 1;
+L_0x1fcfbb0 .part/pv L_0x1fcf5f0, 3, 1, 4;
+L_0x1fcfd40 .part L_0x1fcdd00, 3, 1;
+L_0x1fcff00 .part L_0x1fd0290, 3, 1;
+S_0x1f9b990 .scope module, "fa0" "structuralFullAdder" 2 43, 2 9, S_0x1f9a710;
+ .timescale -9 -12;
+L_0x1fcd550/d .functor XOR 1, L_0x1fce200, L_0x1fce330, L_0x1fcd260, C4<0>;
+L_0x1fcd550 .delay (30000,30000,30000) L_0x1fcd550/d;
+L_0x1fc4350/d .functor AND 1, L_0x1fce200, L_0x1fce330, C4<1>, C4<1>;
+L_0x1fc4350 .delay (20000,20000,20000) L_0x1fc4350/d;
+L_0x1fc4480/d .functor AND 1, L_0x1fce200, L_0x1fcd260, C4<1>, C4<1>;
+L_0x1fc4480 .delay (20000,20000,20000) L_0x1fc4480/d;
+L_0x1fcdf00/d .functor AND 1, L_0x1fce330, L_0x1fcd260, C4<1>, C4<1>;
+L_0x1fcdf00 .delay (20000,20000,20000) L_0x1fcdf00/d;
+L_0x1fce090/d .functor OR 1, L_0x1fc4350, L_0x1fc4480, L_0x1fcdf00, C4<0>;
+L_0x1fce090 .delay (20000,20000,20000) L_0x1fce090/d;
+v0x1f9ba80_0 .net "AandB", 0 0, L_0x1fc4350; 1 drivers
+v0x1f9bb40_0 .net "AandC", 0 0, L_0x1fc4480; 1 drivers
+v0x1f9bbe0_0 .net "BandC", 0 0, L_0x1fcdf00; 1 drivers
+v0x1f9bc80_0 .net "a", 0 0, L_0x1fce200; 1 drivers
+v0x1f9bd00_0 .net "b", 0 0, L_0x1fce330; 1 drivers
+v0x1f9bda0_0 .alias "carryin", 0 0, v0x1fa9790_6;
+v0x1f9be40_0 .alias "carryout", 0 0, v0x1f9c250_0;
+v0x1f9bec0_0 .net "sum", 0 0, L_0x1fcd550; 1 drivers
+S_0x1f9b3e0 .scope module, "fa1" "structuralFullAdder" 2 44, 2 9, S_0x1f9a710;
+ .timescale -9 -12;
+L_0x1fce460/d .functor XOR 1, L_0x1fceb10, L_0x1fcec40, L_0x1fce090, C4<0>;
+L_0x1fce460 .delay (30000,30000,30000) L_0x1fce460/d;
+L_0x1fce620/d .functor AND 1, L_0x1fceb10, L_0x1fcec40, C4<1>, C4<1>;
+L_0x1fce620 .delay (20000,20000,20000) L_0x1fce620/d;
+L_0x1fce6f0/d .functor AND 1, L_0x1fceb10, L_0x1fce090, C4<1>, C4<1>;
+L_0x1fce6f0 .delay (20000,20000,20000) L_0x1fce6f0/d;
+L_0x1fce790/d .functor AND 1, L_0x1fcec40, L_0x1fce090, C4<1>, C4<1>;
+L_0x1fce790 .delay (20000,20000,20000) L_0x1fce790/d;
+L_0x1fce860/d .functor OR 1, L_0x1fce620, L_0x1fce6f0, L_0x1fce790, C4<0>;
+L_0x1fce860 .delay (20000,20000,20000) L_0x1fce860/d;
+v0x1f9b4d0_0 .net "AandB", 0 0, L_0x1fce620; 1 drivers
+v0x1f9b590_0 .net "AandC", 0 0, L_0x1fce6f0; 1 drivers
+v0x1f9b630_0 .net "BandC", 0 0, L_0x1fce790; 1 drivers
+v0x1f9b6d0_0 .net "a", 0 0, L_0x1fceb10; 1 drivers
+v0x1f9b750_0 .net "b", 0 0, L_0x1fcec40; 1 drivers
+v0x1f9b7f0_0 .alias "carryin", 0 0, v0x1f9c250_0;
+v0x1f9b890_0 .alias "carryout", 0 0, v0x1f9c250_1;
+v0x1f9b910_0 .net "sum", 0 0, L_0x1fce460; 1 drivers
+S_0x1f9ae30 .scope module, "fa2" "structuralFullAdder" 2 45, 2 9, S_0x1f9a710;
+ .timescale -9 -12;
+L_0x1fcedb0/d .functor XOR 1, L_0x1fcf390, L_0x1fcf4c0, L_0x1fce860, C4<0>;
+L_0x1fcedb0 .delay (30000,30000,30000) L_0x1fcedb0/d;
+L_0x1fceee0/d .functor AND 1, L_0x1fcf390, L_0x1fcf4c0, C4<1>, C4<1>;
+L_0x1fceee0 .delay (20000,20000,20000) L_0x1fceee0/d;
+L_0x1fcf020/d .functor AND 1, L_0x1fcf390, L_0x1fce860, C4<1>, C4<1>;
+L_0x1fcf020 .delay (20000,20000,20000) L_0x1fcf020/d;
+L_0x1fcf0c0/d .functor AND 1, L_0x1fcf4c0, L_0x1fce860, C4<1>, C4<1>;
+L_0x1fcf0c0 .delay (20000,20000,20000) L_0x1fcf0c0/d;
+L_0x1fcf160/d .functor OR 1, L_0x1fceee0, L_0x1fcf020, L_0x1fcf0c0, C4<0>;
+L_0x1fcf160 .delay (20000,20000,20000) L_0x1fcf160/d;
+v0x1f9af20_0 .net "AandB", 0 0, L_0x1fceee0; 1 drivers
+v0x1f9afe0_0 .net "AandC", 0 0, L_0x1fcf020; 1 drivers
+v0x1f9b080_0 .net "BandC", 0 0, L_0x1fcf0c0; 1 drivers
+v0x1f9b120_0 .net "a", 0 0, L_0x1fcf390; 1 drivers
+v0x1f9b1a0_0 .net "b", 0 0, L_0x1fcf4c0; 1 drivers
+v0x1f9b240_0 .alias "carryin", 0 0, v0x1f9c250_1;
+v0x1f9b2e0_0 .alias "carryout", 0 0, v0x1f9c250_2;
+v0x1f9b360_0 .net "sum", 0 0, L_0x1fcedb0; 1 drivers
+S_0x1f9a800 .scope module, "fa3" "structuralFullAdder" 2 46, 2 9, S_0x1f9a710;
+ .timescale -9 -12;
+L_0x1fcf5f0/d .functor XOR 1, L_0x1fcfd40, L_0x1fcff00, L_0x1fcf160, C4<0>;
+L_0x1fcf5f0 .delay (30000,30000,30000) L_0x1fcf5f0/d;
+L_0x1fcf6e0/d .functor AND 1, L_0x1fcfd40, L_0x1fcff00, C4<1>, C4<1>;
+L_0x1fcf6e0 .delay (20000,20000,20000) L_0x1fcf6e0/d;
+L_0x1fcf800/d .functor AND 1, L_0x1fcfd40, L_0x1fcf160, C4<1>, C4<1>;
+L_0x1fcf800 .delay (20000,20000,20000) L_0x1fcf800/d;
+L_0x1fcf8c0/d .functor AND 1, L_0x1fcff00, L_0x1fcf160, C4<1>, C4<1>;
+L_0x1fcf8c0 .delay (20000,20000,20000) L_0x1fcf8c0/d;
+L_0x1fcf9b0/d .functor OR 1, L_0x1fcf6e0, L_0x1fcf800, L_0x1fcf8c0, C4<0>;
+L_0x1fcf9b0 .delay (20000,20000,20000) L_0x1fcf9b0/d;
+v0x1f9a8f0_0 .net "AandB", 0 0, L_0x1fcf6e0; 1 drivers
+v0x1f9a9b0_0 .net "AandC", 0 0, L_0x1fcf800; 1 drivers
+v0x1f9aa50_0 .net "BandC", 0 0, L_0x1fcf8c0; 1 drivers
+v0x1f9aaf0_0 .net "a", 0 0, L_0x1fcfd40; 1 drivers
+v0x1f9ab70_0 .net "b", 0 0, L_0x1fcff00; 1 drivers
+v0x1f9ac10_0 .alias "carryin", 0 0, v0x1f9c250_2;
+v0x1f9acf0_0 .alias "carryout", 0 0, v0x1fa9da0_0;
+v0x1f9ad90_0 .net "sum", 0 0, L_0x1fcf5f0; 1 drivers
+    .scope S_0x1f5cad0;
 T_0 ;
     %vpi_call 3 15 "$display", " a_10   b _10 |overflow carryout   sum ";
-    %set/v v0x19eac80_0, 0, 32;
-    %set/v v0x19ead20_0, 0, 32;
+    %set/v v0x1fa9c80_0, 0, 32;
+    %set/v v0x1fa9d20_0, 0, 32;
     %delay 1000000, 0;
-    %vpi_call 3 17 "$display", " 0        0  |   %b        %b       %b", v0x19eae20_0, v0x19eada0_0, v0x19eaea0_0;
-    %set/v v0x19eac80_0, 1, 32;
-    %set/v v0x19ead20_0, 1, 32;
+    %vpi_call 3 17 "$display", " 0        0  |   %b        %b       %b", v0x1fa9e20_0, v0x1fa9da0_0, v0x1fa9ea0_0;
+    %set/v v0x1fa9c80_0, 1, 32;
+    %set/v v0x1fa9d20_0, 1, 32;
     %delay 1000000, 0;
-    %vpi_call 3 19 "$display", " -1       -1 |   %b        %b       %b", v0x19eae20_0, v0x19eada0_0, v0x19eaea0_0;
+    %vpi_call 3 19 "$display", " -1       -1 |   %b        %b       %b", v0x1fa9e20_0, v0x1fa9da0_0, v0x1fa9ea0_0;
     %movi 8, 268435455, 32;
-    %set/v v0x19eac80_0, 8, 32;
+    %set/v v0x1fa9c80_0, 8, 32;
     %movi 8, 268435455, 32;
-    %set/v v0x19ead20_0, 8, 32;
+    %set/v v0x1fa9d20_0, 8, 32;
     %delay 1000000, 0;
-    %vpi_call 3 21 "$display", "  max     max|   %b        %b       %b", v0x19eae20_0, v0x19eada0_0, v0x19eaea0_0;
+    %vpi_call 3 21 "$display", "  max     max|   %b        %b       %b", v0x1fa9e20_0, v0x1fa9da0_0, v0x1fa9ea0_0;
     %movi 8, 4026531855, 32;
-    %set/v v0x19eac80_0, 8, 32;
+    %set/v v0x1fa9c80_0, 8, 32;
     %movi 8, 4026531855, 32;
-    %set/v v0x19ead20_0, 8, 32;
+    %set/v v0x1fa9d20_0, 8, 32;
     %delay 1000000, 0;
-    %vpi_call 3 23 "$display", " min     min |   %b        %b       %b", v0x19eae20_0, v0x19eada0_0, v0x19eaea0_0;
+    %vpi_call 3 23 "$display", " min     min |   %b        %b       %b", v0x1fa9e20_0, v0x1fa9da0_0, v0x1fa9ea0_0;
     %movi 8, 4, 32;
-    %set/v v0x19eac80_0, 8, 32;
+    %set/v v0x1fa9c80_0, 8, 32;
     %movi 8, 4, 32;
-    %set/v v0x19ead20_0, 8, 32;
+    %set/v v0x1fa9d20_0, 8, 32;
     %delay 10000000, 0;
-    %vpi_call 3 25 "$display", "  4       4  |   %b        %b       %b", v0x19eae20_0, v0x19eada0_0, v0x19eaea0_0;
+    %vpi_call 3 25 "$display", "  4       4  |   %b        %b       %b", v0x1fa9e20_0, v0x1fa9da0_0, v0x1fa9ea0_0;
     %movi 8, 305402420, 32;
-    %set/v v0x19eac80_0, 8, 32;
+    %set/v v0x1fa9c80_0, 8, 32;
     %movi 8, 305402420, 32;
-    %set/v v0x19ead20_0, 8, 32;
+    %set/v v0x1fa9d20_0, 8, 32;
     %delay 10000000, 0;
-    %vpi_call 3 27 "$display", " ?      ?    |   %b        %b       %b", v0x19eae20_0, v0x19eada0_0, v0x19eaea0_0;
-    %set/v v0x19eac80_0, 1, 32;
+    %vpi_call 3 27 "$display", " ?      ?    |   %b        %b       %b", v0x1fa9e20_0, v0x1fa9da0_0, v0x1fa9ea0_0;
+    %set/v v0x1fa9c80_0, 1, 32;
     %movi 8, 1, 32;
-    %set/v v0x19ead20_0, 8, 32;
+    %set/v v0x1fa9d20_0, 8, 32;
     %delay 10000000, 0;
-    %vpi_call 3 29 "$display", " -1    1     |   %b        %b       %b", v0x19eae20_0, v0x19eada0_0, v0x19eaea0_0;
+    %vpi_call 3 29 "$display", " -1    1     |   %b        %b       %b", v0x1fa9e20_0, v0x1fa9da0_0, v0x1fa9ea0_0;
     %end;
     .thread T_0;
 # The file index is used to find the file name in the following table.

@@ -26,8 +26,7 @@ input[2:0]      command
 
 	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, command);
 
-	FullAdder32bit addtest(addResult, carryout, overflow, operandA, operandB);
-	FullAdder32bit sub(subResult, carryout, overflow, operandA, invertB); //should be integrated with line about and only have 1 result
+	FullAdder32bit addtest(addResult, carryout, overflow, operandA, operandB, invertB);
 	//xor
 	//slt
 	//and/nand
