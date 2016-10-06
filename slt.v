@@ -1,5 +1,6 @@
 `include "adder.v"
 `define OR or #30
+`define NOT not #10
 
 // SLT definition
 // if A<B, R=0
@@ -12,6 +13,13 @@ module SLTfunction
     input [31:0] b
 
 );
+	genvar i;
+	generate
+	  for (i=1; i < 32; i=i+1)
+	  begin:NOR32gate
+	    `NOT _notgate(result[i], 1); // set all bits of result to 0
+	  end
+	endgenerate
 
 	// How to find the SLT:
 	// Find A-B
@@ -19,10 +27,10 @@ module SLTfunction
 	wire overflow;
 	wire carryout;
 	wire zero;
-	wire[31:0] resultadd;
+	wire[31:0] resultsub;
 
-	Adder32bit intermediateadder(overflow, carryout, zero, resultadd, a, b, 1, 1);
+	Adder32bit intermediateadder(overflow, carryout, zero, resultsub, a, b, 1, 1);
 	// set the lest
-	`OR orgate(result[0], resultadd[31], 0);  
+	`OR orgate(result[0], resultsub[31], 0);  
 
 endmodule
