@@ -1,0 +1,323 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1934f20 .scope module, "mux_alu" "mux_alu" 2 22;
+ .timescale 0 0;
+v0x1967f90_0 .net "in0", 0 0, C4<z>; 0 drivers
+v0x1968040_0 .net "in1", 0 0, C4<z>; 0 drivers
+v0x19680f0_0 .net "in2", 0 0, C4<z>; 0 drivers
+v0x19681a0_0 .net "in3", 0 0, C4<z>; 0 drivers
+v0x1968280_0 .net "in4", 0 0, C4<z>; 0 drivers
+v0x1968330_0 .net "result", 0 0, L_0x196d390; 1 drivers
+v0x19683b0_0 .net "sel0", 0 0, C4<z>; 0 drivers
+v0x1968430_0 .net "sel1", 0 0, C4<z>; 0 drivers
+v0x1968500_0 .net "sel2", 0 0, C4<z>; 0 drivers
+v0x19685b0_0 .net "w0", 0 0, L_0x196bac0; 1 drivers
+v0x1968690_0 .net "w1", 0 0, L_0x196c2e0; 1 drivers
+v0x1968760_0 .net "w2", 0 0, L_0x196cb30; 1 drivers
+S_0x19677e0 .scope module, "mux00" "mux_1bit" 2 37, 2 2, S_0x1934f20;
+ .timescale 0 0;
+L_0x196b410/d .functor NAND 1, C4<z>, C4<z>, C4<1>, C4<1>;
+L_0x196b410 .delay (20,20,20) L_0x196b410/d;
+L_0x196b4c0/d .functor NOT 1, L_0x196b410, C4<0>, C4<0>, C4<0>;
+L_0x196b4c0 .delay (10,10,10) L_0x196b4c0/d;
+L_0x196b5d0/d .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x196b5d0 .delay (10,10,10) L_0x196b5d0/d;
+L_0x196b720/d .functor NAND 1, C4<z>, L_0x196b5d0, C4<1>, C4<1>;
+L_0x196b720 .delay (20,20,20) L_0x196b720/d;
+L_0x196b830/d .functor NOT 1, L_0x196b720, C4<0>, C4<0>, C4<0>;
+L_0x196b830 .delay (10,10,10) L_0x196b830/d;
+L_0x196b920/d .functor NOR 1, L_0x196b830, L_0x196b4c0, C4<0>, C4<0>;
+L_0x196b920 .delay (20,20,20) L_0x196b920/d;
+L_0x196bac0/d .functor NOT 1, L_0x196b920, C4<0>, C4<0>, C4<0>;
+L_0x196bac0 .delay (10,10,10) L_0x196bac0/d;
+v0x19678d0_0 .net "and_in0ncom", 0 0, L_0x196b830; 1 drivers
+v0x1967990_0 .net "and_in1com", 0 0, L_0x196b4c0; 1 drivers
+v0x1967a30_0 .alias "in0", 0 0, v0x1967f90_0;
+v0x1967ad0_0 .alias "in1", 0 0, v0x1968040_0;
+v0x1967b80_0 .net "nand_in0ncom", 0 0, L_0x196b720; 1 drivers
+v0x1967c20_0 .net "nand_in1com", 0 0, L_0x196b410; 1 drivers
+v0x1967cc0_0 .net "ncom", 0 0, L_0x196b5d0; 1 drivers
+v0x1967d60_0 .net "nor_wire", 0 0, L_0x196b920; 1 drivers
+v0x1967e00_0 .alias "result", 0 0, v0x19685b0_0;
+v0x1967e80_0 .alias "sel0", 0 0, v0x19683b0_0;
+S_0x1967060 .scope module, "mux01" "mux_1bit" 2 38, 2 2, S_0x1934f20;
+ .timescale 0 0;
+L_0x196bbf0/d .functor NAND 1, C4<z>, C4<z>, C4<1>, C4<1>;
+L_0x196bbf0 .delay (20,20,20) L_0x196bbf0/d;
+L_0x196bd00/d .functor NOT 1, L_0x196bbf0, C4<0>, C4<0>, C4<0>;
+L_0x196bd00 .delay (10,10,10) L_0x196bd00/d;
+L_0x196be30/d .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x196be30 .delay (10,10,10) L_0x196be30/d;
+L_0x196bef0/d .functor NAND 1, C4<z>, L_0x196be30, C4<1>, C4<1>;
+L_0x196bef0 .delay (20,20,20) L_0x196bef0/d;
+L_0x196c050/d .functor NOT 1, L_0x196bef0, C4<0>, C4<0>, C4<0>;
+L_0x196c050 .delay (10,10,10) L_0x196c050/d;
+L_0x196c140/d .functor NOR 1, L_0x196c050, L_0x196bd00, C4<0>, C4<0>;
+L_0x196c140 .delay (20,20,20) L_0x196c140/d;
+L_0x196c2e0/d .functor NOT 1, L_0x196c140, C4<0>, C4<0>, C4<0>;
+L_0x196c2e0 .delay (10,10,10) L_0x196c2e0/d;
+v0x1967150_0 .net "and_in0ncom", 0 0, L_0x196c050; 1 drivers
+v0x1967210_0 .net "and_in1com", 0 0, L_0x196bd00; 1 drivers
+v0x19672b0_0 .alias "in0", 0 0, v0x19680f0_0;
+v0x1967350_0 .alias "in1", 0 0, v0x19681a0_0;
+v0x1967400_0 .net "nand_in0ncom", 0 0, L_0x196bef0; 1 drivers
+v0x19674a0_0 .net "nand_in1com", 0 0, L_0x196bbf0; 1 drivers
+v0x1967540_0 .net "ncom", 0 0, L_0x196be30; 1 drivers
+v0x19675e0_0 .net "nor_wire", 0 0, L_0x196c140; 1 drivers
+v0x1967680_0 .alias "result", 0 0, v0x1968690_0;
+v0x1967700_0 .alias "sel0", 0 0, v0x19683b0_0;
+S_0x1966910 .scope module, "mux1" "mux_1bit" 2 39, 2 2, S_0x1934f20;
+ .timescale 0 0;
+L_0x196c410/d .functor NAND 1, L_0x196c2e0, C4<z>, C4<1>, C4<1>;
+L_0x196c410 .delay (20,20,20) L_0x196c410/d;
+L_0x196c560/d .functor NOT 1, L_0x196c410, C4<0>, C4<0>, C4<0>;
+L_0x196c560 .delay (10,10,10) L_0x196c560/d;
+L_0x196c690/d .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x196c690 .delay (10,10,10) L_0x196c690/d;
+L_0x196c750/d .functor NAND 1, L_0x196bac0, L_0x196c690, C4<1>, C4<1>;
+L_0x196c750 .delay (20,20,20) L_0x196c750/d;
+L_0x196c8a0/d .functor NOT 1, L_0x196c750, C4<0>, C4<0>, C4<0>;
+L_0x196c8a0 .delay (10,10,10) L_0x196c8a0/d;
+L_0x196c990/d .functor NOR 1, L_0x196c8a0, L_0x196c560, C4<0>, C4<0>;
+L_0x196c990 .delay (20,20,20) L_0x196c990/d;
+L_0x196cb30/d .functor NOT 1, L_0x196c990, C4<0>, C4<0>, C4<0>;
+L_0x196cb30 .delay (10,10,10) L_0x196cb30/d;
+v0x1966a00_0 .net "and_in0ncom", 0 0, L_0x196c8a0; 1 drivers
+v0x1966ac0_0 .net "and_in1com", 0 0, L_0x196c560; 1 drivers
+v0x1966b60_0 .alias "in0", 0 0, v0x19685b0_0;
+v0x1966c00_0 .alias "in1", 0 0, v0x1968690_0;
+v0x1966c80_0 .net "nand_in0ncom", 0 0, L_0x196c750; 1 drivers
+v0x1966d20_0 .net "nand_in1com", 0 0, L_0x196c410; 1 drivers
+v0x1966dc0_0 .net "ncom", 0 0, L_0x196c690; 1 drivers
+v0x1966e60_0 .net "nor_wire", 0 0, L_0x196c990; 1 drivers
+v0x1966f00_0 .alias "result", 0 0, v0x1968760_0;
+v0x1966f80_0 .alias "sel0", 0 0, v0x1968430_0;
+S_0x193dc00 .scope module, "mux2" "mux_1bit" 2 40, 2 2, S_0x1934f20;
+ .timescale 0 0;
+L_0x196cc60/d .functor NAND 1, C4<z>, C4<z>, C4<1>, C4<1>;
+L_0x196cc60 .delay (20,20,20) L_0x196cc60/d;
+L_0x196cdc0/d .functor NOT 1, L_0x196cc60, C4<0>, C4<0>, C4<0>;
+L_0x196cdc0 .delay (10,10,10) L_0x196cdc0/d;
+L_0x196cef0/d .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x196cef0 .delay (10,10,10) L_0x196cef0/d;
+L_0x196cfb0/d .functor NAND 1, L_0x196cb30, L_0x196cef0, C4<1>, C4<1>;
+L_0x196cfb0 .delay (20,20,20) L_0x196cfb0/d;
+L_0x196d100/d .functor NOT 1, L_0x196cfb0, C4<0>, C4<0>, C4<0>;
+L_0x196d100 .delay (10,10,10) L_0x196d100/d;
+L_0x196d1f0/d .functor NOR 1, L_0x196d100, L_0x196cdc0, C4<0>, C4<0>;
+L_0x196d1f0 .delay (20,20,20) L_0x196d1f0/d;
+L_0x196d390/d .functor NOT 1, L_0x196d1f0, C4<0>, C4<0>, C4<0>;
+L_0x196d390 .delay (10,10,10) L_0x196d390/d;
+v0x193dcf0_0 .net "and_in0ncom", 0 0, L_0x196d100; 1 drivers
+v0x1966270_0 .net "and_in1com", 0 0, L_0x196cdc0; 1 drivers
+v0x1966310_0 .alias "in0", 0 0, v0x1968760_0;
+v0x19663b0_0 .alias "in1", 0 0, v0x1968280_0;
+v0x1966460_0 .net "nand_in0ncom", 0 0, L_0x196cfb0; 1 drivers
+v0x1966500_0 .net "nand_in1com", 0 0, L_0x196cc60; 1 drivers
+v0x19665e0_0 .net "ncom", 0 0, L_0x196cef0; 1 drivers
+v0x1966680_0 .net "nor_wire", 0 0, L_0x196d1f0; 1 drivers
+v0x1966770_0 .alias "result", 0 0, v0x1968330_0;
+v0x1966810_0 .alias "sel0", 0 0, v0x1968500_0;
+S_0x1935010 .scope module, "nand_and_1bit" "nand_and_1bit" 3 18;
+ .timescale 0 0;
+L_0x196d510/d .functor NAND 1, C4<z>, C4<z>, C4<1>, C4<1>;
+L_0x196d510 .delay (20,20,20) L_0x196d510/d;
+L_0x196d600/d .functor NOT 1, L_0x196d510, C4<0>, C4<0>, C4<0>;
+L_0x196d600 .delay (10,10,10) L_0x196d600/d;
+v0x1968ee0_0 .net "a", 0 0, C4<z>; 0 drivers
+v0x1968fa0_0 .net "and_ab", 0 0, L_0x196d600; 1 drivers
+v0x1969020_0 .net "b", 0 0, C4<z>; 0 drivers
+v0x19690a0_0 .net "nand_ab", 0 0, L_0x196d510; 1 drivers
+v0x1969120_0 .net "othercontrolsignal", 0 0, C4<z>; 0 drivers
+v0x19691d0_0 .net "result", 0 0, L_0x196de30; 1 drivers
+S_0x19688a0 .scope module, "mux_1" "mux_1bit" 3 30, 2 2, S_0x1935010;
+ .timescale 0 0;
+L_0x196d750/d .functor NAND 1, L_0x196d600, C4<z>, C4<1>, C4<1>;
+L_0x196d750 .delay (20,20,20) L_0x196d750/d;
+L_0x196d860/d .functor NOT 1, L_0x196d750, C4<0>, C4<0>, C4<0>;
+L_0x196d860 .delay (10,10,10) L_0x196d860/d;
+L_0x196d990/d .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x196d990 .delay (10,10,10) L_0x196d990/d;
+L_0x196da50/d .functor NAND 1, L_0x196d510, L_0x196d990, C4<1>, C4<1>;
+L_0x196da50 .delay (20,20,20) L_0x196da50/d;
+L_0x196dba0/d .functor NOT 1, L_0x196da50, C4<0>, C4<0>, C4<0>;
+L_0x196dba0 .delay (10,10,10) L_0x196dba0/d;
+L_0x196dc90/d .functor NOR 1, L_0x196dba0, L_0x196d860, C4<0>, C4<0>;
+L_0x196dc90 .delay (20,20,20) L_0x196dc90/d;
+L_0x196de30/d .functor NOT 1, L_0x196dc90, C4<0>, C4<0>, C4<0>;
+L_0x196de30 .delay (10,10,10) L_0x196de30/d;
+v0x1968990_0 .net "and_in0ncom", 0 0, L_0x196dba0; 1 drivers
+v0x1968a10_0 .net "and_in1com", 0 0, L_0x196d860; 1 drivers
+v0x1968a90_0 .alias "in0", 0 0, v0x19690a0_0;
+v0x1968b10_0 .alias "in1", 0 0, v0x1968fa0_0;
+v0x1968b90_0 .net "nand_in0ncom", 0 0, L_0x196da50; 1 drivers
+v0x1968c10_0 .net "nand_in1com", 0 0, L_0x196d750; 1 drivers
+v0x1968c90_0 .net "ncom", 0 0, L_0x196d990; 1 drivers
+v0x1968d10_0 .net "nor_wire", 0 0, L_0x196dc90; 1 drivers
+v0x1968de0_0 .alias "result", 0 0, v0x19691d0_0;
+v0x1968e60_0 .alias "sel0", 0 0, v0x1969120_0;
+S_0x193b960 .scope module, "nor_or_1bit" "nor_or_1bit" 3 2;
+ .timescale 0 0;
+L_0x196dfb0/d .functor NOR 1, C4<z>, C4<z>, C4<0>, C4<0>;
+L_0x196dfb0 .delay (20,20,20) L_0x196dfb0/d;
+L_0x196e0a0/d .functor NOT 1, L_0x196dfb0, C4<0>, C4<0>, C4<0>;
+L_0x196e0a0 .delay (10,10,10) L_0x196e0a0/d;
+v0x19699d0_0 .net "a", 0 0, C4<z>; 0 drivers
+v0x1969a90_0 .net "b", 0 0, C4<z>; 0 drivers
+v0x1969b30_0 .net "nor_ab", 0 0, L_0x196dfb0; 1 drivers
+v0x1969bb0_0 .net "or_ab", 0 0, L_0x196e0a0; 1 drivers
+v0x1969c90_0 .net "othercontrolsignal", 0 0, C4<z>; 0 drivers
+v0x1969d40_0 .net "result", 0 0, L_0x196e8d0; 1 drivers
+S_0x1969250 .scope module, "mux_1" "mux_1bit" 3 14, 2 2, S_0x193b960;
+ .timescale 0 0;
+L_0x196e1f0/d .functor NAND 1, L_0x196e0a0, C4<z>, C4<1>, C4<1>;
+L_0x196e1f0 .delay (20,20,20) L_0x196e1f0/d;
+L_0x196e300/d .functor NOT 1, L_0x196e1f0, C4<0>, C4<0>, C4<0>;
+L_0x196e300 .delay (10,10,10) L_0x196e300/d;
+L_0x196e430/d .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x196e430 .delay (10,10,10) L_0x196e430/d;
+L_0x196e4f0/d .functor NAND 1, L_0x196dfb0, L_0x196e430, C4<1>, C4<1>;
+L_0x196e4f0 .delay (20,20,20) L_0x196e4f0/d;
+L_0x196e640/d .functor NOT 1, L_0x196e4f0, C4<0>, C4<0>, C4<0>;
+L_0x196e640 .delay (10,10,10) L_0x196e640/d;
+L_0x196e730/d .functor NOR 1, L_0x196e640, L_0x196e300, C4<0>, C4<0>;
+L_0x196e730 .delay (20,20,20) L_0x196e730/d;
+L_0x196e8d0/d .functor NOT 1, L_0x196e730, C4<0>, C4<0>, C4<0>;
+L_0x196e8d0 .delay (10,10,10) L_0x196e8d0/d;
+v0x1969340_0 .net "and_in0ncom", 0 0, L_0x196e640; 1 drivers
+v0x19693c0_0 .net "and_in1com", 0 0, L_0x196e300; 1 drivers
+v0x1969440_0 .alias "in0", 0 0, v0x1969b30_0;
+v0x19694c0_0 .alias "in1", 0 0, v0x1969bb0_0;
+v0x1969570_0 .net "nand_in0ncom", 0 0, L_0x196e4f0; 1 drivers
+v0x1969610_0 .net "nand_in1com", 0 0, L_0x196e1f0; 1 drivers
+v0x19696f0_0 .net "ncom", 0 0, L_0x196e430; 1 drivers
+v0x1969790_0 .net "nor_wire", 0 0, L_0x196e730; 1 drivers
+v0x1969830_0 .alias "result", 0 0, v0x1969d40_0;
+v0x19698d0_0 .alias "sel0", 0 0, v0x1969c90_0;
+S_0x193ba50 .scope module, "testFullAdder" "testFullAdder" 4 6;
+ .timescale 0 0;
+v0x196b0a0_0 .var "a", 0 0;
+v0x196b120_0 .var "b", 0 0;
+v0x196b1f0_0 .var "carryin", 0 0;
+v0x196b2c0_0 .net "carryout", 0 0, L_0x196fa90; 1 drivers
+v0x196b340_0 .net "sum", 0 0, L_0x196f480; 1 drivers
+S_0x1969dc0 .scope module, "adder" "adder_1bit" 4 11, 5 2, S_0x193ba50;
+ .timescale 0 0;
+L_0x196f590/d .functor NAND 1, v0x196b0a0_0, v0x196b120_0, C4<1>, C4<1>;
+L_0x196f590 .delay (20,20,20) L_0x196f590/d;
+L_0x196f650/d .functor NOT 1, L_0x196f590, C4<0>, C4<0>, C4<0>;
+L_0x196f650 .delay (10,10,10) L_0x196f650/d;
+L_0x196f780/d .functor NAND 1, v0x196b1f0_0, L_0x196eee0, C4<1>, C4<1>;
+L_0x196f780 .delay (20,20,20) L_0x196f780/d;
+L_0x196f840/d .functor NOT 1, L_0x196f780, C4<0>, C4<0>, C4<0>;
+L_0x196f840 .delay (10,10,10) L_0x196f840/d;
+L_0x196f950/d .functor NOR 1, L_0x196f840, L_0x196f650, C4<0>, C4<0>;
+L_0x196f950 .delay (20,20,20) L_0x196f950/d;
+L_0x196fa90/d .functor NOT 1, L_0x196f950, C4<0>, C4<0>, C4<0>;
+L_0x196fa90 .delay (10,10,10) L_0x196fa90/d;
+v0x196a940_0 .net "And_AB", 0 0, L_0x196f650; 1 drivers
+v0x196a9e0_0 .net "And_XorAB_C", 0 0, L_0x196f840; 1 drivers
+v0x196aa80_0 .net "Nand_AB", 0 0, L_0x196f590; 1 drivers
+v0x196ab20_0 .net "Nand_XorAB_C", 0 0, L_0x196f780; 1 drivers
+v0x196abd0_0 .net "Xor_AB", 0 0, L_0x196eee0; 1 drivers
+v0x196ac50_0 .net "a", 0 0, v0x196b0a0_0; 1 drivers
+v0x196ad10_0 .net "b", 0 0, v0x196b120_0; 1 drivers
+v0x196ad90_0 .net "carryin", 0 0, v0x196b1f0_0; 1 drivers
+v0x196ae90_0 .alias "carryout", 0 0, v0x196b2c0_0;
+v0x196af10_0 .net "nco", 0 0, L_0x196f950; 1 drivers
+v0x196aff0_0 .alias "sum", 0 0, v0x196b340_0;
+S_0x196a3d0 .scope module, "xor_1" "xor_1bit" 5 13, 3 34, S_0x1969dc0;
+ .timescale 0 0;
+L_0x196ea50/d .functor NAND 1, v0x196b0a0_0, v0x196b120_0, C4<1>, C4<1>;
+L_0x196ea50 .delay (20,20,20) L_0x196ea50/d;
+L_0x196eb10/d .functor NOR 1, v0x196b0a0_0, v0x196b120_0, C4<0>, C4<0>;
+L_0x196eb10 .delay (20,20,20) L_0x196eb10/d;
+L_0x196ed10/d .functor NOT 1, L_0x196eb10, C4<0>, C4<0>, C4<0>;
+L_0x196ed10 .delay (10,10,10) L_0x196ed10/d;
+L_0x196edd0/d .functor NAND 1, L_0x196ed10, L_0x196ea50, C4<1>, C4<1>;
+L_0x196edd0 .delay (20,20,20) L_0x196edd0/d;
+L_0x196eee0/d .functor NOT 1, L_0x196edd0, C4<0>, C4<0>, C4<0>;
+L_0x196eee0 .delay (10,10,10) L_0x196eee0/d;
+v0x196a4c0_0 .alias "a", 0 0, v0x196ac50_0;
+v0x196a580_0 .alias "b", 0 0, v0x196ad10_0;
+v0x196a620_0 .net "nand_ab", 0 0, L_0x196ea50; 1 drivers
+v0x196a6c0_0 .net "nor_ab", 0 0, L_0x196eb10; 1 drivers
+v0x196a740_0 .net "nxor_ab", 0 0, L_0x196edd0; 1 drivers
+v0x196a7e0_0 .net "or_ab", 0 0, L_0x196ed10; 1 drivers
+v0x196a8c0_0 .alias "result", 0 0, v0x196abd0_0;
+S_0x1969eb0 .scope module, "xor_2" "xor_1bit" 5 14, 3 34, S_0x1969dc0;
+ .timescale 0 0;
+L_0x196eff0/d .functor NAND 1, L_0x196eee0, v0x196b1f0_0, C4<1>, C4<1>;
+L_0x196eff0 .delay (20,20,20) L_0x196eff0/d;
+L_0x196f140/d .functor NOR 1, L_0x196eee0, v0x196b1f0_0, C4<0>, C4<0>;
+L_0x196f140 .delay (20,20,20) L_0x196f140/d;
+L_0x196f2b0/d .functor NOT 1, L_0x196f140, C4<0>, C4<0>, C4<0>;
+L_0x196f2b0 .delay (10,10,10) L_0x196f2b0/d;
+L_0x196f370/d .functor NAND 1, L_0x196f2b0, L_0x196eff0, C4<1>, C4<1>;
+L_0x196f370 .delay (20,20,20) L_0x196f370/d;
+L_0x196f480/d .functor NOT 1, L_0x196f370, C4<0>, C4<0>, C4<0>;
+L_0x196f480 .delay (10,10,10) L_0x196f480/d;
+v0x1969fa0_0 .alias "a", 0 0, v0x196abd0_0;
+v0x196a020_0 .alias "b", 0 0, v0x196ad90_0;
+v0x196a0a0_0 .net "nand_ab", 0 0, L_0x196eff0; 1 drivers
+v0x196a120_0 .net "nor_ab", 0 0, L_0x196f140; 1 drivers
+v0x196a1d0_0 .net "nxor_ab", 0 0, L_0x196f370; 1 drivers
+v0x196a250_0 .net "or_ab", 0 0, L_0x196f2b0; 1 drivers
+v0x196a330_0 .alias "result", 0 0, v0x196b340_0;
+    .scope S_0x193ba50;
+T_0 ;
+    %vpi_call 4 15 "$display", "A B Cin | Cout S  | Expected Output";
+    %set/v v0x196b0a0_0, 0, 1;
+    %set/v v0x196b120_0, 0, 1;
+    %set/v v0x196b1f0_0, 0, 1;
+    %delay 500, 0;
+    %vpi_call 4 17 "$display", "%b %b  %b  |  %b   %b  |  0  0", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %set/v v0x196b0a0_0, 0, 1;
+    %set/v v0x196b120_0, 0, 1;
+    %set/v v0x196b1f0_0, 1, 1;
+    %delay 500, 0;
+    %vpi_call 4 19 "$display", "%b %b  %b  |  %b   %b  |  0  1", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %set/v v0x196b0a0_0, 0, 1;
+    %set/v v0x196b120_0, 1, 1;
+    %set/v v0x196b1f0_0, 0, 1;
+    %delay 500, 0;
+    %vpi_call 4 21 "$display", "%b %b  %b  |  %b   %b  |  0  1", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %set/v v0x196b0a0_0, 0, 1;
+    %set/v v0x196b120_0, 1, 1;
+    %set/v v0x196b1f0_0, 1, 1;
+    %delay 500, 0;
+    %vpi_call 4 23 "$display", "%b %b  %b  |  %b   %b  |  1  0", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %set/v v0x196b0a0_0, 1, 1;
+    %set/v v0x196b120_0, 0, 1;
+    %set/v v0x196b1f0_0, 0, 1;
+    %delay 500, 0;
+    %vpi_call 4 25 "$display", "%b %b  %b  |  %b   %b  |  0  1", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %set/v v0x196b0a0_0, 1, 1;
+    %set/v v0x196b120_0, 0, 1;
+    %set/v v0x196b1f0_0, 1, 1;
+    %delay 500, 0;
+    %vpi_call 4 27 "$display", "%b %b  %b  |  %b   %b  |  1  0", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %set/v v0x196b0a0_0, 1, 1;
+    %set/v v0x196b120_0, 1, 1;
+    %set/v v0x196b1f0_0, 0, 1;
+    %delay 500, 0;
+    %vpi_call 4 29 "$display", "%b %b  %b  |  %b   %b  |  1  0", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %set/v v0x196b0a0_0, 1, 1;
+    %set/v v0x196b120_0, 1, 1;
+    %set/v v0x196b1f0_0, 1, 1;
+    %delay 500, 0;
+    %vpi_call 4 31 "$display", "%b %b  %b  |  %b   %b  |  1  1", v0x196b0a0_0, v0x196b120_0, v0x196b1f0_0, v0x196b2c0_0, v0x196b340_0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "./mux.v";
+    "./gates.v";
+    "adder.t.v";
+    "./adder.v";

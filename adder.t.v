@@ -1,5 +1,7 @@
 // Adder testbench
 `include "adder.v"
+`include "gates.v"
+`include "mux.v"
 
 module testFullAdder();
     reg a, b, carryin;

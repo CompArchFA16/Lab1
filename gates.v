@@ -45,4 +45,16 @@ module xor_1bit
     not  #10 not1(or_ab, nor_ab);
     nand #20 nand2(nxor_ab, or_ab, nand_ab);
     not  #10 not2(result, nxor_ab);
+
+    // wire not_a, not_b, nand_a_notb, nand_b_nota, and_a_notb, and_b_nota, not_result;
+
+    // not  #10 not1(nota, a);
+    // not  #10 not2(notb, b);
+    // nand #20 nand1(nand_a_notb, a, notb);
+    // nand #20 nand2(nand_b_nota, b, nota);
+    // not  #10 not3(and_a_notb, nand_a_notb);
+    // not  #10 not4(and_b_nota, nand_b_nota);
+    // nor  #20 nor1(not_result, and_a_notb, and_b_nota);
+    // not  #10 not5(result, not_result);
+
 endmodule
