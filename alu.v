@@ -1,5 +1,6 @@
 `include "alu_bitslice.v"
 `include "alu_lut.v"
+`include "alu_32_and_sad.v"
 `timescale 1 ns / 1 ps
 
 module ALU
@@ -71,8 +72,7 @@ module ALU
   not (carryout_n, internalCarryouts[32]);
   not (carryout, carryout_n);
 
-  not (zero_n, internalZeros[32]);
-  not (zero, zero_n);
+  ALU32AndSad alu32AndSad(zero, carryout, result);
 
   not (overflow_n, internalOverflows[32]);
   not (overflow, overflow_n);
