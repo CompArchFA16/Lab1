@@ -10,7 +10,7 @@ module testALUControlLUT();
 	wire setFlag;
 	wire secondaryOperation;
 
-	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, ALUCommand);
+	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, ALUCommand[2:0]);
 
 	initial begin
 

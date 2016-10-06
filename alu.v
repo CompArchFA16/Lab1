@@ -13,20 +13,17 @@ output          carryout,
 output          zero,
 output          overflow,
 input[31:0]     operandA,
-input[31:0]     operandB
-//input[2:0]      command
+input[31:0]     operandB,
+input[2:0]      command
 );
 
 	wire [2:0] muxindex;
 	wire invertB;
 	wire setFlag;
 	wire secondaryOperation;
-	reg[2:0] command1;
 
-	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, command1);
+	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, command);
 
-	initial begin
-	command1 = 3'b111; #100000;
-	$display("%b", muxindex);
-	end
+	FullAdder32bit addtest(result, carryout, overflow, operandA, operandB);
+
 endmodule
