@@ -1,4 +1,5 @@
 `include "alu_bitslice.v"
+`include "alu_lut.v"
 `timescale 1 ns / 1 ps
 
 module ALU
@@ -13,6 +14,7 @@ module ALU
   input[2:0]      command
 );
 
+  wire[31:0] internalResult;
   wire[32:0] internalCarryouts;
   wire[32:0] internalZeros;
   wire[32:0] internalOverflows;
@@ -21,15 +23,19 @@ module ALU
   wire ifSub;
   Multiplexer8Input ifSubbing(ifSub, command, 8'd2);
 
+  wire isSlt;
+  wire[2:0] muxCommand;
+  ALUcontrolLUT aluLut(muxCommand, isSlt, command);
+
   ALUBitslice aluSliceNDice2(
-    result[0],
+    internalResult[0],
     internalCarryouts[1],
     internalZeros[1],
     internalOverflows[1],
     operandA[0],
     operandB[0],
     ifSub,
-    command);
+    muxCommand);
 
   genvar i;
   generate
@@ -37,14 +43,25 @@ module ALU
     begin:ALUBitslice32
       // TODO: Chain the ALUs to each other for carryout, zero??, and overflow??
       ALUBitslice aluSliceNDice(
-        result[i],
+        internalResult[i],
         internalCarryouts[i+1],
         internalZeros[i+1],
         internalOverflows[i+1],
         operandA[i],
         operandB[i],
         internalCarryouts[i],
-        command);
+        muxCommand);
+    end
+  endgenerate
+
+  // If isSlt, then return 32'h1 if SLT or 0 if not
+  Multiplexer2Input isSltMux(result[0], isSlt, {internalResult[31], internalResult[0]});
+
+  genvar j;
+  generate
+    for (j=1; j < 32; j=j+1)
+    begin:CheatingSLT32
+      Multiplexer2Input isSltMuxLoop(result[j], isSlt, {1'b0, internalResult[j]});
     end
   endgenerate
 

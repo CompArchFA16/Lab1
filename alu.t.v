@@ -30,7 +30,7 @@ module testAlu();
 
     // COMMAND_ADD #2: -1 + (-4) = -5
     command = `COMMAND_ADD; operandA = 32'hFF; operandB = 32'hF9; #500000
-    $display("COMMAND_ADD  | %h       %h %h | %h %b %b %b | hF8 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
+    $display("COMMAND_ADD  | %h       %h %h | %h %b %b %b | h1F8 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // COMMAND_ADD #3: -1 + 2 = 1
     command = `COMMAND_ADD; operandA = 32'hFF; operandB = 32'h02; #500000
