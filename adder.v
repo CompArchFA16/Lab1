@@ -3,7 +3,7 @@
 `define AND3 and #40 //3 input AND with unit 10 per input
 `define OR or #30 //2 input OR
 `define NOT not #10 //1 input INV
-`define XOR xor #60 
+`define XOR xor #60
 
 module structuralFullAdder
 (
@@ -109,6 +109,5 @@ module Adder32bit
 
     // If either of the above conditions are true, then there is overflow
     `OR orgate(overflow, andtop, andbottom);
-
-
+    
 endmodule
