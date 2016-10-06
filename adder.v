@@ -109,5 +109,5 @@ module Adder32bit
 
     // If either of the above conditions are true, then there is overflow
     `OR orgate(overflow, andtop, andbottom);
-    
+
 endmodule

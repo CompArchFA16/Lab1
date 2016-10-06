@@ -1,7 +1,6 @@
-`include "adder.v"
 `define OR or #30
 `define NOT not #10
-
+//`include "adder32.v"
 // SLT definition
 // if A<B, R=0
 // else, R=1
@@ -29,8 +28,8 @@ module SLTfunction
 	wire zero;
 	wire[31:0] resultsub;
 
-	Adder32bit intermediateadder(overflow, carryout, zero, resultsub, a, b, 1, 1);
+	Full32Add intermediateadder(overflow, carryout, zero, resultsub, a, b, 1, 1);
 	// set the lest
-	`OR orgate(result[0], resultsub[31], 0);  
+	`OR orgate(result[0], resultsub[31], 0);
 
 endmodule

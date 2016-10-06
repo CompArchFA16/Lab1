@@ -1,16 +1,9 @@
 // ALU test bench
+`timescale 1 ns / 1 ps
 
-//The test bench should:
-//Instantiate a copy of the device it is testing (Device Under Test = DUT)
-//Show what the truth table should be
-//Show what the truth table is
-
-// Adder testbench
-//`timescale 1 ns / 1 ps
-//`include "adder.v"
-`include "nandnor.v"
-`include "zeroflag.v"
-`include "slt.v"
+// `include "nandnor.v"
+// `include "zeroflag.v"
+// `include "slt.v"
 `include "alu.v"
 
 module testFullAdder();
@@ -195,7 +188,7 @@ module testFullAdder();
     $display("other");
     a=32'h01011111;b=32'h10101100;command=3'b111; #10000000
     $display("%h %h %b     | %h %b        %b    %b        | %h", a, b, command, result, carryout, zero, overflow, a|b);
-    a=32'h11110000;b=32'h10101010;command=3'b111; #10000000
+    a=32'h11110000;b=32'h10101011;command=3'b111; #10000000
     $display("%h %h %b     | %h %b        %b    %b        | %h", a, b, command, result, carryout, zero, overflow, a|b);
 
     end

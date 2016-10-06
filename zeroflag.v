@@ -8,7 +8,6 @@
 `define NOT not #10
 `define NOR nor #20
 
-
 module FlagZero
     /*This module figures out if a bit string is equal to 0, and raises a flag */
 
