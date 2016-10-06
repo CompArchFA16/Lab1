@@ -172,7 +172,7 @@ module structuralMultiplexer
     genvar j;
     for (j = 0; j<32; j=j+1)
     	begin: gen2
-      `ANDgate andAnd(doAnd[j], andResult[j], notCommand[0], muxindex[1], notCommand[2]);
+      `ANDgate andAnd(doAnd[j], andResult[j], muxindex[0], muxindex[1], notCommand[2]);
       `ANDgate andOr(doOr[j], orResult[j], notCommand[0], notCommand[1], muxindex[2]);
       `ANDgate andXor(doXor[j], xorResult[j], muxindex[0], notCommand[1], notCommand[2]);
       `ANDgate andAdd(doAdd[j], addResult[j], notCommand[0], notCommand[1], notCommand[2]);
@@ -259,8 +259,6 @@ structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, ad
 
 slt32 myslt2(sltCheck1, result, 0);
 slt32 myslt3(sltCheck2, 0, result);
-
-`NORgate zeroOR(zero,sltCheck1,sltCheck2);
 
 //what do we do with the zero output??
 

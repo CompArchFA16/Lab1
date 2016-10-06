@@ -3,7 +3,7 @@
 /*include "genvartest.v"*/
 
 
-/*module testmux();
+module testmux();
 
     //tests the mux: MUX WORKS!
     wire [31:0] result;
@@ -14,11 +14,25 @@
 
     structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult);
     initial begin
-    muxindex = 3; andResult=32'd1; orResult=32'd1; xorResult=32'd3; addResult=32'd4; sltResult=1; #1000000000
-    $display(" %h  ", result);
+    //$display("  muxindex   result    |   expected result");
+
+    $dumpfile("testmux.vcd");
+    $dumpvars;
+
+    muxindex = 0; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
+    $display(" Test   | muxindex   result    | expected result");
+    $display("Add/Sub |    %h      %h   |    %h ", muxindex, result, addResult);
+    muxindex = 1; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
+    $display("  Xor   |    %h      %h   |    %h ", muxindex, result, xorResult);
+    muxindex = 2; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
+    $display("  SLT   |    %h      %h   |    %h ", muxindex, result, sltResult);
+    muxindex = 3; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
+    $display("And/Nor |    %h      %h   |    %h ", muxindex, result, andResult);
+    muxindex = 4; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
+    $display("Or/Nand |    %h      %h   |    %h ", muxindex, result, orResult);
     end
     endmodule
-*/
+
 
 /*module testlut();
 
@@ -56,7 +70,7 @@
 
 
 
-module testalu();
+/*module testalu();
 
     //tests the mux: MUX WORKS!
     wire[31:0]    result;
@@ -107,7 +121,7 @@ module testalu();
     end
 
 
-endmodule
+endmodule*/
 
 /*module testand();
     wire carryout;
