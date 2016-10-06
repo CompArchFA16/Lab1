@@ -230,6 +230,8 @@ wire[31:0] flipA, flipB;
 wire[31:0] andResult, orResult, addResult, xorResult;
 wire sltResult;
 wire[31:0] sltResult32 = 0;
+wire sltCheck1;
+wire sltCheck2;
 
 ALUcontrolLUT myLUT(muxindex, invertA, invertB, enableOverflow, carryin, command);
 
@@ -254,6 +256,11 @@ slt32 myslt(sltResult, operandA, operandB);
 `ORgate sltor(sltResult32[31],sltResult, 0);
 
 structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult32);
+
+slt32 myslt2(sltCheck1, result, 0);
+slt32 myslt3(sltCheck2, 0, result);
+
+`NORgate zeroOR(zero,sltCheck1,sltCheck2);
 
 //what do we do with the zero output??
 
