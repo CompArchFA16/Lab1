@@ -20,78 +20,7 @@
 `define XNOR xnor #50
 `define XOR xor #50
 
-module FullAdder
-(
-    output sum, 
-    output carryout,
-    input a, 
-    input b, 
-    input carryin
-);
-    wire AandB, AandC, BandC;
 
-    xor #30 xorGate(sum, a, b, carryin);
-
-    `AND and0(AandB, a, b);
-    `AND and1(AandC, a, carryin);
-    `AND and2(BandC, b, carryin);
-    or #40 orGate(carryout, AandB, AandC, BandC);
-
-endmodule
-
-//module mADD
-//(
-//  output[31:0]    result,
-//  output reg      carryout,
-//  output reg      overflow,
-//  input[31:0]     operandA,
-//  input[31:0]     operandB
-//);
-//
-//  wire[32:0] c; // indexing is set to be off by +1
-//  //c[0] = 0;
-//
-//  generate
-//    genvar i;
-//      for (i=0; i<32; i = i+1) begin: addgenblk
-//        FullAdder fa(result[i], c[i+1], operandA[i], operandB[i], c[i]);
-//      end
-//  endgenerate
-//
-//  assign carryout = c[32];
-//  `XOR xorGate(overflow, c[32], c[31]);
-//
-//endmodule
-//
-//
-//module mSUB
-//(
-//  output[31:0]    result,
-//  output reg      carryout,
-//  output reg      overflow,
-//  input[31:0]     operandA,
-//  input[31:0]     operandB
-//);
-//
-//  wire[32:0] c; // indexing is set to be off by +1
-//  //c[0] = 1; //first carry in set as 1
-//
-//  wire[31:0] nB; 
-//
-//
-//  generate
-//    genvar i;
-//    for (i=0; i<32; i = i+1) begin: subgenblk
-//      `NOT notsub(nB[i], operandB[i]); //inverting B
-//      FullAdder fa(result[i], c[i+1], operandA[i], nB[i], c[i]);
-//    end
-//  endgenerate
-//
-//  assign carryout = c[32];
-//  `XOR xorGate(overflow, c[32], c[31]);
-//
-//endmodule
-//
 module ALUcontrolLUT
 (
 output reg[2:0]     muxindex,
