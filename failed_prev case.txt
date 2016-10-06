@@ -62,3 +62,19 @@
  011 | 1100  0101 | 0001 |    1   1 | SLT
  011 | 0101  1100 | 0001 |    0   1 | SLT
 
+ Cm  |        A         B |      Out | Cout  OF | Case
+------------------------------------------------------
+ 101 | cccccccc  dddddddd | 33333333 |    1   0 | NAND
+ 100 | cccccccc  dddddddd | cccccccc |    1   0 | AND
+ 110 | cccccccc  dddddddd | 22222222 |    1   0 | NOR
+ 111 | cccccccc  dddddddd | dddddddd |    1   0 | OR
+ 010 | cccccccc  dddddddd | 11111111 |    1   0 | XOR
+
+ Cm  |        A         B |      Out | Cout  OF | Case
+------------------------------------------------------
+ 101 | aaaaaaaa  cccccccc | 77777777 |    1   1 | NAND
+ 100 | aaaaaaaa  cccccccc | 88888888 |    1   1 | AND
+ 110 | aaaaaaaa  cccccccc | 11111111 |    1   1 | NOR
+ 111 | aaaaaaaa  cccccccc | eeeeeeee |    1   1 | OR
+ 010 | aaaaaaaa  cccccccc | 66666666 |    1   1 | XOR
+
