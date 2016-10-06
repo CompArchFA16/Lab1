@@ -19,5 +19,5 @@ module slt_32bit
   nand #30 nand0(w6, w0, w1, w3);
   nand #30 nand1(w7, carryout, w8, A);
   nor #20 nor0(w5, w2, w4);
-  Xor_1bit(w3, A, B);
+  xor_1bit xor0(w3, A, B);
 endmodule

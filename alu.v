@@ -8,10 +8,10 @@
 `define NOR  3'd6
 `define OR   3'd7
 
-`include "mux.v"
-`include "adder.v"
-`include "gates.v"
-`include "slt.v"
+// `include "mux.v"
+// `include "adder.v"
+// `include "gates.v"
+// `include "slt.v"
 
 module ALU_1bit // 1bit
 (
@@ -36,7 +36,7 @@ module ALU_1bit // 1bit
     nand_and_1bit nand_and_gate(wNandAnd, operandA, operandB, othercontrolsignal);
     nor_or_1bit nor_or_gate(wNorOr, operandA, operandB, othercontrolsignal);
 
-    mux_alu mainMux(result, wAddSub, wXor, wNandAnd, wNorOr, 0, command[0], command[1], command[2])
+    mux_alu mainMux(result, wAddSub, wXor, wNandAnd, wNorOr, 0, command[0], command[1], command[2]);
 endmodule
 
 module ALU // 32bit
@@ -51,31 +51,71 @@ module ALU // 32bit
 );
 
     // Instantiates the control LUT
-    wire[2:0] muxindex;
+    wire[2:0] muxIndex;
     wire invertB, othercontrolsignal;
     ALUcontrolLUT controlLUT(muxIndex, invertB, othercontrolsignal, command);
 
     // Rightmost bit of the ALU
     wire[30:0] int_carryout;
     wire resultFirst;
-    ALU_1bit aluFirst(resultFirst, int_carryout[0], operandA[0], operandB[0], command, invertB, othercontrolsignal);
+    ALU_1bit aluFirst(resultFirst, int_carryout[0], operandA[0], operandB[0], command, invertB, invertB, othercontrolsignal);
 
     genvar i;
     generate
       for (i=1; i < 31; i=i+1) begin : ALU32
-        ALU_1bit _alu(result[i], int_carryout[i], operandA[i], operandB[i], command, int_carryout[i-1], othercontrolsignal);
+        ALU_1bit _alu(result[i], int_carryout[i], operandA[i], operandB[i], command, int_carryout[i-1], invertB, othercontrolsignal);
       end
     endgenerate
 
     // Leftmost bit of the ALU
-    ALU_1bit aluLast(result[31], carryout, operandA[31], operandB[31], command, int_carryout[30], othercontrolsignal);
+    ALU_1bit aluLast(result[31], carryout, operandA[31], operandB[31], command, int_carryout[30], invertB, othercontrolsignal);
 
     // Calculates overflow
-    xor_1bit(overflow, int_carryout[30], carryout);
+    xor_1bit xor_overflow(overflow, int_carryout[30], carryout);
 
     // Calculates SLT
     wire sltValue;
     slt_32bit sltALU32(sltValue, overflow, carryout, operandA[31], operandB[31]);
+    mux_1bit sltOut(result[0], resultFirst, sltValue, command[2]);
+endmodule
+
+module ALU_4bit // 4bit
+(
+    output[3:0]    result,
+    output          carryout,
+    output          zero,
+    output          overflow,
+    input[3:0]     operandA,
+    input[3:0]     operandB,
+    input[2:0]      command
+);
+
+    // Instantiates the control LUT
+    wire[2:0] muxIndex;
+    wire invertB, othercontrolsignal;
+    ALUcontrolLUT controlLUT(muxIndex, invertB, othercontrolsignal, command);
+
+    // Rightmost bit of the ALU
+    wire[3:0] int_carryout;
+    wire resultFirst;
+    ALU_1bit aluFirst(resultFirst, int_carryout[0], operandA[0], operandB[0], command, invertB, invertB, othercontrolsignal);
+
+    genvar i;
+    generate
+      for (i=1; i < 3; i=i+1) begin : ALU32
+        ALU_1bit _alu(result[i], int_carryout[i], operandA[i], operandB[i], command, int_carryout[i-1], invertB, othercontrolsignal);
+      end
+    endgenerate
+
+    // Leftmost bit of the ALU
+    ALU_1bit aluLast(result[3], carryout, operandA[3], operandB[3], command, int_carryout[2], invertB, othercontrolsignal);
+
+    // Calculates overflow
+    xor_1bit xor_overflow(overflow, int_carryout[2], carryout);
+
+    // Calculates SLT
+    wire sltValue;
+    slt_32bit sltALU32(sltValue, overflow, carryout, operandA[3], operandB[3]);
     mux_1bit sltOut(result[0], resultFirst, sltValue, command[2]);
 endmodule
 
@@ -86,7 +126,7 @@ module ALUcontrolLUT
     output reg  othercontrolsignal,
     // Extra input/output here (...)
     input[2:0]  ALUcommand
-)
+);
 
     always @(ALUcommand) begin
       case (ALUcommand)

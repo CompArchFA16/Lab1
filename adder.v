@@ -1,5 +1,3 @@
-`include "gates.v"
-
 // 1-bit Adder Circuit
 module adder_1bit // add and "subtract"
 (

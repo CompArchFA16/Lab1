@@ -1,5 +1,3 @@
-`include "mux.v"
-
 // Computes NOR or OR
 module nor_or_1bit
 (
