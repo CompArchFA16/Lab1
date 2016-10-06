@@ -20,12 +20,11 @@ module FullAdder
 );
     wire AandB, AandC, BandC;
 
-    xor #30 xorGate(sum, a, b, carryin);
-
+    `XOR xorGate(sum, a, b, carryin);
     `AND and0(AandB, a, b);
     `AND and1(AandC, a, carryin);
     `AND and2(BandC, b, carryin);
-    or #40 orGate(carryout, AandB, AandC, BandC);
+    `OR orGate(carryout, AandB, AandC, BandC);
 
 endmodule
 
@@ -156,14 +155,14 @@ module mADDSUB
 	input        sub // 1 for sub, 0 for add
 );
 	wire[n:0] c;
-  wire[n-1:0] xorB;
+	wire[n-1:0] xorB;
 	assign c[0] = sub;
 
   generate
     genvar i;
     for (i=0; i<n; i = i+1) begin: addsubgenblk
-      `XOR xoraddsub(xorB[i], operand[i], addsub);
-      FullAdder fa(result[i], c[i+1], operandA[i], xorB[i], c[i]);
+      //`XOR xoraddsub(xorB[i], operandB[i], sub);
+      FullAdder fa(result[i], c[i+1], operandA[i], operandB[i], c[i]);
     end
   endgenerate
 

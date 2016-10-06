@@ -64,7 +64,7 @@ wire invertOutput;
 
 ALUcontrolLUT lut(muxindex, invertB, invertOutput, command);
 
-mADDSUB #(.n(n)) _addsub(results[0],carryouts, overflow, operandA, operandB, invertB);
+mADDSUB #(.n(n)) _addsub(results[0],carryout, overflow, operandA, operandB, invertB);
 mSLT #(.n(n)) _slt(results[1],operandA, operandB);
 mXOR #(.n(n)) _xor(results[2],operandA,operandB); 
 mNAND #(.n(n)) _nand(results[3],operandA,operandB); 
@@ -73,10 +73,12 @@ mNOR #(.n(n)) _nor(results[4],operandA,operandB);
 generate
   genvar i;
   for (i=0; i<n; i = i+1) begin: subgenblk
-		muxnbit #(.n(3)) mnb(result_t[i],{results[0][i],results[1][i],results[2][i],results[3][i],results[4][i],1'b0,1'b0,1'b0},muxindex); //out, data, sel
+		muxnbit #(.n(3)) mnb(result_t[i],{1'b0, 1'b0, 1'b0, results[4][i],results[3][i],results[2][i],results[1][i],results[0][i]},muxindex); //out, data, sel
 		`XOR (result[i], result_t[i], invertOutput);
   end
 endgenerate
+
+assign result = results[0];
 
 `NOR z(zero, result); //100 = (log2(n)*2*10)
 
