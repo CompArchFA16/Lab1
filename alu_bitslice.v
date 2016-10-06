@@ -24,9 +24,12 @@ module ALUBitslice
   wire aluOutXor, aluOutAnd, aluOutNand;
   wire aluOutNor, aluOutOr;
 
+  wire aluOutAddCarryout, aluOutAddZero, aluOutAddOverflow;
+  wire aluOutSubCarryout, aluOutSubZero, aluOutSubOverflow;
+
   // Modules.
-  ALUAddSub aluAdd(aluOutAdd, carryout, zero, overflow, operandA, operandB, carryin, 1'b0);
-  ALUAddSub aluSub(aluOutSub, carryout, zero, overflow, operandA, operandB, carryin, 1'b1);
+  ALUAddSub aluAdd(aluOutAdd, aluOutAddCarryout, aluOutAddZero, aluOutAddOverflow, operandA, operandB, carryin, 1'b0);
+  ALUAddSub aluSub(aluOutSub, aluOutSubCarryout, aluOutSubZero, aluOutSubOverflow, operandA, operandB, carryin, 1'b1);
   ALU_xor aluXor(aluOutXor, operandA, operandB);
   // TODO: Do SLT.
   ALU_and aluAnd(aluOutAnd, operandA, operandB);
@@ -44,4 +47,19 @@ module ALUBitslice
     aluOutXor,
     aluOutSub,
     aluOutAdd});
+
+  Multiplexer8Input mux8Carryout(carryout, command, {
+    aluOutAddCarryout,
+    aluOutSubCarryout,
+    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0});
+
+  Multiplexer8Input mux8Zero(zero, command, {
+    aluOutAddZero,
+    aluOutSubZero,
+    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0});
+
+  Multiplexer8Input mux8Overflow(overflow, command, {
+    aluOutAddOverflow,
+    aluOutSubOverflow,
+    1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0});
 endmodule

@@ -17,9 +17,19 @@ module ALU
   wire[32:0] internalZeros;
   wire[32:0] internalOverflows;
 
+  ALUBitslice aluSliceNDice2(
+    result[0],
+    internalCarryouts[1],
+    internalZeros[1],
+    internalOverflows[1],
+    operandA[0],
+    operandB[0],
+    1'b0,
+    command);
+
   genvar i;
   generate
-    for (i=0; i < 32; i=i+1)
+    for (i=1; i < 32; i=i+1)
     begin:ALUBitslice32
       // TODO: Chain the ALUs to each other for carryout, zero??, and overflow??
       ALUBitslice aluSliceNDice(
