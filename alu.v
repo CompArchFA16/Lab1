@@ -58,6 +58,9 @@ module ALU
 wire [n-1:0] result_t;
 wire [n-1:0] results [4:0];
 
+wire [n:0] zeros;
+//wire zero_t_2=0;
+
 wire carryout_t, overflow_t;
 
 wire [2:0] muxindex;
@@ -80,12 +83,10 @@ generate
   genvar i;
   for (i=0; i<n; i = i+1) begin: subgenblk
 		muxnbit #(.n(3)) mnb(result_t[i],{1'b0, 1'b0, 1'b0, results[4][i],results[3][i],results[2][i],results[1][i],results[0][i]},muxindex); //out, data, sel
-		`XOR (result[i], result_t[i], invertOutput);
+		`XOR x(result[i], result_t[i], invertOutput);
   end
 endgenerate
 
-//assign result = results[0];
-
-`NOR z(zero, result); //100 = (log2(n)*2*10)
+assign zero = ~|result;
 
 endmodule
