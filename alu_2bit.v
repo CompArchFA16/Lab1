@@ -1,21 +1,21 @@
 `include "alu_bitslice.v"
 `timescale 1 ns / 1 ps
 
-module ALU
+module ALU2Bit
 (
-  output[31:0]    result,
+  output[1:0]     result,
   output          carryout,
   output          zero,
   output          overflow,
 
-  input[31:0]     operandA,
-  input[31:0]     operandB,
+  input[1:0]      operandA,
+  input[1:0]      operandB,
   input[2:0]      command
 );
 
-  wire[32:0] internalCarryouts;
-  wire[32:0] internalZeros;
-  wire[32:0] internalOverflows;
+  wire[2:0] internalCarryouts;
+  wire[2:0] internalZeros;
+  wire[2:0] internalOverflows;
 
   // HACK: We shouldn't use this bulky multiplexer here.
   wire ifSub;
@@ -33,8 +33,8 @@ module ALU
 
   genvar i;
   generate
-    for (i=1; i < 32; i=i+1)
-    begin:ALUBitslice32
+    for (i=1; i < 2; i=i+1)
+    begin:ALUBitslice2
       // TODO: Chain the ALUs to each other for carryout, zero??, and overflow??
       ALUBitslice aluSliceNDice(
         result[i],
@@ -51,12 +51,12 @@ module ALU
   // HACK: Figure out how to rename wires properly.
   wire carryout_n, zero_n, overflow_n;
 
-  not (carryout_n, internalCarryouts[32]);
+  not (carryout_n, internalCarryouts[2]);
   not (carryout, carryout_n);
 
-  not (zero_n, internalZeros[32]);
+  not (zero_n, internalZeros[2]);
   not (zero, zero_n);
 
-  not (overflow_n, internalOverflows[32]);
+  not (overflow_n, internalOverflows[2]);
   not (overflow, overflow_n);
 endmodule
