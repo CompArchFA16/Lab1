@@ -25,19 +25,20 @@ module alu_cmd_lut
 output reg[2:0] muxindex,
 output reg      invert_b,
 output reg      cin,
+output reg      invert_res,
 input[2:0]      cmd
 );
 
   always @(cmd) begin
     case (cmd)
-      `CMD_ADD:  begin muxindex = 0; invert_b = 0; cin = 0; end
-      `CMD_SUB:  begin muxindex = 0; invert_b = 1; cin = 1; end
-      // `CMD_XOR:  begin muxindex = 1; invert_b = 0; cin = 0; end
-      // `CMD_SLT:  begin muxindex = 2; invert_b = ?; cin = 0; end
-      // `CMD_AND:  begin muxindex = 3; invert_b = ?; cin = 0; end
-      // `CMD_NAND: begin muxindex = 3; invert_b = ?; cin = 0; end
-      // `CMD_NOR:  begin muxindex = ?; invert_b = ?; cin = 0; end
-      // `CMD_OR:   begin muxindex = ?; invert_b = ?; cin = 0; end
+      `CMD_ADD:  begin muxindex = 0; invert_b = 0; cin = 0; invert_res = 0; end
+      `CMD_SUB:  begin muxindex = 0; invert_b = 1; cin = 1; invert_res = 0; end
+      `CMD_XOR:  begin muxindex = 1; invert_b = 0; cin = 0; invert_res = 0; end
+      `CMD_SLT:  begin muxindex = 0; invert_b = 1; cin = 0; invert_res = 0; end
+      `CMD_AND:  begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 0; end
+      `CMD_NAND: begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 1; end
+      `CMD_NOR:  begin muxindex = 3; invert_b = 0; cin = 0; invert_res = 0; end
+      `CMD_OR:   begin muxindex = 3; invert_b = 0; cin = 0; invert_res = 1; end
     endcase
   end
 endmodule
@@ -186,6 +187,69 @@ module mux_32_bit
   mux_8_bit mux3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]), .s(s));
 endmodule
 
+//
+
+module mux_1_bit_8_way
+(
+  output out,
+  input a,
+  input b,
+  input c,
+  input d,
+  input e,
+  input f,
+  input g,
+  input h,
+  input[2:0] sel
+);
+  // 8 bit to 4 bit
+  mux_1_bit mux0(.out(a_or_b), .a(a), .b(b), .s(sel[0]));
+  mux_1_bit mux0(.out(c_or_d), .a(c), .b(d), .s(sel[0]));
+  mux_1_bit mux0(.out(e_or_f), .a(e), .b(f), .s(sel[0]));
+  mux_1_bit mux0(.out(g_or_h), .a(g), .b(h), .s(sel[0]));
+  // 4 bit to 2 bit
+  mux_1_bit mux0(.out(top_top_or_top_bottom), .a(a_or_b), .b(c_or_d), .s(sel[1));
+  mux_1_bit mux0(.out(bottom_top_or_bottom_bottom), .a(e_or_f), .b(g_or_h), .s(sel[1]));
+  // 2 bit to 1 bit
+  mux_1_bit mux0(.out(out), .a(top_top_or_top_bottom), .b(bottom_top_or_bottom_bottom), .s(sel[2]));
+endmodule
+
+module mux_8_bit_8_way
+(
+  output[7:0] out,
+  input[7:0] a,
+  input[7:0] b,
+  input[7:0] c,
+  input[7:0] d,
+  input[7:0] e,
+  input[7:0] f,
+  input[7:0] g,
+  input[7:0] h,
+  input[2:0] sel
+);
+  mux_1_bit_8_way mux0(.out(out[0]), .a(a[0]), .b(b[0]), .c(c[0]), .d(d[0]), .e(e[0]), .f(f[0]), .g(g[0]), .h(h[0]), .s(sel));
+  mux_1_bit_8_way mux1(.out(out[1]), .a(a[1]), .b(b[1]), .c(c[1]), .d(d[1]), .e(e[1]), .f(f[1]), .g(g[1]), .h(h[1]), .s(sel));
+  mux_1_bit_8_way mux2(.out(out[2]), .a(a[2]), .b(b[2]), .c(c[2]), .d(d[2]), .e(e[2]), .f(f[2]), .g(g[2]), .h(h[2]), .s(sel));
+  mux_1_bit_8_way mux3(.out(out[3]), .a(a[3]), .b(b[3]), .c(c[3]), .d(d[3]), .e(e[3]), .f(f[3]), .g(g[3]), .h(h[3]), .s(sel));
+  mux_1_bit_8_way mux4(.out(out[4]), .a(a[4]), .b(b[4]), .c(c[4]), .d(d[4]), .e(e[4]), .f(f[4]), .g(g[4]), .h(h[4]), .s(sel));
+  mux_1_bit_8_way mux5(.out(out[5]), .a(a[5]), .b(b[5]), .c(c[5]), .d(d[5]), .e(e[5]), .f(f[5]), .g(g[5]), .h(h[5]), .s(sel));
+  mux_1_bit_8_way mux6(.out(out[6]), .a(a[6]), .b(b[6]), .c(c[6]), .d(d[6]), .e(e[6]), .f(f[6]), .g(g[6]), .h(h[6]), .s(sel));
+  mux_1_bit_8_way mux7(.out(out[7]), .a(a[7]), .b(b[7]), .c(c[7]), .d(d[7]), .e(e[7]), .f(f[7]), .g(g[7]), .h(h[7]), .s(sel));
+endmodule
+
+module mux_32_bit_8_way
+(
+  output[31:0] out,
+  input[31:0] a,
+  input[31:0] b,
+  input s
+);
+  mux_8_bit_8_way mux0(.out(out[7:0]),   .a(a[7:0]),   .b(b[7:0]),   .c(c[7:0]),   .d(d[7:0]),   .e(e[7:0]),   .f(f[7:0]),   .g(g[7:0]),   .h(h[7:0]),   .s(sel));
+  mux_8_bit_8_way mux1(.out(out[15:8]),  .a(a[15:8]),  .b(b[15:8]),  .c(c[15:8]),  .d(d[15:8]),  .e(e[15:8]),  .f(f[15:8]),  .g(g[15:8]),  .h(h[15:8]),  .s(sel));
+  mux_8_bit_8_way mux2(.out(out[23:16]), .a(a[23:16]), .b(b[23:16]), .c(c[23:16]), .d(d[23:16]), .e(e[23:16]), .f(f[23:16]), .g(g[23:16]), .h(h[23:16]), .s(sel));
+  mux_8_bit_8_way mux3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]), .c(c[31:24]), .d(d[31:24]), .e(e[31:24]), .f(f[31:24]), .g(g[31:24]), .h(h[31:24]), .s(sel));
+endmodule
+
 // IS ZERO
 
 module is_zero
@@ -211,14 +275,24 @@ module ALU
   input[2:0] cmd
 );
   wire[2:0] muxindex;
-  wire invert_b, cin;
-  alu_cmd_lut lut(.muxindex(muxindex), .invert_b(invert_b), .cin(cin), .cmd(cmd));
+  wire invert_b, cin, invert_res;
+  alu_cmd_lut lut(.muxindex(muxindex), .invert_b(invert_b), .cin(cin), .invert_res(invert_res), .cmd(cmd));
 
-  wire[31:0] not_b, adder_input;
+  // ADD, SUB, and SLT
+  wire[31:0] not_b, adder_input, adder_output;
   inverter_32_bit inverter(.out(not_b), .in(b));
   mux_32_bit mux0(.out(adder_input), .a(b), .b(not_b), .s(invert_b));
+  adder_32_bit adder(.sum(adder_output[31:0]), .cout(cout), .ofl(ofl), .a(a[31:0]), .b(adder_input[31:0]), .cin(cin));
 
-  adder_32_bit adder(.sum(res[31:0]), .cout(cout), .ofl(ofl), .a(a[31:0]), .b(adder_input[31:0]), .cin(cin));
 
+
+  mux_32_bit_4_way very_big_mux(
+    .out(res[31:0]),
+    .a(adder_output[31:0]),
+    .b(xor_output[31:0]),
+    .c(nand_output[31:0]),
+    .d(nor_output[31:0]),
+    .sel(muxindex[2:0])
+  )
   is_zero zero0(.out(zero), .num(res[31:0]));
 endmodule
