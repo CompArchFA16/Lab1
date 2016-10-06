@@ -34,14 +34,15 @@ endmodule
 // INV
 // -----------------------------------------------
 module mINV
+(#parameter n=32)
 (
-  output[31:0] out,
-  input[31:0] in
+  output[n-1:0] out,
+  input[n-1:0] in
 );
 
   generate
     genvar i;
-    for (i=0; i<32; i = i+1) begin: invgenblk
+    for (i=0; i<n; i = i+1) begin: invgenblk
         not findinv(out[i], in[i]);
       end
   endgenerate
@@ -54,6 +55,7 @@ endmodule
 // -----------------------------------------------
 
 module mNAND
+(#parameter n=32)
 (
   output[31:0]    result,
   //output reg      carryout = 0,

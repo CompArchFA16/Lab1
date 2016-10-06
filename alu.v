@@ -78,4 +78,5 @@ generate
 endgenerate
 
 `NOR z(zero, result); //100 = (log2(32)*2*10)
+
 endmodule
