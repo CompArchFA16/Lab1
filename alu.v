@@ -17,6 +17,10 @@ module ALU
   wire[32:0] internalZeros;
   wire[32:0] internalOverflows;
 
+  // HACK: We shouldn't use this bulky multiplexer here.
+  wire ifSub;
+  Multiplexer8Input ifSubbing(ifSub, command, 8'd2);
+
   ALUBitslice aluSliceNDice2(
     result[0],
     internalCarryouts[1],
@@ -24,7 +28,7 @@ module ALU
     internalOverflows[1],
     operandA[0],
     operandB[0],
-    1'b0,
+    ifSub,
     command);
 
   genvar i;
