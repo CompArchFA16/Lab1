@@ -262,6 +262,26 @@ module is_zero
   `AND32 and0(out, not_num[31:0]);
 endmodule
 
+// SLT
+
+module slt
+(
+    output overflow,
+    output carryout,
+    output sum,
+    input a,
+    input b,
+    input carryin
+);
+    wire a, b, invb;
+    wire carryin, carryout, sum;
+
+    not notgate(invb, b);
+    adder_32_bit add(sum, carryout, a, invb, carryin);
+    xor xorgate(overflow, carryin, carryout);
+
+endmodule
+
 // MAIN ALU
 
 module ALU
