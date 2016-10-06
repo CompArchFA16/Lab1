@@ -1,6 +1,6 @@
 `include "alu.v"
 `define DISP(exp) $display("%d %d %d | %d %b %b %b |", operandA, operandB, command, result, carryout, zero, overflow, exp);
-`define TEST(aValue,bValue) operandA[31:28] = aValue; operandB[31:28] = bValue; #1000
+`define TEST(aValue,bValue) operandA= aValue; operandB  = bValue; #10000
 module alu_test();
   wire signed [3:0] result;
   wire carryout;
@@ -18,7 +18,7 @@ initial begin
 
 	for(operandA=-1; operandA<2; operandA=operandA+1) begin
 		for(operandB=-1; operandB<2; operandB=operandB+1) begin
-			for(command=0; command<1; command=command+1) begin
+			for(command=0; command<8; command=command+1) begin
 				#10000;
 				$display("%b %b %d | %b %b %b %b |", operandA, operandB, command[2:0], result, carryout, zero, overflow);
 			end
@@ -29,15 +29,15 @@ initial begin
 	command=0;
 	$display("Testing ADD:");
 	`TEST(4'b1011,4'b1010);
-	`DISP(-9);
+	`DISP();
 	`TEST(4'b0110,4'b0100);
 	`DISP();
     `TEST(4'b1111,4'b1010);
 	`DISP();
     `TEST(4'b0001,4'b0101);
 	`DISP();
-	operandA=32'd2**32-1;operandB=1;
-	`DISP(); #1000
+	operandA=32'd2**32-1;operandB=1; #10000
+	`DISP(); #10000
 
 	// SUB Module Test
 	command=1;
@@ -50,8 +50,8 @@ initial begin
 	`DISP();
     `TEST(4'b0101,4'b0110);
 	`DISP();
-	operandA=32'd2**32-1;operandB=-1;
-	`DISP(); #1000
+	operandA=-1;operandB=-1; #10000
+	`DISP(); #10000
 
 	// SLT Module Test
 	command=2;
@@ -64,15 +64,15 @@ initial begin
 	`DISP();
     `TEST(4'b1010,4'b1101);
 	`DISP();
-	operandA=32'd2**32-1;operandB=32'd2**32-1;
-	`DISP(); #1000
+	operandA=32'd2**32-1;operandB=32'd2**32-1; #10000
+	`DISP(); #10000
 
 
 
 	for(command = 3; command < 7; command = command + 1) begin
-		#1000;
+		#10000;
 		$display("A B CMD | RES C_OUT ZERO OVERFLOW");
-		$display("Expected : %d %b %b %b |");
+		// $display("Expected : %d %b %b %b |");
 		operandA=32'd2**32-32'd2**16; operandB=32'd2**32-1;
 		`DISP();
 		operandA=32'd2**32-32'd2**10; operandB=0;

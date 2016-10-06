@@ -78,7 +78,7 @@ generate
   end
 endgenerate
 
-assign result = results[0];
+//assign result = results[0];
 
 `NOR z(zero, result); //100 = (log2(n)*2*10)
 

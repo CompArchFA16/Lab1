@@ -112,7 +112,7 @@ module mXOR
   generate
     genvar i;
     for (i=0; i<n; i = i+1) begin: xorgenblk
-      `XOR findxor(result[i], operandA[i], operandB[i]);
+      xor findxor(result[i], operandA[i], operandB[i]);
     end
   endgenerate
 
@@ -161,8 +161,8 @@ module mADDSUB
   generate
     genvar i;
     for (i=0; i<n; i = i+1) begin: addsubgenblk
-      //`XOR xoraddsub(xorB[i], operandB[i], sub);
-      FullAdder fa(result[i], c[i+1], operandA[i], operandB[i], c[i]);
+      `XOR xoraddsub(xorB[i], operandB[i], sub);
+      FullAdder fa(result[i], c[i+1], operandA[i], xorB[i], c[i]);
     end
   endgenerate
 
@@ -187,7 +187,7 @@ module mSLT
   wire[n-1:0]      subresult;
   wire            dump_co, dump_of;
 
-  mADDSUB #(.n(n)) msub(subresult, dump_co, dump_of, operandA, operandB, 1);
+  mADDSUB #(.n(n)) msub(subresult, dump_co, dump_of, operandA, operandB, 1'b1);
 
   assign result[0] = subresult[n-1]; // MSB
 endmodule
