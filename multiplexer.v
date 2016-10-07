@@ -38,6 +38,38 @@ module structuralMultiplexer
 
 endmodule
 
+module twoBitMultiplexer
+(
+    output out,
+    input choice,
+    input in0, in1
+);
+    wire nChoice;
+    `NOT invChoice(nChoice, choice);
+
+    wire and1, and2;
+    `AND andgate1(and1, choice, in1);
+    `AND andgate2(and2, nChoice, in0);
+
+    `OR orgate(out, and1, and2);
+
+endmodule
+
+module fourBitMultiplexer
+(
+    output out,
+    input choice0, choice1,
+    input in0, in1, in2, in3
+);
+    wire tempout0, tempout1;
+
+    twoBitMultiplexer mux0(tempout0, choice0, in0, in1);
+    twoBitMultiplexer mux2(tempout1, choice0, in2, in3);
+
+    twoBitMultiplexer mux3(out, choice1, tempout0, tempout1);
+
+endmodule
+
 module ALUmultiplexer
 (
     output out,
@@ -45,13 +77,10 @@ module ALUmultiplexer
     input addsub, XOR, SLT, ANDNAND, ORNOR
 );
     wire tempout;
-    wire bit1, bit2, bit3;
 
-    structuralMultiplexer mux1(tempout, muxindex[0], muxindex[1], addsub, XOR, SLT, ANDNAD);
-    `AND and1(bit1, muxindex[2], ORNOR);
-    `NOT not1(bit2, muxindex[2]);
-    `AND and2(bit3, bit2, tempout);
-    `OR or1(out, bit1, bit3);
+    fourBitMultiplexer mux0(tempout, muxindex[0], muxindex[1], addsub, XOR, SLT, ANDNAND);
+    twoBitMultiplexer mux1(out, muxindex[2], tempout, ORNOR);
+
 endmodule
 
 
