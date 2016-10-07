@@ -75,7 +75,7 @@ module ALU_4bit  // Strings together four 1-bit ALUs
     mux_1bit sltOut(result[0], muxIndex[2], resultFirst, sltValue);
 
     // Calculates zero (4-input NOR)
-    nor #40 nor_zero(zero, result);
+    nor #40 nor_zero(zero, result[0], result[1], result[2], result[3]);
 endmodule
 
 module ALU // 32-bit ALU
@@ -88,9 +88,6 @@ module ALU // 32-bit ALU
     input[31:0]     operandB,
     input[2:0]      command
 );
-
-// Calculates zero
-nor #80 nor_zero(zero, result);
 
     // Instantiates the control LUT
     wire[2:0] muxIndex;
@@ -128,7 +125,10 @@ nor #80 nor_zero(zero, result);
     mux_1bit sltOut(result[0], muxIndex[2], resultFirst, sltValue);
 
     // Calculates zero (32-input NOR)
-    nor #320 nor_zero(zero, result);
+    nor #320 nor_zero(zero, result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7]
+                          , result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]
+                          , result[16], result[17], result[18], result[19], result[20], result[21], result[22], result[23]
+                          , result[24], result[25], result[26], result[27], result[28], result[29], result[30], result[31]);
 endmodule
 
 // Notation Simplification for ALU Commands
