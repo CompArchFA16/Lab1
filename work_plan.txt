@@ -1,0 +1,40 @@
+------------------------
+CompArch Lab 1 Work Plan
+------------------------
+
+(1.5) Build test bench
+   (1)   Finding and choosing appropriate test cases
+   (0.5) Implement test cases
+(3)   Build modules
+   (1)   AND, NAND, NOR, OR
+   (1)   Adder, Subtractor
+   (1)   SLT
+(2.5) Report
+
+William:  Start coming up with test cases
+Ian:      Start writing the test bench
+William:  Write AND, NAND, NOR, OR modules
+Katie:    Write Adder, Subtractor, and SLT modules
+Everyone: Write report
+
+------------------------
+         Notes
+------------------------
+
+Verilog module
+    -Adder: reuse 4 bit adder from Lab1
+    -Subtractor: tweak 4 bit adder from Lab1
+    -XOR: Modified OR gate
+    -SLT: Build 1 bit, string 32 of them together
+    -AND: Use structural AND
+    -NAND: Use structural NAND
+    -NOR: Use structural NOR
+    -OR: Use structural OR
+Test bench
+    -Test cases
+    -Implementation
+Report
+    -Implementation
+    -Test Results
+    -Timing analysis
+-Reflection
