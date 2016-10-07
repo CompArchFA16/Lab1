@@ -45,8 +45,8 @@ wire nS1;
 wire nS2;
 
 //Call all modules to compute result
-Full32Add adder(overflowadd, carryoutadd, zero, resultadd, a, b, 0,0); //ADD MODULE
-Full32Add subtractor(overflowsub, carryoutsub, zero, resultsub, a, b, 1,1); //SUBTRACT MODULE
+Full32Add adder(overflowadd, carryoutadd,  resultadd, a, b, 0,0); //ADD MODULE
+Full32Add subtractor(overflowsub, carryoutsub, resultsub, a, b, 1,1); //SUBTRACT MODULE
 XORfunction xorer(resultxor, a, b); //XOR MODULE
 SLTfunction slter(resultslt, a, b); //SLT MODULE
 ANDfunction ander(resultand, a, b); //AND MODULE

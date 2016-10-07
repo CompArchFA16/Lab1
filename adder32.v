@@ -48,7 +48,6 @@ module Full32Add
 (
     output overflow,
     output carryout,
-    output flagzero,
     output [31:0] sum,
     input[31:0] a,
     input[31:0] b,
@@ -181,8 +180,8 @@ an odd number of 1's between two positions (01 or 10, not 11)*/
 genvar i;
 generate
   for (i=0; i < 32; i=i+1)
-  begin:XOR32
-    `XOR32 _xorgate(result[i], a[i], b[i]);
+  begin:XOR
+    `XOR _xorgate(result[i], a[i], b[i]);
   end
 endgenerate
 
@@ -236,7 +235,7 @@ module SLTfunction
 	wire zero;
 	wire[31:0] resultsub;
 
-	Full32Add intermediateadder(overflow, carryout, zero, resultsub, a, b, 1, 1);
+	Full32Add intermediateadder(overflow, carryout, resultsub, a, b, 1, 1);
 	// set the lest
 	`OR orgate(result[0], resultsub[31], 0);
 
