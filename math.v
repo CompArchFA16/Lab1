@@ -4,7 +4,7 @@
 `define OR or #20
 `define NOT not #10
 `define XOR xor #30
-`define NOT32  not  #320
+`include "32bitGates.v"
 
 module structuralFullAdder
 (
@@ -89,44 +89,38 @@ module FullSubtractor32bit
         `XOR xorGate(overflow, carryout, temp_cout[6]);
 endmodule
 
-// module FullMath32bit
-// (
-//     output[31:0] sum,
-//     output carryout,
-//     output overflow,
-//     input[31:0] a,
-//     input[31:0] b,
-//     input invertB
-//     );
-//         wire temp_cout[6:0];
-//         wire invertedB[31:0];
-//         reg[31:0] mathB;
-//         wire notInvB, bit1, bit2, bit3;
-//         `NOT (notInvB, invertB);
+module FullMath32bit
+(
+    output[31:0] sum,
+    output carryout,
+    output overflow,
+    input[31:0] a,
+    input[31:0] b,
+    input invertB
+    );
+        wire temp_cout[6:0];
+        wire[31:0] invertedB;
+        reg[31:0] mathB;
+        wire notInvB, bit1, bit2, bit3;
+        not32 invB(invertedB, b);
 
-//         genvar index;
+        `NOT notgate(notInvB, invertB);
+        always @(invertB or notInvB)
+        begin
+           if (invertB)
+              assign mathB =  invertedB;
+           else
+              assign mathB = b;
+        end
 
-//         generate
-//             for (index = 0; index<32; index = index + 1) begin : NOT
-//                 `NOT32 notgate(invertedB[index], b[index]);
-//             end
-//         endgenerate
 
-//         assign  mathB[31:0]=b [31:0];
-
-//         // This is a multiplexer to pick between b and invB, set that to mathB
-//         // `AND and1(bit1, invertB, ORNOR);
-//         // `NOT not1(bit2, muxindex[2]);
-//         // `AND and2(bit3, bit2, tempout);
-//         // `OR or1(out, bit1, bit3);
-
-//         CompAdder4bit f40(sum[3:0],   temp_cout[0], a[3:0],   mathB[3:0],   invertB); 
-//         CompAdder4bit f41(sum[7:4],   temp_cout[1], a[7:4],   mathB[7:4],   temp_cout[0]);
-//         CompAdder4bit f42(sum[11:8],  temp_cout[2], a[11:8],  mathB[11:8],  temp_cout[1]);
-//         CompAdder4bit f43(sum[15:12], temp_cout[3], a[15:12], mathB[15:12], temp_cout[2]);
-//         CompAdder4bit f44(sum[19:16], temp_cout[4], a[19:16], mathB[19:16], temp_cout[3]); 
-//         CompAdder4bit f45(sum[23:20], temp_cout[5], a[23:20], mathB[23:20], temp_cout[4]);
-//         CompAdder4bit f46(sum[27:24], temp_cout[6], a[27:24], mathB[27:24], temp_cout[5]);
-//         CompAdder4bit f47(sum[31:28], carryout,     a[31:28], mathB[31:28], temp_cout[6]);
-//         `XOR xorGate(overflow, carryout, temp_cout[6]);
-// endmodule
+        CompAdder4bit f40(sum[3:0],   temp_cout[0], a[3:0],   mathB[3:0],   invertB); 
+        CompAdder4bit f41(sum[7:4],   temp_cout[1], a[7:4],   mathB[7:4],   temp_cout[0]);
+        CompAdder4bit f42(sum[11:8],  temp_cout[2], a[11:8],  mathB[11:8],  temp_cout[1]);
+        CompAdder4bit f43(sum[15:12], temp_cout[3], a[15:12], mathB[15:12], temp_cout[2]);
+        CompAdder4bit f44(sum[19:16], temp_cout[4], a[19:16], mathB[19:16], temp_cout[3]); 
+        CompAdder4bit f45(sum[23:20], temp_cout[5], a[23:20], mathB[23:20], temp_cout[4]);
+        CompAdder4bit f46(sum[27:24], temp_cout[6], a[27:24], mathB[27:24], temp_cout[5]);
+        CompAdder4bit f47(sum[31:28], carryout,     a[31:28], mathB[31:28], temp_cout[6]);
+        `XOR xorGate(overflow, carryout, temp_cout[6]);
+endmodule
