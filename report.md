@@ -139,25 +139,25 @@ As seen above, every test case passed, which is what we expected as we used the 
 We tested these 5 operations on a 4-bit ALU. Since the gates are element-wise operations, we specifically chose operands A and B to exhaustively test all possible pairs of digits (1 op 1, 0 op 1, 1 op 0, 0 op 0).
 
 ```
- Cm  |	A 	B |  Out | Cout  OF | Case
+ Cm  |	 A 	   B  |  Out | Cout  OF | Case
 ----------------------------------------------------
- 101 | 1010  1100 | 0111 |	1   1 | NAND
- 100 | 1010  1100 | 1000 |	1   1 | AND
- 110 | 1010  1100 | 0001 |	1   1 | NOR
- 111 | 1010  1100 | 1110 |	1   1 | OR
- 010 | 1010  1100 | 0110 |	1   1 | XOR
+ 101 | 1010  1100 | 0111 |	1    1  | NAND
+ 100 | 1010  1100 | 1000 |	1    1  | AND
+ 110 | 1010  1100 | 0001 |	1    1  | NOR
+ 111 | 1010  1100 | 1110 |	1    1  | OR
+ 010 | 1010  1100 | 0110 |	1    1  | XOR
 ```
 
 We did the same for the 32-bit ALU, by repeating the same sequence of 4 bits eight times for each operand. For operand A, we repeated the sequence 0b1010 (0xA), and for operand B, we repeated the sequence 0b1100 (0xC). In the test results below, the 32-bit inputs and outputs (A, B, Out) are hex numbers, for readability purposes.
 
 ```
- Cm  |    	A     	B |  	Out | Cout  OF | Case
+ Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ----------------------------------------------------
- 101 | aaaaaaaa  cccccccc | 77777777 |	1   1 | NAND (all cases)
- 100 | aaaaaaaa  cccccccc | 88888888 |	1   1 | AND (all cases)
- 110 | aaaaaaaa  cccccccc | 11111111 |	1   1 | NOR (all cases)
- 111 | aaaaaaaa  cccccccc | eeeeeeee |	1   1 | OR (all cases)
- 010 | aaaaaaaa  cccccccc | 66666666 |	1   1 | XOR (all cases)
+ 101 | aaaaaaaa  cccccccc | 77777777 |	1   1   | NAND (all cases)
+ 100 | aaaaaaaa  cccccccc | 88888888 |	1   1   | AND (all cases)
+ 110 | aaaaaaaa  cccccccc | 11111111 |	1   1   | NOR (all cases)
+ 111 | aaaaaaaa  cccccccc | eeeeeeee |	1   1   | OR (all cases)
+ 010 | aaaaaaaa  cccccccc | 66666666 |	1   1   | XOR (all cases)
 ```
 
 These 32-bit outputs can be compared to the 4-bit outputs:
@@ -176,108 +176,108 @@ We encountered some bugs before getting to this point, as shown in the table bel
  100 | 1010  1100 | 0000 |    x   x | AND
  110 | 1010  1100 | 0000 |    x   x | NOR
  111 | 1010  1100 | 0000 |    x   x | OR
- 010 | 1010 1100 | 0110 |    x   x | XOR
+ 010 | 1010  1100 | 0110 |    x   x | XOR
 ```
 
 ## Adder
- Cm  |	A 	B |  Out | Cout  OF | Case
+ Cm  |	A 	   B  |  Out | Cout  OF | Case
 ----------------------------------------------------
- 000 | 1111  1111 | 1110 |	1   0 | ADD
- 000 | 1011  1011 | 0110 |	1   1 | ADD
- 000 | 1110  1100 | 1010 |	1   0 | ADD
- 000 | 1111  1000 | 0111 |	1   1 | ADD
- 000 | 0011  0011 | 0110 |	0   0 | ADD
- 000 | 0101  0101 | 1010 |	0   1 | ADD
- 000 | 0001  0010 | 0011 |	0   0 | ADD
- 000 | 0111  0010 | 1001 |	0   1 | ADD
- 000 | 0001  1000 | 1001 |	0   0 | ADD
- 000 | 0001  1111 | 0000 |	1   0 | ADD
- 000 | 0111  1001 | 0000 |	1   0 | ADD
- 000 | 0000  0000 | 0000 |	0   0 | ADD
- 000 | 0000  1111 | 1111 |	0   0 | ADD
- 000 | 0000  0111 | 0111 |	0   0 | ADD
- 000 | 1111  0000 | 1111 |	0   0 | ADD
- 000 | 0111  0000 | 0111 |	0   0 | ADD
+ 000 | 1111  1111 | 1110 |	1   0   | ADD
+ 000 | 1011  1011 | 0110 |	1   1   | ADD
+ 000 | 1110  1100 | 1010 |	1   0   | ADD
+ 000 | 1111  1000 | 0111 |	1   1   | ADD
+ 000 | 0011  0011 | 0110 |	0   0   | ADD
+ 000 | 0101  0101 | 1010 |	0   1   | ADD
+ 000 | 0001  0010 | 0011 |	0   0   | ADD
+ 000 | 0111  0010 | 1001 |	0   1   | ADD
+ 000 | 0001  1000 | 1001 |	0   0   | ADD
+ 000 | 0001  1111 | 0000 |	1   0   | ADD
+ 000 | 0111  1001 | 0000 |	1   0   | ADD
+ 000 | 0000  0000 | 0000 |	0   0   | ADD
+ 000 | 0000  1111 | 1111 |	0   0   | ADD
+ 000 | 0000  0111 | 0111 |	0   0   | ADD
+ 000 | 1111  0000 | 1111 |	0   0   | ADD
+ 000 | 0111  0000 | 0111 |	0   0   | ADD
 
- Cm  |    	A     	B |  	Out | Cout  OF | Case
+ Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ------------------------------------------------------
- 000 | 10000000  20000000 | 30000000 |	0   0 | ADD ++, ~CO*~OF
- 000 | e0000000  c0000000 | a0000000 |	1   0 | ADD --, CO*~OF,
- 000 | 70000000  20000000 | 90000000 |	0   1 | ADD ++, CO*~OF
- 000 | f0000000  80000000 | 70000000 |	1   1 | ADD --, CO*OF
- 000 | 10000000  f0000000 | 00000000 |	1   0 | ADD +-, CO*~OF
+ 000 | 10000000  20000000 | 30000000 |	0   0   | ADD ++, ~CO*~OF
+ 000 | e0000000  c0000000 | a0000000 |	1   0   | ADD --, CO*~OF,
+ 000 | 70000000  20000000 | 90000000 |	0   1   | ADD ++, CO*~OF
+ 000 | f0000000  80000000 | 70000000 |	1   1   | ADD --, CO*OF
+ 000 | 10000000  f0000000 | 00000000 |	1   0   | ADD +-, CO*~OF
 
 
 ## Subtractor
- Cm  |	A 	B |  Out | Cout  OF | Case
+ Cm  |	A   	B |  Out | Cout  OF | Case
 ------------------------------------------------------------------------
- 001 | 1111  0001 | 1110 |	1   0 | SUB
- 001 | 1011  0101 | 0110 |	1   1 | SUB
- 001 | 1110  0100 | 1010 |	1   0 | SUB
- 001 | 1111  1000 | 0111 |	1   0 | SUB
- 001 | 0011  1101 | 0110 |	0   0 | SUB
- 001 | 0101  1011 | 1010 |	0   1 | SUB
- 001 | 0001  1110 | 0011 |	0   0 | SUB
- 001 | 0111  1110 | 1001 |	0   1 | SUB
- 001 | 0001  1000 | 1001 |	0   1 | SUB
- 001 | 0001  0001 | 0000 |	1   0 | SUB
- 001 | 0111  0111 | 0000 |	1   0 | SUB
- 001 | 0000  0000 | 0000 |	1   0 | SUB
- 001 | 0000  0001 | 1111 |	0   0 | SUB
- 001 | 0000  1001 | 0111 |	0   0 | SUB
- 001 | 1111  0000 | 1111 |	1   0 | SUB
- 001 | 0111  0000 | 0111 |	1   0 | SUB
+ 001 | 1111  0001 | 1110 |	1   0   | SUB
+ 001 | 1011  0101 | 0110 |	1   1   | SUB
+ 001 | 1110  0100 | 1010 |	1   0   | SUB
+ 001 | 1111  1000 | 0111 |	1   0   | SUB
+ 001 | 0011  1101 | 0110 |	0   0   | SUB
+ 001 | 0101  1011 | 1010 |	0   1   | SUB
+ 001 | 0001  1110 | 0011 |	0   0   | SUB
+ 001 | 0111  1110 | 1001 |	0   1   | SUB
+ 001 | 0001  1000 | 1001 |	0   1   | SUB
+ 001 | 0001  0001 | 0000 |	1   0   | SUB
+ 001 | 0111  0111 | 0000 |	1   0   | SUB
+ 001 | 0000  0000 | 0000 |	1   0   | SUB
+ 001 | 0000  0001 | 1111 |	0   0   | SUB
+ 001 | 0000  1001 | 0111 |	0   0   | SUB
+ 001 | 1111  0000 | 1111 |	1   0   | SUB
+ 001 | 0111  0000 | 0111 |	1   0   | SUB
 
- Cm  |    	A     	B |  	Out | Cout  OF | Case
+ Cm  |    	A     	B     |    Out   | Cout  OF | Case
 ------------------------------------------------------
- 001 | 10000000  e0000000 | 30000000 |	0   0 | SUB +-, ~CO*~OF
- 001 | e0000000  40000000 | a0000000 |	1   0 | SUB -+, CO*~OF
- 001 | 70000000  e0000000 | 90000000 |	0   1 | SUB +-, ~CO*OF
- 001 | f0000000  80000000 | 70000000 |	1   0 | SUB -+, CO*OF
- 001 | 70000000  50000000 | 20000000 |	1   0 | SUB ++, CO*~OF
- 001 | ffffffff  ffffffff | 00000000 |	1   0 | SUB --, CO*~OF
+ 001 | 10000000  e0000000 | 30000000 |	0   0   | SUB +-, ~CO*~OF
+ 001 | e0000000  40000000 | a0000000 |	1   0   | SUB -+, CO*~OF
+ 001 | 70000000  e0000000 | 90000000 |	0   1   | SUB +-, ~CO*OF
+ 001 | f0000000  80000000 | 70000000 |	1   0   | SUB -+, CO*OF
+ 001 | 70000000  50000000 | 20000000 |	1   0   | SUB ++, CO*~OF
+ 001 | ffffffff  ffffffff | 00000000 |	1   0   | SUB --, CO*~OF
 
 
 
 
 ## SLT
 
- Cm  |	A 	B |  Out | Cout  OF | Case
+ Cm  |	 A 	   B  |  Out | Cout  OF | Case
 ------------------------------------------------------------------------
- 011 | 0001  0011 | 0001 |	0   0 | SLT
- 011 | 1011  0010 | 0001 |	1   0 | SLT
- 011 | 1100  1111 | 0001 |	0   0 | SLT
- 011 | 0101  0011 | 0000 |	1   0 | SLT
- 011 | 0010  1101 | 0000 |	0   0 | SLT
- 011 | 1111  1010 | 0000 |	1   0 | SLT
- 011 | 1100  0101 | 0001 |	1   1 | SLT
- 011 | 0101  1100 | 0000 |	0   1 | SLT
+ 011 | 0001  0011 | 0001 |	0   0   | SLT
+ 011 | 1011  0010 | 0001 |	1   0   | SLT
+ 011 | 1100  1111 | 0001 |	0   0   | SLT
+ 011 | 0101  0011 | 0000 |	1   0   | SLT
+ 011 | 0010  1101 | 0000 |	0   0   | SLT
+ 011 | 1111  1010 | 0000 |	1   0   | SLT
+ 011 | 1100  0101 | 0001 |	1   1   | SLT
+ 011 | 0101  1100 | 0000 |	0   1   | SLT
 
- Cm  |    	A     	B |  	Out | Cout  OF | Case
+ Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ------------------------------------------------------
- 011 | 80000000  ffffffff | 00000001 |	0   0 | SLT --, A<B
- 011 | ffffffff  80000000 | 00000000 |	1   0 | SLT --, A>B
- 011 | 01111111  0fffffff | 00000001 |	0   0 | SLT ++, A<B
- 011 | 0fffffff  01111111 | 00000000 |	1   0 | SLT ++, A>B
- 011 | f0000000  0fffffff | 00000001 |	1   0 | SLT -+, A<B
- 011 | 0fffffff  f0000000 | 00000000 |	0   0 | SLT +-, A>B
+ 011 | 80000000  ffffffff | 00000001 |	0   0   | SLT --, A<B
+ 011 | ffffffff  80000000 | 00000000 |	1   0   | SLT --, A>B
+ 011 | 01111111  0fffffff | 00000001 |	0   0   | SLT ++, A<B
+ 011 | 0fffffff  01111111 | 00000000 |	1   0   | SLT ++, A>B
+ 011 | f0000000  0fffffff | 00000001 |	1   0   | SLT -+, A<B
+ 011 | 0fffffff  f0000000 | 00000000 |	0   0   | SLT +-, A>B
 
 ## Zero
 We tested the zero output by setting the 4-bit ALU to subtract B from A. Since we’ve already tested the 4-bit subtraction cases, we only chose two situations: one where the difference is zero and one where the difference is non-zero.
 
 ```
- Cm  |	A 	B | A - B | Zero | Case
+ Cm  |	A 	   B  | A - B | Zero | Case
 ------------------------------------------------------
- 001 | 1111  1111 |  0000 |	1 | A-B==0
- 001 | 1111  0000 |  1111 |	0 | A-B!=0
+ 001 | 1111  1111 |  0000 |	1    | A-B==0
+ 001 | 1111  0000 |  1111 |	0    | A-B!=0
 ```
 
 We did the same for the 32-bit ALU and achieved similar results.
 ```
- Cm  |    	A     	B |  	Out | Zero | Case
+ Cm  |    	A     	B     |  	Out  | Zero | Case
 ------------------------------------------------------
- 001 | 1234abcd  1234abcd | 00000000 |	1 | A-B==0
- 001 | 1234abcd  abcd1234 | 66679999 |	0 | A-B!=0
+ 001 | 1234abcd  1234abcd | 00000000 |	 1  | A-B==0
+ 001 | 1234abcd  abcd1234 | 66679999 |	 0  | A-B!=0
 ```
 
 ### Conceptual Errors
