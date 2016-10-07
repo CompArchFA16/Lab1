@@ -303,12 +303,6 @@ We did the same for the 32-bit ALU and achieved similar results.
  001 | 1234abcd  abcd1234 | 66679999 |	 0  | A-B!=0
 ```
 
-## Conceptual Errors
-
-### Bit-slicing vs. 32-bit results for each operation
-
-### Calculating SLT for each digit (wrong)
-
 # Timing Analysis
 For each operation, we inspected the waveforms to observe how long it takes for the inputs to propagate through the gates. The units of time are ns.
 
