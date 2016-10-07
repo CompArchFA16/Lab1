@@ -2,8 +2,8 @@
 `include "newalu2.v"
 /*include "genvartest.v"*/
 
-
-/*module testmux();
+/*
+module testmux();
 
     //tests the mux: MUX WORKS!
     wire [31:0] result;
@@ -26,12 +26,12 @@
     $display("  Xor   |    %h      %h   |    %h ", muxindex, result, xorResult);
     muxindex = 2; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
     $display("  SLT   |    %h      %h   |    %h ", muxindex, result, sltResult);
-    muxindex = 3; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
+    muxindex = 3; andResult=32'd6; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
     $display("And/Nor |    %h      %h   |    %h ", muxindex, result, andResult);
     muxindex = 4; andResult=32'd1; orResult=32'd2; xorResult=32'd3; addResult=32'd4; sltResult=0; #1000000000
     $display("Or/Nand |    %h      %h   |    %h ", muxindex, result, orResult);
-    end
-    endmodule*/
+    end*/
+   // endmodule
 
 /*
 module testlut();
@@ -89,7 +89,7 @@ module testalu();
     $dumpfile("newALU2.vcd");
     $dumpvars(0, myALU);
 
-    $display("Testing ADD operation: simple, negative and positive, two negatives, carryout, and overflow.");
+    $display("Testing ADD operation: simple, negative, carryout, and overflow.");
     $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
     
     command=3'b000; operandA=32'h10000000; operandB=32'h10000000; #100000000000 //simple
@@ -101,60 +101,99 @@ module testalu();
 
     command=3'b000; operandA=32'h8ffffff3; operandB=32'h10000600; #100000000000 //negative and positive
     $display("   %h     %h  %h | %h     %h      %h      %h    |    a00005f3", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b000; operandA=32'h00000001; operandB=32'h00000003; #100000000000 //simple
-    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000004", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b000; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
-    $display("   %h     %h  %h | %h     %h      %h      %h    |    20110004", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b000; operandA=32'h00000001; operandB=32'h80000003; #100000000000 
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    80000004", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b000; operandA=32'h800f0001; operandB=32'h10020003; #100000000000
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    90110004", command, operandA, operandB, result, carryout, zero, overflow);
 
-
+    command=3'b000; operandA=32'h80fffff3; operandB=32'h80000600; #100000000000 //negative and negative, carryout and overflow
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    010005f3", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b000; operandA=32'h80000001; operandB=32'h90000003; #100000000000 
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    10000004", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b000; operandA=32'hf00f0001; operandB=32'hf0020003; #100000000000 
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    e0110004", command, operandA, operandB, result, carryout, zero, overflow);
     command=3'b000; operandA=32'h7FFFFFFF; operandB=32'h7FFFFFFF; #100000000000 //overflow
     $display("   %h     %h  %h | %h     %h      %h      %h    |    fffffffe", command, operandA, operandB, result, carryout, zero, overflow);
 
-    
-    command=3'b000; operandA=32'hFFFFFFFF; operandB=32'hFFFFFFFF; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b000; operandA=32'h00000001; operandB=32'h00000003; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b000; operandA=32'h00000000; operandB=32'h00000000; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b000; operandA=32'h80000006; operandB=32'h00000030; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
+    $display("Testing SUBTRACT operation: simple, negative, carryout, and overflow.");
+    $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
+    command=3'b001; operandA=32'h10000000; operandB=32'h10000000; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b001; operandA=32'h00000001; operandB=32'h00000003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    fffffffe", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b001; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    000cfffe", command, operandA, operandB, result, carryout, zero, overflow);
+
+    command=3'b001; operandA=32'h8ffffff3; operandB=32'h10000600; #100000000000 //negative and positive
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    7ffff9f3", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b001; operandA=32'h00000001; operandB=32'h00000003; #100000000000 
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    fffffffe", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b001; operandA=32'h800f0001; operandB=32'h10020003; #100000000000
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    700cfffe", command, operandA, operandB, result, carryout, zero, overflow);
+
+    command=3'b001; operandA=32'h80fffff3; operandB=32'h80000600; #100000000000 //negative and negative, carryout and overflow
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00fff9f3", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b001; operandA=32'h80000001; operandB=32'h90000003; #100000000000 
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    effffffe", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b001; operandA=32'hf00f0001; operandB=32'hf0020003; #100000000000 
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    000cfffe", command, operandA, operandB, result, carryout, zero, overflow);
+
+    $display("Testing XOR operation");
+    $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
+    command=3'b010; operandA=32'h10000000; operandB=32'h10000000; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b010; operandA=32'h00000001; operandB=32'h00000003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000002", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b010; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    000d0002", command, operandA, operandB, result, carryout, zero, overflow);
+
+    $display("Testing SLT operation");
+    $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
+    command=3'b011; operandA=32'h10000000; operandB=32'h10000000; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b011; operandA=32'h00000001; operandB=32'h00000003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    ffffffff", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b011; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
+
+    $display("Testing AND operation");
+    $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
+    command=3'b100; operandA=32'h10000003; operandB=32'h10000001; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    10000001", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b100; operandA=32'hffffffff; operandB=32'heeeeeeee; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    eeeeeeee", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b100; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    10020001", command, operandA, operandB, result, carryout, zero, overflow);
+
+    $display("Testing NAND operation");
+    $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
+    command=3'b101; operandA=32'h10000003; operandB=32'h10000001; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    effffffe", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b101; operandA=32'hffffffff; operandB=32'heeeeeeee; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    11111111", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b101; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    effdfffe", command, operandA, operandB, result, carryout, zero, overflow);
     
 
+    $display("Testing NOR operation");
+    $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
+    command=3'b110; operandA=32'h10000003; operandB=32'h10000001; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    effffffc", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b110; operandA=32'hffffffff; operandB=32'heeeeeeee; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b110; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    eff0fffc", command, operandA, operandB, result, carryout, zero, overflow);
 
-    command=3'b001; operandA=32'h1; operandB=32'h2; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b010; operandA=32'h1; operandB=32'h2; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b011; operandA=32'h1; operandB=32'h2; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b100; operandA=32'h1; operandB=32'h2; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b101; operandA=32'h3; operandB=32'h2; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b110; operandA=32'h1; operandB=32'h2; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b111; operandA=32'h1; operandB=32'h2; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    $display("command  operandA  operandB |  result  carryout zero overflow ");
-    command=3'b000; operandA=32'h8; operandB=32'h9; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b001; operandA=32'h10; operandB=32'h9; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b010; operandA=32'h8; operandB=32'h9; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b011; operandA=32'h1; operandB=32'h1; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b100; operandA=32'h1; operandB=32'h1; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b101; operandA=32'h8; operandB=32'h9; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b110; operandA=32'h8; operandB=32'h9; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b111; operandA=32'h8; operandB=32'h9; #100000000000
-    $display("   %h     %h  %h | %h     %h      %h     %h", command, operandA, operandB, result, carryout, zero, overflow);
+
+    $display("Testing OR operation");
+    $display("command  operandA  operandB |  result  carryout zero overflow | expected result");
+    command=3'b111; operandA=32'h10001003; operandB=32'h10000001; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    10001003", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b111; operandA=32'hffffffff; operandB=32'heeeeeeee; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    ffffffff", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b111; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    100f0003", command, operandA, operandB, result, carryout, zero, overflow);
     end
-
 
 endmodule
 

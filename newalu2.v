@@ -126,17 +126,17 @@ wire[30:0] carryoutin;
 wire[31:0] MxorB;
 wire carryout;
 wire overflow;
-//xor1a32 myxor(MxorB,operandB, M);
-structuralFullAdder add0(addResult[0], carryoutin[0], operandA[0],operandB[0], M);
+xor1a32 myxor(MxorB,operandB, M);
+structuralFullAdder add0(addResult[0], carryoutin[0], operandA[0],MxorB[0], M);
 genvar i;
   generate
   //ands all 32 bits
     for (i = 1; i < 31; i = i+1)
     begin : gen1
-      structuralFullAdder addgates(addResult[i], carryoutin[i], operandA[i],operandB[i], carryoutin[i-1]);
+      structuralFullAdder addgates(addResult[i], carryoutin[i], operandA[i],MxorB[i], carryoutin[i-1]);
     end
   endgenerate
-structuralFullAdder add31(addResult[31], carryout, operandA[31],operandB[31], carryoutin[30]);
+structuralFullAdder add31(addResult[31], carryout, operandA[31],MxorB[31], carryoutin[30]);
 `XORgate overflowgate(overflow,carryoutin[30],carryout);
 endmodule
 
@@ -146,7 +146,7 @@ module structuralMultiplexer
     output [31:0] result,
     input [2:0] muxindex,
     input [31:0] andResult, orResult, xorResult, addResult,
-    input [31:0] sltResult
+    input  sltResult
 );
 
     wire [2:0] notCommand;
@@ -192,17 +192,16 @@ input[2:0] ALUcommand
 );
 
 
-//in the lab it mentions we need a way to stop oveflow from counting for the slt...it seems like a control flag kind of thing
 always @(ALUcommand) begin
     case (ALUcommand)
-      `ADD:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
-      `SUB:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=1; end //work
-      `XOR:  begin muxindex = 1; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
-      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=1; end //work
-      `AND:  begin muxindex = 3; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //broke
-      `NAND: begin muxindex = 4; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //work
-      `NOR:  begin muxindex = 3; invertA=1; invertB=1; enableOverflow=1; carryin=0; end //broke
-      `OR:   begin muxindex = 4; invertA=0; invertB=0; enableOverflow=1; carryin=0; end //work
+      `ADD:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=0; end 
+      `SUB:  begin muxindex = 0; invertA=0; invertB=0; enableOverflow=1; carryin=1; end 
+      `XOR:  begin muxindex = 1; invertA=0; invertB=0; enableOverflow=1; carryin=0; end 
+      `SLT:  begin muxindex = 2; invertA=0; invertB=1; enableOverflow=0; carryin=1; end 
+      `AND:  begin muxindex = 3; invertA=0; invertB=0; enableOverflow=1; carryin=0; end 
+      `NAND: begin muxindex = 4; invertA=1; invertB=1; enableOverflow=1; carryin=0; end 
+      `NOR:  begin muxindex = 3; invertA=1; invertB=1; enableOverflow=1; carryin=0; end 
+      `OR:   begin muxindex = 4; invertA=0; invertB=0; enableOverflow=1; carryin=0; end 
     endcase
   end
 endmodule
@@ -251,7 +250,7 @@ slt32 myslt(sltResult, operandA, operandB);
 `ANDgate andoverflow(overflow, enableOverflow, adderoverflow);
 `ORgate sltor(sltResult32[31],sltResult, 0);
 
-structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult32);
+structuralMultiplexer mymux(result, muxindex, andResult, orResult, xorResult, addResult, sltResult);
 
 
 // zero
