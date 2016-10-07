@@ -13,15 +13,15 @@ module alu_test();
 ALU #(.n(32)) alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
 
 initial begin
-	$dumpfile("alu_0.vcd");
+	$dumpfile("alu_4.vcd");
 	$dumpvars;
 
 	$display("A B CMD | RES C_OUT ZERO OVERFLOW");
 
-	command = 0;
-	operandA = -1; operandB = 0; #10000;
+	command = 4;
+	operandA = 0; operandB = 0; #10000;
 	
-	operandA = -1; operandB = 1; #10000;
+	operandA = 0; operandB = -1; #10000;
 
 //	for(operandA=-7; operandA<7; operandA=operandA+1) begin
 //		for(operandB=-7; operandB<7; operandB=operandB+1) begin
