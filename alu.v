@@ -60,7 +60,7 @@ module adder_1_bit
   `XOR xorgate0(AxorB, a, b);
   `XOR xorgate1(sum, AxorB, cin);
 
-  `AND andgate1(AandB, a, b);
+  `AND andgate0(AandB, a, b);
   `AND andgate1(AxorBandCin, AxorB, cin);
   `OR orgate(cout, AandB, AxorBandCin);
 endmodule
