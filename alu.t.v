@@ -371,7 +371,62 @@ module testALU();
     $display("SUB   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
     $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
     $display("  EXP | R: 10000000 00000000 00000000 00000010  C: 0  O: 0  Z: 0");        
-     
+
+    $display("--------------------------------------------------------------------------------------");
+    $display("TESTS FOR SLT");
+    $display("--------------------------------------------------------------------------------------");
+    cmd=`CMD_SLT;
+
+    a=0; b=0; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000000  C: 1  O: 0  Z: 1");
+
+    a=`N; b=0; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000000  C: 1  O: 0  Z: 1");
+
+    a=0; b=`N; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000001  C: 0  O: 0  Z: 0");
+
+    a=`N; b=`M; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000000  C: 1  O: 0  Z: 1");
+
+    a=`M; b=`N; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000001  C: 0  O: 0  Z: 0");
+
+    a=-8566325; b=`M; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000001  C: 1  O: 0  Z: 0");
+
+    a=-8566325; b=0; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000001  C: 1  O: 0  Z: 0");
+
+    a=-8566325; b=-2147483647; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000000  C: 1  O: 0  Z: 1");
+    
+    a=-2147483647; b=-8566325; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000001  C: 0  O: 0  Z: 0");
+
+    a=-8566325; b=`N; #3000;
+    $display("SLT   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
+    $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
+    $display("  EXP | R: 00000000 00000000 00000000 00000000  C: 1  O: 1  Z: 1");
+
   end
 
 endmodule
