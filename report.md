@@ -202,6 +202,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | 0111  0000 | 0111 |	0   0   | ADD
  ```
  
+ This test case is derived directly from Lab 0. However, instead of using a 4 bit adder component, we are using four 1 bit ALUs to compute. We try different combinations of sign of A, sign of B, carryout, and overflow to find out that our 4 bit ALU worked.
+ 
 ```verilog
  Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ------------------------------------------------------
@@ -211,6 +213,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | f0000000  80000000 | 70000000 |	1   1   | ADD --, CO*OF
  000 | 10000000  f0000000 | 00000000 |	1   0   | ADD +-, CO*~OF
 ```
+
+We applied similar principles for our 32 bit ALU addition test. We took a 32 bit value with only its leftmost 4 bits with values and the rest with zeros. We basically took our 4 bit cases and padded to the right 28 times with zeros. Here, we test different cases regarding sign of A, sign of B, carryout, and overflow. The 32 bit test case is a lot shorter than the 4 bit one as we proved the functionality of our ALU extensively in the 4 bit version.
 
 ## Subtractor
 ```verilog
@@ -234,6 +238,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  001 | 0111  0000 | 0111 |	1   0   | SUB
  ```
 
+For the subtractor, we used roughly the same cases from addition, because of the similarity between the adder and subtractor. We inverted the B operands from the addition test bench to find the new B operands. This way we can reuse the same cases for the subtractor that we used for the adder. Doing this, we found that all of our test cases were successful and correct, indicating that the subtractor worked for the four bit case. 
+
 ```verilog
  Cm  |    	A     	B     |    Out   | Cout  OF | Case
 ------------------------------------------------------
@@ -244,6 +250,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  001 | 70000000  50000000 | 20000000 |	1   0   | SUB ++, CO*~OF
  001 | ffffffff  ffffffff | 00000000 |	1   0   | SUB --, CO*~OF
 ```
+
+We then took some of the same cases that we used for the 4 bit subtractor and padded them with zeros to create 32  bit numbers, which we were able to run through our system and they worked.
 
 The 32-bit subtraction process compared to the other processes had a lot of delay, so our test bench delay initially was not enough. Because of that we got weird values. We checked the test bench dump for subtraction on GTKwave, and then extended the delay time in the test bench to fix the problem.
 
