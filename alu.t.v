@@ -153,7 +153,7 @@ module testALU();
     a=0; b=0; #5000;
     $display("SUB   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
     $display("  ACT | R: %b %b %b %b  C: %b  O: %b  Z: %b", res[31:24], res[23:16], res[15:8], res[7:0], cout, ofl, zero);
-    $display("  EXP | R: 00000000 00000000 00000000 00000000  C: 0  O: 0  Z: 1");
+    $display("  EXP | R: 00000000 00000000 00000000 00000000  C: 1  O: 0  Z: 1");
 
     a=1; b=1; #5000;
     $display("SUB   | A: %b %b %b %b  B: %b %b %b %b", a[31:24], a[23:16], a[15:8], a[7:0], b[31:24], b[23:16], b[15:8], b[7:0]);
