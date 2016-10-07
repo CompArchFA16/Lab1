@@ -16,8 +16,8 @@ wire out_0, out_1;
 wire n_sel;
 
 `NOT not_1(n_sel, sel);
-and (out_0, n_sel, data[0]);
-and (out_1, sel, data[1]);
+`AND (out_0, n_sel, data[0]);
+`AND (out_1, sel, data[1]);
 `OR or1(out, out_0, out_1);
 endmodule
 

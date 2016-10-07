@@ -3,8 +3,8 @@
 `define AND and #30
 `define NOR nor #20
 `define OR or #30
-`define XNOR xnor #50
 `define XOR xor #50
+`define XNOR xor #50
 
 
 // -----------------------------------------------
@@ -24,27 +24,7 @@ module FullAdder
     `AND and0(AandB, a, b);
     `AND and1(AandC, a, carryin);
     `AND and2(BandC, b, carryin);
-    `OR orGate(carryout, AandB, AandC, BandC);
-
-endmodule
-
-
-// -----------------------------------------------
-// INV
-// -----------------------------------------------
-module mINV
-#(parameter n=32)
-(
-  output[n-1:0] out,
-  input[n-1:0] in
-);
-
-  generate
-    genvar i;
-    for (i=0; i<n; i = i+1) begin: invgenblk
-        not findinv(out[i], in[i]);
-      end
-  endgenerate
+    or #60 orGate(carryout, AandB, AandC, BandC);
 
 endmodule
 
@@ -112,29 +92,7 @@ module mXOR
   generate
     genvar i;
     for (i=0; i<n; i = i+1) begin: xorgenblk
-      xor findxor(result[i], operandA[i], operandB[i]);
-    end
-  endgenerate
-
-endmodule
-
-// -----------------------------------------------
-// XNOR
-// -----------------------------------------------
-module mXNOR
-#(parameter n=32)
-(
-  output[n-1:0]    result,
-  //output reg      carryout = 0,
-  //output reg      overflow = 0,
-  input[n-1:0]     operandA,
-  input[n-1:0]     operandB
-);
-
-  generate
-    genvar i;
-    for (i=0; i<n; i = i+1) begin: xnorgenblk
-      `XNOR findxnor(result[i], operandA[i], operandB[i]);
+      `XOR findxor(result[i], operandA[i], operandB[i]);
     end
   endgenerate
 
