@@ -74,16 +74,18 @@ module ALUmultiplexer
 (
     output [31:0] out,
     input [2:0] muxindex,
-    input [31:0] addsub, XOR, SLT, ANDNAND, ORNOR
+    input [31:0] addsub, resXOR, resSLT, resAND, resNAND, resOR, resNOR
 );
-    wire [31:0] tempout;
+    wire [31:0] tempout1;
+    wire [31:0] tempout2;
     
     generate
     genvar i;
 
       for (i = 0; i<32; i = i + 1) begin: mux
-			  fourBitMultiplexer mux0(tempout[i], muxindex[0], muxindex[1], addsub[i], XOR[i], SLT[i], ANDNAND[i]);
-        twoBitMultiplexer mux1(out[i], muxindex[2], tempout[i], ORNOR[i]);
+			  fourBitMultiplexer mux0(tempout1[i], muxindex[0], muxindex[1], addsub[i], resXOR[i], resSLT[i], resAND[i]);
+        fourBitMultiplexer mux1(tempout2[i], muxindex[0], muxindex[1], resNAND[i], resNOR[i], resOR[i], 32'b0);
+        twoBitMultiplexer mux2(out[i], muxindex[2], tempout1[i], tempout2[i]);
 		  end
     endgenerate
 
