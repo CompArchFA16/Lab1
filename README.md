@@ -1,5 +1,7 @@
 # CompArch Lab 1: Arithmetic Logic Unit
 
+# Hey Ninjas! Our Makefile doesn't quite work, so you might need to compile everything separately. Sorry! 
+
 **Work plan due:** Tues. October 4
 
 **Lab due:** Thu. October 6
