@@ -101,6 +101,7 @@ module xor32 (
   wire [31:0] AnorA;
   wire [31:0] BnorB;
   wire [31:0] AAnorBB;
+  wire [31:0] AnorB;
 
   generate
   genvar index;
@@ -109,7 +110,8 @@ module xor32 (
 		`NOR32 norgate(AnorA[index], A[index], A[index]);
     `NOR32 norgate(BnorB[index], B[index], B[index]);
     `NOR32 norgate(AAnorBB[index], AnorA[index], BnorB[index]);
-    `NOR32 norgate(AxorB[index], AAnorBB[index], AAnorBB[index]);
+    `NOR32 norgate(AnorB[index], A[index], B[index]);
+    `NOR32 norgate(AxorB[index], AAnorBB[index], AnorB[index]);
 	end
 	endgenerate
 endmodule

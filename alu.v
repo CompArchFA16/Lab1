@@ -35,6 +35,6 @@ input[2:0]      command
 	nor32    nor32(norResult, operandA, operandB);
 
 
-	ALUmultiplexer final(result, addResult, muxindex, xorResult, sltResult, andResult, orResult);
+	ALUmultiplexer final(result, muxindex, addSubResult, xorResult, sltResult, andResult, nandResult, orResult, norResult);
 
 endmodule
