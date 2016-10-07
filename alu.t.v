@@ -127,7 +127,6 @@ module testAlu();
     // COMMAND_NAND ============================================================
     $display(, ,) ;
     //COMMAND_NAND #1: 0 & 0 = 1
-    //TODO: ffffffff? 1?
     command = `COMMAND_NAND; operandA = 32'h0; operandB = 32'h0; #500000
     $display("COMMAND_NAND | %h   %h %h | %h %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
@@ -147,7 +146,6 @@ module testAlu();
     // COMMAND_NOR =============================================================
     $display(, ,) ;
     // COMMAND_NOR #1: 0 COMMAND_NOR 0 = 0
-    //TODO: ffffffff? 1?
     command = `COMMAND_NOR; operandA = 32'h0; operandB = 32'h0; #500000
     $display("COMMAND_NOR  | %h   %h %h | %h %b %b %b | 1 0 0 0", command, operandA, operandB, result, carryout, zero, overflow);
 
