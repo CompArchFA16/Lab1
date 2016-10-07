@@ -43,8 +43,9 @@ The 1 bit NAND/AND component is very similar to the 1 bit NOR/OR component. We c
 
 The 1 bit Adder/Subtractor takes in ‘a’, ‘b’, and ‘cin’ (carryin) and adds those all together. The outputs are ‘sum’ and ‘carryout’. This component can only add, but by manipulating ‘b’, and ‘cin’, the ALU can subtract using this component. 
 
-1 bit ALU
+### 1 bit ALU
 ![Test Table](https://github.com/tj-kim/Lab1/blob/master/images/1bitalu.png)
+
 (The blue input on the very right that is cut off reads ‘InvB’)
 
 The 1 bit ALU component brings together all the components mentioned above. We added a 2:1 mux before the 1 bit Adder/Subtractor because we will manipulate operandB and Cin to make the adder/subtractor component do either addition or subtraction. That method saves space and time compared to doing both operations with the adder/subtractor and choosing whether to output the sum or the difference with a mux.
@@ -53,7 +54,7 @@ Another important design decision we made was to link operation SLT to muxIndex 
 
 For the SLT output, we also opted to have it a constant value 0. This is because we want the result string for the SLT to be ‘..0001’ when B is greater than A, and ‘..0000’ when B is not greater than A. Therefore, we will initially set the final ‘result’ of the big ALU to be 32 bits of zeros and and alter the value of the rightmost bit later on.
 
-Full ALU with LUT
+### Full ALU with LUT
 ![Test Table](https://github.com/tj-kim/Lab1/blob/master/images/final_alu.png)
 
 With the Full ALU with LUT, the user initially inputs a 3 bit command to select which operation the ALU should run on inputs A and B. The LUT takes in the command and outputs ‘muxIndex’, ‘InvB’, and ‘othercommandsignal’.  ‘muxIndex’ addresses the 5 bit mux in the ALU that selects which operation to run. ‘InvB’ raises a ‘1’ if the required operation is related to subtraction and needs B to be inverted. ‘othercommandsignal’ raises a ‘1’ if we are ANDing A and B or ORing A and B. In other words, ‘othercommandsignal’ differentiates between NAND/AND and NOR/OR.
