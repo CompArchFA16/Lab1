@@ -26,7 +26,7 @@ input[2:0]      command
 
 	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, command);
 
-	FullMath32bit addtest(addSubResult, carryout, overflow, operandA, operandB, invertB);
+	FullMath32bit addsub(addSubResult, carryout, overflow, operandA, operandB, invertB);
 	xor32    xor32(xorResult, operandA, operandB);
 	FullSLT  slt(sltResult, operandA, operandB);
 	and32    and32(andResult, operandA, operandB);
@@ -36,5 +36,6 @@ input[2:0]      command
 
 
 	ALUmultiplexer final(result, muxindex, addSubResult, xorResult, sltResult, andResult, nandResult, orResult, norResult);
+	
 
 endmodule
