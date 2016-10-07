@@ -290,15 +290,24 @@ We did the same for the 32-bit ALU and achieved similar results.
  001 | 1234abcd  abcd1234 | 66679999 |	 0  | A-B!=0
 ```
 
-### Conceptual Errors
-Bit-slicing vs. 32-bit results for each operation
+## Conceptual Errors
 
-Calculating SLT for each digit (wrong)
+### Bit-slicing vs. 32-bit results for each operation
 
-### Bugs
-SLT failure (conceptual error, putting 0 into result[31])
+### Calculating SLT for each digit (wrong)
 
-32-bit subtraction failure (not enough time delay)
+## Bugs
+
+### SLT failure (conceptual error, putting 0 into result[31])
+
+One major bug we had was trying to get the SLT to work. In order to determine the value of the SLT, we have to take the leftmost bit of the difference of A and B. Then we have to use that leftmost bit and overflow to determine of SLT is raised to ‘1’ or not. However, when we commanded the 32 bit ALU to find the SLT we made a grave mistake. We made it so that the 1 bit ALU returned ‘0’ for every bit of the result when selected for SLT operation. We had no leftmost bit of the difference to compute the SLT value! 
+
+To fix this problem, we created a 1 bit adder in the final ALU, separate from the 32 1-bit ALUs. This ALU took in A[31], ~B[31], and the carryout of the 30th 1-bit ALU (2nd to last) and computed the leftmost bit of the difference of A and B for us.
+
+### 32-bit subtraction failure (not enough time delay)
+
+The 32-bit subtraction process compared to the other processes had a lot of delay, so our test bench delay initially was not enough. Because of that we got weird values. We checked the test bench dump for subtraction on GTKwave, and then extended the delay time in the test bench to fix the problem.
+
 
 # Timing Analysis
 
