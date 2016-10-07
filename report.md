@@ -310,7 +310,7 @@ We did the same for the 32-bit ALU and achieved similar results.
 ### Calculating SLT for each digit (wrong)
 
 # Timing Analysis
-For each operation, we inspected the waveforms to observe how long it takes for the inputs to propagate through the gates.
+For each operation, we inspected the waveforms to observe how long it takes for the inputs to propagate through the gates. The units of time are ns.
 
 ## Basic Gates
 For each of the basic gates, the propagation delay is relatively short, since these operations can be applied to all pairs of digits at the same time. However, for the very first bit, there are extra gates to account for, partly due to a MUX that decides whether or not to set the first bit to the value of the SLT operation. Thus, for the following waveforms, the 32-bit ALU will first calculate bits 2-32, and after another delay, it will resolve bit 1.
@@ -318,33 +318,51 @@ For each of the basic gates, the propagation delay is relatively short, since th
 ### NAND
 ![NAND Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayNAND.png)
 
-According to our calculations, a NAND gate 
+According to our calculations (also values are in circuit diagram), a NAND operation has a 1-bit Nor/or gate that has a delay of 100, a 5:1 mux that has a delay of 210, and a 2:1 mux that has a delay of 70. The total time it takes is 380, which lines up closely with the GTKwave diagram, although it is overshot by a bit. The GTKwave returns a delay of 320.
 
 ### AND
 ![AND Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayAND.png)
 
+Similarly to a NAND gate, an AND operation has a total delay of 380, which also lines up closely with our GTKwave value of 330. 
+
 ### NOR
 ![NOR Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayNOR.png)
+
+Same delay calculation as NAND of 380. GTKwave value of 320.
 
 ### OR
 ![OR Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayOR.png)
 
+Same delay calculation as AND of 380. GTKwave value of 330.
+
+
 ### XOR
 ![XOR Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayXOR.png)
+
+The XOR operator has the following components: 1-bit Xor operator with a delay of 60, a 5:1 mux with delay of 210, and a 2:1 mux with a delay of 70. The 2:1 mux is used for bit zero only, as we select between the rightmost ALU output and the SLT output. The total calculated time is 340, while the GTKwave time is 290.
 
 ## ADD
 ![ADD Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayADD2.png)
 
+The Add operator has the following components: 2:1 mux with delay 70, and 1-bit adder/subtractor with delay 120. We have 32 add/subtract processes so we multiply the delay of the adder with 32, and add it to the mux. The total calculated delay is 3910. The delay shown on the GTKwave is 420.
+
 ## SUB
 ![SUB Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delaySUB2.png)
+
+The subtract operator has the same delay as an adder when calculated, 3910. The GTKwave value is 2300.
 
 ## SLT
 ![SLT Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delaySLT.png)
 
+The calculated delay of the SLT includes the delay of a 2:1 mux (70), 31 1-bit subtractors (120*32), 1 1-bit adder (120), 2 Xor gates (2*60), and 1 2:1 mux (70). The total calculated delay is 4100. GTKwave returns a delay of 2200.
+
 ## ZERO
 ![ZERO Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayZERO.png)
+
+
+Overall, there seemed to be a great mismatch between our calculations and the waveform output. Maybe we need help on calculating the delay values by hand.
 
 # Work Plan Reflection
 
 We were able to follow our work plan very well. Our first few days went as planned, but we had to take longer on Tuesday and Wednesday, as the added complexities led to more code bugs and unusual situations within the circuit. It took extra time that we didn’t put into the work plan to fix these. The creation of the SLT system took much longer than expected, probably 3 hours instead of the predicted 1.5. We would create an idea for the SLT system, dissect it, and then retest or implement the idea. Once we figured out the SLT and it passed our test bench, the report came together quickly. 
-Overall, our team met every day since Saturday to work on this, so we never truly were pressed for time. We felt the workload was distributed well amongst our teammates. 
+Overall, our team met every day since Saturday to work on this, and felt we put in a good effort. We felt the workload was distributed well amongst our teammates. 
