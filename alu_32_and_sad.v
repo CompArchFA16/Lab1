@@ -53,5 +53,5 @@ module ALU32AndSad
   `OR (resultAnds, andsRound4[0], andsRound4[1]);
 
   wire zero;
-  `NOR (zero, resultAnds, carryout);
+  `NOT (zero, resultAnds);
 endmodule
