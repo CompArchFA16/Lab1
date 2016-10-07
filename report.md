@@ -245,7 +245,7 @@ We encountered some bugs before getting to this point, as shown in the table bel
  001 | ffffffff  ffffffff | 00000000 |	1   0   | SUB --, CO*~OF
 ```
 
-
+The 32-bit subtraction process compared to the other processes had a lot of delay, so our test bench delay initially was not enough. Because of that we got weird values. We checked the test bench dump for subtraction on GTKwave, and then extended the delay time in the test bench to fix the problem.
 
 ## SLT
 ```verilog
@@ -272,6 +272,11 @@ We encountered some bugs before getting to this point, as shown in the table bel
  011 | 0fffffff  f0000000 | 00000000 |	0   0   | SLT +-, A>B
  ```
 
+One major bug we had was trying to get the SLT to work. In order to determine the value of the SLT, we have to take the leftmost bit of the difference of A and B. Then we have to use that leftmost bit and overflow to determine of SLT is raised to ‘1’ or not. However, when we commanded the 32 bit ALU to find the SLT we made a grave mistake. We made it so that the 1 bit ALU returned ‘0’ for every bit of the result when selected for SLT operation. We had no leftmost bit of the difference to compute the SLT value! 
+
+To fix this problem, we created a 1 bit adder in the final ALU, separate from the 32 1-bit ALUs. This ALU took in A[31], ~B[31], and the carryout of the 30th 1-bit ALU (2nd to last) and computed the leftmost bit of the difference of A and B for us.
+
+
 ## Zero
 We tested the zero output by setting the 4-bit ALU to subtract B from A. Since we’ve already tested the 4-bit subtraction cases, we only chose two situations: one where the difference is zero and one where the difference is non-zero.
 
@@ -295,19 +300,6 @@ We did the same for the 32-bit ALU and achieved similar results.
 ### Bit-slicing vs. 32-bit results for each operation
 
 ### Calculating SLT for each digit (wrong)
-
-## Bugs
-
-### SLT failure (conceptual error, putting 0 into result[31])
-
-One major bug we had was trying to get the SLT to work. In order to determine the value of the SLT, we have to take the leftmost bit of the difference of A and B. Then we have to use that leftmost bit and overflow to determine of SLT is raised to ‘1’ or not. However, when we commanded the 32 bit ALU to find the SLT we made a grave mistake. We made it so that the 1 bit ALU returned ‘0’ for every bit of the result when selected for SLT operation. We had no leftmost bit of the difference to compute the SLT value! 
-
-To fix this problem, we created a 1 bit adder in the final ALU, separate from the 32 1-bit ALUs. This ALU took in A[31], ~B[31], and the carryout of the 30th 1-bit ALU (2nd to last) and computed the leftmost bit of the difference of A and B for us.
-
-### 32-bit subtraction failure (not enough time delay)
-
-The 32-bit subtraction process compared to the other processes had a lot of delay, so our test bench delay initially was not enough. Because of that we got weird values. We checked the test bench dump for subtraction on GTKwave, and then extended the delay time in the test bench to fix the problem.
-
 
 # Timing Analysis
 
