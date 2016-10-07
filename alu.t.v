@@ -13,12 +13,12 @@ module alu_test();
 ALU #(.n(32)) alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
 
 initial begin
-	$dumpfile("alu_4.vcd");
+	$dumpfile("alu_7.vcd");
 	$dumpvars;
 
 	$display("A B CMD | RES C_OUT ZERO OVERFLOW");
 
-	command = 4;
+	command = 7;
 	operandA = 0; operandB = 0; #10000;
 	
 	operandA = 0; operandB = -1; #10000;
