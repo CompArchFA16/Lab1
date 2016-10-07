@@ -7,8 +7,8 @@
 `define c_NOR  3'd6
 `define c_OR   3'd7
 
-`include "modules.v"
-`include "muxnbit.v"
+`include "modules.v" //has all of our core modules
+`include "muxnbit.v" //mux for selecting the core module output
 
 //gate delay are assumed to be proportional to the number of inputs
 //10 units per input
@@ -20,7 +20,10 @@
 `define XNOR xnor #50
 `define XOR xor #50
 
-
+//takes ALUcommand (1-7) and
+//sets invertB, invertOutput flag
+//
+//combines ADD,SUB; NAND, AND; NOR, NOR into one muxindex for each pair
 module ALUcontrolLUT
 (
 output reg[2:0]     muxindex,
@@ -44,7 +47,7 @@ input[2:0]  ALUcommand
 endmodule
 
 module ALU
-#(parameter n=32)
+#(parameter n=32) //parameterized to switch to 4 bits for debugging & test cases
 (
   output[n-1:0]    result,
   output          carryout,
@@ -56,12 +59,9 @@ module ALU
 );
 
 wire [n-1:0] result_t;
-wire [n-1:0] results [4:0];
+wire [n-1:0] results [4:0]; //4 corresponding to ADDSUB, XOR, NAND, NOR
 
-wire [n:0] zeros;
-//wire zero_t_2=0;
-
-wire carryout_t, overflow_t;
+wire carryout_t, overflow_t; //carryout and overflow of ADDSUB module
 
 wire [2:0] muxindex;
 wire invertB;
@@ -75,10 +75,12 @@ mXOR #(.n(n)) _xor(results[2],operandA,operandB);
 mNAND #(.n(n)) _nand(results[3],operandA,operandB); 
 mNOR #(.n(n)) _nor(results[4],operandA,operandB); 
 
-and billsfavoriteandgate(carryout, carryout_t, ~muxindex[0], ~muxindex[1], ~muxindex[2]);
+`AND billsfavoriteandgate(carryout, carryout_t, ~muxindex[0], ~muxindex[1], ~muxindex[2]); //to set carryout to 0 for SLT, XOR, NAND and NOR
+//muxindex[0], muxindex[1], muxindex[2] are 0 only for ADDSUB module
 
-and billssecondfavoriteandgate(overflow, overflow_t, ~muxindex[0], ~muxindex[1], ~muxindex[2]);
+`AND billssecondfavoriteandgate(overflow, overflow_t, ~muxindex[0], ~muxindex[1], ~muxindex[2]); //to set carryout to 0 for SLT, XOR, NAND and NOR
 
+//select respective result using mux and invert the output using XOR if invertOutput flag is 1 (for AND and OR)
 generate
   genvar i;
   for (i=0; i<n; i = i+1) begin: subgenblk
@@ -88,5 +90,7 @@ generate
 endgenerate
 
 assign zero = ~|result;
-
+//structural version
+// // `NOR(zero, result); //does not work
+// nor #100 (zero,result[0],result[1],result[2],result[3],result[4],result[5],result[6],result[7],result[8],result[9],result[10],result[11],result[12],result[13],result[14],result[15],result[16],result[17],result[18],result[19],result[20],result[21],result[22],result[23],result[24],result[25],result[26],result[27],result[28],result[29],result[30],result[31]);
 endmodule

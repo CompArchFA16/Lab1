@@ -1,6 +1,9 @@
+//Test cases for ALU
+
 `include "alu.v"
 `define DISP(exp) $display("%d & %d & %d & %d & %b &  %b  &  %b & ", operandA, operandB, command, result, carryout, zero, overflow, exp)
 `define TEST(aValue,bValue) operandA= aValue; operandB  = bValue; #10000
+
 module alu_test();
   wire signed [31:0] result;
   wire carryout;
@@ -13,16 +16,26 @@ module alu_test();
 ALU #(.n(32)) alu(result,carryout,zero,overflow,operandA,operandB,command[2:0]);
 
 initial begin
-	$dumpfile("alu_7.vcd");
+
+	//create gtkwavefile
+	$dumpfile("alu_5.vcd");
 	$dumpvars;
 
-	$display("A B CMD | RES C_OUT ZERO OVERFLOW");
+	// //writing the worse cases
+	// //ADD
+	//command = 0;
+	//operandA = -1; operandB = 0; #10000;
+	//operandA = -1; operandB = 1; #10000;
+	// //SUB,SLT
+	//command = 2;
+	//operandA = -1; operandB = 0; #10000;
+	//operandA = -1; operandB = -1; #10000; 
+	//
+	command = 5;
+	operandA = -1; operandB = 0; #10000;	
+	operandA = -1; operandB = -1; #10000;
 
-	command = 7;
-	operandA = 0; operandB = 0; #10000;
-	
-	operandA = 0; operandB = -1; #10000;
-
+// Loop through all cases
 //	for(operandA=-7; operandA<7; operandA=operandA+1) begin
 //		for(operandB=-7; operandB<7; operandB=operandB+1) begin
 //			for(command=0; command<1; command=command+1) begin
@@ -32,6 +45,7 @@ initial begin
 //		end
 //	end
 //	
+//  // 4 bit test Cases
 //	// ADD Module Test
 //	command=0;
 //	$display("Testing ADD:");
@@ -88,6 +102,7 @@ initial begin
 //		`TEST(0,0); 
 //		`DISP();
 //	end
+
 end
 
 endmodule
