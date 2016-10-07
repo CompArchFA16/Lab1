@@ -1,0 +1,42 @@
+Lab 1 - Work Plan
+Jay Woo, Paul Krusell, TJ Kim
+
+October 1st (1.5 hours total)
+* Write out work plan (1 hour)
+* Implement control logic LUT (0.5 hour)
+
+October 2nd (2 hours total)
+* Pick test cases (1 hour)
+* Design ALU block diagram on paper (1 hour)
+
+October 3rd (3 hours total)
+* Implement and test the following components (3 hours)
+  - NAND, NOR, AND, OR (1 hour)
+  - ADD and SUB (2 hours)
+
+October 4th (4 hours total)
+* Implement and test the following components (2 hours)
+  - SLT (1.5 hours)
+  - XOR (0.5 hours)
+* Polish code documentation (1 hour)
+* Generate waveforms in GTKWave (1 hour)
+
+October 5th (3 hours total)
+* Begin report (3 hours)
+  - Introduction (0.25 hours)
+    -- We are designing an ALU subsystem for a CPU
+    -- Report to the project manager in charge of everything
+  - Implementation (1 hour)
+    -- Discuss interesting design choices
+    -- Polish block diagram of ALU
+  - Test Results (1 hour)
+    -- Specific instances where your test bench caught a flaw
+    -- Record specifically why new tests were added over time
+  - Timing Analysis (0.5 hours)
+    -- Explain gate delay calculations on paper
+    -- Include waveforms
+  - Work Plan Reflection (0.25 hours)
+    --Compare expected and actual work time 
+
+October 6th (0-2 hours total)
+* Finish and submit report (0-2 hours)
