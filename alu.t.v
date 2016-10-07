@@ -40,9 +40,14 @@ module testAlu();
     command = `COMMAND_ADD; operandA = 32'h80000001; operandB = 32'h80000001; #500000
     $display("COMMAND_ADD  | %h   %h %h | %h %b %b %b | h80000002 1 0 1", command, operandA, operandB, result, carryout, zero, overflow);
 
-     // COMMAND_ADD #4: 0 + 0 = 0
+     // COMMAND_ADD #5: 0 + 0 = 0
     command = `COMMAND_ADD; operandA = 32'b0; operandB = 32'b0; #500000
     $display("COMMAND_ADD  | %h   %h %h | %h %b %b %b | 0 0 1 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // COMMAND_ADD #4: -1 + 1 = 0
+    command = `COMMAND_ADD; operandA = 32'h0; operandB = 32'h0; #500000
+    command = `COMMAND_ADD; operandA = 32'hffffffff; operandB = 32'h1; #500000
+    $display("COMMAND_ADD  | %h   %h %h | %h %b %b %b | h0 1 1 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // COMMAND_SUB =============================================================
     $display(, ,) ;
@@ -69,6 +74,11 @@ module testAlu();
     // COMMAND_SUB #4: h80000001 - h00000001 = h80000002
     command = `COMMAND_SUB; operandA = 32'b1; operandB = 32'b1; #500000
     $display("COMMAND_SUB  | %h   %h %h | %h %b %b %b | 0 1 1 0", command, operandA, operandB, result, carryout, zero, overflow);
+
+    // COMMAND_ADD #4: 1 - 1 = 0
+    command = `COMMAND_ADD; operandA = 32'h0; operandB = 32'h0; #500000
+    command = `COMMAND_SUB; operandA = 32'h1; operandB = 32'h1; #500000
+    $display("COMMAND_ADD  | %h   %h %h | %h %b %b %b | h0 1 1 0", command, operandA, operandB, result, carryout, zero, overflow);
 
     // COMMAND_XOR =============================================================
     $display(, ,) ;
