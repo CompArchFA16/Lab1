@@ -31,9 +31,9 @@ input[2:0]      ALUcommand
       `XOR:  begin muxindex = 3'b001; invertB=0; setFlag = 0; secondaryOperation = 0; end    
       `SLT:  begin muxindex = 3'b010; invertB=1; setFlag = 0; secondaryOperation = 0; end
       `AND:  begin muxindex = 3'b011; invertB=0; setFlag = 0; secondaryOperation = 0; end    
-      `NAND: begin muxindex = 3'b011; invertB=0; setFlag = 0; secondaryOperation = 1; end
-      `NOR:  begin muxindex = 3'b100; invertB=0; setFlag = 0; secondaryOperation = 1; end    
-      `OR:   begin muxindex = 3'b100; invertB=0; setFlag = 0; secondaryOperation = 0; end
+      `NAND: begin muxindex = 3'b100; invertB=0; setFlag = 0; secondaryOperation = 1; end
+      `NOR:  begin muxindex = 3'b101; invertB=0; setFlag = 0; secondaryOperation = 1; end    
+      `OR:   begin muxindex = 3'b110; invertB=0; setFlag = 0; secondaryOperation = 0; end
     endcase
   end
 endmodule

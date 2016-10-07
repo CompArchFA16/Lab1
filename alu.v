@@ -22,12 +22,12 @@ input[2:0]      command
 	wire invertB;
 	wire setFlag;
 	wire secondaryOperation;
-	wire[31:0] addResult, subResult, xorResult, sltResult ,andResult, nandResult, orResult, norResult;
+	wire[31:0] addSubResult, xorResult, sltResult ,andResult, nandResult, orResult, norResult;
 
 	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, command);
 
 	FullMath32bit addtest(addResult, carryout, overflow, operandA, operandB, invertB);
-	//xor
+	xor32 xor32(xorResult, a, b);
 	//slt
 	//and/nand
 	//or/nor
