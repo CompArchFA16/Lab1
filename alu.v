@@ -4,7 +4,6 @@ Main ALU module. Used for the actual arithmetic
 */
 `include "ALUcontrol.v"
 `include "math.v"
-`include "32bitGates.v"
 `include "multiplexer.v"
 
 module ALU
@@ -22,15 +21,19 @@ input[2:0]      command
 	wire invertB;
 	wire setFlag;
 	wire secondaryOperation;
-	wire[31:0] addSubResult, xorResult, sltResult ,andResult, nandResult, orResult, norResult;
+	wire[31:0] addSubResult, xorResult ,andResult, nandResult, orResult, norResult;
+	wire sltResult;
 
 	ALUcontrolLUT alucontrol(muxindex, invertB, setFlag, secondaryOperation, command);
 
-	FullMath32bit addtest(addResult, carryout, overflow, operandA, operandB, invertB);
-	xor32 xor32(xorResult, a, b);
-	//slt
-	//and/nand
-	//or/nor
+	FullMath32bit addtest(addSubResult, carryout, overflow, operandA, operandB, invertB);
+	xor32    xor32(xorResult, operandA, operandB);
+	FullSLT  slt(sltResult, operandA, operandB);
+	and32    and32(andResult, operandA, operandB);
+	nand32   nand32(nandResult, operandA, operandB);
+	or32     or32(orResult, operandA, operandB);
+	nor32    nor32(norResult, operandA, operandB);
+
 
 	ALUmultiplexer final(result, addResult, muxindex, xorResult, sltResult, andResult, orResult);
 

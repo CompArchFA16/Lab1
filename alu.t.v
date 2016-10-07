@@ -16,7 +16,21 @@ module testALU();
 	initial begin
 
 	$display("  ALUCommand  | result ");
-		command = 0000; operandA = 32'h00000001; operandB = 32'h00000001; #100000
+		command = 0000; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //add
+		$display("    %b      |  %b     ", command, result); //need to show flags
+		command = 0001; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //sub
+		$display("    %b      |  %b     ", command, result);
+		command = 0010; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //xor
+		$display("    %b      |  %b     ", command, result);
+		command = 0011; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //slt
+		$display("    %b      |  %b     ", command, result);
+		command = 0100; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //and
+		$display("    %b      |  %b     ", command, result);
+		command = 0101; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //nand
+		$display("    %b      |  %b     ", command, result);
+		command = 0110; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //nor
+		$display("    %b      |  %b     ", command, result);
+		command = 0111; operandA = 32'h00000001; operandB = 32'h00000001; #100000 //or
 		$display("    %b      |  %b     ", command, result);
 	end
 endmodule
