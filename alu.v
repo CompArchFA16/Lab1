@@ -33,8 +33,8 @@ input[2:0]      cmd
     case (cmd)
       `CMD_SLT:  begin muxindex = 0; invert_b = 1; cin = 1; invert_res = 0; end
       `CMD_XOR:  begin muxindex = 1; invert_b = 0; cin = 0; invert_res = 0; end
-      `CMD_AND:  begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 0; end
-      `CMD_NAND: begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 1; end
+      `CMD_AND:  begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 1; end
+      `CMD_NAND: begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 0; end
       `CMD_NOR:  begin muxindex = 3; invert_b = 0; cin = 0; invert_res = 0; end
       `CMD_OR:   begin muxindex = 3; invert_b = 0; cin = 0; invert_res = 1; end
       `CMD_ADD:  begin muxindex = 4; invert_b = 0; cin = 0; invert_res = 0; end
