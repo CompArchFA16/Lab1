@@ -5,7 +5,7 @@ TJ Kim, Paul Krusell, Jay Woo
 
 To the project manager,
 
-We have taken note of your need of an ALU design and we want you to consider our design for you CPU. Our ALU has a total of nine features, implemented through bit slicing. In this paper, we will present our overall ALU design,discuss the different iterations we went through, and analyze the overall efficiency of our ALU in terms of delay.
+We have taken note of your need of an ALU design and we want you to consider our design for your CPU. Our ALU has a total of nine features, implemented through bit slicing. In this paper, we will present our overall ALU design,discuss the different iterations we went through, and analyze the overall efficiency of our ALU in terms of delay.
 
 # Implementation
 
@@ -86,7 +86,7 @@ Though these are not one of the 8 ALU operations, we decided it was important to
 ### 2:1 MUX
 When the select flag is 0, the MUX should select input 0. Otherwise, it selects input 1.
 
-```
+```verilog
 I0 I1 | S0 | O | Expected Output
 ---------------------------------------
  1  x |  0 | 1 | Selects in0
@@ -101,7 +101,7 @@ None of the unassigned bits were selected in our test, so this passed.
 ### 5:1 MUX
 Any of the 5 inputs may be selected by using select values in the range 0b000 to 0b100.
 
-```
+```verilog
 I0 I1 I2 I3 I4 | S0 S1 S2 | O | Expected Output
 ----------------------------------------------------
  1  x  x  x  x |  0  0  0 | 1 | Selects in0
@@ -138,7 +138,7 @@ As seen above, every test case passed, which is what we expected as we used the 
 ## Basic Gates (NAND, AND, NOR, OR, XOR)
 We tested these 5 operations on a 4-bit ALU. Since the gates are element-wise operations, we specifically chose operands A and B to exhaustively test all possible pairs of digits (1 op 1, 0 op 1, 1 op 0, 0 op 0).
 
-```
+```verilog
  Cm  |	 A 	   B  |  Out | Cout  OF | Case
 ----------------------------------------------------
  101 | 1010  1100 | 0111 |	1    1  | NAND
@@ -150,7 +150,7 @@ We tested these 5 operations on a 4-bit ALU. Since the gates are element-wise op
 
 We did the same for the 32-bit ALU, by repeating the same sequence of 4 bits eight times for each operand. For operand A, we repeated the sequence 0b1010 (0xA), and for operand B, we repeated the sequence 0b1100 (0xC). In the test results below, the 32-bit inputs and outputs (A, B, Out) are hex numbers, for readability purposes.
 
-```
+```verilog
  Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ----------------------------------------------------
  101 | aaaaaaaa  cccccccc | 77777777 |	1   1   | NAND (all cases)
@@ -169,7 +169,7 @@ XOR - 0x0110 = 0x6
 
 We encountered some bugs before getting to this point, as shown in the table below, but they were due to programming errors rather than the design of the circuit. Basically, when we instantiated our MUXes, we did not order the inputs and outputs correctly, causing the ALU to select the wrong operations (with the exception of XOR since the command value 0b010 is a palindrome).
 
-```
+```verilog
  Cm  |    A     B |  Out | Cout  OF | Case
 ----------------------------------------------------
  101 | 1010  1100 | 0000 |    x   x | NAND
@@ -180,6 +180,7 @@ We encountered some bugs before getting to this point, as shown in the table bel
 ```
 
 ## Adder
+```verilog
  Cm  |	A 	   B  |  Out | Cout  OF | Case
 ----------------------------------------------------
  000 | 1111  1111 | 1110 |	1   0   | ADD
@@ -198,7 +199,9 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | 0000  0111 | 0111 |	0   0   | ADD
  000 | 1111  0000 | 1111 |	0   0   | ADD
  000 | 0111  0000 | 0111 |	0   0   | ADD
-
+ ```
+ 
+```verilog
  Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ------------------------------------------------------
  000 | 10000000  20000000 | 30000000 |	0   0   | ADD ++, ~CO*~OF
@@ -206,9 +209,10 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | 70000000  20000000 | 90000000 |	0   1   | ADD ++, CO*~OF
  000 | f0000000  80000000 | 70000000 |	1   1   | ADD --, CO*OF
  000 | 10000000  f0000000 | 00000000 |	1   0   | ADD +-, CO*~OF
-
+```
 
 ## Subtractor
+```verilog
  Cm  |	A   	B |  Out | Cout  OF | Case
 ------------------------------------------------------------------------
  001 | 1111  0001 | 1110 |	1   0   | SUB
@@ -227,7 +231,9 @@ We encountered some bugs before getting to this point, as shown in the table bel
  001 | 0000  1001 | 0111 |	0   0   | SUB
  001 | 1111  0000 | 1111 |	1   0   | SUB
  001 | 0111  0000 | 0111 |	1   0   | SUB
+ ```
 
+```verilog
  Cm  |    	A     	B     |    Out   | Cout  OF | Case
 ------------------------------------------------------
  001 | 10000000  e0000000 | 30000000 |	0   0   | SUB +-, ~CO*~OF
@@ -236,12 +242,12 @@ We encountered some bugs before getting to this point, as shown in the table bel
  001 | f0000000  80000000 | 70000000 |	1   0   | SUB -+, CO*OF
  001 | 70000000  50000000 | 20000000 |	1   0   | SUB ++, CO*~OF
  001 | ffffffff  ffffffff | 00000000 |	1   0   | SUB --, CO*~OF
-
+```
 
 
 
 ## SLT
-
+```verilog
  Cm  |	 A 	   B  |  Out | Cout  OF | Case
 ------------------------------------------------------------------------
  011 | 0001  0011 | 0001 |	0   0   | SLT
@@ -252,7 +258,9 @@ We encountered some bugs before getting to this point, as shown in the table bel
  011 | 1111  1010 | 0000 |	1   0   | SLT
  011 | 1100  0101 | 0001 |	1   1   | SLT
  011 | 0101  1100 | 0000 |	0   1   | SLT
+ ```
 
+```verilog
  Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ------------------------------------------------------
  011 | 80000000  ffffffff | 00000001 |	0   0   | SLT --, A<B
@@ -261,11 +269,12 @@ We encountered some bugs before getting to this point, as shown in the table bel
  011 | 0fffffff  01111111 | 00000000 |	1   0   | SLT ++, A>B
  011 | f0000000  0fffffff | 00000001 |	1   0   | SLT -+, A<B
  011 | 0fffffff  f0000000 | 00000000 |	0   0   | SLT +-, A>B
+ ```
 
 ## Zero
 We tested the zero output by setting the 4-bit ALU to subtract B from A. Since we’ve already tested the 4-bit subtraction cases, we only chose two situations: one where the difference is zero and one where the difference is non-zero.
 
-```
+```verilog
  Cm  |	A 	   B  | A - B | Zero | Case
 ------------------------------------------------------
  001 | 1111  1111 |  0000 |	1    | A-B==0
@@ -273,7 +282,7 @@ We tested the zero output by setting the 4-bit ALU to subtract B from A. Since w
 ```
 
 We did the same for the 32-bit ALU and achieved similar results.
-```
+```verilog
  Cm  |    	A     	B     |  	Out  | Zero | Case
 ------------------------------------------------------
  001 | 1234abcd  1234abcd | 00000000 |	 1  | A-B==0
