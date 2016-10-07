@@ -426,34 +426,6 @@ module is_zero
   `NOT not0(out, not_and_not_num);
 endmodule
 
-// SLT
-
-// module slt
-// (
-//     output overflow,
-//     output carryout,
-//     output sum,
-//     input a,
-//     input b,
-//     input carryin
-// );
-//     wire a, b, invb;
-//     wire carryin, carryout, sum;
-
-//     not notgate(invb, b);
-//     adder_32_bit add(sum, carryout, a, invb, carryin);
-//     xor xorgate(overflow, carryin, carryout);
-
-// endmodule
-
-// module slt_32_bit
-// (
-//   output[31:0] out,
-//   input sig_bit
-// );
-//   `OR or0(out, )
-// endmodule
-
 // MAIN ALU
 
 module ALU
@@ -475,8 +447,6 @@ module ALU
   inverter_32_bit inverter0(.out(not_b), .in(b));
   mux_32_bit mux0(.out(adder_input), .a(b), .b(not_b), .s(invert_b));
   adder_32_bit adder(.sum(adder_output[31:0]), .cout(cout), .ofl(ofl), .a(a[31:0]), .b(adder_input[31:0]), .cin(cin));
-
-  // slt_32_bit slt(.out(slt_output), adder_output[31
 
   or_1_to_32 slt(.out(slt_output), .in(adder_output[31]));
 
