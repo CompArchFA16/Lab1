@@ -9,7 +9,7 @@
 `define NAND nand #20 // 2 input nand, no hidden inverters
 `define NOR nor #20 // 2 input nor, no hidden inverters
 `define NOR32 nor #320 //32 input NOR
-`define XOR32 xor #320 //32 input XOR
+`define XOR32 xor #1080 //32 input XOR
 `define NOT not #10 //inverter
 `define NOR nor #20 //2 input NOR
 
@@ -31,7 +31,7 @@ module structuralFullAdder
     wire bos0;
 
     // calculate the sum
-    `XOR xorgate3( bos0, subtract, b);
+    `XOR xorgate3( bos0, subtract, b); //XOR gate for subtract
     `XOR xorgate1(AxorB, a,bos0);
     `XOR xorgate2(sum, AxorB, carryin);
 
