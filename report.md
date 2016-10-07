@@ -310,6 +310,39 @@ We did the same for the 32-bit ALU and achieved similar results.
 ### Calculating SLT for each digit (wrong)
 
 # Timing Analysis
+For each operation, we inspected the waveforms to observe how long it takes for the inputs to propagate through the gates.
+
+## Basic Gates
+For each of the basic gates, the propagation delay is relatively short, since these operations can be applied to all pairs of digits at the same time. However, for the very first bit, there are extra gates to account for, partly due to a MUX that decides whether or not to set the first bit to the value of the SLT operation. Thus, for the following waveforms, the 32-bit ALU will first calculate bits 2-32, and after another delay, it will resolve bit 1.
+
+### NAND
+![NAND Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayNAND.png)
+
+According to our calculations, a NAND gate 
+
+### AND
+![AND Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayAND.png)
+
+### NOR
+![NOR Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayNOR.png)
+
+### OR
+![OR Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayOR.png)
+
+### XOR
+![XOR Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayXOR.png)
+
+## ADD
+![ADD Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayADD2.png)
+
+## SUB
+![SUB Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delaySUB2.png)
+
+## SLT
+![SLT Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delaySLT.png)
+
+## ZERO
+![ZERO Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayZERO.png)
 
 # Work Plan Reflection
 
