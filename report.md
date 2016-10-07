@@ -202,6 +202,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | 0111  0000 | 0111 |	0   0   | ADD
  ```
  
+ This test case is derived directly from Lab 0. However, instead of using a 4 bit adder component, we are using four 1 bit ALUs to compute. We try different combinations of sign of A, sign of B, carryout, and overflow to find out that our 4 bit ALU worked.
+ 
 ```verilog
  Cm  |    	A     	B     |   Out    | Cout  OF | Case
 ------------------------------------------------------
@@ -211,6 +213,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | f0000000  80000000 | 70000000 |	1   1   | ADD --, CO*OF
  000 | 10000000  f0000000 | 00000000 |	1   0   | ADD +-, CO*~OF
 ```
+
+We applied similar principles for our 32 bit ALU addition test. We took a 32 bit value with only its leftmost 4 bits with values and the rest with zeros. We basically took our 4 bit cases and padded to the right 28 times with zeros. Here, we test different cases regarding sign of A, sign of B, carryout, and overflow. The 32 bit test case is a lot shorter than the 4 bit one as we proved the functionality of our ALU extensively in the 4 bit version.
 
 ## Subtractor
 ```verilog
@@ -234,6 +238,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  001 | 0111  0000 | 0111 |	1   0   | SUB
  ```
 
+For the subtractor, we used roughly the same cases from addition, because of the similarity between the adder and subtractor. We inverted the B operands from the addition test bench to find the new B operands. This way we can reuse the same cases for the subtractor that we used for the adder. Doing this, we found that all of our test cases were successful and correct, indicating that the subtractor worked for the four bit case. 
+
 ```verilog
  Cm  |    	A     	B     |    Out   | Cout  OF | Case
 ------------------------------------------------------
@@ -245,7 +251,9 @@ We encountered some bugs before getting to this point, as shown in the table bel
  001 | ffffffff  ffffffff | 00000000 |	1   0   | SUB --, CO*~OF
 ```
 
+We then took some of the same cases that we used for the 4 bit subtractor and padded them with zeros to create 32  bit numbers, which we were able to run through our system and they worked.
 
+The 32-bit subtraction process compared to the other processes had a lot of delay, so our test bench delay initially was not enough. Because of that we got weird values. We checked the test bench dump for subtraction on GTKwave, and then extended the delay time in the test bench to fix the problem.
 
 ## SLT
 ```verilog
@@ -272,6 +280,11 @@ We encountered some bugs before getting to this point, as shown in the table bel
  011 | 0fffffff  f0000000 | 00000000 |	0   0   | SLT +-, A>B
  ```
 
+One major bug we had was trying to get the SLT to work. In order to determine the value of the SLT, we have to take the leftmost bit of the difference of A and B. Then we have to use that leftmost bit and overflow to determine of SLT is raised to ‘1’ or not. However, when we commanded the 32 bit ALU to find the SLT we made a grave mistake. We made it so that the 1 bit ALU returned ‘0’ for every bit of the result when selected for SLT operation. We had no leftmost bit of the difference to compute the SLT value! 
+
+To fix this problem, we created a 1 bit adder in the final ALU, separate from the 32 1-bit ALUs. This ALU took in A[31], ~B[31], and the carryout of the 30th 1-bit ALU (2nd to last) and computed the leftmost bit of the difference of A and B for us.
+
+
 ## Zero
 We tested the zero output by setting the 4-bit ALU to subtract B from A. Since we’ve already tested the 4-bit subtraction cases, we only chose two situations: one where the difference is zero and one where the difference is non-zero.
 
@@ -290,15 +303,11 @@ We did the same for the 32-bit ALU and achieved similar results.
  001 | 1234abcd  abcd1234 | 66679999 |	 0  | A-B!=0
 ```
 
-### Conceptual Errors
-Bit-slicing vs. 32-bit results for each operation
+## Conceptual Errors
 
-Calculating SLT for each digit (wrong)
+### Bit-slicing vs. 32-bit results for each operation
 
-### Bugs
-SLT failure (conceptual error, putting 0 into result[31])
-
-32-bit subtraction failure (not enough time delay)
+### Calculating SLT for each digit (wrong)
 
 # Timing Analysis
 
