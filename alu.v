@@ -13,7 +13,7 @@
 `define NOR nor #20
 `define NOT not #10
 `define AND and #30
-`define AND32 and #330
+`define NAND32 nand #320
 `define OR or #30
 `define XNOR xnor #60
 `define XOR xor #60
@@ -31,14 +31,14 @@ input[2:0]      cmd
 
   always @(cmd) begin
     case (cmd)
-      `CMD_ADD:  begin muxindex = 0; invert_b = 0; cin = 0; invert_res = 0; end
-      `CMD_SUB:  begin muxindex = 0; invert_b = 1; cin = 1; invert_res = 0; end
+      `CMD_SLT:  begin muxindex = 0; invert_b = 1; cin = 1; invert_res = 0; end
       `CMD_XOR:  begin muxindex = 1; invert_b = 0; cin = 0; invert_res = 0; end
-      `CMD_SLT:  begin muxindex = 0; invert_b = 1; cin = 0; invert_res = 0; end
       `CMD_AND:  begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 0; end
       `CMD_NAND: begin muxindex = 2; invert_b = 0; cin = 0; invert_res = 1; end
       `CMD_NOR:  begin muxindex = 3; invert_b = 0; cin = 0; invert_res = 0; end
       `CMD_OR:   begin muxindex = 3; invert_b = 0; cin = 0; invert_res = 1; end
+      `CMD_ADD:  begin muxindex = 4; invert_b = 0; cin = 0; invert_res = 0; end
+      `CMD_SUB:  begin muxindex = 4; invert_b = 1; cin = 1; invert_res = 0; end
     endcase
   end
 endmodule
@@ -141,6 +141,173 @@ module inverter_32_bit
   inverter_8_bit inv3(.out(out[31:24]), .in(in[31:24]));
 endmodule
 
+// XOR
+
+module xor_1_bit
+(
+  output out,
+  input a,
+  input b
+);
+  `XOR xor0(out, a, b);
+endmodule
+
+module xor_8_bit
+(
+  output[7:0] out,
+  input[7:0] a,
+  input[7:0] b
+);
+  xor_1_bit xor0(.out(out[0]), .a(a[0]), .b(b[0]));
+  xor_1_bit xor1(.out(out[1]), .a(a[1]), .b(b[1]));
+  xor_1_bit xor2(.out(out[2]), .a(a[2]), .b(b[2]));
+  xor_1_bit xor3(.out(out[3]), .a(a[3]), .b(b[3]));
+  xor_1_bit xor4(.out(out[4]), .a(a[4]), .b(b[4]));
+  xor_1_bit xor5(.out(out[5]), .a(a[5]), .b(b[5]));
+  xor_1_bit xor6(.out(out[6]), .a(a[6]), .b(b[6]));
+  xor_1_bit xor7(.out(out[7]), .a(a[7]), .b(b[7]));
+endmodule
+
+module xor_32_bit
+(
+  output[31:0] out,
+  input[31:0] a,
+  input[31:0] b
+);
+  xor_8_bit xor0(.out(out[7:0]),   .a(a[7:0]),   .b(b[7:0]));
+  xor_8_bit xor1(.out(out[15:8]),  .a(a[15:8]),  .b(b[15:8]));
+  xor_8_bit xor2(.out(out[23:16]), .a(a[23:16]), .b(b[23:16]));
+  xor_8_bit xor3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]));
+endmodule
+
+// NAND
+
+module nand_1_bit
+(
+  output out,
+  input a,
+  input b
+);
+  `NAND nand0(out, a, b);
+endmodule
+
+module nand_8_bit
+(
+  output[7:0] out,
+  input[7:0] a,
+  input[7:0] b
+);
+  nand_1_bit nand0(.out(out[0]), .a(a[0]), .b(b[0]));
+  nand_1_bit nand1(.out(out[1]), .a(a[1]), .b(b[1]));
+  nand_1_bit nand2(.out(out[2]), .a(a[2]), .b(b[2]));
+  nand_1_bit nand3(.out(out[3]), .a(a[3]), .b(b[3]));
+  nand_1_bit nand4(.out(out[4]), .a(a[4]), .b(b[4]));
+  nand_1_bit nand5(.out(out[5]), .a(a[5]), .b(b[5]));
+  nand_1_bit nand6(.out(out[6]), .a(a[6]), .b(b[6]));
+  nand_1_bit nand7(.out(out[7]), .a(a[7]), .b(b[7]));
+endmodule
+
+module nand_32_bit
+(
+  output[31:0] out,
+  input[31:0] a,
+  input[31:0] b
+);
+  nand_8_bit nand0(.out(out[7:0]),   .a(a[7:0]),   .b(b[7:0]));
+  nand_8_bit nand1(.out(out[15:8]),  .a(a[15:8]),  .b(b[15:8]));
+  nand_8_bit nand2(.out(out[23:16]), .a(a[23:16]), .b(b[23:16]));
+  nand_8_bit nand3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]));
+endmodule
+
+// NOR
+
+module nor_1_bit
+(
+  output out,
+  input a,
+  input b
+);
+  `NOR nor0(out, a, b);
+endmodule
+
+module nor_8_bit
+(
+  output[7:0] out,
+  input[7:0] a,
+  input[7:0] b
+);
+  nor_1_bit nor0(.out(out[0]), .a(a[0]), .b(b[0]));
+  nor_1_bit nor1(.out(out[1]), .a(a[1]), .b(b[1]));
+  nor_1_bit nor2(.out(out[2]), .a(a[2]), .b(b[2]));
+  nor_1_bit nor3(.out(out[3]), .a(a[3]), .b(b[3]));
+  nor_1_bit nor4(.out(out[4]), .a(a[4]), .b(b[4]));
+  nor_1_bit nor5(.out(out[5]), .a(a[5]), .b(b[5]));
+  nor_1_bit nor6(.out(out[6]), .a(a[6]), .b(b[6]));
+  nor_1_bit nor7(.out(out[7]), .a(a[7]), .b(b[7]));
+endmodule
+
+module nor_32_bit
+(
+  output[31:0] out,
+  input[31:0] a,
+  input[31:0] b
+);
+  nor_8_bit nor0(.out(out[7:0]),   .a(a[7:0]),   .b(b[7:0]));
+  nor_8_bit nor1(.out(out[15:8]),  .a(a[15:8]),  .b(b[15:8]));
+  nor_8_bit nor2(.out(out[23:16]), .a(a[23:16]), .b(b[23:16]));
+  nor_8_bit nor3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]));
+endmodule
+
+// 32:1 NAND
+
+module nand_32_to_1
+(
+  output out,
+  input[31:0] in
+);
+  `NAND32 nand0(out,
+    in[0], in[1], in[2], in[3], in[4], in[5], in[6], in[7],
+    in[8], in[9], in[10], in[11], in[12], in[13], in[14], in[15],
+    in[16], in[17], in[18], in[19], in[20], in[21], in[22], in[23],
+    in[24], in[25], in[26], in[27], in[28], in[29], in[30], in[31]
+  );
+endmodule
+
+// SLT
+
+module byte_to_zero
+(
+  output[7:0] out
+);
+  `OR or0(out[0], 0, 0);
+  `OR or1(out[1], 0, 0);
+  `OR or2(out[2], 0, 0);
+  `OR or3(out[3], 0, 0);
+  `OR or4(out[4], 0, 0);
+  `OR or5(out[5], 0, 0);
+  `OR or6(out[6], 0, 0);
+  `OR or7(out[7], 0, 0);
+endmodule
+
+module or_1_to_32
+(
+  output[31:0] out,
+  input in
+);
+  `OR or0(out[0], 0, in);
+  `OR or1(out[1], 0, 0);
+  `OR or2(out[2], 0, 0);
+  `OR or3(out[3], 0, 0);
+  `OR or4(out[4], 0, 0);
+  `OR or5(out[5], 0, 0);
+  `OR or6(out[6], 0, 0);
+  `OR or7(out[7], 0, 0);
+
+  byte_to_zero byte_or0(out[15:8]);
+  byte_to_zero byte_or1(out[23:16]);
+  byte_to_zero byte_or2(out[31:24]);
+endmodule
+
 // MUX
 
 module mux_1_bit
@@ -187,9 +354,9 @@ module mux_32_bit
   mux_8_bit mux3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]), .s(s));
 endmodule
 
-//
+// 5 way mux
 
-module mux_1_bit_8_way
+module mux_1_bit_5_way
 (
   output out,
   input a,
@@ -197,24 +364,19 @@ module mux_1_bit_8_way
   input c,
   input d,
   input e,
-  input f,
-  input g,
-  input h,
   input[2:0] sel
 );
-  // 8 bit to 4 bit
-  mux_1_bit mux0(.out(a_or_b), .a(a), .b(b), .s(sel[0]));
-  mux_1_bit mux0(.out(c_or_d), .a(c), .b(d), .s(sel[0]));
-  mux_1_bit mux0(.out(e_or_f), .a(e), .b(f), .s(sel[0]));
-  mux_1_bit mux0(.out(g_or_h), .a(g), .b(h), .s(sel[0]));
+  wire a_or_b, c_or_d, top_or_bottom;
   // 4 bit to 2 bit
-  mux_1_bit mux0(.out(top_top_or_top_bottom), .a(a_or_b), .b(c_or_d), .s(sel[1));
-  mux_1_bit mux0(.out(bottom_top_or_bottom_bottom), .a(e_or_f), .b(g_or_h), .s(sel[1]));
+  mux_1_bit mux0(.out(a_or_b), .a(a), .b(b), .s(sel[0]));
+  mux_1_bit mux1(.out(c_or_d), .a(c), .b(d), .s(sel[0]));
   // 2 bit to 1 bit
-  mux_1_bit mux0(.out(out), .a(top_top_or_top_bottom), .b(bottom_top_or_bottom_bottom), .s(sel[2]));
+  mux_1_bit mux2(.out(top_or_bottom), .a(a_or_b), .b(c_or_d), .s(sel[1]));
+  // 0-4 or 5
+  mux_1_bit mux3(.out(out), .a(top_or_bottom), .b(e), .s(sel[2]));
 endmodule
 
-module mux_8_bit_8_way
+module mux_8_bit_5_way
 (
   output[7:0] out,
   input[7:0] a,
@@ -222,32 +384,32 @@ module mux_8_bit_8_way
   input[7:0] c,
   input[7:0] d,
   input[7:0] e,
-  input[7:0] f,
-  input[7:0] g,
-  input[7:0] h,
   input[2:0] sel
 );
-  mux_1_bit_8_way mux0(.out(out[0]), .a(a[0]), .b(b[0]), .c(c[0]), .d(d[0]), .e(e[0]), .f(f[0]), .g(g[0]), .h(h[0]), .s(sel));
-  mux_1_bit_8_way mux1(.out(out[1]), .a(a[1]), .b(b[1]), .c(c[1]), .d(d[1]), .e(e[1]), .f(f[1]), .g(g[1]), .h(h[1]), .s(sel));
-  mux_1_bit_8_way mux2(.out(out[2]), .a(a[2]), .b(b[2]), .c(c[2]), .d(d[2]), .e(e[2]), .f(f[2]), .g(g[2]), .h(h[2]), .s(sel));
-  mux_1_bit_8_way mux3(.out(out[3]), .a(a[3]), .b(b[3]), .c(c[3]), .d(d[3]), .e(e[3]), .f(f[3]), .g(g[3]), .h(h[3]), .s(sel));
-  mux_1_bit_8_way mux4(.out(out[4]), .a(a[4]), .b(b[4]), .c(c[4]), .d(d[4]), .e(e[4]), .f(f[4]), .g(g[4]), .h(h[4]), .s(sel));
-  mux_1_bit_8_way mux5(.out(out[5]), .a(a[5]), .b(b[5]), .c(c[5]), .d(d[5]), .e(e[5]), .f(f[5]), .g(g[5]), .h(h[5]), .s(sel));
-  mux_1_bit_8_way mux6(.out(out[6]), .a(a[6]), .b(b[6]), .c(c[6]), .d(d[6]), .e(e[6]), .f(f[6]), .g(g[6]), .h(h[6]), .s(sel));
-  mux_1_bit_8_way mux7(.out(out[7]), .a(a[7]), .b(b[7]), .c(c[7]), .d(d[7]), .e(e[7]), .f(f[7]), .g(g[7]), .h(h[7]), .s(sel));
+  mux_1_bit_5_way mux0(.out(out[0]), .a(a[0]), .b(b[0]), .c(c[0]), .d(d[0]), .e(e[0]), .sel(sel));
+  mux_1_bit_5_way mux1(.out(out[1]), .a(a[1]), .b(b[1]), .c(c[1]), .d(d[1]), .e(e[1]), .sel(sel));
+  mux_1_bit_5_way mux2(.out(out[2]), .a(a[2]), .b(b[2]), .c(c[2]), .d(d[2]), .e(e[2]), .sel(sel));
+  mux_1_bit_5_way mux3(.out(out[3]), .a(a[3]), .b(b[3]), .c(c[3]), .d(d[3]), .e(e[3]), .sel(sel));
+  mux_1_bit_5_way mux4(.out(out[4]), .a(a[4]), .b(b[4]), .c(c[4]), .d(d[4]), .e(e[4]), .sel(sel));
+  mux_1_bit_5_way mux5(.out(out[5]), .a(a[5]), .b(b[5]), .c(c[5]), .d(d[5]), .e(e[5]), .sel(sel));
+  mux_1_bit_5_way mux6(.out(out[6]), .a(a[6]), .b(b[6]), .c(c[6]), .d(d[6]), .e(e[6]), .sel(sel));
+  mux_1_bit_5_way mux7(.out(out[7]), .a(a[7]), .b(b[7]), .c(c[7]), .d(d[7]), .e(e[7]), .sel(sel));
 endmodule
 
-module mux_32_bit_8_way
+module mux_32_bit_5_way
 (
   output[31:0] out,
   input[31:0] a,
   input[31:0] b,
-  input s
+  input[31:0] c,
+  input[31:0] d,
+  input[31:0] e,
+  input[2:0] sel
 );
-  mux_8_bit_8_way mux0(.out(out[7:0]),   .a(a[7:0]),   .b(b[7:0]),   .c(c[7:0]),   .d(d[7:0]),   .e(e[7:0]),   .f(f[7:0]),   .g(g[7:0]),   .h(h[7:0]),   .s(sel));
-  mux_8_bit_8_way mux1(.out(out[15:8]),  .a(a[15:8]),  .b(b[15:8]),  .c(c[15:8]),  .d(d[15:8]),  .e(e[15:8]),  .f(f[15:8]),  .g(g[15:8]),  .h(h[15:8]),  .s(sel));
-  mux_8_bit_8_way mux2(.out(out[23:16]), .a(a[23:16]), .b(b[23:16]), .c(c[23:16]), .d(d[23:16]), .e(e[23:16]), .f(f[23:16]), .g(g[23:16]), .h(h[23:16]), .s(sel));
-  mux_8_bit_8_way mux3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]), .c(c[31:24]), .d(d[31:24]), .e(e[31:24]), .f(f[31:24]), .g(g[31:24]), .h(h[31:24]), .s(sel));
+  mux_8_bit_5_way mux0(.out(out[7:0]),   .a(a[7:0]),   .b(b[7:0]),   .c(c[7:0]),   .d(d[7:0]),   .e(e[7:0]),   .sel(sel));
+  mux_8_bit_5_way mux1(.out(out[15:8]),  .a(a[15:8]),  .b(b[15:8]),  .c(c[15:8]),  .d(d[15:8]),  .e(e[15:8]),  .sel(sel));
+  mux_8_bit_5_way mux2(.out(out[23:16]), .a(a[23:16]), .b(b[23:16]), .c(c[23:16]), .d(d[23:16]), .e(e[23:16]), .sel(sel));
+  mux_8_bit_5_way mux3(.out(out[31:24]), .a(a[31:24]), .b(b[31:24]), .c(c[31:24]), .d(d[31:24]), .e(e[31:24]), .sel(sel));
 endmodule
 
 // IS ZERO
@@ -258,28 +420,10 @@ module is_zero
   input[31:0] num
 );
   wire[31:0] not_num;
-  inverter_32_bit inv(.out(not_num), .in(num));
-  `AND32 and0(out, not_num[31:0]);
-endmodule
-
-// SLT
-
-module slt
-(
-    output overflow,
-    output carryout,
-    output sum,
-    input a,
-    input b,
-    input carryin
-);
-    wire a, b, invb;
-    wire carryin, carryout, sum;
-
-    not notgate(invb, b);
-    adder_32_bit add(sum, carryout, a, invb, carryin);
-    xor xorgate(overflow, carryin, carryout);
-
+  wire not_and_not_num;
+  inverter_32_bit inv0(.out(not_num), .in(num));
+  nand_32_to_1 nand0(.out(not_and_not_num), .in(not_num));
+  `NOT not0(out, not_and_not_num);
 endmodule
 
 // MAIN ALU
@@ -299,20 +443,30 @@ module ALU
   alu_cmd_lut lut(.muxindex(muxindex), .invert_b(invert_b), .cin(cin), .invert_res(invert_res), .cmd(cmd));
 
   // ADD, SUB, and SLT
-  wire[31:0] not_b, adder_input, adder_output;
-  inverter_32_bit inverter(.out(not_b), .in(b));
+  wire[31:0] not_b, adder_input, adder_output, slt_output, xor_output, nand_output, nor_output;
+  inverter_32_bit inverter0(.out(not_b), .in(b));
   mux_32_bit mux0(.out(adder_input), .a(b), .b(not_b), .s(invert_b));
   adder_32_bit adder(.sum(adder_output[31:0]), .cout(cout), .ofl(ofl), .a(a[31:0]), .b(adder_input[31:0]), .cin(cin));
 
+  or_1_to_32 slt(.out(slt_output), .in(adder_output[31]));
 
+  xor_32_bit xor0(.out(xor_output), .a(a), .b(b));
+  nand_32_bit nand0(.out(nand_output), .a(a), .b(b));
+  nor_32_bit nor0(.out(nor_output), .a(a), .b(b));
 
-  mux_32_bit_4_way very_big_mux(
-    .out(res[31:0]),
-    .a(adder_output[31:0]),
+  mux_32_bit_5_way big_mux(
+    .out(pre_res[31:0]),
+    .a(slt_output[31:0]),
     .b(xor_output[31:0]),
     .c(nand_output[31:0]),
     .d(nor_output[31:0]),
+    .e(adder_output[31:0]),
     .sel(muxindex[2:0])
-  )
+  );
+
+  wire[31:0] not_res, pre_res;
+  inverter_32_bit inverter1(.out(not_res), .in(pre_res));
+  mux_32_bit mux1(.out(res), .a(pre_res), .b(not_res), .s(invert_res));
+
   is_zero zero0(.out(zero), .num(res[31:0]));
 endmodule
