@@ -1,7 +1,8 @@
-`define NAND32 nand #320
-`define NOR32  nor  #320
-`define NOT32  not  #320
+`define NAND32 nand #10
+`define NOR32  nor  #10
+`define NOT32  not  #10
 
+// NAND A and B iteritavely
 module nand32 (
   output [31:0] AnandB,
   input [31:0] A,
@@ -17,6 +18,7 @@ module nand32 (
 	endgenerate
 endmodule
 
+// NOR A and B iteritavely
 module nor32 (
   output [31:0] AnorB,
   input [31:0] A,
@@ -32,6 +34,8 @@ module nor32 (
 	endgenerate
 endmodule
 
+
+// NOT the input iteritavely
 module not32 (
   output [31:0] notA,
   input [31:0] A
@@ -46,6 +50,8 @@ module not32 (
 	endgenerate
 endmodule
 
+
+// NAND the inputs and then invert it
 module and32 (
   output [31:0] AandB,
   input [31:0] A,
@@ -64,6 +70,8 @@ module and32 (
 	endgenerate
 endmodule
 
+
+// NOR the inputs and then invert it
 module or32 (
   output [31:0] AorB,
   input [31:0] A,
@@ -82,6 +90,8 @@ module or32 (
 	endgenerate
 endmodule
 
+
+// XORs the 2 inputs together using NOR gates
 module xor32 (
   output [31:0] AxorB,
   input [31:0] A,
