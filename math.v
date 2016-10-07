@@ -4,6 +4,7 @@
 `define OR or #20
 `define NOT not #10
 `define XOR xor #30
+`define NAND nand #10
 `include "32bitGates.v"
 
 module structuralFullAdder
@@ -68,27 +69,6 @@ module FullAdder32bit
         `XOR xorGate(overflow, carryout, temp_cout[6]);
 endmodule
 
-module FullSubtractor32bit
-(
-    output[31:0] sum,
-    output carryout,
-    output overflow,
-    input[31:0] a,
-    input[31:0] b //inverted b
-    );
-        wire temp_cout[6:0];
-
-        CompAdder4bit f40(sum[3:0],   temp_cout[0], a[3:0],   b[3:0],   1); 
-        CompAdder4bit f41(sum[7:4],   temp_cout[1], a[7:4],   b[7:4],   temp_cout[0]);
-        CompAdder4bit f42(sum[11:8],  temp_cout[2], a[11:8],  b[11:8],  temp_cout[1]);
-        CompAdder4bit f43(sum[15:12], temp_cout[3], a[15:12], b[15:12], temp_cout[2]);
-        CompAdder4bit f44(sum[19:16], temp_cout[4], a[19:16], b[19:16], temp_cout[3]); 
-        CompAdder4bit f45(sum[23:20], temp_cout[5], a[23:20], b[23:20], temp_cout[4]);
-        CompAdder4bit f46(sum[27:24], temp_cout[6], a[27:24], b[27:24], temp_cout[5]);
-        CompAdder4bit f47(sum[31:28], carryout,     a[31:28], b[31:28], temp_cout[6]);
-        `XOR xorGate(overflow, carryout, temp_cout[6]);
-endmodule
-
 module FullMath32bit
 (
     output[31:0] sum,
@@ -123,4 +103,26 @@ module FullMath32bit
         CompAdder4bit f46(sum[27:24], temp_cout[6], a[27:24], mathB[27:24], temp_cout[5]);
         CompAdder4bit f47(sum[31:28], carryout,     a[31:28], mathB[31:28], temp_cout[6]);
         `XOR xorGate(overflow, carryout, temp_cout[6]);
+endmodule
+
+// Returns 1 if A is less than B
+module FullSLT
+(
+    output resSLT,
+    input [31:0] operandA,
+    input [31:0] operandB
+    );
+    
+    wire [31:0] subSLTResult;
+    wire carryout, overflow;
+    wire notOverflow, notMsbAminusB;
+    wire notOvandMsbAminusB, OvandnotMsbAminusB;
+
+    FullMath32bit subSLT(subSLTResult, carryout, overflow, operandA, operandB, 1);
+    `NOT notslt0(notOverflow, overflow);
+    `NOT notslt1(notMsbAminusB, subSLTResult[31]);
+    `OR orslt0(notOvandMsbAminusB, notOverflow, subSLTResult[31]);
+    `OR orslt1(OvandnotMsbAminusB, overflow, notMsbAminusB);
+    `NAND nandslt(resSLT, notOvandMsbAminusB, OvandnotMsbAminusB);
+    
 endmodule
