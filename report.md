@@ -1,4 +1,5 @@
-Lab 1 Report
+LAB 1 REPORT
+============
 TJ Kim, Paul Krusell, Jay Woo
 
 # Introduction
@@ -137,7 +138,9 @@ A B Cin | Cout S  | Expected Output
 As seen above, every test case passed, which is what we expected as we used the same adder module from previous homeworks and labs.
 
 ## Basic Gates (NAND, AND, NOR, OR, XOR)
-We tested these 5 operations on a 4-bit ALU. Since the gates are element-wise operations, we specifically chose operands A and B to exhaustively test all possible pairs of digits (1 op 1, 0 op 1, 1 op 0, 0 op 0).
+Originally, we planned on calculating the 32-bit results for each operation, by passing all of the digits to gates via 32-bit buses. When we tried implementing such a design, however, we quickly realized that the gate delay for the entire ALU would be huge for the basic gates, which should normally be quick to compute. For instance, a 32-input AND gate would have a gate delay of 320 units, as opposed to a 2-input AND gate, which has a delay of 20. After this, we adopted a bit-slicing method, where each 1-bit ALU component performed the operation on each pair of digits.
+
+Using our bit-slicing method, we tested the 5 gate operations on a 4-bit ALU. Since the gates are element-wise operations, we specifically chose operands A and B to exhaustively test all possible pairs of digits (1 op 1, 0 op 1, 1 op 0, 0 op 0).
 
 ```verilog
  Cm  |	 A 	   B  |  Out | Cout  OF | Case
@@ -181,6 +184,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
 ```
 
 ## Adder
+These test cases include different combinations of sign of A, sign of B, carryout, and overflow to test on our 4-bit ALU.
+
 ```verilog
  Cm  |	A 	   B  |  Out | Cout  OF | Case
 ----------------------------------------------------
@@ -201,8 +206,8 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | 1111  0000 | 1111 |	0   0   | ADD
  000 | 0111  0000 | 0111 |	0   0   | ADD
  ```
- 
- This test case is derived directly from Lab 0. However, instead of using a 4 bit adder component, we are using four 1 bit ALUs to compute. We try different combinations of sign of A, sign of B, carryout, and overflow to find out that our 4 bit ALU worked.
+
+We applied similar principles for our 32-bit ALU addition test. We took a 32-bit value with only its leftmost 4 bits with values and the rest with zeros. We basically took our 4 bit cases and padded to the right 28 times with zeros. Here, we test different cases regarding sign of A, sign of B, carryout, and overflow. The 32 bit test case is a lot shorter than the 4 bit one as we proved the functionality of our ALU extensively in the 4 bit version.
  
 ```verilog
  Cm  |    	A     	B     |   Out    | Cout  OF | Case
@@ -214,9 +219,10 @@ We encountered some bugs before getting to this point, as shown in the table bel
  000 | 10000000  f0000000 | 00000000 |	1   0   | ADD +-, CO*~OF
 ```
 
-We applied similar principles for our 32 bit ALU addition test. We took a 32 bit value with only its leftmost 4 bits with values and the rest with zeros. We basically took our 4 bit cases and padded to the right 28 times with zeros. Here, we test different cases regarding sign of A, sign of B, carryout, and overflow. The 32 bit test case is a lot shorter than the 4 bit one as we proved the functionality of our ALU extensively in the 4 bit version.
 
 ## Subtractor
+For the subtractor, we used roughly the same cases from addition, because of the similarity between the adder and subtractor. We inverted the B operands from the addition test bench to find the new B operands. This way we can reuse the same cases for the subtractor that we used for the adder. Doing this, we found that all of our test cases were successful and correct, indicating that the subtractor worked for the 4-bit case. 
+
 ```verilog
  Cm  |	A   	B |  Out | Cout  OF | Case
 ------------------------------------------------------------------------
@@ -237,8 +243,8 @@ We applied similar principles for our 32 bit ALU addition test. We took a 32 bit
  001 | 1111  0000 | 1111 |	1   0   | SUB
  001 | 0111  0000 | 0111 |	1   0   | SUB
  ```
-
-For the subtractor, we used roughly the same cases from addition, because of the similarity between the adder and subtractor. We inverted the B operands from the addition test bench to find the new B operands. This way we can reuse the same cases for the subtractor that we used for the adder. Doing this, we found that all of our test cases were successful and correct, indicating that the subtractor worked for the four bit case. 
+ 
+We then took some of the same cases that we used for the 4-bit subtractor and padded them with zeros to create 32-bit numbers, which we were able to run through our system and they worked. The 32-bit subtraction process compared to the other processes had a lot of delay, so our test bench delay initially was not enough. Because of that we got weird values. We checked the test bench dump for subtraction on GTKwave, and then extended the delay time in the test bench to fix the problem.
 
 ```verilog
  Cm  |    	A     	B     |    Out   | Cout  OF | Case
@@ -251,11 +257,9 @@ For the subtractor, we used roughly the same cases from addition, because of the
  001 | ffffffff  ffffffff | 00000000 |	1   0   | SUB --, CO*~OF
 ```
 
-We then took some of the same cases that we used for the 4 bit subtractor and padded them with zeros to create 32  bit numbers, which we were able to run through our system and they worked.
-
-The 32-bit subtraction process compared to the other processes had a lot of delay, so our test bench delay initially was not enough. Because of that we got weird values. We checked the test bench dump for subtraction on GTKwave, and then extended the delay time in the test bench to fix the problem.
 
 ## SLT
+We tested different combinations of carryout, overflow, and whether or not A was actually less than B. The output displayed correctly as all zeros except for the first bit, which can be set to one if SLT triggers true.
 ```verilog
  Cm  |	 A 	   B  |  Out | Cout  OF | Case
 ------------------------------------------------------------------------
@@ -268,6 +272,8 @@ The 32-bit subtraction process compared to the other processes had a lot of dela
  011 | 1100  0101 | 0001 |	1   1   | SLT
  011 | 0101  1100 | 0000 |	0   1   | SLT
  ```
+ 
+For the 32-bit cases, we used different combinations of negative and positive operands, with different relative magnitudes.
 
 ```verilog
  Cm  |    	A     	B     |   Out    | Cout  OF | Case
@@ -280,27 +286,66 @@ The 32-bit subtraction process compared to the other processes had a lot of dela
  011 | 0fffffff  f0000000 | 00000000 |	0   0   | SLT +-, A>B
  ```
 
-One major bug we had was trying to get the SLT to work. In order to determine the value of the SLT, we have to take the leftmost bit of the difference of A and B. Then we have to use that leftmost bit and overflow to determine of SLT is raised to ‘1’ or not. However, when we commanded the 32 bit ALU to find the SLT we made a grave mistake. We made it so that the 1 bit ALU returned ‘0’ for every bit of the result when selected for SLT operation. We had no leftmost bit of the difference to compute the SLT value! 
+We had a lot of issues getting this component to work correctly. In order to determine the value of the SLT, we had to take the leftmost bit of the difference of A and B. Then we had to use that leftmost bit and overflow to determine if SLT is raised to ‘1’ or not. However, when we set up the bit-slicing, we made the 1-bit ALU return ‘0’ for every bit of the result when selected for SLT operation. This zero overrode the difference of A and B, which garbled our results in the next cycle when the new left-most bit was looped back into the SLT.
 
 To fix this problem, we created a 1 bit adder in the final ALU, separate from the 32 1-bit ALUs. This ALU took in A[31], ~B[31], and the carryout of the 30th 1-bit ALU (2nd to last) and computed the leftmost bit of the difference of A and B for us.
 
 
 ## Zero
-We tested the zero output by setting the 4-bit ALU to subtract B from A. Since we’ve already tested the 4-bit subtraction cases, we only chose two situations: one where the difference is zero and one where the difference is non-zero.
+We tested the zero output by setting the 4-bit ALU to subtract B from A. Since we already tested the 4-bit subtraction cases, we only chose two situations: one where the difference is zero and one where the difference is non-zero.
 
 ```verilog
- Cm  |	A 	   B  | A - B | Zero | Case
+ Cm  |    A     B | A - B | Zero | Case
 ------------------------------------------------------
- 001 | 1111  1111 |  0000 |	1    | A-B==0
- 001 | 1111  0000 |  1111 |	0    | A-B!=0
+ 001 | 1111  1111 |  0000 |    1 | A-B==0
+ 001 | 1111  0000 |  1111 |    0 | A-B!=0
 ```
 
 We did the same for the 32-bit ALU and achieved similar results.
+
 ```verilog
- Cm  |    	A     	B     |  	Out  | Zero | Case
+ Cm  |        A         B |      Out | Zero | Case
 ------------------------------------------------------
- 001 | 1234abcd  1234abcd | 00000000 |	 1  | A-B==0
- 001 | 1234abcd  abcd1234 | 66679999 |	 0  | A-B!=0
+ 001 | 1234abcd  1234abcd | 00000000 |    1 | A-B==0
+ 001 | 1234abcd  abcd1234 | 66679999 |    0 | A-B!=0
+```
+
+However, as we added test cases to the 32-bit test bench, we saw that our method of calculating the 32-input NOR gate was not correctly coded in structural Verilog.
+
+```verilog
+ Cm  |        A         B |      Out | Zero | Case
+------------------------------------------------------
+ 001 | 1234abcd  1234abcd | 00000000 |    1 | A-B==0
+ 001 | 1234abcd  abcd1234 | 66679999 |    0 | A-B!=0
+ 000 | 12340000  abcd0000 | be010000 |    1 | A-B!=0
+ 000 | 12340000  abcd0000 | be010000 |    1 | A-B!=0
+```
+
+We used the following line of code to calculate the zero:
+
+```verilog
+nor #320(zero, result)
+```
+
+The nor function only seemed to be looking at the first digits of the result variable, so we instead listed out all 32 values of the result in the input, as follows:
+
+```verilog
+// Calculates zero (32-input NOR)
+nor #320 nor_zero(zero, result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7]
+                      , result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]
+                      , result[16], result[17], result[18], result[19], result[20], result[21], result[22], result[23]
+                      , result[24], result[25], result[26], result[27], result[28], result[29], result[30], result[31]);
+```
+
+This returned the following test bench values, after we added new tests:
+
+```verilog
+ Cm  |        A         B |      Out | Zero | Case
+------------------------------------------------------
+ 001 | 1234abcd  1234abcd | 00000000 |    1 | A-B==0
+ 001 | 1234abcd  abcd1234 | 66679999 |    0 | A-B!=0
+ 000 | 11111111  11111111 | 22222222 |    0 | A-B!=0
+ 001 | 50000000  30000000 | 20000000 |    0 | A-B!=0
 ```
 
 # Timing Analysis
@@ -349,12 +394,6 @@ The subtract operator has the same delay as an adder when calculated, 3910. The 
 ![SLT Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delaySLT.png)
 
 The calculated delay of the SLT includes the delay of a 2:1 mux (70), 31 1-bit subtractors (120*32), 1 1-bit adder (120), 2 Xor gates (2*60), and 1 2:1 mux (70). The total calculated delay is 4100. GTKwave returns a delay of 2200.
-
-## ZERO
-![ZERO Delay](https://github.com/tj-kim/Lab1/blob/master/Waveforms/delayZERO.png)
-
-
-Overall, there seemed to be a great mismatch between our calculations and the waveform output. Maybe we need help on calculating the delay values by hand.
 
 # Work Plan Reflection
 
