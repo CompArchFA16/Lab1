@@ -1,0 +1,2146 @@
+$date
+	Thu Oct  6 21:11:09 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module ALU $end
+$var wire 32 ! addResult [31:0] $end
+$var wire 1 " adderoverflow $end
+$var wire 32 # andResult [31:0] $end
+$var wire 1 $ carryin $end
+$var wire 1 % carryout $end
+$var wire 3 & command [2:0] $end
+$var wire 1 ' enableOverflow $end
+$var wire 32 ( flipA [31:0] $end
+$var wire 32 ) flipB [31:0] $end
+$var wire 31 * high [30:0] $end
+$var wire 1 + invertA $end
+$var wire 1 , invertB $end
+$var wire 3 - muxindex [2:0] $end
+$var wire 32 . operandA [31:0] $end
+$var wire 32 / operandB [31:0] $end
+$var wire 32 0 orResult [31:0] $end
+$var wire 1 1 overflow $end
+$var wire 32 2 result [31:0] $end
+$var wire 1 3 sltResult $end
+$var wire 32 4 sltResult32 [31:0] $end
+$var wire 32 5 xorResult [31:0] $end
+$var wire 1 6 zero $end
+$scope module myLUT $end
+$var wire 3 7 ALUcommand [2:0] $end
+$var reg 1 8 carryin $end
+$var reg 1 9 enableOverflow $end
+$var reg 1 : invertA $end
+$var reg 1 ; invertB $end
+$var reg 3 < muxindex [2:0] $end
+$upscope $end
+$scope module myand $end
+$var wire 32 = andResult [31:0] $end
+$var wire 32 > operandA [31:0] $end
+$var wire 32 ? operandB [31:0] $end
+$scope begin genand[0] $end
+$upscope $end
+$scope begin genand[1] $end
+$upscope $end
+$scope begin genand[2] $end
+$upscope $end
+$scope begin genand[3] $end
+$upscope $end
+$scope begin genand[4] $end
+$upscope $end
+$scope begin genand[5] $end
+$upscope $end
+$scope begin genand[6] $end
+$upscope $end
+$scope begin genand[7] $end
+$upscope $end
+$scope begin genand[8] $end
+$upscope $end
+$scope begin genand[9] $end
+$upscope $end
+$scope begin genand[10] $end
+$upscope $end
+$scope begin genand[11] $end
+$upscope $end
+$scope begin genand[12] $end
+$upscope $end
+$scope begin genand[13] $end
+$upscope $end
+$scope begin genand[14] $end
+$upscope $end
+$scope begin genand[15] $end
+$upscope $end
+$scope begin genand[16] $end
+$upscope $end
+$scope begin genand[17] $end
+$upscope $end
+$scope begin genand[18] $end
+$upscope $end
+$scope begin genand[19] $end
+$upscope $end
+$scope begin genand[20] $end
+$upscope $end
+$scope begin genand[21] $end
+$upscope $end
+$scope begin genand[22] $end
+$upscope $end
+$scope begin genand[23] $end
+$upscope $end
+$scope begin genand[24] $end
+$upscope $end
+$scope begin genand[25] $end
+$upscope $end
+$scope begin genand[26] $end
+$upscope $end
+$scope begin genand[27] $end
+$upscope $end
+$scope begin genand[28] $end
+$upscope $end
+$scope begin genand[29] $end
+$upscope $end
+$scope begin genand[30] $end
+$upscope $end
+$scope begin genand[31] $end
+$upscope $end
+$upscope $end
+$scope module myor $end
+$var wire 32 @ operandA [31:0] $end
+$var wire 32 A operandB [31:0] $end
+$var wire 32 B orResult [31:0] $end
+$scope begin gen1[0] $end
+$upscope $end
+$scope begin gen1[1] $end
+$upscope $end
+$scope begin gen1[2] $end
+$upscope $end
+$scope begin gen1[3] $end
+$upscope $end
+$scope begin gen1[4] $end
+$upscope $end
+$scope begin gen1[5] $end
+$upscope $end
+$scope begin gen1[6] $end
+$upscope $end
+$scope begin gen1[7] $end
+$upscope $end
+$scope begin gen1[8] $end
+$upscope $end
+$scope begin gen1[9] $end
+$upscope $end
+$scope begin gen1[10] $end
+$upscope $end
+$scope begin gen1[11] $end
+$upscope $end
+$scope begin gen1[12] $end
+$upscope $end
+$scope begin gen1[13] $end
+$upscope $end
+$scope begin gen1[14] $end
+$upscope $end
+$scope begin gen1[15] $end
+$upscope $end
+$scope begin gen1[16] $end
+$upscope $end
+$scope begin gen1[17] $end
+$upscope $end
+$scope begin gen1[18] $end
+$upscope $end
+$scope begin gen1[19] $end
+$upscope $end
+$scope begin gen1[20] $end
+$upscope $end
+$scope begin gen1[21] $end
+$upscope $end
+$scope begin gen1[22] $end
+$upscope $end
+$scope begin gen1[23] $end
+$upscope $end
+$scope begin gen1[24] $end
+$upscope $end
+$scope begin gen1[25] $end
+$upscope $end
+$scope begin gen1[26] $end
+$upscope $end
+$scope begin gen1[27] $end
+$upscope $end
+$scope begin gen1[28] $end
+$upscope $end
+$scope begin gen1[29] $end
+$upscope $end
+$scope begin gen1[30] $end
+$upscope $end
+$scope begin gen1[31] $end
+$upscope $end
+$upscope $end
+$scope module myxor $end
+$var wire 32 C operandA [31:0] $end
+$var wire 32 D operandB [31:0] $end
+$var wire 32 E xorResult [31:0] $end
+$scope begin gen1[0] $end
+$upscope $end
+$scope begin gen1[1] $end
+$upscope $end
+$scope begin gen1[2] $end
+$upscope $end
+$scope begin gen1[3] $end
+$upscope $end
+$scope begin gen1[4] $end
+$upscope $end
+$scope begin gen1[5] $end
+$upscope $end
+$scope begin gen1[6] $end
+$upscope $end
+$scope begin gen1[7] $end
+$upscope $end
+$scope begin gen1[8] $end
+$upscope $end
+$scope begin gen1[9] $end
+$upscope $end
+$scope begin gen1[10] $end
+$upscope $end
+$scope begin gen1[11] $end
+$upscope $end
+$scope begin gen1[12] $end
+$upscope $end
+$scope begin gen1[13] $end
+$upscope $end
+$scope begin gen1[14] $end
+$upscope $end
+$scope begin gen1[15] $end
+$upscope $end
+$scope begin gen1[16] $end
+$upscope $end
+$scope begin gen1[17] $end
+$upscope $end
+$scope begin gen1[18] $end
+$upscope $end
+$scope begin gen1[19] $end
+$upscope $end
+$scope begin gen1[20] $end
+$upscope $end
+$scope begin gen1[21] $end
+$upscope $end
+$scope begin gen1[22] $end
+$upscope $end
+$scope begin gen1[23] $end
+$upscope $end
+$scope begin gen1[24] $end
+$upscope $end
+$scope begin gen1[25] $end
+$upscope $end
+$scope begin gen1[26] $end
+$upscope $end
+$scope begin gen1[27] $end
+$upscope $end
+$scope begin gen1[28] $end
+$upscope $end
+$scope begin gen1[29] $end
+$upscope $end
+$scope begin gen1[30] $end
+$upscope $end
+$scope begin gen1[31] $end
+$upscope $end
+$upscope $end
+$scope module myadd $end
+$var wire 1 $ M $end
+$var wire 32 F MxorB [31:0] $end
+$var wire 32 G addResult [31:0] $end
+$var wire 1 % carryout $end
+$var wire 31 H carryoutin [30:0] $end
+$var wire 32 I operandA [31:0] $end
+$var wire 32 J operandB [31:0] $end
+$var wire 1 " overflow $end
+$scope module myxor $end
+$var wire 32 K operandA [31:0] $end
+$var wire 1 $ operandB $end
+$var wire 32 L xorResult [31:0] $end
+$scope begin gen1[0] $end
+$upscope $end
+$scope begin gen1[1] $end
+$upscope $end
+$scope begin gen1[2] $end
+$upscope $end
+$scope begin gen1[3] $end
+$upscope $end
+$scope begin gen1[4] $end
+$upscope $end
+$scope begin gen1[5] $end
+$upscope $end
+$scope begin gen1[6] $end
+$upscope $end
+$scope begin gen1[7] $end
+$upscope $end
+$scope begin gen1[8] $end
+$upscope $end
+$scope begin gen1[9] $end
+$upscope $end
+$scope begin gen1[10] $end
+$upscope $end
+$scope begin gen1[11] $end
+$upscope $end
+$scope begin gen1[12] $end
+$upscope $end
+$scope begin gen1[13] $end
+$upscope $end
+$scope begin gen1[14] $end
+$upscope $end
+$scope begin gen1[15] $end
+$upscope $end
+$scope begin gen1[16] $end
+$upscope $end
+$scope begin gen1[17] $end
+$upscope $end
+$scope begin gen1[18] $end
+$upscope $end
+$scope begin gen1[19] $end
+$upscope $end
+$scope begin gen1[20] $end
+$upscope $end
+$scope begin gen1[21] $end
+$upscope $end
+$scope begin gen1[22] $end
+$upscope $end
+$scope begin gen1[23] $end
+$upscope $end
+$scope begin gen1[24] $end
+$upscope $end
+$scope begin gen1[25] $end
+$upscope $end
+$scope begin gen1[26] $end
+$upscope $end
+$scope begin gen1[27] $end
+$upscope $end
+$scope begin gen1[28] $end
+$upscope $end
+$scope begin gen1[29] $end
+$upscope $end
+$scope begin gen1[30] $end
+$upscope $end
+$scope begin gen1[31] $end
+$upscope $end
+$upscope $end
+$scope module add0 $end
+$var wire 1 M AandB $end
+$var wire 1 N AxorB $end
+$var wire 1 O AxorBandcarryin $end
+$var wire 1 P a $end
+$var wire 1 Q b $end
+$var wire 1 $ carryin $end
+$var wire 1 R carryout $end
+$var wire 1 S sum $end
+$upscope $end
+$scope module add31 $end
+$var wire 1 T AandB $end
+$var wire 1 U AxorB $end
+$var wire 1 V AxorBandcarryin $end
+$var wire 1 W a $end
+$var wire 1 X b $end
+$var wire 1 Y carryin $end
+$var wire 1 % carryout $end
+$var wire 1 Z sum $end
+$upscope $end
+$scope begin gen1[1] $end
+$scope module addgates $end
+$var wire 1 [ AandB $end
+$var wire 1 \ AxorB $end
+$var wire 1 ] AxorBandcarryin $end
+$var wire 1 ^ a $end
+$var wire 1 _ b $end
+$var wire 1 ` carryin $end
+$var wire 1 a carryout $end
+$var wire 1 b sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[2] $end
+$scope module addgates $end
+$var wire 1 c AandB $end
+$var wire 1 d AxorB $end
+$var wire 1 e AxorBandcarryin $end
+$var wire 1 f a $end
+$var wire 1 g b $end
+$var wire 1 h carryin $end
+$var wire 1 i carryout $end
+$var wire 1 j sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[3] $end
+$scope module addgates $end
+$var wire 1 k AandB $end
+$var wire 1 l AxorB $end
+$var wire 1 m AxorBandcarryin $end
+$var wire 1 n a $end
+$var wire 1 o b $end
+$var wire 1 p carryin $end
+$var wire 1 q carryout $end
+$var wire 1 r sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[4] $end
+$scope module addgates $end
+$var wire 1 s AandB $end
+$var wire 1 t AxorB $end
+$var wire 1 u AxorBandcarryin $end
+$var wire 1 v a $end
+$var wire 1 w b $end
+$var wire 1 x carryin $end
+$var wire 1 y carryout $end
+$var wire 1 z sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[5] $end
+$scope module addgates $end
+$var wire 1 { AandB $end
+$var wire 1 | AxorB $end
+$var wire 1 } AxorBandcarryin $end
+$var wire 1 ~ a $end
+$var wire 1 !" b $end
+$var wire 1 "" carryin $end
+$var wire 1 #" carryout $end
+$var wire 1 $" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[6] $end
+$scope module addgates $end
+$var wire 1 %" AandB $end
+$var wire 1 &" AxorB $end
+$var wire 1 '" AxorBandcarryin $end
+$var wire 1 (" a $end
+$var wire 1 )" b $end
+$var wire 1 *" carryin $end
+$var wire 1 +" carryout $end
+$var wire 1 ," sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[7] $end
+$scope module addgates $end
+$var wire 1 -" AandB $end
+$var wire 1 ." AxorB $end
+$var wire 1 /" AxorBandcarryin $end
+$var wire 1 0" a $end
+$var wire 1 1" b $end
+$var wire 1 2" carryin $end
+$var wire 1 3" carryout $end
+$var wire 1 4" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[8] $end
+$scope module addgates $end
+$var wire 1 5" AandB $end
+$var wire 1 6" AxorB $end
+$var wire 1 7" AxorBandcarryin $end
+$var wire 1 8" a $end
+$var wire 1 9" b $end
+$var wire 1 :" carryin $end
+$var wire 1 ;" carryout $end
+$var wire 1 <" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[9] $end
+$scope module addgates $end
+$var wire 1 =" AandB $end
+$var wire 1 >" AxorB $end
+$var wire 1 ?" AxorBandcarryin $end
+$var wire 1 @" a $end
+$var wire 1 A" b $end
+$var wire 1 B" carryin $end
+$var wire 1 C" carryout $end
+$var wire 1 D" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[10] $end
+$scope module addgates $end
+$var wire 1 E" AandB $end
+$var wire 1 F" AxorB $end
+$var wire 1 G" AxorBandcarryin $end
+$var wire 1 H" a $end
+$var wire 1 I" b $end
+$var wire 1 J" carryin $end
+$var wire 1 K" carryout $end
+$var wire 1 L" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[11] $end
+$scope module addgates $end
+$var wire 1 M" AandB $end
+$var wire 1 N" AxorB $end
+$var wire 1 O" AxorBandcarryin $end
+$var wire 1 P" a $end
+$var wire 1 Q" b $end
+$var wire 1 R" carryin $end
+$var wire 1 S" carryout $end
+$var wire 1 T" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[12] $end
+$scope module addgates $end
+$var wire 1 U" AandB $end
+$var wire 1 V" AxorB $end
+$var wire 1 W" AxorBandcarryin $end
+$var wire 1 X" a $end
+$var wire 1 Y" b $end
+$var wire 1 Z" carryin $end
+$var wire 1 [" carryout $end
+$var wire 1 \" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[13] $end
+$scope module addgates $end
+$var wire 1 ]" AandB $end
+$var wire 1 ^" AxorB $end
+$var wire 1 _" AxorBandcarryin $end
+$var wire 1 `" a $end
+$var wire 1 a" b $end
+$var wire 1 b" carryin $end
+$var wire 1 c" carryout $end
+$var wire 1 d" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[14] $end
+$scope module addgates $end
+$var wire 1 e" AandB $end
+$var wire 1 f" AxorB $end
+$var wire 1 g" AxorBandcarryin $end
+$var wire 1 h" a $end
+$var wire 1 i" b $end
+$var wire 1 j" carryin $end
+$var wire 1 k" carryout $end
+$var wire 1 l" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[15] $end
+$scope module addgates $end
+$var wire 1 m" AandB $end
+$var wire 1 n" AxorB $end
+$var wire 1 o" AxorBandcarryin $end
+$var wire 1 p" a $end
+$var wire 1 q" b $end
+$var wire 1 r" carryin $end
+$var wire 1 s" carryout $end
+$var wire 1 t" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[16] $end
+$scope module addgates $end
+$var wire 1 u" AandB $end
+$var wire 1 v" AxorB $end
+$var wire 1 w" AxorBandcarryin $end
+$var wire 1 x" a $end
+$var wire 1 y" b $end
+$var wire 1 z" carryin $end
+$var wire 1 {" carryout $end
+$var wire 1 |" sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[17] $end
+$scope module addgates $end
+$var wire 1 }" AandB $end
+$var wire 1 ~" AxorB $end
+$var wire 1 !# AxorBandcarryin $end
+$var wire 1 "# a $end
+$var wire 1 ## b $end
+$var wire 1 $# carryin $end
+$var wire 1 %# carryout $end
+$var wire 1 &# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[18] $end
+$scope module addgates $end
+$var wire 1 '# AandB $end
+$var wire 1 (# AxorB $end
+$var wire 1 )# AxorBandcarryin $end
+$var wire 1 *# a $end
+$var wire 1 +# b $end
+$var wire 1 ,# carryin $end
+$var wire 1 -# carryout $end
+$var wire 1 .# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[19] $end
+$scope module addgates $end
+$var wire 1 /# AandB $end
+$var wire 1 0# AxorB $end
+$var wire 1 1# AxorBandcarryin $end
+$var wire 1 2# a $end
+$var wire 1 3# b $end
+$var wire 1 4# carryin $end
+$var wire 1 5# carryout $end
+$var wire 1 6# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[20] $end
+$scope module addgates $end
+$var wire 1 7# AandB $end
+$var wire 1 8# AxorB $end
+$var wire 1 9# AxorBandcarryin $end
+$var wire 1 :# a $end
+$var wire 1 ;# b $end
+$var wire 1 <# carryin $end
+$var wire 1 =# carryout $end
+$var wire 1 ># sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[21] $end
+$scope module addgates $end
+$var wire 1 ?# AandB $end
+$var wire 1 @# AxorB $end
+$var wire 1 A# AxorBandcarryin $end
+$var wire 1 B# a $end
+$var wire 1 C# b $end
+$var wire 1 D# carryin $end
+$var wire 1 E# carryout $end
+$var wire 1 F# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[22] $end
+$scope module addgates $end
+$var wire 1 G# AandB $end
+$var wire 1 H# AxorB $end
+$var wire 1 I# AxorBandcarryin $end
+$var wire 1 J# a $end
+$var wire 1 K# b $end
+$var wire 1 L# carryin $end
+$var wire 1 M# carryout $end
+$var wire 1 N# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[23] $end
+$scope module addgates $end
+$var wire 1 O# AandB $end
+$var wire 1 P# AxorB $end
+$var wire 1 Q# AxorBandcarryin $end
+$var wire 1 R# a $end
+$var wire 1 S# b $end
+$var wire 1 T# carryin $end
+$var wire 1 U# carryout $end
+$var wire 1 V# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[24] $end
+$scope module addgates $end
+$var wire 1 W# AandB $end
+$var wire 1 X# AxorB $end
+$var wire 1 Y# AxorBandcarryin $end
+$var wire 1 Z# a $end
+$var wire 1 [# b $end
+$var wire 1 \# carryin $end
+$var wire 1 ]# carryout $end
+$var wire 1 ^# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[25] $end
+$scope module addgates $end
+$var wire 1 _# AandB $end
+$var wire 1 `# AxorB $end
+$var wire 1 a# AxorBandcarryin $end
+$var wire 1 b# a $end
+$var wire 1 c# b $end
+$var wire 1 d# carryin $end
+$var wire 1 e# carryout $end
+$var wire 1 f# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[26] $end
+$scope module addgates $end
+$var wire 1 g# AandB $end
+$var wire 1 h# AxorB $end
+$var wire 1 i# AxorBandcarryin $end
+$var wire 1 j# a $end
+$var wire 1 k# b $end
+$var wire 1 l# carryin $end
+$var wire 1 m# carryout $end
+$var wire 1 n# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[27] $end
+$scope module addgates $end
+$var wire 1 o# AandB $end
+$var wire 1 p# AxorB $end
+$var wire 1 q# AxorBandcarryin $end
+$var wire 1 r# a $end
+$var wire 1 s# b $end
+$var wire 1 t# carryin $end
+$var wire 1 u# carryout $end
+$var wire 1 v# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[28] $end
+$scope module addgates $end
+$var wire 1 w# AandB $end
+$var wire 1 x# AxorB $end
+$var wire 1 y# AxorBandcarryin $end
+$var wire 1 z# a $end
+$var wire 1 {# b $end
+$var wire 1 |# carryin $end
+$var wire 1 }# carryout $end
+$var wire 1 ~# sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[29] $end
+$scope module addgates $end
+$var wire 1 !$ AandB $end
+$var wire 1 "$ AxorB $end
+$var wire 1 #$ AxorBandcarryin $end
+$var wire 1 $$ a $end
+$var wire 1 %$ b $end
+$var wire 1 &$ carryin $end
+$var wire 1 '$ carryout $end
+$var wire 1 ($ sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[30] $end
+$scope module addgates $end
+$var wire 1 )$ AandB $end
+$var wire 1 *$ AxorB $end
+$var wire 1 +$ AxorBandcarryin $end
+$var wire 1 ,$ a $end
+$var wire 1 -$ b $end
+$var wire 1 .$ carryin $end
+$var wire 1 /$ carryout $end
+$var wire 1 0$ sum $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module myslt $end
+$var wire 1 1$ carryout $end
+$var wire 32 2$ operandA [31:0] $end
+$var wire 32 3$ operandB [31:0] $end
+$var wire 1 4$ overflow $end
+$var wire 1 3 sltResult $end
+$var wire 32 5$ subResult [31:0] $end
+$scope module myALU $end
+$var wire 1 6$ M $end
+$var wire 32 7$ MxorB [31:0] $end
+$var wire 32 8$ addResult [31:0] $end
+$var wire 1 1$ carryout $end
+$var wire 31 9$ carryoutin [30:0] $end
+$var wire 32 :$ operandA [31:0] $end
+$var wire 32 ;$ operandB [31:0] $end
+$var wire 1 4$ overflow $end
+$scope module myxor $end
+$var wire 32 <$ operandA [31:0] $end
+$var wire 1 6$ operandB $end
+$var wire 32 =$ xorResult [31:0] $end
+$scope begin gen1[0] $end
+$upscope $end
+$scope begin gen1[1] $end
+$upscope $end
+$scope begin gen1[2] $end
+$upscope $end
+$scope begin gen1[3] $end
+$upscope $end
+$scope begin gen1[4] $end
+$upscope $end
+$scope begin gen1[5] $end
+$upscope $end
+$scope begin gen1[6] $end
+$upscope $end
+$scope begin gen1[7] $end
+$upscope $end
+$scope begin gen1[8] $end
+$upscope $end
+$scope begin gen1[9] $end
+$upscope $end
+$scope begin gen1[10] $end
+$upscope $end
+$scope begin gen1[11] $end
+$upscope $end
+$scope begin gen1[12] $end
+$upscope $end
+$scope begin gen1[13] $end
+$upscope $end
+$scope begin gen1[14] $end
+$upscope $end
+$scope begin gen1[15] $end
+$upscope $end
+$scope begin gen1[16] $end
+$upscope $end
+$scope begin gen1[17] $end
+$upscope $end
+$scope begin gen1[18] $end
+$upscope $end
+$scope begin gen1[19] $end
+$upscope $end
+$scope begin gen1[20] $end
+$upscope $end
+$scope begin gen1[21] $end
+$upscope $end
+$scope begin gen1[22] $end
+$upscope $end
+$scope begin gen1[23] $end
+$upscope $end
+$scope begin gen1[24] $end
+$upscope $end
+$scope begin gen1[25] $end
+$upscope $end
+$scope begin gen1[26] $end
+$upscope $end
+$scope begin gen1[27] $end
+$upscope $end
+$scope begin gen1[28] $end
+$upscope $end
+$scope begin gen1[29] $end
+$upscope $end
+$scope begin gen1[30] $end
+$upscope $end
+$scope begin gen1[31] $end
+$upscope $end
+$upscope $end
+$scope module add0 $end
+$var wire 1 >$ AandB $end
+$var wire 1 ?$ AxorB $end
+$var wire 1 @$ AxorBandcarryin $end
+$var wire 1 A$ a $end
+$var wire 1 B$ b $end
+$var wire 1 6$ carryin $end
+$var wire 1 C$ carryout $end
+$var wire 1 D$ sum $end
+$upscope $end
+$scope module add31 $end
+$var wire 1 E$ AandB $end
+$var wire 1 F$ AxorB $end
+$var wire 1 G$ AxorBandcarryin $end
+$var wire 1 H$ a $end
+$var wire 1 I$ b $end
+$var wire 1 J$ carryin $end
+$var wire 1 1$ carryout $end
+$var wire 1 K$ sum $end
+$upscope $end
+$scope begin gen1[1] $end
+$scope module addgates $end
+$var wire 1 L$ AandB $end
+$var wire 1 M$ AxorB $end
+$var wire 1 N$ AxorBandcarryin $end
+$var wire 1 O$ a $end
+$var wire 1 P$ b $end
+$var wire 1 Q$ carryin $end
+$var wire 1 R$ carryout $end
+$var wire 1 S$ sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[2] $end
+$scope module addgates $end
+$var wire 1 T$ AandB $end
+$var wire 1 U$ AxorB $end
+$var wire 1 V$ AxorBandcarryin $end
+$var wire 1 W$ a $end
+$var wire 1 X$ b $end
+$var wire 1 Y$ carryin $end
+$var wire 1 Z$ carryout $end
+$var wire 1 [$ sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[3] $end
+$scope module addgates $end
+$var wire 1 \$ AandB $end
+$var wire 1 ]$ AxorB $end
+$var wire 1 ^$ AxorBandcarryin $end
+$var wire 1 _$ a $end
+$var wire 1 `$ b $end
+$var wire 1 a$ carryin $end
+$var wire 1 b$ carryout $end
+$var wire 1 c$ sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[4] $end
+$scope module addgates $end
+$var wire 1 d$ AandB $end
+$var wire 1 e$ AxorB $end
+$var wire 1 f$ AxorBandcarryin $end
+$var wire 1 g$ a $end
+$var wire 1 h$ b $end
+$var wire 1 i$ carryin $end
+$var wire 1 j$ carryout $end
+$var wire 1 k$ sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[5] $end
+$scope module addgates $end
+$var wire 1 l$ AandB $end
+$var wire 1 m$ AxorB $end
+$var wire 1 n$ AxorBandcarryin $end
+$var wire 1 o$ a $end
+$var wire 1 p$ b $end
+$var wire 1 q$ carryin $end
+$var wire 1 r$ carryout $end
+$var wire 1 s$ sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[6] $end
+$scope module addgates $end
+$var wire 1 t$ AandB $end
+$var wire 1 u$ AxorB $end
+$var wire 1 v$ AxorBandcarryin $end
+$var wire 1 w$ a $end
+$var wire 1 x$ b $end
+$var wire 1 y$ carryin $end
+$var wire 1 z$ carryout $end
+$var wire 1 {$ sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[7] $end
+$scope module addgates $end
+$var wire 1 |$ AandB $end
+$var wire 1 }$ AxorB $end
+$var wire 1 ~$ AxorBandcarryin $end
+$var wire 1 !% a $end
+$var wire 1 "% b $end
+$var wire 1 #% carryin $end
+$var wire 1 $% carryout $end
+$var wire 1 %% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[8] $end
+$scope module addgates $end
+$var wire 1 &% AandB $end
+$var wire 1 '% AxorB $end
+$var wire 1 (% AxorBandcarryin $end
+$var wire 1 )% a $end
+$var wire 1 *% b $end
+$var wire 1 +% carryin $end
+$var wire 1 ,% carryout $end
+$var wire 1 -% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[9] $end
+$scope module addgates $end
+$var wire 1 .% AandB $end
+$var wire 1 /% AxorB $end
+$var wire 1 0% AxorBandcarryin $end
+$var wire 1 1% a $end
+$var wire 1 2% b $end
+$var wire 1 3% carryin $end
+$var wire 1 4% carryout $end
+$var wire 1 5% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[10] $end
+$scope module addgates $end
+$var wire 1 6% AandB $end
+$var wire 1 7% AxorB $end
+$var wire 1 8% AxorBandcarryin $end
+$var wire 1 9% a $end
+$var wire 1 :% b $end
+$var wire 1 ;% carryin $end
+$var wire 1 <% carryout $end
+$var wire 1 =% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[11] $end
+$scope module addgates $end
+$var wire 1 >% AandB $end
+$var wire 1 ?% AxorB $end
+$var wire 1 @% AxorBandcarryin $end
+$var wire 1 A% a $end
+$var wire 1 B% b $end
+$var wire 1 C% carryin $end
+$var wire 1 D% carryout $end
+$var wire 1 E% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[12] $end
+$scope module addgates $end
+$var wire 1 F% AandB $end
+$var wire 1 G% AxorB $end
+$var wire 1 H% AxorBandcarryin $end
+$var wire 1 I% a $end
+$var wire 1 J% b $end
+$var wire 1 K% carryin $end
+$var wire 1 L% carryout $end
+$var wire 1 M% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[13] $end
+$scope module addgates $end
+$var wire 1 N% AandB $end
+$var wire 1 O% AxorB $end
+$var wire 1 P% AxorBandcarryin $end
+$var wire 1 Q% a $end
+$var wire 1 R% b $end
+$var wire 1 S% carryin $end
+$var wire 1 T% carryout $end
+$var wire 1 U% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[14] $end
+$scope module addgates $end
+$var wire 1 V% AandB $end
+$var wire 1 W% AxorB $end
+$var wire 1 X% AxorBandcarryin $end
+$var wire 1 Y% a $end
+$var wire 1 Z% b $end
+$var wire 1 [% carryin $end
+$var wire 1 \% carryout $end
+$var wire 1 ]% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[15] $end
+$scope module addgates $end
+$var wire 1 ^% AandB $end
+$var wire 1 _% AxorB $end
+$var wire 1 `% AxorBandcarryin $end
+$var wire 1 a% a $end
+$var wire 1 b% b $end
+$var wire 1 c% carryin $end
+$var wire 1 d% carryout $end
+$var wire 1 e% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[16] $end
+$scope module addgates $end
+$var wire 1 f% AandB $end
+$var wire 1 g% AxorB $end
+$var wire 1 h% AxorBandcarryin $end
+$var wire 1 i% a $end
+$var wire 1 j% b $end
+$var wire 1 k% carryin $end
+$var wire 1 l% carryout $end
+$var wire 1 m% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[17] $end
+$scope module addgates $end
+$var wire 1 n% AandB $end
+$var wire 1 o% AxorB $end
+$var wire 1 p% AxorBandcarryin $end
+$var wire 1 q% a $end
+$var wire 1 r% b $end
+$var wire 1 s% carryin $end
+$var wire 1 t% carryout $end
+$var wire 1 u% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[18] $end
+$scope module addgates $end
+$var wire 1 v% AandB $end
+$var wire 1 w% AxorB $end
+$var wire 1 x% AxorBandcarryin $end
+$var wire 1 y% a $end
+$var wire 1 z% b $end
+$var wire 1 {% carryin $end
+$var wire 1 |% carryout $end
+$var wire 1 }% sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[19] $end
+$scope module addgates $end
+$var wire 1 ~% AandB $end
+$var wire 1 !& AxorB $end
+$var wire 1 "& AxorBandcarryin $end
+$var wire 1 #& a $end
+$var wire 1 $& b $end
+$var wire 1 %& carryin $end
+$var wire 1 && carryout $end
+$var wire 1 '& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[20] $end
+$scope module addgates $end
+$var wire 1 (& AandB $end
+$var wire 1 )& AxorB $end
+$var wire 1 *& AxorBandcarryin $end
+$var wire 1 +& a $end
+$var wire 1 ,& b $end
+$var wire 1 -& carryin $end
+$var wire 1 .& carryout $end
+$var wire 1 /& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[21] $end
+$scope module addgates $end
+$var wire 1 0& AandB $end
+$var wire 1 1& AxorB $end
+$var wire 1 2& AxorBandcarryin $end
+$var wire 1 3& a $end
+$var wire 1 4& b $end
+$var wire 1 5& carryin $end
+$var wire 1 6& carryout $end
+$var wire 1 7& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[22] $end
+$scope module addgates $end
+$var wire 1 8& AandB $end
+$var wire 1 9& AxorB $end
+$var wire 1 :& AxorBandcarryin $end
+$var wire 1 ;& a $end
+$var wire 1 <& b $end
+$var wire 1 =& carryin $end
+$var wire 1 >& carryout $end
+$var wire 1 ?& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[23] $end
+$scope module addgates $end
+$var wire 1 @& AandB $end
+$var wire 1 A& AxorB $end
+$var wire 1 B& AxorBandcarryin $end
+$var wire 1 C& a $end
+$var wire 1 D& b $end
+$var wire 1 E& carryin $end
+$var wire 1 F& carryout $end
+$var wire 1 G& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[24] $end
+$scope module addgates $end
+$var wire 1 H& AandB $end
+$var wire 1 I& AxorB $end
+$var wire 1 J& AxorBandcarryin $end
+$var wire 1 K& a $end
+$var wire 1 L& b $end
+$var wire 1 M& carryin $end
+$var wire 1 N& carryout $end
+$var wire 1 O& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[25] $end
+$scope module addgates $end
+$var wire 1 P& AandB $end
+$var wire 1 Q& AxorB $end
+$var wire 1 R& AxorBandcarryin $end
+$var wire 1 S& a $end
+$var wire 1 T& b $end
+$var wire 1 U& carryin $end
+$var wire 1 V& carryout $end
+$var wire 1 W& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[26] $end
+$scope module addgates $end
+$var wire 1 X& AandB $end
+$var wire 1 Y& AxorB $end
+$var wire 1 Z& AxorBandcarryin $end
+$var wire 1 [& a $end
+$var wire 1 \& b $end
+$var wire 1 ]& carryin $end
+$var wire 1 ^& carryout $end
+$var wire 1 _& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[27] $end
+$scope module addgates $end
+$var wire 1 `& AandB $end
+$var wire 1 a& AxorB $end
+$var wire 1 b& AxorBandcarryin $end
+$var wire 1 c& a $end
+$var wire 1 d& b $end
+$var wire 1 e& carryin $end
+$var wire 1 f& carryout $end
+$var wire 1 g& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[28] $end
+$scope module addgates $end
+$var wire 1 h& AandB $end
+$var wire 1 i& AxorB $end
+$var wire 1 j& AxorBandcarryin $end
+$var wire 1 k& a $end
+$var wire 1 l& b $end
+$var wire 1 m& carryin $end
+$var wire 1 n& carryout $end
+$var wire 1 o& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[29] $end
+$scope module addgates $end
+$var wire 1 p& AandB $end
+$var wire 1 q& AxorB $end
+$var wire 1 r& AxorBandcarryin $end
+$var wire 1 s& a $end
+$var wire 1 t& b $end
+$var wire 1 u& carryin $end
+$var wire 1 v& carryout $end
+$var wire 1 w& sum $end
+$upscope $end
+$upscope $end
+$scope begin gen1[30] $end
+$scope module addgates $end
+$var wire 1 x& AandB $end
+$var wire 1 y& AxorB $end
+$var wire 1 z& AxorBandcarryin $end
+$var wire 1 {& a $end
+$var wire 1 |& b $end
+$var wire 1 }& carryin $end
+$var wire 1 ~& carryout $end
+$var wire 1 !' sum $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module mymux $end
+$var wire 32 "' addResult [31:0] $end
+$var wire 32 #' andResult [31:0] $end
+$var wire 32 $' doAdd [31:0] $end
+$var wire 32 %' doAnd [31:0] $end
+$var wire 32 &' doOr [31:0] $end
+$var wire 1 '' doSlt $end
+$var wire 32 (' doXor [31:0] $end
+$var wire 3 )' muxindex [2:0] $end
+$var wire 3 *' notCommand [2:0] $end
+$var wire 32 +' orResult [31:0] $end
+$var wire 32 ,' result [31:0] $end
+$var wire 1 3 sltResult $end
+$var wire 32 -' xorResult [31:0] $end
+$scope begin gen1[0] $end
+$upscope $end
+$scope begin gen1[1] $end
+$upscope $end
+$scope begin gen1[2] $end
+$upscope $end
+$scope begin gen2[0] $end
+$upscope $end
+$scope begin gen2[1] $end
+$upscope $end
+$scope begin gen2[2] $end
+$upscope $end
+$scope begin gen2[3] $end
+$upscope $end
+$scope begin gen2[4] $end
+$upscope $end
+$scope begin gen2[5] $end
+$upscope $end
+$scope begin gen2[6] $end
+$upscope $end
+$scope begin gen2[7] $end
+$upscope $end
+$scope begin gen2[8] $end
+$upscope $end
+$scope begin gen2[9] $end
+$upscope $end
+$scope begin gen2[10] $end
+$upscope $end
+$scope begin gen2[11] $end
+$upscope $end
+$scope begin gen2[12] $end
+$upscope $end
+$scope begin gen2[13] $end
+$upscope $end
+$scope begin gen2[14] $end
+$upscope $end
+$scope begin gen2[15] $end
+$upscope $end
+$scope begin gen2[16] $end
+$upscope $end
+$scope begin gen2[17] $end
+$upscope $end
+$scope begin gen2[18] $end
+$upscope $end
+$scope begin gen2[19] $end
+$upscope $end
+$scope begin gen2[20] $end
+$upscope $end
+$scope begin gen2[21] $end
+$upscope $end
+$scope begin gen2[22] $end
+$upscope $end
+$scope begin gen2[23] $end
+$upscope $end
+$scope begin gen2[24] $end
+$upscope $end
+$scope begin gen2[25] $end
+$upscope $end
+$scope begin gen2[26] $end
+$upscope $end
+$scope begin gen2[27] $end
+$upscope $end
+$scope begin gen2[28] $end
+$upscope $end
+$scope begin gen2[29] $end
+$upscope $end
+$scope begin gen2[30] $end
+$upscope $end
+$scope begin gen2[31] $end
+$upscope $end
+$upscope $end
+$scope begin gen1[0] $end
+$upscope $end
+$scope begin gen1[1] $end
+$upscope $end
+$scope begin gen1[2] $end
+$upscope $end
+$scope begin gen1[3] $end
+$upscope $end
+$scope begin gen1[4] $end
+$upscope $end
+$scope begin gen1[5] $end
+$upscope $end
+$scope begin gen1[6] $end
+$upscope $end
+$scope begin gen1[7] $end
+$upscope $end
+$scope begin gen1[8] $end
+$upscope $end
+$scope begin gen1[9] $end
+$upscope $end
+$scope begin gen1[10] $end
+$upscope $end
+$scope begin gen1[11] $end
+$upscope $end
+$scope begin gen1[12] $end
+$upscope $end
+$scope begin gen1[13] $end
+$upscope $end
+$scope begin gen1[14] $end
+$upscope $end
+$scope begin gen1[15] $end
+$upscope $end
+$scope begin gen1[16] $end
+$upscope $end
+$scope begin gen1[17] $end
+$upscope $end
+$scope begin gen1[18] $end
+$upscope $end
+$scope begin gen1[19] $end
+$upscope $end
+$scope begin gen1[20] $end
+$upscope $end
+$scope begin gen1[21] $end
+$upscope $end
+$scope begin gen1[22] $end
+$upscope $end
+$scope begin gen1[23] $end
+$upscope $end
+$scope begin gen1[24] $end
+$upscope $end
+$scope begin gen1[25] $end
+$upscope $end
+$scope begin gen1[26] $end
+$upscope $end
+$scope begin gen1[27] $end
+$upscope $end
+$scope begin gen1[28] $end
+$upscope $end
+$scope begin gen1[29] $end
+$upscope $end
+$scope begin gen1[30] $end
+$upscope $end
+$scope begin gen1[31] $end
+$upscope $end
+$scope begin gen2[1] $end
+$upscope $end
+$scope begin gen2[2] $end
+$upscope $end
+$scope begin gen2[3] $end
+$upscope $end
+$scope begin gen2[4] $end
+$upscope $end
+$scope begin gen2[5] $end
+$upscope $end
+$scope begin gen2[6] $end
+$upscope $end
+$scope begin gen2[7] $end
+$upscope $end
+$scope begin gen2[8] $end
+$upscope $end
+$scope begin gen2[9] $end
+$upscope $end
+$scope begin gen2[10] $end
+$upscope $end
+$scope begin gen2[11] $end
+$upscope $end
+$scope begin gen2[12] $end
+$upscope $end
+$scope begin gen2[13] $end
+$upscope $end
+$scope begin gen2[14] $end
+$upscope $end
+$scope begin gen2[15] $end
+$upscope $end
+$scope begin gen2[16] $end
+$upscope $end
+$scope begin gen2[17] $end
+$upscope $end
+$scope begin gen2[18] $end
+$upscope $end
+$scope begin gen2[19] $end
+$upscope $end
+$scope begin gen2[20] $end
+$upscope $end
+$scope begin gen2[21] $end
+$upscope $end
+$scope begin gen2[22] $end
+$upscope $end
+$scope begin gen2[23] $end
+$upscope $end
+$scope begin gen2[24] $end
+$upscope $end
+$scope begin gen2[25] $end
+$upscope $end
+$scope begin gen2[26] $end
+$upscope $end
+$scope begin gen2[27] $end
+$upscope $end
+$scope begin gen2[28] $end
+$upscope $end
+$scope begin gen2[29] $end
+$upscope $end
+$scope begin gen2[30] $end
+$upscope $end
+$upscope $end
+$scope module testmux $end
+$var wire 32 .' result [31:0] $end
+$var reg 32 /' addResult [31:0] $end
+$var reg 32 0' andResult [31:0] $end
+$var reg 3 1' muxindex [2:0] $end
+$var reg 32 2' orResult [31:0] $end
+$var reg 32 3' sltResult [31:0] $end
+$var reg 32 4' xorResult [31:0] $end
+$scope module mymux $end
+$var wire 32 5' addResult [31:0] $end
+$var wire 32 6' andResult [31:0] $end
+$var wire 32 7' doAdd [31:0] $end
+$var wire 32 8' doAnd [31:0] $end
+$var wire 32 9' doOr [31:0] $end
+$var wire 1 :' doSlt $end
+$var wire 32 ;' doXor [31:0] $end
+$var wire 3 <' muxindex [2:0] $end
+$var wire 3 =' notCommand [2:0] $end
+$var wire 32 >' orResult [31:0] $end
+$var wire 32 ?' result [31:0] $end
+$var wire 1 @' sltResult $end
+$var wire 32 A' xorResult [31:0] $end
+$scope begin gen1[0] $end
+$upscope $end
+$scope begin gen1[1] $end
+$upscope $end
+$scope begin gen1[2] $end
+$upscope $end
+$scope begin gen2[0] $end
+$upscope $end
+$scope begin gen2[1] $end
+$upscope $end
+$scope begin gen2[2] $end
+$upscope $end
+$scope begin gen2[3] $end
+$upscope $end
+$scope begin gen2[4] $end
+$upscope $end
+$scope begin gen2[5] $end
+$upscope $end
+$scope begin gen2[6] $end
+$upscope $end
+$scope begin gen2[7] $end
+$upscope $end
+$scope begin gen2[8] $end
+$upscope $end
+$scope begin gen2[9] $end
+$upscope $end
+$scope begin gen2[10] $end
+$upscope $end
+$scope begin gen2[11] $end
+$upscope $end
+$scope begin gen2[12] $end
+$upscope $end
+$scope begin gen2[13] $end
+$upscope $end
+$scope begin gen2[14] $end
+$upscope $end
+$scope begin gen2[15] $end
+$upscope $end
+$scope begin gen2[16] $end
+$upscope $end
+$scope begin gen2[17] $end
+$upscope $end
+$scope begin gen2[18] $end
+$upscope $end
+$scope begin gen2[19] $end
+$upscope $end
+$scope begin gen2[20] $end
+$upscope $end
+$scope begin gen2[21] $end
+$upscope $end
+$scope begin gen2[22] $end
+$upscope $end
+$scope begin gen2[23] $end
+$upscope $end
+$scope begin gen2[24] $end
+$upscope $end
+$scope begin gen2[25] $end
+$upscope $end
+$scope begin gen2[26] $end
+$upscope $end
+$scope begin gen2[27] $end
+$upscope $end
+$scope begin gen2[28] $end
+$upscope $end
+$scope begin gen2[29] $end
+$upscope $end
+$scope begin gen2[30] $end
+$upscope $end
+$scope begin gen2[31] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11 A'
+0@'
+bx ?'
+b10 >'
+bz ='
+b0 <'
+bz ;'
+z:'
+bz 9'
+bz 8'
+bzxzz 7'
+b1 6'
+b100 5'
+b11 4'
+b0 3'
+b10 2'
+b0 1'
+b1 0'
+b100 /'
+bx .'
+bx -'
+bx ,'
+bx +'
+bx *'
+bx )'
+bx ('
+x''
+bx &'
+bx %'
+bx $'
+bx #'
+bx "'
+x!'
+x~&
+x}&
+x|&
+z{&
+xz&
+xy&
+xx&
+xw&
+xv&
+xu&
+xt&
+zs&
+xr&
+xq&
+xp&
+xo&
+xn&
+xm&
+xl&
+zk&
+xj&
+xi&
+xh&
+xg&
+xf&
+xe&
+xd&
+zc&
+xb&
+xa&
+x`&
+x_&
+x^&
+x]&
+x\&
+z[&
+xZ&
+xY&
+xX&
+xW&
+xV&
+xU&
+xT&
+zS&
+xR&
+xQ&
+xP&
+xO&
+xN&
+xM&
+xL&
+zK&
+xJ&
+xI&
+xH&
+xG&
+xF&
+xE&
+xD&
+zC&
+xB&
+xA&
+x@&
+x?&
+x>&
+x=&
+x<&
+z;&
+x:&
+x9&
+x8&
+x7&
+x6&
+x5&
+x4&
+z3&
+x2&
+x1&
+x0&
+x/&
+x.&
+x-&
+x,&
+z+&
+x*&
+x)&
+x(&
+x'&
+x&&
+x%&
+x$&
+z#&
+x"&
+x!&
+x~%
+x}%
+x|%
+x{%
+xz%
+zy%
+xx%
+xw%
+xv%
+xu%
+xt%
+xs%
+xr%
+zq%
+xp%
+xo%
+xn%
+xm%
+xl%
+xk%
+xj%
+zi%
+xh%
+xg%
+xf%
+xe%
+xd%
+xc%
+xb%
+za%
+x`%
+x_%
+x^%
+x]%
+x\%
+x[%
+xZ%
+zY%
+xX%
+xW%
+xV%
+xU%
+xT%
+xS%
+xR%
+zQ%
+xP%
+xO%
+xN%
+xM%
+xL%
+xK%
+xJ%
+zI%
+xH%
+xG%
+xF%
+xE%
+xD%
+xC%
+xB%
+zA%
+x@%
+x?%
+x>%
+x=%
+x<%
+x;%
+x:%
+z9%
+x8%
+x7%
+x6%
+x5%
+x4%
+x3%
+x2%
+z1%
+x0%
+x/%
+x.%
+x-%
+x,%
+x+%
+x*%
+z)%
+x(%
+x'%
+x&%
+x%%
+x$%
+x#%
+x"%
+z!%
+x~$
+x}$
+x|$
+x{$
+xz$
+xy$
+xx$
+zw$
+xv$
+xu$
+xt$
+xs$
+xr$
+xq$
+xp$
+zo$
+xn$
+xm$
+xl$
+xk$
+xj$
+xi$
+xh$
+zg$
+xf$
+xe$
+xd$
+xc$
+xb$
+xa$
+x`$
+z_$
+x^$
+x]$
+x\$
+x[$
+xZ$
+xY$
+xX$
+zW$
+xV$
+xU$
+xT$
+xS$
+xR$
+xQ$
+xP$
+zO$
+xN$
+xM$
+xL$
+xK$
+xJ$
+xI$
+zH$
+xG$
+xF$
+xE$
+xD$
+xC$
+xB$
+zA$
+x@$
+x?$
+x>$
+bx =$
+bz <$
+bz ;$
+bz :$
+bx 9$
+bx 8$
+bx 7$
+16$
+bx 5$
+x4$
+bz 3$
+bz 2$
+x1$
+x0$
+x/$
+x.$
+x-$
+z,$
+x+$
+x*$
+x)$
+x($
+x'$
+x&$
+x%$
+z$$
+x#$
+x"$
+x!$
+x~#
+x}#
+x|#
+x{#
+zz#
+xy#
+xx#
+xw#
+xv#
+xu#
+xt#
+xs#
+zr#
+xq#
+xp#
+xo#
+xn#
+xm#
+xl#
+xk#
+zj#
+xi#
+xh#
+xg#
+xf#
+xe#
+xd#
+xc#
+zb#
+xa#
+x`#
+x_#
+x^#
+x]#
+x\#
+x[#
+zZ#
+xY#
+xX#
+xW#
+xV#
+xU#
+xT#
+xS#
+zR#
+xQ#
+xP#
+xO#
+xN#
+xM#
+xL#
+xK#
+zJ#
+xI#
+xH#
+xG#
+xF#
+xE#
+xD#
+xC#
+zB#
+xA#
+x@#
+x?#
+x>#
+x=#
+x<#
+x;#
+z:#
+x9#
+x8#
+x7#
+x6#
+x5#
+x4#
+x3#
+z2#
+x1#
+x0#
+x/#
+x.#
+x-#
+x,#
+x+#
+z*#
+x)#
+x(#
+x'#
+x&#
+x%#
+x$#
+x##
+z"#
+x!#
+x~"
+x}"
+x|"
+x{"
+xz"
+xy"
+zx"
+xw"
+xv"
+xu"
+xt"
+xs"
+xr"
+xq"
+zp"
+xo"
+xn"
+xm"
+xl"
+xk"
+xj"
+xi"
+zh"
+xg"
+xf"
+xe"
+xd"
+xc"
+xb"
+xa"
+z`"
+x_"
+x^"
+x]"
+x\"
+x["
+xZ"
+xY"
+zX"
+xW"
+xV"
+xU"
+xT"
+xS"
+xR"
+xQ"
+zP"
+xO"
+xN"
+xM"
+xL"
+xK"
+xJ"
+xI"
+zH"
+xG"
+xF"
+xE"
+xD"
+xC"
+xB"
+xA"
+z@"
+x?"
+x>"
+x="
+x<"
+x;"
+x:"
+x9"
+z8"
+x7"
+x6"
+x5"
+x4"
+x3"
+x2"
+x1"
+z0"
+x/"
+x."
+x-"
+x,"
+x+"
+x*"
+x)"
+z("
+x'"
+x&"
+x%"
+x$"
+x#"
+x""
+x!"
+z~
+x}
+x|
+x{
+xz
+xy
+xx
+xw
+zv
+xu
+xt
+xs
+xr
+xq
+xp
+xo
+zn
+xm
+xl
+xk
+xj
+xi
+xh
+xg
+zf
+xe
+xd
+xc
+xb
+xa
+x`
+x_
+z^
+x]
+x\
+x[
+xZ
+xY
+xX
+zW
+xV
+xU
+xT
+xS
+xR
+xQ
+zP
+xO
+xN
+xM
+bx L
+bz K
+bz J
+bz I
+bx H
+bx G
+bx F
+bx E
+bx D
+bx C
+bx B
+bx A
+bx @
+bx ?
+bx >
+bx =
+bx <
+x;
+x:
+x9
+x8
+bz 7
+x6
+bx 5
+bx0000000000000000000000000000000 4
+x3
+bx 2
+x1
+bx 0
+bz /
+bz .
+bx -
+x,
+x+
+bx *
+bx )
+bx (
+x'
+bz &
+x%
+x$
+bx #
+x"
+bx !
+$end
+#10000
+b111 ='
+#30000
+b0x00 7'
+b0 8'
+b0 9'
+0:'
+b0 ;'
+#40000
+b100 7'
+#60000
+b0x00 .'
+b0x00 ?'
+#70000
+b100 .'
+b100 ?'
+#1000000000000
+b1 1'
+b1 <'
+#1000000010000
+b110 ='
+#1000000030000
+b11 ;'
+#1000000040000
+b0 7'
+#1000000060000
+b111 .'
+b111 ?'
+#1000000070000
+b11 .'
+b11 ?'
+#2000000000000
+b10 1'
+b10 <'
+#2000000010000
+b101 ='
+#2000000030000
+b0 ;'
+#2000000060000
+b0 .'
+b0 ?'
+#3000000000000
+b110 0'
+b110 6'
+b11 1'
+b11 <'
+#3000000010000
+b100 ='
+#3000000030000
+b110 8'
+#3000000060000
+b110 .'
+b110 ?'
+#4000000000000
+b1 0'
+b1 6'
+b100 1'
+b100 <'
+#4000000010000
+b11 ='
+#4000000030000
+b0 8'
+#4000000040000
+b10 9'
+#4000000060000
+b10 .'
+b10 ?'
+#5000000000000

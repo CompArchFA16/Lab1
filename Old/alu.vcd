@@ -1,0 +1,137 @@
+$date
+	Wed Oct  5 19:36:14 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testand $end
+$var wire 32 ! andResult [31:0] $end
+$var wire 1 " carryout $end
+$var wire 1 # overflow $end
+$var reg 32 $ operandA [31:0] $end
+$var reg 32 % operandB [31:0] $end
+$scope module myALU $end
+$var wire 32 & andResult [31:0] $end
+$var wire 32 ' operandA [31:0] $end
+$var wire 32 ( operandB [31:0] $end
+$var reg 1 ) carryout $end
+$var reg 1 * overflow $end
+$scope begin genand[0] $end
+$upscope $end
+$scope begin genand[1] $end
+$upscope $end
+$scope begin genand[2] $end
+$upscope $end
+$scope begin genand[3] $end
+$upscope $end
+$scope begin genand[4] $end
+$upscope $end
+$scope begin genand[5] $end
+$upscope $end
+$scope begin genand[6] $end
+$upscope $end
+$scope begin genand[7] $end
+$upscope $end
+$scope begin genand[8] $end
+$upscope $end
+$scope begin genand[9] $end
+$upscope $end
+$scope begin genand[10] $end
+$upscope $end
+$scope begin genand[11] $end
+$upscope $end
+$scope begin genand[12] $end
+$upscope $end
+$scope begin genand[13] $end
+$upscope $end
+$scope begin genand[14] $end
+$upscope $end
+$scope begin genand[15] $end
+$upscope $end
+$scope begin genand[16] $end
+$upscope $end
+$scope begin genand[17] $end
+$upscope $end
+$scope begin genand[18] $end
+$upscope $end
+$scope begin genand[19] $end
+$upscope $end
+$scope begin genand[20] $end
+$upscope $end
+$scope begin genand[21] $end
+$upscope $end
+$scope begin genand[22] $end
+$upscope $end
+$scope begin genand[23] $end
+$upscope $end
+$scope begin genand[24] $end
+$upscope $end
+$scope begin genand[25] $end
+$upscope $end
+$scope begin genand[26] $end
+$upscope $end
+$scope begin genand[27] $end
+$upscope $end
+$scope begin genand[28] $end
+$upscope $end
+$scope begin genand[29] $end
+$upscope $end
+$scope begin genand[30] $end
+$upscope $end
+$scope begin genand[31] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0*
+0)
+b0 (
+b0 '
+bz &
+b0 %
+b0 $
+0#
+0"
+bz !
+$end
+#30000
+b0 !
+b0 &
+#1000000
+b1001100011 %
+b1001100011 (
+b110000001 $
+b110000001 '
+#1030000
+b1 !
+b1 &
+#2000000
+b101100001 %
+b101100001 (
+b101100001 $
+b101100001 '
+#2030000
+b101100001 !
+b101100001 &
+#3000000
+b1111000000001111000000000001 %
+b1111000000001111000000000001 (
+b11111111111111111111111111111111 $
+b11111111111111111111111111111111 '
+#3030000
+b1111000000001111000000000001 !
+b1111000000001111000000000001 &
+#4000000
+b11111111111111111111111111111111 %
+b11111111111111111111111111111111 (
+b11111111111111110000111111111111 $
+b11111111111111110000111111111111 '
+#4030000
+b11111111111111110000111111111111 !
+b11111111111111110000111111111111 &
+#5000000
