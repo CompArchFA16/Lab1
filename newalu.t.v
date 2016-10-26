@@ -126,8 +126,6 @@ module testalu();
 
     command=3'b001; operandA=32'h8ffffff3; operandB=32'h10000600; #100000000000 //negative and positive
     $display("   %h     %h  %h | %h     %h      %h      %h    |    7ffff9f3", command, operandA, operandB, result, carryout, zero, overflow);
-    command=3'b001; operandA=32'h00000001; operandB=32'h00000003; #100000000000 
-    $display("   %h     %h  %h | %h     %h      %h      %h    |    fffffffe", command, operandA, operandB, result, carryout, zero, overflow);
     command=3'b001; operandA=32'h800f0001; operandB=32'h10020003; #100000000000
     $display("   %h     %h  %h | %h     %h      %h      %h    |    700cfffe", command, operandA, operandB, result, carryout, zero, overflow);
 
@@ -154,6 +152,12 @@ module testalu();
     command=3'b011; operandA=32'h00000001; operandB=32'h00000003; #100000000000 //simple
     $display("   %h     %h  %h | %h     %h      %h      %h    |    ffffffff", command, operandA, operandB, result, carryout, zero, overflow);
     command=3'b011; operandA=32'h100f0001; operandB=32'h10020003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b011; operandA=32'hf0000000; operandB=32'hf0000000; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b011; operandA=32'hf0000001; operandB=32'h10000003; #100000000000 //simple
+    $display("   %h     %h  %h | %h     %h      %h      %h    |    ffffffff", command, operandA, operandB, result, carryout, zero, overflow);
+    command=3'b011; operandA=32'hf0000001; operandB=32'hf0000003; #100000000000 //simple
     $display("   %h     %h  %h | %h     %h      %h      %h    |    00000000", command, operandA, operandB, result, carryout, zero, overflow);
 
     $display("Testing AND operation");
