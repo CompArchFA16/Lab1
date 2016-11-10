@@ -72,20 +72,22 @@ initial begin
 	`TEST(~(32'd0),1);
 	`DISP(0);
 
-//	// SUB Module Test
-//	command=1;
-//	$display("Testing SUB:");
-//	`TEST(32'b1011,32'b0100);
-//	`DISP();
-//	`TEST(32'b1111,32'b0010);
-//	`DISP();
-//	`TEST(32'b0111,32'b1010);
-//	`DISP();
-//	`TEST(32'b0101,32'b0110);
-//	`DISP();
-//	`TEST(32'd2**32-1,32'b1111);
-//	`DISP(); 
-//
+	// SUB Module Test
+	command=1;
+	$display("Testing SUB:");
+	// //`TESTCHECK(a, b, a-b, zero, carryout, overflow);
+	// `TESTCHECK({4'b0010, 28'b0},{4'b1010, 28'b0},{4'b0111, 28'b0}, 0, 0, 0);
+	// `TESTCHECK({4'b1111, 28'b0},{4'b1111, 28'b0},{32'b0}, 1, 0, 0);
+	// `TESTCHECK({4'b0100, 28'b0},{4'b0010, 28'b0},{4'b0010, 28'b0}, 0, 1, 0);
+	// `TESTCHECK({4'b0111, 28'b0},{4'b1010, 28'b0},{4'b1101, 28'b0}, 0, 0, 1);
+
+	//`TESTCHECK(a, b, a-b);
+	`TESTCHECK(32'b0010,32'b1010,-32'd8);
+	`TESTCHECK(32'b1111,32'b1111,32'b0);
+	`TESTCHECK(32'b0100,32'b0010,32'b0010);
+	`TESTCHECK(32'b0111,32'b1010,-32'd3);
+
+
 	// SLT Module Test
 	command=2;
 	$display("Testing SLT:");
