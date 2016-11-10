@@ -4,6 +4,7 @@
 `include "alu.v"
 
 `define DISP(exp) $display("%d & %d & %d & %d & %b &  %b  &  %b & %s", operandA, operandB, command, result, carryout, zero, overflow, ((result == exp)? "PASS" : "FAIL"))
+
 `define TEST(aValue,bValue) operandA= aValue; operandB  = bValue; #10000
 
 `define TESTCHECK(a,b,res) `TEST(a,b); `DISP(res)
@@ -85,34 +86,61 @@ initial begin
 //	`TEST(32'd2**32-1,32'b1111);
 //	`DISP(); 
 //
-//	// SLT Module Test
-//	command=2;
-//	$display("Testing SLT:");
-//	`TEST(32'b0111,32'b0010);
-//	`DISP();
-//	`TEST(32'b0001,32'b0100);
-//	`DISP();
-//	`TEST(32'b1100,32'b1001);
-//	`DISP();
-//	`TEST(32'b1010,32'b1101);
-//	`DISP();
-//	`TEST(32'd2**32-1,32'd2**32-1); 
-//	`DISP(); 
-//
-//	// XOR, NAND, AND, NOR, OR Module Test
-//	$display("Testing XOR, NAND, AND, NOR, OR:");
-//	for(command = 3; command < 8; command = command + 1) begin
-//		#10000;
-//		$display(" A  B CMD | RES C_OUT ZERO OVERFLOW");
-//		`TEST(32'd2**32-1,32'd2**32-1); 
-//		`DISP();
-//		`TEST(32'd2**32-1, 0); 
-//		`DISP();
-//		`TEST(0,32'd2**32-1); 
-//		`DISP();
-//		`TEST(0,0); 
-//		`DISP();
-//	end
+	// SLT Module Test
+	command=2;
+	$display("Testing SLT:");
+	`TESTCHECK(32'd7,32'd2,32'd0);
+	`TESTCHECK(32'd1,32'd4,32'd1);
+	`TESTCHECK(-32'd4,-32'd7,32'd0);
+	`TESTCHECK(-32'd6,-32'd3,32'd1);
+	`TESTCHECK(-32'd1,-32'd1,32'd0);
+
+	// XOR, NAND, AND, NOR, OR Module Test
+	$display("Testing XOR, NAND, AND, NOR, OR:");
+
+	$display(" A  B CMD | RES C_OUT ZERO OVERFLOW | PASS");
+
+	for(command = 3; command < 8; command = command + 1) begin
+
+		case (command)
+			`c_XOR: begin
+				$display(" -- XOR -- ");
+				`TESTCHECK(-32'd1, -32'd1, -32'd1 ^ -32'd1);
+				`TESTCHECK(-32'd1, 32'd0, -32'd1 ^ 32'd0);
+				`TESTCHECK(32'd0, -32'd1, 32'd0 ^ -32'd1);
+				`TESTCHECK(32'd0, 32'd0, 32'd0 ^ 32'd0);
+			end
+			`c_NAND: begin
+				$display(" -- NAND -- ");
+				`TESTCHECK(-32'd1, -32'd1, ~(-32'd1 & -32'd1));
+				`TESTCHECK(-32'd1, 32'd0, ~(-32'd1 & 32'd0));
+				`TESTCHECK(32'd0, -32'd1, ~(32'd0 & -32'd1));
+				`TESTCHECK(32'd0, 32'd0, ~(32'd0 & 32'd0));
+			end
+			`c_AND: begin
+				$display(" -- AND -- ");
+				`TESTCHECK(-32'd1, -32'd1, (-32'd1 & -32'd1));
+				`TESTCHECK(-32'd1, 32'd0, (-32'd1 & 32'd0));
+				`TESTCHECK(32'd0, -32'd1, (32'd0 & -32'd1));
+				`TESTCHECK(32'd0, 32'd0, (32'd0 & 32'd0));
+			end
+			`c_NOR: begin
+				$display(" -- NOR -- ");
+				`TESTCHECK(-32'd1, -32'd1, ~(-32'd1 | -32'd1));
+				`TESTCHECK(-32'd1, 32'd0, ~(-32'd1 | 32'd0));
+				`TESTCHECK(32'd0, -32'd1, ~(32'd0 | -32'd1));
+				`TESTCHECK(32'd0, 32'd0, ~(32'd0 | 32'd0));
+			end
+			`c_OR: begin
+				$display(" -- OR -- ");
+				`TESTCHECK(-32'd1, -32'd1, (-32'd1 | -32'd1));
+				`TESTCHECK(-32'd1, 32'd0, (-32'd1 | 32'd0));
+				`TESTCHECK(32'd0, -32'd1, (32'd0 | -32'd1));
+				`TESTCHECK(32'd0, 32'd0, (32'd0 | 32'd0));
+			end
+		endcase
+		#10000;
+	end
 
 end
 
