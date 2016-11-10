@@ -4,9 +4,12 @@
 //our one-bit adder performed it and with the regular operandB
 //input. Subtraction is performed when ifsub is 1. For subtraction,
 //it uses the complement of operandB.
-
-`include "constants.v"
-`timescale 1 ns / 1 ps
+`ifdef _aluAsLibrary
+  `include "alu/constants.v"
+`else
+  `include "constants.v"
+`endif
+// `timescale 1 ns / 1 ps
 
 module ALUAddSub
 (

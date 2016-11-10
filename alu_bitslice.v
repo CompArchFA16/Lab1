@@ -1,11 +1,22 @@
-`include "alu_addsub.v"
-`include "alu_xor.v"
-`include "alu_and.v"
-`include "alu_nand.v"
-`include "alu_nor.v"
-`include "alu_or.v"
-`include "multiplexer_8_input.v"
-`timescale 1 ns / 1 ps
+`ifdef _aluAsLibrary
+  `include "alu/alu_addsub.v"
+  `include "alu/alu_xor.v"
+  `include "alu/alu_and.v"
+  `include "alu/alu_nand.v"
+  `include "alu/alu_nor.v"
+  `include "alu/alu_or.v"
+  `include "alu/multiplexer_8_input.v"
+`else
+
+    `include "alu_addsub.v"
+    `include "alu_xor.v"
+    `include "alu_and.v"
+    `include "alu_nand.v"
+    `include "alu_nor.v"
+    `include "alu_or.v"
+    `include "multiplexer_8_input.v"
+`endif
+// `timescale 1 ns / 1 ps
 
 module ALUBitslice
 (

@@ -3,8 +3,12 @@
 //a nand gate to output the result.
 
 
-`include "constants.v"
-`timescale 1 ns / 1 ps
+`ifdef _aluAsLibrary
+	`include "alu/constants.v"
+`else
+	`include "constants.v"
+`endif
+// `timescale 1 ns / 1 ps
 
 module ALU_nand
 (

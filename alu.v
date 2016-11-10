@@ -1,8 +1,15 @@
-`include "alu_bitslice.v"
-`include "alu_lut.v"
-`include "alu_32_and_sad.v"
-`timescale 1 ns / 1 ps
+`ifdef _aluAsLibrary
+  `include "alu/alu_bitslice.v"
+  `include "alu/alu_lut.v"
+  `include "alu/alu_32_and_sad.v"
 
+`else
+  `include "alu_bitslice.v"
+  `include "alu_lut.v"
+  `include "alu_32_and_sad.v"
+`endif
+
+// `timescale 1 ns / 1 ps
 module ALU
 (
   output[31:0]    result,

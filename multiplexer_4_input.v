@@ -1,5 +1,9 @@
-`include "multiplexer_2_input.v"
-`timescale 1 ns / 1 ps
+`ifdef _aluAsLibrary
+	`include "alu/multiplexer_2_input.v"
+`else 
+	`include "multiplexer_2_input.v"
+`endif
+// `timescale 1 ns / 1 ps
 
 module Multiplexer4Input
 (

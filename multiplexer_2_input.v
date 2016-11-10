@@ -1,6 +1,10 @@
 // From HW2.
-`include "constants.v"
-`timescale 1 ns / 1 ps
+`ifdef _aluAsLibrary
+	`include "alu/constants.v"
+`else
+	`include "constants.v"
+`endif
+// `timescale 1 ns / 1 ps
 
 module Multiplexer2Input
 (
