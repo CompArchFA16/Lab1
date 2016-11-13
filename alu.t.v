@@ -78,11 +78,6 @@ initial begin
 	// SUB Module Test
 	command= `c_SUB;
 	$display("Testing SUB:");
-	//`TESTFLAGS(a, b, a-b, carryout, zero, overflow);
-	`TESTFLAGS(({4'b0010, 28'b0}),({4'b1010, 28'b0}),({4'b1000, 28'b0}),1'b0,1'b0,1'b1); // 2 - (-6)
-	`TESTFLAGS(({4'b1111, 28'b0}),({4'b1111, 28'b0}),32'b0,1'b1,1'b1,1'b0); // -1 - (-1)
-	`TESTFLAGS(({4'b0100, 28'b0}),({4'b0010, 28'b0}),({4'b0010, 28'b0}), 1'b1, 1'b0, 1'b0);
-	`TESTFLAGS(({4'b0111, 28'b0}),({4'b1010, 28'b0}),({4'b1101, 28'b0}), 1'b0, 1'b0, 1'b1);
 
 	//`TESTCHECK(a, b, a-b);
 	`TESTCHECK(32'b0010,32'b1010,-32'd8);
