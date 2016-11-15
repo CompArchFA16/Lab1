@@ -1,7 +1,7 @@
 `ifdef _aluAsLibrary
-  `include "alu/constants.v"
+  `include "alu/alu_commands.v"
 `else
-  `include "constants.v"
+  `include "alu_commands.v"
 `endif
 // `timescale 1 ns / 1 ps
 
@@ -14,14 +14,14 @@ input[2:0]      ALUcommand
 );
   always @(ALUcommand) begin
     case (ALUcommand)
-      `COMMAND_ADD:  begin muxindex = `COMMAND_ADD;  isSlt = 1'b0; end
-      `COMMAND_SUB:  begin muxindex = `COMMAND_SUB;  isSlt = 1'b0; end
-      `COMMAND_XOR:  begin muxindex = `COMMAND_XOR;  isSlt = 1'b0; end
-      `COMMAND_SLT:  begin muxindex = `COMMAND_SUB;  isSlt = 1'b1; end
-      `COMMAND_AND:  begin muxindex = `COMMAND_AND;  isSlt = 1'b0; end
-      `COMMAND_NAND: begin muxindex = `COMMAND_NAND; isSlt = 1'b0; end
-      `COMMAND_NOR:  begin muxindex = `COMMAND_NOR;  isSlt = 1'b0; end
-      `COMMAND_OR:   begin muxindex = `COMMAND_OR;   isSlt = 1'b0; end
+      `ALU_CMD_ADD:  begin muxindex = `ALU_CMD_ADD;  isSlt = 1'b0; end
+      `ALU_CMD_SUB:  begin muxindex = `ALU_CMD_SUB;  isSlt = 1'b0; end
+      `ALU_CMD_XOR:  begin muxindex = `ALU_CMD_XOR;  isSlt = 1'b0; end
+      `ALU_CMD_SLT:  begin muxindex = `ALU_CMD_SUB;  isSlt = 1'b1; end
+      `ALU_CMD_AND:  begin muxindex = `ALU_CMD_AND;  isSlt = 1'b0; end
+      `ALU_CMD_NAND: begin muxindex = `ALU_CMD_NAND; isSlt = 1'b0; end
+      `ALU_CMD_NOR:  begin muxindex = `ALU_CMD_NOR;  isSlt = 1'b0; end
+      `ALU_CMD_OR:   begin muxindex = `ALU_CMD_OR;   isSlt = 1'b0; end
     endcase
   end
 endmodule

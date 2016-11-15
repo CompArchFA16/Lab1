@@ -1,13 +1,15 @@
-//This module implements both the addition and subtraction 
-//operations. It takes four inputs: operandA, operandB, carryin, 
-//and ifsub. For regular addition, it performs addition the same way 
+//This module implements both the addition and subtraction
+//operations. It takes four inputs: operandA, operandB, carryin,
+//and ifsub. For regular addition, it performs addition the same way
 //our one-bit adder performed it and with the regular operandB
 //input. Subtraction is performed when ifsub is 1. For subtraction,
 //it uses the complement of operandB.
 `ifdef _aluAsLibrary
-  `include "alu/constants.v"
+  `include "alu/alu_commands.v"
+  `include "alu/gates.v"
 `else
-  `include "constants.v"
+  `include "alu_commands.v"
+  `include "gates.v"
 `endif
 // `timescale 1 ns / 1 ps
 
