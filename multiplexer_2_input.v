@@ -1,8 +1,10 @@
 // From HW2.
 `ifdef _aluAsLibrary
 	`include "alu/alu_commands.v"
+  `include "alu/gates.v"
 `else
 	`include "alu_commands.v"
+  `include "gates.v"
 `endif
 // `timescale 1 ns / 1 ps
 

@@ -1,6 +1,6 @@
 `include "multiplexer_2_input.v"
 `include "alu_addsub.v"
-`timescale 1 ns / 1 ps
+// `timescale 1 ns / 1 ps
 
 module testALUAddSub();
 
